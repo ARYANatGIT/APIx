@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+data/*.db
+data/*.db-shm
+data/*.db-wal
+data/snapshots/*
+!data/snapshots/.gitkeep
+node_modules/
+.DS_Store
+
