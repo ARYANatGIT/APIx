@@ -1,0 +1,809 @@
+/* ==========================================================================
+   APIx India - Real-time Airfare Price Index Styles
+   MoSPI / NSO / RBI CPI Augmentation Platform
+   ========================================================================== */
+
+.harmont-page-root {
+  height: 100vh;
+  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 16px 20px 14px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center 58%;
+  background-repeat: no-repeat;
+  transition: background-position 0.6s ease;
+}
+
+/* Aeroplane in Motion - Gentle Camera Drift & Float */
+.flight-page-theme.flight-in-motion {
+  animation: flightCameraFloat 16s ease-in-out infinite alternate;
+}
+
+@keyframes flightCameraFloat {
+  0% {
+    background-position: center 56%;
+  }
+  50% {
+    background-position: 51% 60%;
+  }
+  100% {
+    background-position: 49% 55%;
+  }
+}
+
+/* Atmospheric Ambient Cloud Drift Overlay */
+.ambient-clouds-layer {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(255, 235, 205, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 60%, rgba(255, 240, 220, 0.07) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 1;
+  animation: cloudDriftSlow 20s ease-in-out infinite alternate;
+}
+
+@keyframes cloudDriftSlow {
+  0% { opacity: 0.5; transform: translateX(-12px); }
+  100% { opacity: 1; transform: translateX(18px); }
+}
+
+/* Soft atmospheric lighting overlay */
+.frame-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.24) 0%,
+    rgba(255, 255, 255, 0.05) 16%,
+    rgba(0, 0, 0, 0) 42%,
+    rgba(0, 0, 0, 0.05) 70%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Main Inset Viewport Frame (Rounded White Border)
+   ========================================================================== */
+
+.harmont-viewport-frame {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  border-radius: 36px;
+  border: 2.5px solid rgba(255, 255, 255, 0.88);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 12px 36px rgba(0, 0, 0, 0.22);
+  min-height: 0;
+  z-index: 10;
+  overflow: visible;
+  padding-bottom: 24px;
+}
+
+/* ==========================================================================
+   Top Navigation
+   ========================================================================== */
+
+.hero-navbar {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px 10px 40px;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flight-logo-icon {
+  filter: drop-shadow(0 2px 8px rgba(229, 181, 79, 0.5));
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.brand-logo:hover .flight-logo-icon {
+  transform: rotate(20deg) scale(1.1);
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #141815;
+  letter-spacing: -0.025em;
+  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.6);
+}
+
+.brand-sub {
+  color: #c99324;
+  font-weight: 800;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: #444d47;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #111412;
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  font-weight: 600;
+  color: #121513;
+}
+
+.active-dot {
+  color: #E5B54F;
+  font-size: 1.35rem;
+  line-height: 0;
+  position: relative;
+  top: -1px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-book-now {
+  background-color: var(--color-gold);
+  color: #171b18;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(235, 195, 96, 0.35);
+  letter-spacing: -0.01em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-book-now:hover {
+  background-color: var(--color-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(235, 195, 96, 0.5);
+}
+
+.btn-book-now:active {
+  transform: translateY(0);
+}
+
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* ==========================================================================
+   Hero Title & Subtitle
+   ========================================================================== */
+
+.hero-title-section {
+  position: relative;
+  z-index: 20;
+  text-align: center;
+  margin-top: 6px;
+  padding: 0 20px;
+}
+
+.hero-main-heading {
+  font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+  font-weight: 800;
+  color: #111412;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 14px rgba(255, 255, 255, 0.45);
+}
+
+.highlight-space {
+  color: #E8CF7A;
+  font-weight: 800;
+  position: relative;
+  text-shadow: 
+    0 2px 12px rgba(200, 160, 50, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: clamp(0.86rem, 1.1vw, 1rem);
+  font-weight: 500;
+  color: #ffffff;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.46;
+  letter-spacing: -0.005em;
+  text-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.65),
+    0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+/* ==========================================================================
+   Floating Feature Badges (Over the Aeroplane Scene)
+   ========================================================================== */
+
+.cabin-feature-badges-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.feature-badge {
+  pointer-events: auto;
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22, 27, 32, 0.48);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 9999px;
+  padding: 8px 18px;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatLevitate 4.5s ease-in-out infinite;
+}
+
+.feature-badge:hover {
+  background: rgba(16, 20, 24, 0.82);
+  border-color: rgba(255, 255, 255, 0.85);
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.diamond-bullet {
+  color: #F8DC81;
+  font-size: 0.72rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 4px rgba(248, 220, 129, 0.6));
+}
+
+.badge-text {
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* Positions matching the aeroplane layout */
+.plane-badge-left {
+  top: 52%;
+  left: 26%;
+  animation-delay: 0s;
+}
+
+.plane-badge-top {
+  top: 42%;
+  left: 51%;
+  animation-delay: 1.4s;
+}
+
+.plane-badge-right {
+  top: 52%;
+  left: 68%;
+  animation-delay: 2.8s;
+}
+
+@keyframes floatLevitate {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.badge-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 13, 11, 0.92);
+  color: #f0f4f2;
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 40;
+}
+
+/* ==========================================================================
+   Airfare Price Index (APIx) Query Capsule Bar
+   ========================================================================== */
+
+.booking-bar-wrapper {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 76px);
+  max-width: 1040px;
+  z-index: 25;
+}
+
+.booking-capsule-bar {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--color-border-white);
+  border-radius: 9999px;
+  padding: 7px 10px 7px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 
+    0 18px 45px rgba(0, 0, 0, 0.18),
+    0 1px 2px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.booking-field-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  flex: 1;
+}
+
+.booking-field-item:hover,
+.booking-field-item.field-active {
+  background: rgba(0, 0, 0, 0.045);
+}
+
+.field-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f0f3f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #727b76;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.flight-plane-icon {
+  color: #b5851d;
+}
+
+.booking-field-item:hover .field-icon-box,
+.booking-field-item.field-active .field-icon-box {
+  background: #e4e9e6;
+  color: #1d221f;
+}
+
+.field-text-content {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.field-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #88918c;
+  letter-spacing: 0.015em;
+}
+
+.field-value {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #171b18;
+  white-space: nowrap;
+}
+
+.field-chevron {
+  color: #929a96;
+  transition: transform 0.25s ease;
+  margin-left: auto;
+}
+
+.field-chevron.rotated {
+  transform: rotate(180deg);
+  color: #171b18;
+}
+
+.booking-divider {
+  height: 28px;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  margin: 0 3px;
+}
+
+.btn-book-flight-cta {
+  background-color: var(--color-gold);
+  color: #161a17;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 18px rgba(235, 195, 96, 0.32);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-book-flight-cta:hover {
+  background-color: var(--color-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(235, 195, 96, 0.48);
+}
+
+.btn-book-flight-cta:active {
+  transform: translateY(0);
+}
+
+/* Popover Dropdowns */
+.booking-dropdown-popover {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+  z-index: 50;
+  min-width: 320px;
+  animation: popoverFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popover-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #88918c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.popover-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.popover-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.popover-option:hover {
+  background: #f4f6f5;
+}
+
+.popover-option.selected {
+  background: #fbf5e6;
+}
+
+.option-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #171b18;
+}
+
+.option-subtitle {
+  font-size: 0.72rem;
+  color: #69726d;
+}
+
+.option-price-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #b5851d;
+  margin-left: 8px;
+}
+
+.option-check {
+  color: #b5851d;
+  margin-left: 6px;
+}
+
+/* ==========================================================================
+   Modals (Airfare Price Index & CPI Report)
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+  animation: backdropFade 0.25s ease-out;
+}
+
+@keyframes backdropFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 580px;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f2f5f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555e58;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #e3e8e5;
+  color: #141715;
+}
+
+.flight-route-hero-card {
+  background: #19201c;
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  border-left: 4px solid #E5B54F;
+}
+
+.frh-airliner {
+  font-size: 0.72rem;
+  color: #E8CF7A;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.frh-route-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.modal-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #f6f9f7;
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.item-icon {
+  color: #E5B54F;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.item-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #828b86;
+  text-transform: uppercase;
+}
+
+.item-val {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #151816;
+}
+
+.modal-price-breakdown {
+  border-top: 1px solid #eef2ef;
+  border-bottom: 1px solid #eef2ef;
+  padding: 12px 0;
+  margin-bottom: 14px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #555f59;
+  margin-bottom: 6px;
+}
+
+.price-row.total-row {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #121513;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.price-divider {
+  height: 1px;
+  background: #e5ebe7;
+  margin: 8px 0;
+}
+
+.modal-guarantee {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: #4b8061;
+  background: #eef8f2;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-modal-cancel {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f1f4f2;
+  color: #48524d;
+  font-weight: 600;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-modal-cancel:hover {
+  background: #e3e8e5;
+}
+
+.btn-modal-primary {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: var(--color-gold);
+  color: #151815;
+  font-weight: 700;
+  font-size: 0.88rem;
+  box-shadow: 0 4px 14px rgba(229, 181, 79, 0.3);
+}
+
+.btn-modal-primary:hover {
+  background: var(--color-gold-hover);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .hero-navbar {
+    padding: 14px 24px;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+  .booking-bar-wrapper {
+    width: calc(100% - 40px);
+  }
+  .plane-badge-left {
+    left: 18%;
+  }
+  .plane-badge-right {
+    left: 72%;
+  }
+}
