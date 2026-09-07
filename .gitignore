@@ -10,4 +10,14 @@ data/snapshots/*
 !data/snapshots/.gitkeep
 node_modules/
 .DS_Store
+# Scraper outputs and temporary data
+data/
+downloads/
+*.sqlite
+*.db
+*.json
+logs/
+temp/
+__pycache__/
 
+.venv
