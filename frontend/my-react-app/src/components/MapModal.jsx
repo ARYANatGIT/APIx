@@ -22,14 +22,14 @@ export default function MapModal({ isOpen, onClose }) {
                 <Plane size={18} className="marker-plane" />
               </div>
             </div>
-            <div className="live-alt-tag">FL380 • 38,000 FT</div>
+            <div className="live-alt-tag">FL360 • 36,000 FT • DEL-BOM</div>
           </div>
 
           <div className="map-details-wrap">
-            <div className="map-badge"><Radio size={14} /> LIVE ADS-B RADAR: HA-884</div>
-            <h2>Boeing 787-9 Dreamliner</h2>
+            <div className="map-badge"><Radio size={14} /> LIVE ADS-B RADAR: 6E-204 (DEL ➔ BOM)</div>
+            <h2>Airbus A321neo • IndiGo</h2>
             <p className="map-desc">
-              Currently en route over the North Atlantic oceanic corridor, tracking great-circle navigation waypoint Alpha-Victor.
+              Currently en route over the Western India domestic air corridor, tracking airway W-10 from Indira Gandhi International (DEL) to Chhatrapati Shivaji Maharaj International (BOM).
             </p>
 
             <div className="trail-highlights flight-telemetry-highlights">
@@ -37,27 +37,27 @@ export default function MapModal({ isOpen, onClose }) {
                 <Gauge size={18} />
                 <div>
                   <div className="th-title">Ground Speed & Mach</div>
-                  <div className="th-sub">564 knots (1,045 km/h) • Mach 0.85</div>
+                  <div className="th-sub">462 knots (855 km/h) • Mach 0.78</div>
                 </div>
               </div>
               <div className="trail-item">
                 <Wind size={18} />
                 <div>
-                  <div className="th-title">Atmospheric Conditions</div>
-                  <div className="th-sub">Smooth air • Tailwind +42 knots • Outside Temp -54°C</div>
+                  <div className="th-title">Corridor Basket Weight</div>
+                  <div className="th-sub">22.35% of MoSPI National Route Basket (7.42M Pax/yr)</div>
                 </div>
               </div>
               <div className="trail-item">
                 <Compass size={18} />
                 <div>
                   <div className="th-title">Heading & ETA</div>
-                  <div className="th-sub">HDG 074° • ETA London Heathrow: 06:45 AM GMT</div>
+                  <div className="th-sub">HDG 198° (South-Southwest) • Distance: 1,148 km</div>
                 </div>
               </div>
             </div>
 
             <button className="btn-modal-primary" onClick={onClose}>
-              Return to Flight Deck
+              Return to Executive Deck
             </button>
           </div>
         </div>
