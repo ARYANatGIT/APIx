@@ -2,6 +2,7 @@ import sys
 import random
 import hashlib
 from datetime import datetime, timezone, timedelta, date
+from pathlib import Path
 
 # Enforce UTF-8 stdout if supported
 if sys.stdout.encoding != 'utf-8':
@@ -9,6 +10,9 @@ if sys.stdout.encoding != 'utf-8':
         sys.stdout.reconfigure(encoding='utf-8')
     except Exception:
         pass
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
 
 from backend.database import SessionLocal, init_db
 from backend.models import (
@@ -103,81 +107,15 @@ def seed_database():
 
         db.commit()
 
-        # 3. Seed Baseline Time-Series Price Quotes
-        print("[3/5] Seeding Baseline Price Quotes across T+1, T+7, T+15, T+30, T+45 windows...")
+        # 3. Ingest Authentic Normalized Flight Quotes
+        print("[3/5] Loading Authentic Scraped Price Quotes...")
         existing_quotes_count = db.query(PriceQuote).count()
-        
-        if existing_quotes_count == 0:
-            active_airlines = [a for a in airline_map.values() if a.type == "AIRLINE"]
-            now_utc = datetime.now(timezone.utc)
-            quotes_to_add = []
-            
-            # Generate quotes for the last 7 days up to today
-            for days_ago in range(7, -1, -1):
-                scrape_time = now_utc - timedelta(days=days_ago)
-                current_date = scrape_time.date()
-                
-                for route_code, route in route_map.items():
-                    base_distance_fare = route.distance_km * BASE_RATE_PER_KM
-                    
-                    for window, advance_days in WINDOW_DAYS_MAP.items():
-                        flight_date = current_date + timedelta(days=advance_days)
-                        surge = WINDOW_SURGE_MULTIPLIER[window]
-                        
-                        for airline in active_airlines:
-                            for flight_seq in [1, 2]:
-                                flight_num = f"{airline.code}-{random.randint(100, 999)}"
-                                dep_hour = random.choice([6, 8, 11, 14, 17, 20])
-                                dep_min = random.choice([0, 15, 30, 45])
-                                dep_str = f"{dep_hour:02d}:{dep_min:02d}"
-                                duration = int(route.distance_km / 12) + 30
-                                arr_minutes = dep_hour * 60 + dep_min + duration
-                                arr_str = f"{(arr_minutes // 60) % 24:02d}:{arr_minutes % 60:02d}"
+        normalized_file = DATA_DIR / "all_normalized_flights.json"
 
-                                rand_factor = random.uniform(0.92, 1.12)
-                                raw_base = round(base_distance_fare * surge * rand_factor, 2)
-                                
-                                taxes = round(raw_base * random.uniform(0.18, 0.22) + 450.0, 2)
-                                total_fare = round(raw_base + taxes, 2)
-                                
-                                # Outlier simulation: 2.5% chance of dynamic surge in T+1
-                                is_outlier = False
-                                cleaned_fare = total_fare
-                                if window == "T+1" and random.random() < 0.025:
-                                    is_outlier = True
-                                    total_fare = round(total_fare * 3.5, 2)
-                                    cleaned_fare = round(total_fare / 3.5, 2)
-
-                                raw_payload = f"{scrape_time.isoformat()}|{flight_num}|{route.route_code}|{total_fare}"
-                                snapshot_hash = hashlib.sha256(raw_payload.encode()).hexdigest()
-
-                                quote = PriceQuote(
-                                    route_id=route.id,
-                                    airline_id=airline.id,
-                                    scraped_at=scrape_time,
-                                    flight_date=flight_date,
-                                    advance_window=window,
-                                    flight_number=flight_num,
-                                    departure_time=dep_str,
-                                    arrival_time=arr_str,
-                                    duration_mins=duration,
-                                    stops=0,
-                                    cabin_class="Economy",
-                                    fare_type="Standard",
-                                    base_fare=raw_base,
-                                    taxes_and_fees=taxes,
-                                    total_fare=total_fare,
-                                    seats_remaining=random.randint(1, 9),
-                                    is_outlier=is_outlier,
-                                    cleaned_fare=cleaned_fare,
-                                    snapshot_hash=snapshot_hash,
-                                    source_url=f"{airline.base_url}/search?from={route.origin_code}&to={route.destination_code}&date={flight_date}"
-                                )
-                                quotes_to_add.append(quote)
-
-            db.bulk_save_objects(quotes_to_add)
-            db.commit()
-            print(f"[OK] Created {len(quotes_to_add)} baseline price quotes.")
+        if normalized_file.exists():
+            from backend.ingestion import ingest_normalized_file
+            res = ingest_normalized_file(normalized_file, clear_previous_scrapes=True, db=db)
+            print(f"[OK] Ingested {res['quotes_saved']:,} authentic live flight quotes into database.")
         else:
             print(f"[INFO] {existing_quotes_count} price quotes already present.")
 

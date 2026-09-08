@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     BASE_PERIOD_LABEL: str = "2024-Q1"
     
     # Advance Purchase Windows monitored by MoSPI
-    ADVANCE_WINDOWS: list[str] = ["T+1", "T+7", "T+15", "T+30", "T+45"]
+    ADVANCE_WINDOWS: list[str] = ["T+0", "T+1", "T+7", "T+15", "T+30", "T+45"]
     
     # Outlier detection parameters (Interquartile Range multiplier)
     IQR_MULTIPLIER: float = 1.5

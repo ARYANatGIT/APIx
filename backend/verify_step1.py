@@ -80,7 +80,7 @@ def run_verification():
         print("  [SUCCESS] Airline & OTA registry verified.")
 
         # Test 3: Price Quotes Time-Series & Advance Windows
-        print("\n[TEST 3] Verifying Price Quotes & Advance Booking Windows (T+1 .. T+45)...")
+        print("\n[TEST 3] Verifying Price Quotes & Advance Booking Windows (T+0 .. T+45)...")
         quote_count = db.query(PriceQuote).count()
         assert quote_count > 0, "No price quotes found in database!"
         print(f"  [PASS] Total Stored Price Quotes: {quote_count:,}")
@@ -90,7 +90,7 @@ def run_verification():
         print("  " + "-" * 66)
         print(f"  {'Window':<10} {'Count':<10} {'Avg Fare (INR)':<18} {'Min Fare (INR)':<16} {'Max Fare (INR)':<16}")
         print("  " + "-" * 66)
-        for win in ["T+1", "T+7", "T+15", "T+30", "T+45"]:
+        for win in ["T+0", "T+1", "T+7", "T+15", "T+30", "T+45"]:
             stats = db.query(
                 func.count(PriceQuote.id),
                 func.avg(PriceQuote.total_fare),
@@ -98,7 +98,10 @@ def run_verification():
                 func.max(PriceQuote.total_fare)
             ).filter(PriceQuote.advance_window == win).first()
             cnt, avg_f, min_f, max_f = stats
-            print(f"  {win:<10} {cnt:<10} INR {avg_f:,.2f}       INR {min_f:,.2f}     INR {max_f:,.2f}")
+            avg_f_str = f"INR {avg_f:,.2f}" if avg_f is not None else "N/A"
+            min_f_str = f"INR {min_f:,.2f}" if min_f is not None else "N/A"
+            max_f_str = f"INR {max_f:,.2f}" if max_f is not None else "N/A"
+            print(f"  {win:<10} {cnt:<10} {avg_f_str:<18} {min_f_str:<16} {max_f_str:<16}")
         print("  " + "-" * 66)
 
         # Outlier count

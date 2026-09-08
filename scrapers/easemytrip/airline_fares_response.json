@@ -1,0 +1,1716 @@
+{
+  "portal": "EaseMyTrip",
+  "airline_code": "EMT",
+  "run_date": "2026-09-09",
+  "raw_batches": {
+    "BOM-GOI_T+7": {
+      "flights_count": 90,
+      "sample": [
+        {
+          "id": 1,
+          "BKID": "",
+          "segKey_Api": null,
+          "SK": "1",
+          "b": [
+            {
+              "BDT": "|Non-Stop",
+              "FL": [
+                0
+              ],
+              "RF": false,
+              "I_BF": false,
+              "JyTm": "01h 10m",
+              "CT": "NMI-GOI",
+              "EID": 0,
+              "ITK": null,
+              "SID": null,
+              "FTpInd": null,
+              "LOV": null,
+              "BkKY": [
+                "6E`2282` ``NMI`09/16/2026 20:00`GOI`09/16/2026 21:10``!0`R``6E`R0IP`1058``0`25``X!!321323`Airbus A321 (Narrow-body)``88`Kgs`15`Economy``6E``0`False`0``````01h 10m`R0IP`R`1798"
+              ],
+              "dctBKKY": {
+                "0": [
+                  "6E`2282` ``NMI`09/16/2026 20:00`GOI`09/16/2026 21:10``!0`R``6E`R0IP`1058``0`25``X!!321323`Airbus A321 (Narrow-body)``88`Kgs`15`Economy``6E``0`False`0``````01h 10m`R0IP`R`1798"
+                ],
+                "1": [
+                  "6E`2282` ``NMI`09/16/2026 20:00`GOI`09/16/2026 21:10``!0`R``6E`R0IP`1058``0`25``X!!321323`Airbus A321 (Narrow-body)``88`Kgs`15`Economy``6E``0`False`0``````01h 10m`R0IP`R`1798"
+                ],
+                "2": [
+                  "6E`2282` ``NMI`09/16/2026 20:00`GOI`09/16/2026 21:10``!0`R``6E`RUIP`2003``0`27``X!!321323`Airbus A321 (Narrow-body)``88`Kgs`15`Economy``6E``0`False`0``````01h 10m`RUIP`J`1972"
+                ],
+                "3": [
+                  "6E`2282` ``NMI`09/16/2026 20:00`GOI`09/16/2026 21:10``!0`R``6E`RLIP`2302``0`26``X!!6E`Airbus A321 (Narrow-body)``88`Kgs`20`Economy``6E``0`False`0``````01h 10m`RLIP`O`467"
+                ]
+              },
+              "dctCanPo": {
+                "0": [
+                  {
+                    "CP": "4299",
+                    "CH": "3499",
+                    "D": " Before 72 hours",
+                    "CD": "Cancel Before 72 hours of departure time.",
+                    "RD": "Reschedule before 72 hours  of departure time."
+                  },
+                  {
+                    "CP": "4669",
+                    "CH": "3499",
+                    "D": "24 hours to 72 hours",
+                    "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+                    "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+                  },
+                  {
+                    "CP": "4669",
+                    "CH": "3499",
+                    "D": "4 hours to 24 hours",
+                    "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+                    "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+                  }
+                ],
+                "1": [
+                  {
+                    "CP": "4299",
+                    "CH": "3499",
+                    "D": " Before 72 hours",
+                    "CD": "Cancel Before 72 hours of departure time.",
+                    "RD": "Reschedule before 72 hours  of departure time."
+                  },
+                  {
+                    "CP": "4669",
+                    "CH": "3499",
+                    "D": "24 hours to 72 hours",
+                    "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+                    "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+                  },
+                  {
+                    "CP": "4669",
+                    "CH": "3499",
+                    "D": "4 hours to 24 hours",
+                    "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+                    "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+                  }
+                ],
+                "2": [
+                  {
+                    "CP": "2499",
+                    "CH": "299",
+                    "D": " Before 72 hours",
+                    "CD": "Cancel Before 72 hours of departure time.",
+                    "RD": "Reschedule before 72 hours  of departure time."
+                  },
+                  {
+                    "CP": "3499",
+                    "CH": "999",
+                    "D": "24 hours to 72 hours",
+                    "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+                    "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+                  },
+                  {
+                    "CP": "3499",
+                    "CH": "999",
+                    "D": "4 hours to 24 hours",
+                    "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+                    "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+                  }
+                ],
+                "3": [
+                  {
+                    "CP": "999",
+                    "CH": "0",
+                    "D": " Before 72 hours",
+                    "CD": "Cancel Before 72 hours of departure time.",
+                    "RD": "Reschedule before 72 hours  of departure time."
+                  },
+                  {
+                    "CP": "1599",
+                    "CH": "299",
+                    "D": "24 hours to 72 hours",
+                    "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+                    "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+                  },
+                  {
+                    "CP": "1599",
+                    "CH": "299",
+                    "D": "4 hours to 24 hours",
+                    "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+                    "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+                  }
+                ]
+              },
+              "lstBagg": [
+                "Kgs|15"
+              ],
+              "lstHBagg": [
+                "Kgs|7"
+              ],
+              "dctBagg": {
+                "0": [
+                  "Kgs|15"
+                ],
+                "1": [
+                  "Kgs|15"
+                ],
+                "2": [
+                  "Kgs|15"
+                ],
+                "3": [
+                  "Kgs|20"
+                ]
+              },
+              "dctHBagg": {
+                "0": [
+                  "Kgs|7"
+                ],
+                "1": [
+                  "Kgs|7"
+                ],
+                "2": [
+                  "Kgs|7"
+                ],
+                "3": [
+                  "Kgs|7"
+                ]
+              },
+              "lFC": [
+                "R"
+              ],
+              "dctFC": {
+                "0": [
+                  "R"
+                ],
+                "1": [
+                  "R"
+                ],
+                "2": [
+                  "J"
+                ],
+                "3": [
+                  "O"
+                ]
+              },
+              "LLOV": null,
+              "stp": "0",
+              "LCP": null,
+              "AP": null,
+              "APT": null,
+              "CP": null,
+              "CPT": null,
+              "IP": null,
+              "IPT": null,
+              "TT": null,
+              "TF": null,
+              "dctInterline": {},
+              "promocode": null
+            }
+          ],
+          "arrTm": 0,
+          "lstOutBound": null,
+          "lstInBound": null,
+          "IsHndBagg": false,
+          "Note": null,
+          "CouponNote": null,
+          "IsRoundTrip": false,
+          "EngineId": 0,
+          "searchId": null,
+          "ItineraryKey": null,
+          "FareRule": "CAN-BEF 8760_72:4299|CAN-BEF 72_24:4669|CAN-BEF 24_4:4669|CHG-BEF 8760_72:3499|CHG-BEF 72_24:3499|CHG-BEF 24_4:3499|EMTFee-300|CANCEL-BEF 8760_72:4299|CANCEL-BEF 72_24:4669|CANCEL-BEF 24_4:4669|CHANGE-BEF 8760_72:3499|CHANGE-BEF 72_24:3499|CHANGE-BEF 24_4:3499",
+          "Saving": null,
+          "Ssn": null,
+          "Remark": null,
+          "CouponCode": null,
+          "VisaInfo": "",
+          "SeatAvailablity": "",
+          "SearchOrigin": null,
+          "SearchDestination": null,
+          "listBrandfare": null,
+          "IsBranded": false,
+          "IsBrandeFareAvailabel": false,
+          "FareTypeInd": null,
+          "AdultPrice": null,
+          "ChildPrice": null,
+          "InfantPrice": null,
+          "TotalTax": null,
+          "TotalFare": null,
+          "ttlDiscount": null,
+          "CancePenalty": null,
+          "ChangPenalty": null,
+          "Refundable": null,
+          "RefundableIn": null,
+          "SpecialSegKey": null,
+          "ConnType": null,
+          "lstCanPo": [
+            {
+              "CP": "4299",
+              "CH": "3499",
+              "D": " Before 72 hours",
+              "CD": "Cancel Before 72 hours of departure time.",
+              "RD": "Reschedule before 72 hours  of departure time."
+            },
+            {
+              "CP": "4669",
+              "CH": "3499",
+              "D": "24 hours to 72 hours",
+              "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+              "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+            },
+            {
+              "CP": "4669",
+              "CH": "3499",
+              "D": "4 hours to 24 hours",
+              "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+              "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+            }
+          ],
+          "TotalJrnyTm": 0,
+          "CDValue": 0,
+          "FareTypeUI": "DEFAULT",
+          "ICPS": false,
+          "IsRs": false,
+          "IST": false,
+          "IACL": true,
+          "segKeyArr": [
+            "NMIGOIWed-16Sep202620:0021:106E2282"
+          ],
+          "SeatAv": "88",
+          "EID": 0,
+          "SD": "Non-Stop|4669|88|NMI-GOI||",
+          "segMatchingKey": "NMIGOIWed-16Sep202620:0021:106E2282",
+          "AMSG": "",
+          "priority": 5,
+          "isPramotion": false,
+          "dlnk": "",
+          "IBA": false,
+          "CT": "",
+          "IHB": false,
+          "IILS": false,
+          "ILT": "",
+          "l_HB": false,
+          "l_HBT": false,
+          "VI": "",
+          "promocode": "",
+          "CT_UPG": "",
+          "FN": "EMTEXCLUSIVE",
+          "Farebenefit": null,
+          "FarebenefitNew": [
+            "7 kgs"
+          ],
+          "isGstM": false,
+          "RSBKFR": 0,
+          "I_BF": false,
+          "AP": 3200,
+          "APT": 1469,
+          "PT": 4669,
+          "agent_convFees": null,
+          "CdValue": 0,
+          "TF": 4669,
+          "TF1": 4936,
+          "TF2": 5669,
+          "TT": 1469,
+          "lstFr": [
+            {
+              "MKP": 0,
+              "comm": 0,
+              "fs": 1,
+              "IsHB": false,
+              "IsRT": false,
+              "SID": "1798,ADT:BF=3200 Tax=1469,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=4669`1469`3200`4299`3499`0`0`R0IP``Kgs`15`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1469,CTB=,ITB=,TBA=3200,TTA=1469,TFA=4669,CCode`,RTSearch=0,POS=IN,RBD=R,PCODE=",
+              "INSP": "0",
+              "PC": "",
+              "FN": "Saver",
+              "AMSG": "",
+              "CT_UPG": "",
+              "fb": [
+                "Cabin baggage included",
+                "Check-in baggage included",
+                "Cancellation fees apply",
+                "Date change chargeable"
+              ],
+              "fbn_f": [
+                "Paid Meal",
+                "Paid Seat"
+              ],
+              "fbn": [
+                "7 Kgs"
+              ],
+              "BF": 3200,
+              "TFRMP": 4669,
+              "TTXMP": 1469,
+              "FId": "7",
+              "ISFI": false,
+              "FI": "0",
+              "L_PF": [
+                {
+                  "id": "",
+                  "BU": "Kgs",
+                  "BW": "15",
+                  "BF": 3200,
+                  "MKP": 0,
+                  "TDS": "0",
+                  "CNP": "4299",
+                  "CHP": "3499",
+                  "FBC": "",
+                  "PT": "Adult",
+                  "RF": "True",
+                  "TF": 4669,
+                  "TTX": 1469,
+                  "PXC": 1,
+                  "DVA": "0",
+                  "L_TX": [
+                    {
+                      "A": 1469,
+                      "CC": "Tax",
+                      "CT": null
+                    }
+                  ],
+                  "I_ZCAN": false,
+                  "ZCC": 0,
+                  "ZCV": "",
+                  "RFIN": null,
+                  "BRSER": null,
+                  "LCP": [],
+                  "CB": 0,
+                  "BTA": 0,
+                  "TA": 0,
+                  "SF": 0,
+                  "COM": 0,
+                  "ESF": 0,
+                  "IESF": false,
+                  "CDValue": 0,
+                  "InsuranceAmount": 0,
+                  "INSAmtPP": 0,
+                  "agent_convFees": 0
+                }
+              ],
+              "TF": 4669,
+              "IsExSeatFare": false,
+              "tds": null,
+              "CDValue": 0,
+              "FIA": 0,
+              "ESF": 0,
+              "BDKEY": "",
+              "PL": {
+                "durations": [
+                  {
+                    "price": 234,
+                    "type": "Hours",
+                    "time": "8"
+                  },
+                  {
+                    "price": 281,
+                    "type": "Hours",
+                    "time": "24"
+                  },
+                  {
+                    "price": 327,
+                    "type": "Hours",
+                    "time": "48"
+                  }
+                ]
+              },
+              "L_TD": [
+                {
+                  "A": 1469,
+                  "CC": "Tax",
+                  "CT": null
+                }
+              ],
+              "DAMT": 220,
+              "TTDIS": 4449,
+              "EID": 0,
+              "CpNt": null,
+              "CC": "",
+              "FR": "CAN-BEF 8760_72:4299|CAN-BEF 72_24:4669|CAN-BEF 24_4:4669|CHG-BEF 8760_72:3499|CHG-BEF 72_24:3499|CHG-BEF 24_4:3499|EMTFee-300|CANCEL-BEF 8760_72:4299|CANCEL-BEF 72_24:4669|CANCEL-BEF 24_4:4669|CHANGE-BEF 8760_72:3499|CHANGE-BEF 72_24:3499|CHANGE-BEF 24_4:3499",
+              "ItnanaryKey": "c98o8vC9+JasulFvoSiP/LyeetC6BrCJ+FJ5N+Z1H8M=",
+              "isAddCL": true,
+              "CouponCodeList": "BOOKNOW",
+              "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+              "ICPS": false,
+              "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+              "IST": false,
+              "ST": null,
+              "CB": "ECONOMY",
+              "Rmk": "",
+              "SNFA": 4449,
+              "STFA": 4669
+            },
+            {
+              "MKP": 0,
+              "comm": 0,
+              "fs": 2,
+              "IsHB": false,
+              "IsRT": false,
+              "SID": "1972,ADT:BF=3700 Tax=1494,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=5194`1494`3700`2499`299`0`0`RUIP``Kgs`15`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1494,CTB=,ITB=,TBA=3700,TTA=1494,TFA=5194,CCode`,RTSearch=0,POS=IN,RBD=J,PCODE=",
+              "INSP": "0",
+              "PC": "",
+              "FN": "FlexiPlus",
+              "AMSG": "",
+              "CT_UPG": "",
+              "fb": [
+                "Cabin baggage included",
+                "Check-in baggage included",
+                "Lower Cancellation fees",
+                "Free date change allowed"
+              ],
+              "fbn_f": [
+                "Complimentary meal",
+                "Complimentary standard seat"
+              ],
+              "fbn": [
+                "7 kgs"
+              ],
+              "BF": 3700,
+              "TFRMP": 5194,
+              "TTXMP": 1494,
+              "FId": "8",
+              "ISFI": false,
+              "FI": "11",
+              "L_PF": [
+                {
+                  "id": "",
+                  "BU": "Kgs",
+                  "BW": "15",
+                  "BF": 3700,
+                  "MKP": 0,
+                  "TDS": "0",
+                  "CNP": "2499",
+                  "CHP": "299",
+                  "FBC": "",
+                  "PT": "Adult",
+                  "RF": "True",
+                  "TF": 5194,
+                  "TTX": 1494,
+                  "PXC": 1,
+                  "DVA": "0",
+                  "L_TX": [
+                    {
+                      "A": 1494,
+                      "CC": "Tax",
+                      "CT": null
+                    }
+                  ],
+                  "I_ZCAN": false,
+                  "ZCC": 0,
+                  "ZCV": "",
+                  "RFIN": null,
+                  "BRSER": null,
+                  "LCP": [],
+                  "CB": 0,
+                  "BTA": 0,
+                  "TA": 0,
+                  "SF": 0,
+                  "COM": 0,
+                  "ESF": 0,
+                  "IESF": false,
+                  "CDValue": 0,
+                  "InsuranceAmount": 0,
+                  "INSAmtPP": 0,
+                  "agent_convFees": 0
+                }
+              ],
+              "TF": 5194,
+              "IsExSeatFare": false,
+              "tds": null,
+              "CDValue": 0,
+              "FIA": 0,
+              "ESF": 0,
+              "BDKEY": "",
+              "PL": {
+                "durations": [
+                  {
+                    "price": 260,
+                    "type": "Hours",
+                    "time": "8"
+                  },
+                  {
+                    "price": 312,
+                    "type": "Hours",
+                    "time": "24"
+                  },
+                  {
+                    "price": 364,
+                    "type": "Hours",
+                    "time": "48"
+                  }
+                ]
+              },
+              "L_TD": [
+                {
+                  "A": 1494,
+                  "CC": "Tax",
+                  "CT": null
+                }
+              ],
+              "DAMT": 220,
+              "TTDIS": 4974,
+              "EID": 0,
+              "CpNt": null,
+              "CC": "",
+              "FR": "CAN-BEF 8760_72:2499|CAN-BEF 72_24:3499|CAN-BEF 24_4:3499|CHG-BEF 8760_72:299|CHG-BEF 72_24:999|CHG-BEF 24_4:999|EMTFee-300|CANCEL-BEF 8760_72:2499|CANCEL-BEF 72_24:3499|CANCEL-BEF 24_4:3499|CHANGE-BEF 8760_72:299|CHANGE-BEF 72_24:999|CHANGE-BEF 24_4:999",
+              "ItnanaryKey": "bCEfeBtOhnTkRPaNkXNxBiKYYcSfucfxQS6cVBopiSs=",
+              "isAddCL": true,
+              "CouponCodeList": "BOOKNOW",
+              "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+              "ICPS": false,
+              "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+              "IST": false,
+              "ST": null,
+              "CB": "ECONOMY",
+              "Rmk": "",
+              "SNFA": 4974,
+              "STFA": 5194
+            },
+            {
+              "MKP": 0,
+              "comm": 0,
+              "fs": 3,
+              "IsHB": false,
+              "IsRT": false,
+              "SID": "467,ADT:BF=4800 Tax=1549,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=6349`1549`4800`999`0`0`0`RLIP``Kgs`20`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1549,CTB=,ITB=,TBA=4800,TTA=1549,TFA=6349,CCode`,RTSearch=0,POS=IN,RBD=O,PCODE=",
+              "INSP": "0",
+              "PC": "",
+              "FN": "IndigoUpFront",
+              "AMSG": "",
+              "CT_UPG": "",
+              "fb": [
+                "Cabin baggage included",
+                "Cancellation fees apply",
+                "Date change chargeable",
+                "Complimentary meals"
+              ],
+              "fbn_f": [
+                "Complimentary Meal",
+                "Complimentary Front row Economy Seat"
+              ],
+              "fbn": [
+                "7 kgs"
+              ],
+              "BF": 4800,
+              "TFRMP": 6349,
+              "TTXMP": 1549,
+              "FId": "163",
+              "ISFI": false,
+              "FI": "22",
+              "L_PF": [
+                {
+                  "id": "",
+                  "BU": "Kgs",
+                  "BW": "20",
+                  "BF": 4800,
+                  "MKP": 0,
+                  "TDS": "0",
+                  "CNP": "999",
+                  "CHP": "0",
+                  "FBC": "",
+                  "PT": "Adult",
+                  "RF": "True",
+                  "TF": 6349,
+                  "TTX": 1549,
+                  "PXC": 1,
+                  "DVA": "0",
+                  "L_TX": [
+                    {
+                      "A": 1549,
+                      "CC": "Tax",
+                      "CT": null
+                    }
+                  ],
+                  "I_ZCAN": false,
+                  "ZCC": 0,
+                  "ZCV": "",
+                  "RFIN": null,
+                  "BRSER": null,
+                  "LCP": [],
+                  "CB": 0,
+                  "BTA": 0,
+                  "TA": 0,
+                  "SF": 0,
+                  "COM": 0,
+                  "ESF": 0,
+                  "IESF": false,
+                  "CDValue": 0,
+                  "InsuranceAmount": 0,
+                  "INSAmtPP": 0,
+                  "agent_convFees": 0
+                }
+              ],
+              "TF": 6349,
+              "IsExSeatFare": false,
+              "tds": null,
+              "CDValue": 0,
+              "FIA": 0,
+              "ESF": 0,
+              "BDKEY": "",
+              "PL": {
+                "durations": [
+                  {
+                    "price": 318,
+                    "type": "Hours",
+                    "time": "8"
+                  },
+                  {
+                    "price": 381,
+                    "type": "Hours",
+                    "time": "24"
+                  },
+                  {
+                    "price": 445,
+                    "type": "Hours",
+                    "time": "48"
+                  }
+                ]
+              },
+              "L_TD": [
+                {
+                  "A": 1549,
+                  "CC": "Tax",
+                  "CT": null
+                }
+              ],
+              "DAMT": 220,
+              "TTDIS": 6129,
+              "EID": 0,
+              "CpNt": null,
+              "CC": "",
+              "FR": "CAN-BEF 8760_72:999|CAN-BEF 72_24:1599|CAN-BEF 24_4:1599|CHG-BEF 8760_72:0|CHG-BEF 72_24:299|CHG-BEF 24_4:299|EMTFee-300|CANCEL-BEF 8760_72:999|CANCEL-BEF 72_24:1599|CANCEL-BEF 24_4:1599|CHANGE-BEF 8760_72:0|CHANGE-BEF 72_24:299|CHANGE-BEF 24_4:299",
+              "ItnanaryKey": "XDwdzLyqWJPvHimWFpY6nczKgvH2GeTfQJWU4pFkc8k=",
+              "isAddCL": true,
+              "CouponCodeList": "BOOKNOW",
+              "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+              "ICPS": false,
+              "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+              "IST": false,
+              "ST": null,
+              "CB": "ECONOMY",
+              "Rmk": "",
+              "SNFA": 6129,
+              "STFA": 6349
+            },
+            {
+              "MKP": 0,
+              "comm": 0,
+              "fs": 0,
+              "IsHB": false,
+              "IsRT": false,
+              "SID": "1798,ADT:BF=3200 Tax=1469,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=4669`1469`3200`4299`3499`0`0`R0IP``Kgs`15`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1469,CTB=,ITB=,TBA=3200,TTA=1469,TFA=4669,CCode`,RTSearch=0,POS=IN,RBD=R,PCODE=,EMTASSURED=1",
+              "INSP": "6",
+              "PC": "",
+              "FN": "EMTEXCLUSIVE",
+              "AMSG": "",
+              "CT_UPG": "",
+              "fb": [
+                "Cabin baggage includedCheck-in baggage includedCancellation fees apply",
+                "Date change chargeable\r\n"
+              ],
+              "fbn_f": [
+                "Paid Meal",
+                "Paid Seat"
+              ],
+              "fbn": [
+                "7 kgs"
+              ],
+              "BF": 3200,
+              "TFRMP": 4669,
+              "TTXMP": 1469,
+              "FId": "168",
+              "ISFI": true,
+              "FI": "19",
+              "L_PF": [
+                {
+                  "id": "",
+                  "BU": "Kgs",
+                  "BW": "15",
+                  "BF": 3200,
+                  "MKP": 0,
+                  "TDS": "0",
+                  "CNP": "4299",
+                  "CHP": "3499",
+                  "FBC": "",
+                  "PT": "Adult",
+                  "RF": "True",
+                  "TF": 4669,
+                  "TTX": 1469,
+                  "PXC": 1,
+                  "DVA": "0",
+                  "L_TX": [
+                    {
+                      "A": 1469,
+                      "CC": "Tax",
+                      "CT": null
+                    }
+                  ],
+                  "I_ZCAN": false,
+                  "ZCC": 0,
+                  "ZCV": "",
+                  "RFIN": null,
+                  "BRSER": null,
+                  "LCP": [],
+                  "CB": 0,
+                  "BTA": 0,
+                  "TA": 0,
+                  "SF": 0,
+                  "COM": 0,
+                  "ESF": 0,
+                  "IESF": false,
+                  "CDValue": 0,
+                  "InsuranceAmount": 199,
+                  "INSAmtPP": 199,
+                  "agent_convFees": 0
+                }
+              ],
+              "TF": 4669,
+              "IsExSeatFare": false,
+              "tds": null,
+              "CDValue": 0,
+              "FIA": 199,
+              "ESF": 0,
+              "BDKEY": "",
+              "PL": {
+                "durations": [
+                  {
+                    "price": 234,
+                    "type": "Hours",
+                    "time": "8"
+                  },
+                  {
+                    "price": 281,
+                    "type": "Hours",
+                    "time": "24"
+                  },
+                  {
+                    "price": 327,
+                    "type": "Hours",
+                    "time": "48"
+                  }
+                ]
+              },
+              "L_TD": [
+                {
+                  "A": 1469,
+                  "CC": "Tax",
+                  "CT": null
+                }
+              ],
+              "DAMT": 220,
+              "TTDIS": 4449,
+              "EID": 0,
+              "CpNt": null,
+              "CC": "",
+              "FR": "CAN-BEF 8760_72:4299|CAN-BEF 72_24:4669|CAN-BEF 24_4:4669|CHG-BEF 8760_72:3499|CHG-BEF 72_24:3499|CHG-BEF 24_4:3499|EMTFee-300|CANCEL-BEF 8760_72:4299|CANCEL-BEF 72_24:4669|CANCEL-BEF 24_4:4669|CHANGE-BEF 8760_72:3499|CHANGE-BEF 72_24:3499|CHANGE-BEF 24_4:3499",
+              "ItnanaryKey": "c98o8vC9+JasulFvoSiP/LyeetC6BrCJ+FJ5N+Z1H8M=",
+              "isAddCL": true,
+              "CouponCodeList": "BOOKNOW",
+              "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+              "ICPS": false,
+              "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+              "IST": false,
+              "ST": null,
+              "CB": "ECONOMY",
+              "Rmk": "",
+              "SNFA": 4449,
+              "STFA": 4669
+            }
+          ],
+          "CNP": 4299,
+          "CHP": 3499,
+          "RF": true,
+          "MKP": 0,
+          "Comm": 0,
+          "TDS": 0,
+          "FTpInd": "0",
+          "SID": "1798,ADT:BF=3200 Tax=1469,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=4669`1469`3200`4299`3499`0`0`R0IP``Kgs`15`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1469,CTB=,ITB=,TBA=3200,TTA=1469,TFA=4669,CCode`,RTSearch=0,POS=IN,RBD=R,PCODE=,EMTASSURED=1",
+          "IK": "c98o8vC9+JasulFvoSiP/LyeetC6BrCJ+FJ5N+Z1H8M=",
+          "LCP": [
+            {
+              "CP": "4299",
+              "CH": "3499",
+              "D": " Before 72 hours",
+              "CD": "Cancel Before 72 hours of departure time.",
+              "RD": "Reschedule before 72 hours  of departure time."
+            },
+            {
+              "CP": "4669",
+              "CH": "3499",
+              "D": "24 hours to 72 hours",
+              "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+              "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+            },
+            {
+              "CP": "4669",
+              "CH": "3499",
+              "D": "4 hours to 24 hours",
+              "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+              "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+            }
+          ],
+          "DAMT": 220,
+          "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+          "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+          "ISTT": false,
+          "CCL": "BOOKNOW",
+          "CC": "",
+          "Rmk": "",
+          "FI": "19",
+          "TTDIS": 4449,
+          "SNFA": 4449,
+          "STFA": 4669,
+          "I_RT": false,
+          "TotalJyTm": 70,
+          "DTJT": 1,
+          "isSameFareavailable": null
+        },
+        {
+          "id": 3,
+          "BKID": "",
+          "segKey_Api": null,
+          "SK": "3",
+          "b": [
+            {
+              "BDT": "|Non-Stop",
+              "FL": [
+                1
+              ],
+              "RF": false,
+              "I_BF": false,
+              "JyTm": "01h 05m",
+              "CT": "BOM-GOI",
+              "EID": 0,
+              "ITK": null,
+              "SID": null,
+              "FTpInd": null,
+              "LOV": null,
+              "BkKY": [
+                "6E`6361` ``BOM`09/16/2026 05:00`GOI`09/16/2026 06:05``!0`P``6E`P0IP`1058``0`10``X!!321323`Airbus A321 (Narrow-body)``5`Kgs`15`Economy``6E`2`0`False`0``````01h 05m`P0IP`R`1798"
+              ],
+              "dctBKKY": {
+                "0": [
+                  "6E`6361` ``BOM`09/16/2026 05:00`GOI`09/16/2026 06:05``!0`P``6E`P0IP`1058``0`10``X!!321323`Airbus A321 (Narrow-body)``5`Kgs`15`Economy``6E`2`0`False`0``````01h 05m`P0IP`R`1798"
+                ],
+                "1": [
+                  "6E`6361` ``BOM`09/16/2026 05:00`GOI`09/16/2026 06:05``!0`P``6E`P0IP`1058``0`10``X!!321323`Airbus A321 (Narrow-body)``5`Kgs`15`Economy``6E`2`0`False`0``````01h 05m`P0IP`R`1798"
+                ],
+                "2": [
+                  "6E`6361` ``BOM`09/16/2026 05:00`GOI`09/16/2026 06:05``!0`P``6E`PUIP`2003``0`12``X!!321323`Airbus A321 (Narrow-body)``5`Kgs`15`Economy``6E`2`0`False`0``````01h 05m`PUIP`J`1972"
+                ],
+                "3": [
+                  "6E`6361` ``BOM`09/16/2026 05:00`GOI`09/16/2026 06:05``!0`P``6E`PLIP`2302``0`11``X!!6E`Airbus A321 (Narrow-body)``5`Kgs`20`Economy``6E`2`0`False`0``````01h 05m`PLIP`O`467"
+                ]
+              },
+              "dctCanPo": {
+                "0": [
+                  {
+                    "CP": "4299",
+                    "CH": "3499",
+                    "D": " Before 72 hours",
+                    "CD": "Cancel Before 72 hours of departure time.",
+                    "RD": "Reschedule before 72 hours  of departure time."
+                  },
+                  {
+                    "CP": "4774",
+                    "CH": "3499",
+                    "D": "24 hours to 72 hours",
+                    "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+                    "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+                  },
+                  {
+                    "CP": "4774",
+                    "CH": "3499",
+                    "D": "4 hours to 24 hours",
+                    "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+                    "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+                  }
+                ],
+                "1": [
+                  {
+                    "CP": "4299",
+                    "CH": "3499",
+                    "D": " Before 72 hours",
+                    "CD": "Cancel Before 72 hours of departure time.",
+                    "RD": "Reschedule before 72 hours  of departure time."
+                  },
+                  {
+                    "CP": "4774",
+                    "CH": "3499",
+                    "D": "24 hours to 72 hours",
+                    "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+                    "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+                  },
+                  {
+                    "CP": "4774",
+                    "CH": "3499",
+                    "D": "4 hours to 24 hours",
+                    "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+                    "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+                  }
+                ],
+                "2": [
+                  {
+                    "CP": "2499",
+                    "CH": "299",
+                    "D": " Before 72 hours",
+                    "CD": "Cancel Before 72 hours of departure time.",
+                    "RD": "Reschedule before 72 hours  of departure time."
+                  },
+                  {
+                    "CP": "3499",
+                    "CH": "999",
+                    "D": "24 hours to 72 hours",
+                    "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+                    "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+                  },
+                  {
+                    "CP": "3499",
+                    "CH": "999",
+                    "D": "4 hours to 24 hours",
+                    "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+                    "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+                  }
+                ],
+                "3": [
+                  {
+                    "CP": "999",
+                    "CH": "0",
+                    "D": " Before 72 hours",
+                    "CD": "Cancel Before 72 hours of departure time.",
+                    "RD": "Reschedule before 72 hours  of departure time."
+                  },
+                  {
+                    "CP": "1599",
+                    "CH": "299",
+                    "D": "24 hours to 72 hours",
+                    "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+                    "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+                  },
+                  {
+                    "CP": "1599",
+                    "CH": "299",
+                    "D": "4 hours to 24 hours",
+                    "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+                    "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+                  }
+                ]
+              },
+              "lstBagg": [
+                "Kgs|15"
+              ],
+              "lstHBagg": [
+                "Kgs|7"
+              ],
+              "dctBagg": {
+                "0": [
+                  "Kgs|15"
+                ],
+                "1": [
+                  "Kgs|15"
+                ],
+                "2": [
+                  "Kgs|15"
+                ],
+                "3": [
+                  "Kgs|20"
+                ]
+              },
+              "dctHBagg": {
+                "0": [
+                  "Kgs|7"
+                ],
+                "1": [
+                  "Kgs|7"
+                ],
+                "2": [
+                  "Kgs|7"
+                ],
+                "3": [
+                  "Kgs|7"
+                ]
+              },
+              "lFC": [
+                "R"
+              ],
+              "dctFC": {
+                "0": [
+                  "R"
+                ],
+                "1": [
+                  "R"
+                ],
+                "2": [
+                  "J"
+                ],
+                "3": [
+                  "O"
+                ]
+              },
+              "LLOV": null,
+              "stp": "0",
+              "LCP": null,
+              "AP": null,
+              "APT": null,
+              "CP": null,
+              "CPT": null,
+              "IP": null,
+              "IPT": null,
+              "TT": null,
+              "TF": null,
+              "dctInterline": {},
+              "promocode": null
+            }
+          ],
+          "arrTm": 0,
+          "lstOutBound": null,
+          "lstInBound": null,
+          "IsHndBagg": false,
+          "Note": null,
+          "CouponNote": null,
+          "IsRoundTrip": false,
+          "EngineId": 0,
+          "searchId": null,
+          "ItineraryKey": null,
+          "FareRule": "CAN-BEF 8760_72:4299|CAN-BEF 72_24:4774|CAN-BEF 24_4:4774|CHG-BEF 8760_72:3499|CHG-BEF 72_24:3499|CHG-BEF 24_4:3499|EMTFee-300|CANCEL-BEF 8760_72:4299|CANCEL-BEF 72_24:4774|CANCEL-BEF 24_4:4774|CHANGE-BEF 8760_72:3499|CHANGE-BEF 72_24:3499|CHANGE-BEF 24_4:3499",
+          "Saving": null,
+          "Ssn": null,
+          "Remark": null,
+          "CouponCode": null,
+          "VisaInfo": "",
+          "SeatAvailablity": "",
+          "SearchOrigin": null,
+          "SearchDestination": null,
+          "listBrandfare": null,
+          "IsBranded": false,
+          "IsBrandeFareAvailabel": false,
+          "FareTypeInd": null,
+          "AdultPrice": null,
+          "ChildPrice": null,
+          "InfantPrice": null,
+          "TotalTax": null,
+          "TotalFare": null,
+          "ttlDiscount": null,
+          "CancePenalty": null,
+          "ChangPenalty": null,
+          "Refundable": null,
+          "RefundableIn": null,
+          "SpecialSegKey": null,
+          "ConnType": null,
+          "lstCanPo": [
+            {
+              "CP": "4299",
+              "CH": "3499",
+              "D": " Before 72 hours",
+              "CD": "Cancel Before 72 hours of departure time.",
+              "RD": "Reschedule before 72 hours  of departure time."
+            },
+            {
+              "CP": "4774",
+              "CH": "3499",
+              "D": "24 hours to 72 hours",
+              "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+              "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+            },
+            {
+              "CP": "4774",
+              "CH": "3499",
+              "D": "4 hours to 24 hours",
+              "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+              "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+            }
+          ],
+          "TotalJrnyTm": 0,
+          "CDValue": 0,
+          "FareTypeUI": "DEFAULT",
+          "ICPS": false,
+          "IsRs": false,
+          "IST": false,
+          "IACL": true,
+          "segKeyArr": [
+            "BOMGOIWed-16Sep202605:0006:056E6361"
+          ],
+          "SeatAv": "5",
+          "EID": 0,
+          "SD": "Non-Stop|4774|5|BOM-GOI||",
+          "segMatchingKey": "BOMGOIWed-16Sep202605:0006:056E6361",
+          "AMSG": "",
+          "priority": 5,
+          "isPramotion": false,
+          "dlnk": "",
+          "IBA": false,
+          "CT": "",
+          "IHB": false,
+          "IILS": false,
+          "ILT": "",
+          "l_HB": false,
+          "l_HBT": false,
+          "VI": "",
+          "promocode": "",
+          "CT_UPG": "",
+          "FN": "EMTEXCLUSIVE",
+          "Farebenefit": null,
+          "FarebenefitNew": [
+            "7 kgs"
+          ],
+          "isGstM": false,
+          "RSBKFR": 0,
+          "I_BF": false,
+          "AP": 3750,
+          "APT": 1024,
+          "PT": 4774,
+          "agent_convFees": null,
+          "CdValue": 0,
+          "TF": 4774,
+          "TF1": 4941,
+          "TF2": 5566,
+          "TT": 1024,
+          "lstFr": [
+            {
+              "MKP": 0,
+              "comm": 0,
+              "fs": 1,
+              "IsHB": false,
+              "IsRT": false,
+              "SID": "1798,ADT:BF=3750 Tax=1024,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=4774`1024`3750`4299`3499`0`0`P0IP``Kgs`15`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1024,CTB=,ITB=,TBA=3750,TTA=1024,TFA=4774,CCode`,RTSearch=0,POS=IN,RBD=R,PCODE=",
+              "INSP": "0",
+              "PC": "",
+              "FN": "Saver",
+              "AMSG": "",
+              "CT_UPG": "",
+              "fb": [
+                "Cabin baggage included",
+                "Check-in baggage included",
+                "Cancellation fees apply",
+                "Date change chargeable"
+              ],
+              "fbn_f": [
+                "Paid Meal",
+                "Paid Seat"
+              ],
+              "fbn": [
+                "7 Kgs"
+              ],
+              "BF": 3750,
+              "TFRMP": 4774,
+              "TTXMP": 1024,
+              "FId": "7",
+              "ISFI": false,
+              "FI": "0",
+              "L_PF": [
+                {
+                  "id": "",
+                  "BU": "Kgs",
+                  "BW": "15",
+                  "BF": 3750,
+                  "MKP": 0,
+                  "TDS": "0",
+                  "CNP": "4299",
+                  "CHP": "3499",
+                  "FBC": "",
+                  "PT": "Adult",
+                  "RF": "True",
+                  "TF": 4774,
+                  "TTX": 1024,
+                  "PXC": 1,
+                  "DVA": "0",
+                  "L_TX": [
+                    {
+                      "A": 1024,
+                      "CC": "Tax",
+                      "CT": null
+                    }
+                  ],
+                  "I_ZCAN": false,
+                  "ZCC": 0,
+                  "ZCV": "",
+                  "RFIN": null,
+                  "BRSER": null,
+                  "LCP": [],
+                  "CB": 0,
+                  "BTA": 0,
+                  "TA": 0,
+                  "SF": 0,
+                  "COM": 0,
+                  "ESF": 0,
+                  "IESF": false,
+                  "CDValue": 0,
+                  "InsuranceAmount": 0,
+                  "INSAmtPP": 0,
+                  "agent_convFees": 0
+                }
+              ],
+              "TF": 4774,
+              "IsExSeatFare": false,
+              "tds": null,
+              "CDValue": 0,
+              "FIA": 0,
+              "ESF": 0,
+              "BDKEY": "",
+              "PL": {
+                "durations": [
+                  {
+                    "price": 239,
+                    "type": "Hours",
+                    "time": "8"
+                  },
+                  {
+                    "price": 287,
+                    "type": "Hours",
+                    "time": "24"
+                  },
+                  {
+                    "price": 335,
+                    "type": "Hours",
+                    "time": "48"
+                  }
+                ]
+              },
+              "L_TD": [
+                {
+                  "A": 1024,
+                  "CC": "Tax",
+                  "CT": null
+                }
+              ],
+              "DAMT": 220,
+              "TTDIS": 4554,
+              "EID": 0,
+              "CpNt": null,
+              "CC": "",
+              "FR": "CAN-BEF 8760_72:4299|CAN-BEF 72_24:4774|CAN-BEF 24_4:4774|CHG-BEF 8760_72:3499|CHG-BEF 72_24:3499|CHG-BEF 24_4:3499|EMTFee-300|CANCEL-BEF 8760_72:4299|CANCEL-BEF 72_24:4774|CANCEL-BEF 24_4:4774|CHANGE-BEF 8760_72:3499|CHANGE-BEF 72_24:3499|CHANGE-BEF 24_4:3499",
+              "ItnanaryKey": "c98o8vC9+JasulFvoSiP/LyeetC6BrCJ+FJ5N+Z1H8M=",
+              "isAddCL": true,
+              "CouponCodeList": "BOOKNOW",
+              "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+              "ICPS": false,
+              "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+              "IST": false,
+              "ST": null,
+              "CB": "ECONOMY",
+              "Rmk": "",
+              "SNFA": 4554,
+              "STFA": 4774
+            },
+            {
+              "MKP": 0,
+              "comm": 0,
+              "fs": 2,
+              "IsHB": false,
+              "IsRT": false,
+              "SID": "1972,ADT:BF=4250 Tax=1049,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=5299`1049`4250`2499`299`0`0`PUIP``Kgs`15`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1049,CTB=,ITB=,TBA=4250,TTA=1049,TFA=5299,CCode`,RTSearch=0,POS=IN,RBD=J,PCODE=",
+              "INSP": "0",
+              "PC": "",
+              "FN": "FlexiPlus",
+              "AMSG": "",
+              "CT_UPG": "",
+              "fb": [
+                "Cabin baggage included",
+                "Check-in baggage included",
+                "Lower Cancellation fees",
+                "Free date change allowed"
+              ],
+              "fbn_f": [
+                "Complimentary meal",
+                "Complimentary standard seat"
+              ],
+              "fbn": [
+                "7 kgs"
+              ],
+              "BF": 4250,
+              "TFRMP": 5299,
+              "TTXMP": 1049,
+              "FId": "8",
+              "ISFI": false,
+              "FI": "11",
+              "L_PF": [
+                {
+                  "id": "",
+                  "BU": "Kgs",
+                  "BW": "15",
+                  "BF": 4250,
+                  "MKP": 0,
+                  "TDS": "0",
+                  "CNP": "2499",
+                  "CHP": "299",
+                  "FBC": "",
+                  "PT": "Adult",
+                  "RF": "True",
+                  "TF": 5299,
+                  "TTX": 1049,
+                  "PXC": 1,
+                  "DVA": "0",
+                  "L_TX": [
+                    {
+                      "A": 1049,
+                      "CC": "Tax",
+                      "CT": null
+                    }
+                  ],
+                  "I_ZCAN": false,
+                  "ZCC": 0,
+                  "ZCV": "",
+                  "RFIN": null,
+                  "BRSER": null,
+                  "LCP": [],
+                  "CB": 0,
+                  "BTA": 0,
+                  "TA": 0,
+                  "SF": 0,
+                  "COM": 0,
+                  "ESF": 0,
+                  "IESF": false,
+                  "CDValue": 0,
+                  "InsuranceAmount": 0,
+                  "INSAmtPP": 0,
+                  "agent_convFees": 0
+                }
+              ],
+              "TF": 5299,
+              "IsExSeatFare": false,
+              "tds": null,
+              "CDValue": 0,
+              "FIA": 0,
+              "ESF": 0,
+              "BDKEY": "",
+              "PL": {
+                "durations": [
+                  {
+                    "price": 265,
+                    "type": "Hours",
+                    "time": "8"
+                  },
+                  {
+                    "price": 318,
+                    "type": "Hours",
+                    "time": "24"
+                  },
+                  {
+                    "price": 371,
+                    "type": "Hours",
+                    "time": "48"
+                  }
+                ]
+              },
+              "L_TD": [
+                {
+                  "A": 1049,
+                  "CC": "Tax",
+                  "CT": null
+                }
+              ],
+              "DAMT": 220,
+              "TTDIS": 5079,
+              "EID": 0,
+              "CpNt": null,
+              "CC": "",
+              "FR": "CAN-BEF 8760_72:2499|CAN-BEF 72_24:3499|CAN-BEF 24_4:3499|CHG-BEF 8760_72:299|CHG-BEF 72_24:999|CHG-BEF 24_4:999|EMTFee-300|CANCEL-BEF 8760_72:2499|CANCEL-BEF 72_24:3499|CANCEL-BEF 24_4:3499|CHANGE-BEF 8760_72:299|CHANGE-BEF 72_24:999|CHANGE-BEF 24_4:999",
+              "ItnanaryKey": "bCEfeBtOhnTkRPaNkXNxBiKYYcSfucfxQS6cVBopiSs=",
+              "isAddCL": true,
+              "CouponCodeList": "BOOKNOW",
+              "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+              "ICPS": false,
+              "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+              "IST": false,
+              "ST": null,
+              "CB": "ECONOMY",
+              "Rmk": "",
+              "SNFA": 5079,
+              "STFA": 5299
+            },
+            {
+              "MKP": 0,
+              "comm": 0,
+              "fs": 3,
+              "IsHB": false,
+              "IsRT": false,
+              "SID": "467,ADT:BF=6350 Tax=1154,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=7504`1154`6350`999`0`0`0`PLIP``Kgs`20`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1154,CTB=,ITB=,TBA=6350,TTA=1154,TFA=7504,CCode`,RTSearch=0,POS=IN,RBD=O,PCODE=",
+              "INSP": "0",
+              "PC": "",
+              "FN": "IndigoUpFront",
+              "AMSG": "",
+              "CT_UPG": "",
+              "fb": [
+                "Cabin baggage included",
+                "Cancellation fees apply",
+                "Date change chargeable",
+                "Complimentary meals"
+              ],
+              "fbn_f": [
+                "Complimentary Meal",
+                "Complimentary Front row Economy Seat"
+              ],
+              "fbn": [
+                "7 kgs"
+              ],
+              "BF": 6350,
+              "TFRMP": 7504,
+              "TTXMP": 1154,
+              "FId": "163",
+              "ISFI": false,
+              "FI": "22",
+              "L_PF": [
+                {
+                  "id": "",
+                  "BU": "Kgs",
+                  "BW": "20",
+                  "BF": 6350,
+                  "MKP": 0,
+                  "TDS": "0",
+                  "CNP": "999",
+                  "CHP": "0",
+                  "FBC": "",
+                  "PT": "Adult",
+                  "RF": "True",
+                  "TF": 7504,
+                  "TTX": 1154,
+                  "PXC": 1,
+                  "DVA": "0",
+                  "L_TX": [
+                    {
+                      "A": 1154,
+                      "CC": "Tax",
+                      "CT": null
+                    }
+                  ],
+                  "I_ZCAN": false,
+                  "ZCC": 0,
+                  "ZCV": "",
+                  "RFIN": null,
+                  "BRSER": null,
+                  "LCP": [],
+                  "CB": 0,
+                  "BTA": 0,
+                  "TA": 0,
+                  "SF": 0,
+                  "COM": 0,
+                  "ESF": 0,
+                  "IESF": false,
+                  "CDValue": 0,
+                  "InsuranceAmount": 0,
+                  "INSAmtPP": 0,
+                  "agent_convFees": 0
+                }
+              ],
+              "TF": 7504,
+              "IsExSeatFare": false,
+              "tds": null,
+              "CDValue": 0,
+              "FIA": 0,
+              "ESF": 0,
+              "BDKEY": "",
+              "PL": {
+                "durations": [
+                  {
+                    "price": 376,
+                    "type": "Hours",
+                    "time": "8"
+                  },
+                  {
+                    "price": 451,
+                    "type": "Hours",
+                    "time": "24"
+                  },
+                  {
+                    "price": 526,
+                    "type": "Hours",
+                    "time": "48"
+                  }
+                ]
+              },
+              "L_TD": [
+                {
+                  "A": 1154,
+                  "CC": "Tax",
+                  "CT": null
+                }
+              ],
+              "DAMT": 220,
+              "TTDIS": 7284,
+              "EID": 0,
+              "CpNt": null,
+              "CC": "",
+              "FR": "CAN-BEF 8760_72:999|CAN-BEF 72_24:1599|CAN-BEF 24_4:1599|CHG-BEF 8760_72:0|CHG-BEF 72_24:299|CHG-BEF 24_4:299|EMTFee-300|CANCEL-BEF 8760_72:999|CANCEL-BEF 72_24:1599|CANCEL-BEF 24_4:1599|CHANGE-BEF 8760_72:0|CHANGE-BEF 72_24:299|CHANGE-BEF 24_4:299",
+              "ItnanaryKey": "XDwdzLyqWJPvHimWFpY6nczKgvH2GeTfQJWU4pFkc8k=",
+              "isAddCL": true,
+              "CouponCodeList": "BOOKNOW",
+              "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+              "ICPS": false,
+              "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+              "IST": false,
+              "ST": null,
+              "CB": "ECONOMY",
+              "Rmk": "",
+              "SNFA": 7284,
+              "STFA": 7504
+            },
+            {
+              "MKP": 0,
+              "comm": 0,
+              "fs": 0,
+              "IsHB": false,
+              "IsRT": false,
+              "SID": "1798,ADT:BF=3750 Tax=1024,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=4774`1024`3750`4299`3499`0`0`P0IP``Kgs`15`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1024,CTB=,ITB=,TBA=3750,TTA=1024,TFA=4774,CCode`,RTSearch=0,POS=IN,RBD=R,PCODE=,EMTASSURED=1",
+              "INSP": "6",
+              "PC": "",
+              "FN": "EMTEXCLUSIVE",
+              "AMSG": "",
+              "CT_UPG": "",
+              "fb": [
+                "Cabin baggage includedCheck-in baggage includedCancellation fees apply",
+                "Date change chargeable\r\n"
+              ],
+              "fbn_f": [
+                "Paid Meal",
+                "Paid Seat"
+              ],
+              "fbn": [
+                "7 kgs"
+              ],
+              "BF": 3750,
+              "TFRMP": 4774,
+              "TTXMP": 1024,
+              "FId": "168",
+              "ISFI": true,
+              "FI": "19",
+              "L_PF": [
+                {
+                  "id": "",
+                  "BU": "Kgs",
+                  "BW": "15",
+                  "BF": 3750,
+                  "MKP": 0,
+                  "TDS": "0",
+                  "CNP": "4299",
+                  "CHP": "3499",
+                  "FBC": "",
+                  "PT": "Adult",
+                  "RF": "True",
+                  "TF": 4774,
+                  "TTX": 1024,
+                  "PXC": 1,
+                  "DVA": "0",
+                  "L_TX": [
+                    {
+                      "A": 1024,
+                      "CC": "Tax",
+                      "CT": null
+                    }
+                  ],
+                  "I_ZCAN": false,
+                  "ZCC": 0,
+                  "ZCV": "",
+                  "RFIN": null,
+                  "BRSER": null,
+                  "LCP": [],
+                  "CB": 0,
+                  "BTA": 0,
+                  "TA": 0,
+                  "SF": 0,
+                  "COM": 0,
+                  "ESF": 0,
+                  "IESF": false,
+                  "CDValue": 0,
+                  "InsuranceAmount": 199,
+                  "INSAmtPP": 199,
+                  "agent_convFees": 0
+                }
+              ],
+              "TF": 4774,
+              "IsExSeatFare": false,
+              "tds": null,
+              "CDValue": 0,
+              "FIA": 199,
+              "ESF": 0,
+              "BDKEY": "",
+              "PL": {
+                "durations": [
+                  {
+                    "price": 239,
+                    "type": "Hours",
+                    "time": "8"
+                  },
+                  {
+                    "price": 287,
+                    "type": "Hours",
+                    "time": "24"
+                  },
+                  {
+                    "price": 335,
+                    "type": "Hours",
+                    "time": "48"
+                  }
+                ]
+              },
+              "L_TD": [
+                {
+                  "A": 1024,
+                  "CC": "Tax",
+                  "CT": null
+                }
+              ],
+              "DAMT": 220,
+              "TTDIS": 4554,
+              "EID": 0,
+              "CpNt": null,
+              "CC": "",
+              "FR": "CAN-BEF 8760_72:4299|CAN-BEF 72_24:4774|CAN-BEF 24_4:4774|CHG-BEF 8760_72:3499|CHG-BEF 72_24:3499|CHG-BEF 24_4:3499|EMTFee-300|CANCEL-BEF 8760_72:4299|CANCEL-BEF 72_24:4774|CANCEL-BEF 24_4:4774|CHANGE-BEF 8760_72:3499|CHANGE-BEF 72_24:3499|CHANGE-BEF 24_4:3499",
+              "ItnanaryKey": "c98o8vC9+JasulFvoSiP/LyeetC6BrCJ+FJ5N+Z1H8M=",
+              "isAddCL": true,
+              "CouponCodeList": "BOOKNOW",
+              "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+              "ICPS": false,
+              "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+              "IST": false,
+              "ST": null,
+              "CB": "ECONOMY",
+              "Rmk": "",
+              "SNFA": 4554,
+              "STFA": 4774
+            }
+          ],
+          "CNP": 4299,
+          "CHP": 3499,
+          "RF": true,
+          "MKP": 0,
+          "Comm": 0,
+          "TDS": 0,
+          "FTpInd": "0",
+          "SID": "1798,ADT:BF=3750 Tax=1024,CHD:BF=0 Tax=0,INF:BF=0 Tax=0,DFValue=0,DFValue=0,APFV=4774`1024`3750`4299`3499`0`0`P0IP``Kgs`15`True`0`0`0`0`,CPFV=,IPFV=,ATB=`Tax:1024,CTB=,ITB=,TBA=3750,TTA=1024,TFA=4774,CCode`,RTSearch=0,POS=IN,RBD=R,PCODE=,EMTASSURED=1",
+          "IK": "c98o8vC9+JasulFvoSiP/LyeetC6BrCJ+FJ5N+Z1H8M=",
+          "LCP": [
+            {
+              "CP": "4299",
+              "CH": "3499",
+              "D": " Before 72 hours",
+              "CD": "Cancel Before 72 hours of departure time.",
+              "RD": "Reschedule before 72 hours  of departure time."
+            },
+            {
+              "CP": "4774",
+              "CH": "3499",
+              "D": "24 hours to 72 hours",
+              "CD": "Cancel within 72 hours & before 24 hours of departure time.",
+              "RD": "Reschedule within 72 hours & before 24 hours of departure time."
+            },
+            {
+              "CP": "4774",
+              "CH": "3499",
+              "D": "4 hours to 24 hours",
+              "CD": "Cancel within 24 hours & before 4 hours of departure time.",
+              "RD": "Reschedule within 24 hours & before 4 hours of departure time."
+            }
+          ],
+          "DAMT": 220,
+          "CpnTxtS": "Get Rs.220 OFF on your flight booking.",
+          "Nt": "BOOKNOW: Get extra Rs.220 instant discount on this flight",
+          "ISTT": false,
+          "CCL": "BOOKNOW",
+          "CC": "",
+          "Rmk": "",
+          "FI": "19",
+          "TTDIS": 4554,
+          "SNFA": 4554,
+          "STFA": 4774,
+          "I_RT": false,
+          "TotalJyTm": 65,
+          "DTJT": 1,
+          "isSameFareavailable": null
+        }
+      ]
+    }
+  }
+}

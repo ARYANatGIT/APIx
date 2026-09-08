@@ -1,0 +1,1270 @@
+{
+  "airline": "Akasa Air",
+  "airline_code": "QP",
+  "requests": [
+    {
+      "url": "https://www.akasaair.com/",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "timestamp": "2026-09-08T19:56:39.536281+00:00"
+    },
+    {
+      "url": "https://assets.akasaair.com/f/167793/179x46/745ea0caf8/logo_white_tag-1.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.776006+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/media/02743a8d10a3d186-s.p.woff2",
+      "method": "GET",
+      "headers": {
+        "origin": "https://www.akasaair.com",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.776751+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/media/1e41be92c43b3255-s.p.woff2",
+      "method": "GET",
+      "headers": {
+        "origin": "https://www.akasaair.com",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.777359+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/css/073da67b982f2233.css",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.777930+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/css/dd3cf8231923e190.css",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.778353+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/css/a22a977b7c7e2dbe.css",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.778814+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F2880x1000%2F56984c5ddd%2Felevate_hero-banner_desktop_2880x1000-2.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.779255+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/webpack-afacf5d1747032bb.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.779673+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/framework-dc5269af09520b77.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.780155+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/main-a0270cb8ce8c7766.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.780627+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/pages/_app-84a570ede0ee2520.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.781361+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/2bd5674f-146380c794319543.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.782210+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/07c2d338-0251cb43a816a9ce.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.782927+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/3908-fadf5505b2d630af.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.783528+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/6423-17c565fdc3deff20.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.783940+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/2528-f2d435500e5419be.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.784290+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/pages/index-5d8771bdba04c5d0.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.784635+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/s-1Tx3w4OlwZp9q0fTg1C/_buildManifest.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.784990+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/s-1Tx3w4OlwZp9q0fTg1C/_ssgManifest.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.785362+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/svg/chevron_left_dark_grey.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.785716+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/images/wave2.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:40.786034+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F167793%2F399x212%2Ff2127002da%2Fnew-icon.gif%2Fm%2Ffilters%3Aformat(webp)&w=48&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.024230+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/icons/contrast-icon.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.025159+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/icons/chevron-left-orange.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.025820+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F2880x1000%2F7567d17537%2Fsbd_hero-banner_desktop_2880x1000.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.026334+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F2880x1000%2Fcd85c2f901%2Fjaipur_hero-banner_desktop_2880x1000.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.026771+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/icons/chevron-right-orange.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.027314+00:00"
+    },
+    {
+      "url": "https://assets.akasaair.com/f/167793/498x340/a2b86dbc83/akasa-orange-logo.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.027877+00:00"
+    },
+    {
+      "url": "https://assets.akasaair.com/f/167793/269x269/608e6da8d3/smile-girl-desktop.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.028952+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/3030.8fd5a10aed518660.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.991801+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/media/1a634e73dfeff02c-s.woff2",
+      "method": "GET",
+      "headers": {
+        "origin": "https://www.akasaair.com",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/_next/static/css/073da67b982f2233.css",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.994388+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F749x320%2F937b65ca3f%2Fwhy-fly-akasa_749x320.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.994741+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F440x440%2Faef3cd3dd2%2Fdestination-tile-440x440.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.994994+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F440x440%2F5916063002%2F440-x-440.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.995793+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F440x440%2Fa660049f8d%2Fhanoi_440x440.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:41.997539+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F440x440%2F8d44b874d6%2Fdibrugarh_network_440x440.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.004342+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F440x440%2Ff3ad45e928%2Fkozhikode-network-440x440.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.004726+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/token/generateToken",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.018404+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/token/generateToken",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.019124+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F544x544%2F681a10ec76%2Fflymore_544x544.jpg%2Fm%2Ffilters%3Aformat(webp)&w=384&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.028763+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F544x544%2F4c950941db%2Fweekend-campaign_544x544.jpg%2Fm%2Ffilters%3Aformat(webp)&w=384&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.029379+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F272x272%2F6142387cf2%2Fsenior-citizen-special-offer-without-text.jpg%2Fm%2Ffilters%3Aformat(webp)&w=384&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.030074+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F272x272%2Fa5c3856dca%2Fakasa-holiday-special-offer-272x272r.jpg%2Fm%2Ffilters%3Aformat(webp)&w=384&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.030689+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F723x676%2F11d4ce7bb7%2Fselect-your-seat_723x676.jpg%2Fm%2Ffilters%3Aformat(webp)&w=384&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.032954+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F740x676%2Fc9f269e80f%2Fganesh-chaturthi-special-meal_740x676_hp.jpg%2Fm%2Ffilters%3Aformat(webp)&w=384&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.033777+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F740x676%2F4d445ece7e%2Fpets-on-akasa-740-x-676.jpg%2Fm%2Ffilters%3Aformat(webp)&w=384&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.034374+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/images/akasaLoyaltyBannerGuestWeb.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/_next/static/css/073da67b982f2233.css",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.174395+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/svg/swapArrow.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.175181+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/icons/down-arrow-orange.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.175498+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/icons/circle-wavy-icon.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.175820+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/icons/info.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.176089+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=DEL&destination=BOM&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "None",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.188562+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=DEL&destination=BLR&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "None",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.290920+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/2980.f23b7e6a99d90698.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.328719+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=BOM&destination=BLR&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "None",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.368079+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/resources/master-data",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "j3SmH43+NcHCrhGVxx6KFkXzXu8EGTabvO47Uixlv7BOTQJHOYX8RB5x/G6TLNUfCyipPSKZmdj7tuYUHHmBQFeseUSxEXMebF5SF2HBxSVizoVe9Sl/dXZWTECq0JodizXWq6bHWgaDtaro4xdysOO5R4EmIgyW9BtfLIWNQNM+3vZmLNOQC5juz8Ih5nm0z+QijAs5p5CCvBbhZrrTpckQs7aDbtvc+iaEAuZgqLEez6U9QrmcpmPIx7P84JVXMSfKQgKL6Lf4uEdFr3NNOjJ9M1NUxeuo0rOmvlYYodRt5iEnkXnXiQ==",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.452767+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/icons/notification-icon.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.470550+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/icons/cross-white.svg",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.471351+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=DEL&destination=CCU&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "RhYsMkvYXfOWO1k2fQ0CuAOJDjCGUYUSP87rN0TyKD/77zz0s4v+cfCZ+5QUMEKFzJE0mMCEmXi/8A0kaXhg8LqmKbC0LAlL4c4bhXwIXJOJyeQT59sQJJHsrDx9SS5LK2oXv2hF7UP/saDL2Dhqwq9bq46EJpyRGTHGMVfxvkTr2VIzpHXsHv/YKvJQfH8fc5wyg1HglE4MSsUW5R9ybijRhM9sNepGMCt6p9rfLDrybGqzbUSJD6QLGlaj8Ot91jEonwS4DSO8PcsWeUPqvi90ZOn3rov/J7dBL9NR4HrUeoM836cfDQ==",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:42.523059+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=3&frm=0&apvc=1&ae=g&auid=1086868417.1788897403&dt=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&en=page_view&dl=https%3A%2F%2Fwww.akasaair.com%2F&scrsrc=www.googletagmanager.com&rnd=548079314.1788897403&navt=n&npa=0&ep.ads_data_redaction=0&gtm=45He6930h1v861446287za200zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938468~117776795~118897920~118897930~120385422~120469145~120469153~120912438~120914213&tft=1788897403149&tfd=3621&fmt=8",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:43.157249+00:00"
+    },
+    {
+      "url": "https://sdk-03.moengage.com/v2/device/add?os=web&os_platform=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F128.0.0.0%20Safari%2F537.36&is_incognito=false&app_id=YFOYJ31I34XKYOAQC1FGA6R9&os_ver=Windows%2010&sdk_ver=2.80.00&model=Google%20Chrome&app_ver=1.0&device_ts=1788897403175&device_tz_offset=19800000&unique_id=25bc5fc6-fe93-49d9-9a43-ad7237e8fd86&device_tz=-330&device_unique_id=11782f18-d1bc-4400-a6d5-9b703e106016&subscription_type=vapid&vapid_public=BHXtWCzwauV7Cc5mwK1NW9-jWnsjBC57PxD_UK2kjhKahUkbIzRECvE3e6Fempkt5MwKlwSqTXZU2n-u2Br2NkU&environment=sdk-03.moengage.com&url=https%3A%2F%2Fwww.akasaair.com%2F",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "content-type": "text/plain;charset=UTF-8",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:43.188374+00:00"
+    },
+    {
+      "url": "https://connect.facebook.net/signals/config/3554560081470764?v=2.9.396&r=stable&domain=www.akasaair.com&hme=e8cce016f121f9a0e2517d0fa5bcd24ff6154c97c60c9c1ec9a8003d21c1cd28&ex_m=115%2C227%2C166%2C26%2C80%2C81%2C158%2C76%2C75%2C11%2C176%2C100%2C20%2C150%2C138%2C45%2C83%2C88%2C146%2C171%2C178%2C31%2C17%2C30%2C18%2C32%2C33%2C34%2C36%2C54%2C159%2C85%2C123%2C22%2C24%2C50%2C46%2C48%2C47%2C93%2C102%2C106%2C121%2C157%2C160%2C52%2C122%2C28%2C25%2C130%2C77%2C42%2C162%2C161%2C163%2C154%2C152%2C29%2C41%2C65%2C120%2C173%2C78%2C21%2C125%2C91%2C74%2C23%2C95%2C96%2C127%2C94%2C148%2C147%2C151%2C107%2C172%2C175%2C40%2C55%2C124%2C53%2C8%2C4%2C5%2C7%2C6%2C3%2C101%2C112%2C180%2C179%2C194%2C241%2C82%2C255%2C254%2C253%2C14%2C27%2C39%2C61%2C114%2C67%2C10%2C71%2C108%2C109%2C110%2C116%2C141%2C37%2C35%2C143%2C144%2C145%2C140%2C139%2C167%2C84%2C170%2C168%2C169%2C56%2C66%2C134%2C19%2C174%2C51%2C304%2C305%2C306%2C303%2C319%2C341%2C234%2C223%2C68%2C224%2C222%2C344%2C335%2C58%2C235%2C118%2C142%2C90%2C132%2C60%2C131%2C137%2C136%2C64%2C72%2C70%2C164%2C86%2C87%2C126%2C43%2C38%2C59%2C62%2C111%2C177%2C1%2C135%2C16%2C133%2C12%2C2%2C63%2C103%2C15%2C73%2C69%2C129%2C99%2C98%2C182%2C183%2C104%2C105%2C9%2C113%2C181%2C57%2C155%2C97%2C89%2C79%2C128%2C117%2C49%2C156%2C0%2C92%2C149%2C153%2C165%2C44%2C119%2C13%2C184",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:43.582233+00:00"
+    },
+    {
+      "url": "https://analytics.google.com/g/collect?v=2&tid=G-CJENG9N8NS&gtm=45je6930h1v888147326z8861446287za20gzb861446287zd861446287&_p=1788897402535&_gaz=1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1791409749&_eu=AAAAAGAC&cid=2100365479.1788897404&ec_mode=a&frm=0&pscdl=noapi&rcb=16&sr=1440x900&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-us&gaf=2&_s=1&tag_exp=115938466~115938468~118897920~118897930~119205316~120213116~120385422~120469145~120469153&sid=1788897403&sct=1&seg=0&dl=https%3A%2F%2Fwww.akasaair.com%2F&dt=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=4149",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:43.686486+00:00"
+    },
+    {
+      "url": "https://bat.bing.com/action/0?ti=187132227&tm=gtm002&Ver=2&mid=bce0da83-c5d1-4fea-bd48-ff627f7fe0b6&bo=1&sid=6a666700abbf11f188f4a36f25272d09&vid=6a6681a0abbf11f19d574759874846c2&vids=1&msclkid=N&uach=pv%3D10.0&pi=918639831&lg=en-US&sw=1440&sh=900&sc=24&nwd=1&tl=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&kw=akasa%20air,%20flight%20booking,%20online%20flight%20booking,domestic%20flights,%20air%20tickets,%20online%20ticket%20booking,%20cheapest%20air%20tickets&p=https%3A%2F%2Fwww.akasaair.com%2F&r=&lt=2744&evt=pageLoad&sv=2&cdb=AQAQ&rn=784338",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:43.743909+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=BLR&destination=HYD&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "RhYsMkvYXfOWO1k2fQ0CuAOJDjCGUYUSP87rN0TyKD/77zz0s4v+cfCZ+5QUMEKFzJE0mMCEmXi/8A0kaXhg8LqmKbC0LAlL4c4bhXwIXJOJyeQT59sQJJHsrDx9SS5LK2oXv2hF7UP/saDL2Dhqwq9bq46EJpyRGTHGMVfxvkTr2VIzpHXsHv/YKvJQfH8fc5wyg1HglE4MSsUW5R9ybijRhM9sNepGMCt6p9rfLDrybGqzbUSJD6QLGlaj8Ot91jEonwS4DSO8PcsWeUPqvi90ZOn3rov/J7dBL9NR4HrUeoM836cfDQ==",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:43.744579+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/nsk/v2/resources/markets?ActiveOnly=true",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "RhYsMkvYXfOWO1k2fQ0CuAOJDjCGUYUSP87rN0TyKD/77zz0s4v+cfCZ+5QUMEKFzJE0mMCEmXi/8A0kaXhg8LqmKbC0LAlL4c4bhXwIXJOJyeQT59sQJJHsrDx9SS5LK2oXv2hF7UP/saDL2Dhqwq9bq46EJpyRGTHGMVfxvkTr2VIzpHXsHv/YKvJQfH8fc5wyg1HglE4MSsUW5R9ybijRhM9sNepGMCt6p9rfLDrybGqzbUSJD6QLGlaj8Ot91jEonwS4DSO8PcsWeUPqvi90ZOn3rov/J7dBL9NR4HrUeoM836cfDQ==",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:43.885065+00:00"
+    },
+    {
+      "url": "https://www.facebook.com/tr/?id=3554560081470764&ev=PageView&dl=https%3A%2F%2Fwww.akasaair.com%2F&rl=&if=false&ts=1788897404001&iw=false&sw=1440&sh=900&v=2.9.396&r=stable&ec=0&o=4126&aems=0%3B0&fbp=fb.1.1788897403988.676674012696553034&ler=empty&cdl=API_unavailable&pmd[title]=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&pmd[locale]=en&pmd[description]=Book%20flights%20online%20and%20enjoy%20affordable%20fares%2C%20warm%20service%20and%20reliable%20operations%20to%20Akasa%20Air%27s%20growing%20network%20of%20destinations.&pmd[keywords]=akasa%20air%2C%20flight%20booking%2C%20online%20flight%20booking%2Cdomestic%20flights%2C%20air%20tickets%2C%20online%20ticket%20booking%2C%20cheapest%20air%20tickets&plt=2110.5999999996275&iss=1&imft=1&tz=330&it=1788897403576&coo=false&expv2[0]=pl1&expv2[1]=el2&expv2[2]=bc1&expv2[3]=ra2&expv2[4]=rp2&expv2[5]=im0&expv2[6]=hf1&expv2[7]=sd1&expv2[8]=sp1&expv2[9]=ek1&expv2[10]=pc1&expv2[11]=gs1&expv2[12]=zs1&expv2[13]=cp1&expv2[14]=es1&expv2[15]=ac1&expv2[16]=so1&expv2[17]=wc3&expv2[18]=la1&expv2[19]=sf1&expv2[20]=da1&expv2[21]=io1&expv2[22]=ae1&expv2[23]=sx1&expv2[24]=if1&expv2[25]=fd1&expv2[26]=bg3&expv2[27]=mg3&expv2[28]=kl3&expv2[29]=sg3&expv2[30]=mk3&expv2[31]=sn3&expv2[32]=ec3&expv2[33]=mp3&expv2[34]=ps3&expv2[35]=fx3&expv2[36]=vt3&rqm=GET",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.008616+00:00"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/10961642956/?random=1788897404064&cv=11&fst=1788897404064&bg=ffffff&guid=ON&async=1&gtm=45be6930h1z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938469~117776795~118897920~118897930~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=17&label=Group%20M&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&_tu=CA&ept=9&rfmt=3&fmt=4",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.091854+00:00"
+    },
+    {
+      "url": "https://www.google.com/rmkt/collect/10961642956/?random=1788897404064&cv=11&fst=1788897404064&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6930h1z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938469~117776795~118897920~118897930~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=17&label=Group%20M&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&_tu=CA&ept=68&gcp=5",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.092172+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=17&frm=0&apvc=0&ae=g&auid=1086868417.1788897403&dt=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&tid=AW-10961642956&dl=https%3A%2F%2Fwww.akasaair.com%2F&scrsrc=www.googletagmanager.com&rnd=548079314.1788897403&navt=n&npa=0&_tu=CA&gtm=45be6930h1z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938469~117776795~118897920~118897930~120385422~120469145~120469153&tft=1788897404088&tfd=4560&tids=AW-10961642956&fmt=8",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.092463+00:00"
+    },
+    {
+      "url": "https://ad.doubleclick.net/activity;src=10535253;type=invmedia;cat=akasa0;rcb=7;ord=7996557831527;npa=0;auiddc=1086868417.1788897403;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;_tu=KFA;gtm=45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea;gcd=13l3l3l3l1l1;dma=0;dc_fmt=3;tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385423~120469145~120469153;epver=2;dc_random=1788897404_rI5XwSLBVjRdgcTHzlRAYpCms8vK_JzldQ;~oref=https%3A%2F%2Fwww.akasaair.com%2F?",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.170760+00:00"
+    },
+    {
+      "url": "https://10535253.fls.doubleclick.net/activityi;src=10535253;type=invmedia;cat=akasa0;rcb=7;ord=7996557831527;npa=0;auiddc=1086868417.1788897403;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;_tu=KFA;gtm=45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea;gcd=13l3l3l3l1l1;dma=0;dc_fmt=2;tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385423~120469145~120469153;epver=2;dc_random=1788897404_rI5XwSLBVjRdgcTHzlRAYpCms8vK_JzldQ;_dc_test=1;~oref=https%3A%2F%2Fwww.akasaair.com%2F?",
+      "method": "GET",
+      "headers": {
+        "referer": "https://www.akasaair.com/",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "timestamp": "2026-09-08T19:56:44.178911+00:00"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/11046280665/?random=1788897404243&cv=11&fst=1788897404243&bg=ffffff&guid=ON&async=1&gtm=45be6930h1v9183312776z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~117776795~118897920~118897930~120213116~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=16&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&_tu=CA&ept=9&rfmt=3&fmt=4",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.301069+00:00"
+    },
+    {
+      "url": "https://www.google.com/rmkt/collect/11046280665/?random=1788897404243&cv=11&fst=1788897404243&fmt=8&bg=ffffff&guid=ON&async=1&gtm=45be6930h1v9183312776z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~117776795~118897920~118897930~120213116~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=16&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&_tu=CA&ept=68&gcp=5",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.301440+00:00"
+    },
+    {
+      "url": "https://www.googleadservices.com/pagead/conversion/11046280665/?random=1788897404269&cv=11&fst=1788897404269&fmt=7&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45be6930h1v9183312776z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~117776795~118897920~118897930~120213116~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=16&label=CVT5CLHn_4kYENm7o5Mp&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&bttype=purchase&value=0&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&ec_mode=a&oid=962827868.1788897404&oidsrc=3&ecsid2=2097216953.1788897404&_tu=CBA&gcl_ctr=1~0~0~0&category=acrcp_v1_512&em=tv.1&emd=tvd.1&ept=5",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.301865+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=16&frm=0&apvc=0&ae=g&auid=1086868417.1788897403&dt=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&tid=AW-11046280665&dl=https%3A%2F%2Fwww.akasaair.com%2F&scrsrc=www.googletagmanager.com&rnd=548079314.1788897403&navt=n&npa=0&_tu=CA&gtm=45be6930h1v9183312776z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~117776795~118897920~118897930~120213116~120385422~120469145~120469153&tft=1788897404295&tfd=4767&tids=AW-11046280665&fmt=8",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.302145+00:00"
+    },
+    {
+      "url": "https://www.googleadservices.com/ccm/conversion/11046280665/?random=1788897404269&cv=11&fst=1788897404269&fmt=3&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45be6930h1v9183312776z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~117776795~118897920~118897930~120213116~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=16&label=CVT5CLHn_4kYENm7o5Mp&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&bttype=purchase&value=0&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&ec_mode=a&oid=962827868.1788897404&oidsrc=3&ecsid2=2097216953.1788897404&_tu=CBA&gcl_ctr=1~0~0~0&em=tv.1&emd=tvd.1",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.302405+00:00"
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-user-list/10961642956/?random=1788897404064&cv=11&fst=1788894000000&bg=ffffff&guid=ON&async=1&gtm=45be6930h1z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938469~117776795~118897920~118897930~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=17&label=Group%20M&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&_tu=CA&ept=9&rfmt=3&fmt=3&is_vtc=1&cid=CAQS0wEAQM4h3Bte-Viz3GWNHKvrOq1kuQjF0geBhimjkLCQK21Z5Junu52aAnArwI1cuuvrLgcYXExgxcMoLNh2gOAwC56ZKxDtgzByWj6p51ffoMaycMyQ7FZd4Q55eYFD8S4IUiYENCMmDgTbGZheQ-vYzcEl1ULgjddmqOeaB3Dlp6LMti_9mR2awDzPuzN7jaqoV7QOFRcQ4ADglmCHKx6fMiZyDk9_TLt9Hlcx30ic74FQDA_1gJQmK68Qg4UTrfJpE7H2_dsiVRPOo4PZbE5siy_8&random=1352939135&rmt_tld=0&ipr=y",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.458134+00:00"
+    },
+    {
+      "url": "https://www.google.co.in/pagead/1p-user-list/10961642956/?random=1788897404064&cv=11&fst=1788894000000&bg=ffffff&guid=ON&async=1&gtm=45be6930h1z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938466~115938469~117776795~118897920~118897930~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=17&label=Group%20M&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&_tu=CA&ept=9&rfmt=3&fmt=3&is_vtc=1&cid=CAQS0wEAQM4h3Bte-Viz3GWNHKvrOq1kuQjF0geBhimjkLCQK21Z5Junu52aAnArwI1cuuvrLgcYXExgxcMoLNh2gOAwC56ZKxDtgzByWj6p51ffoMaycMyQ7FZd4Q55eYFD8S4IUiYENCMmDgTbGZheQ-vYzcEl1ULgjddmqOeaB3Dlp6LMti_9mR2awDzPuzN7jaqoV7QOFRcQ4ADglmCHKx6fMiZyDk9_TLt9Hlcx30ic74FQDA_1gJQmK68Qg4UTrfJpE7H2_dsiVRPOo4PZbE5siy_8&random=1352939135&rmt_tld=1&ipr=y",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.458634+00:00"
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-user-list/11046280665/?random=1788897404243&cv=11&fst=1788894000000&bg=ffffff&guid=ON&async=1&gtm=45be6930h1v9183312776z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~117776795~118897920~118897930~120213116~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=16&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&_tu=CA&ept=9&rfmt=3&fmt=3&is_vtc=1&cid=CAQS0wEAQM4h3Mp_0y80gJpEJIiYKNipaSewa6Yuv_4CWgg5G_HsQt2WoVDeAb13v4hxzpjB8YLJO1zENzDIBNrDI94wBgbadoWJUj_QPH9G_Jo8zLZSrywvZH3an1qsnjFs-iut-vlRgOI_8aAJA5N3ujcakXuuS_Kd8HEr-XTv7RSyQIDNx73ex4RoWY64nXyQzlgco1wktHI0HhmvrV0FXvW-bbP3VxiENJqwNezPMlNfDtsRNQlv83Qw03o-LlmjB3X7n8995-SEH9k3OXwrE83W6nbW&random=450451517&rmt_tld=0&ipr=y",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.459427+00:00"
+    },
+    {
+      "url": "https://www.google.co.in/pagead/1p-user-list/11046280665/?random=1788897404243&cv=11&fst=1788894000000&bg=ffffff&guid=ON&async=1&gtm=45be6930h1v9183312776z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~117776795~118897920~118897930~120213116~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=16&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&_tu=CA&ept=9&rfmt=3&fmt=3&is_vtc=1&cid=CAQS0wEAQM4h3Mp_0y80gJpEJIiYKNipaSewa6Yuv_4CWgg5G_HsQt2WoVDeAb13v4hxzpjB8YLJO1zENzDIBNrDI94wBgbadoWJUj_QPH9G_Jo8zLZSrywvZH3an1qsnjFs-iut-vlRgOI_8aAJA5N3ujcakXuuS_Kd8HEr-XTv7RSyQIDNx73ex4RoWY64nXyQzlgco1wktHI0HhmvrV0FXvW-bbP3VxiENJqwNezPMlNfDtsRNQlv83Qw03o-LlmjB3X7n8995-SEH9k3OXwrE83W6nbW&random=450451517&rmt_tld=1&ipr=y",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.459853+00:00"
+    },
+    {
+      "url": "https://10535253.fls.doubleclick.net/activityi;dc_pre=CNHv9Y_i35YDFRqNOAgd71YX6g;src=10535253;type=invmedia;cat=akasa0;rcb=7;ord=7996557831527;npa=0;auiddc=1086868417.1788897403;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;_tu=KFA;gtm=45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea;gcd=13l3l3l3l1l1;dma=0;dc_fmt=2;tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385423~120469145~120469153;epver=2;dc_random=1788897404_rI5XwSLBVjRdgcTHzlRAYpCms8vK_JzldQ;_dc_test=1;~oref=https%3A%2F%2Fwww.akasaair.com%2F?",
+      "method": "GET",
+      "headers": {
+        "referer": "https://www.akasaair.com/",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "timestamp": "2026-09-08T19:56:44.585343+00:00"
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-conversion/11046280665/?random=204056332&cv=11&fst=1788897404269&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45be6930h1v9183312776z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~117776795~118897920~118897930~120213116~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=16&label=CVT5CLHn_4kYENm7o5Mp&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&value=0&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&ec_mode=a&oidsrc=3&ecsid2=2097216953.1788897404&_tu=CBA&gcl_ctr=1~0~0~0&category=acrcp_v1_512&em=tv.1&emd=tvd.1&ept=5&ct_cookie_present=false&eoid=CkQKEQjw5P7UBhD48a6snbLHw44BEi8A0zlCFbEcj7zYANXohbAE49ECMvTJdMdfyJcmo7Rje1D6Ooi7b3b219Vz-GbwyPD_BwE&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQII1-ixAgi0xrECCJPasQII29yxAgiH27ECCNPFsQII68yxAgjtzrECCNXPsQII9NqxAgji6rECCOjusQIIkuuxAgjJ47ECCJfUsQIIyduxAgjN5rECCLHhsQIIs-GxAgim3bECCLDesQIIgNuxAgjL4bEC&cerd=CgSDsL4t&eitems=ChAI8OT-1AYQtbzl_e6JmrAXEh0Azyks5omXh6e3wkh6VR429oKXNGRZmWw-TSv0NA&fsk=ChEI8OT-1AYQ4YOqyJqPwqm6ARIsAIch8ca4dKRo2yGtGpwwtt-Y0Y32hvx5fFiW0bjkw8bZY7qvVyvcKj07AsgaAhvQ&pscrd=IhMIwc38j-LflgMVdyW3AB1J5AaeOhlodHRwczovL3d3dy5ha2FzYWFpci5jb20vQlNDaEFJOE9ULTFBWVE3ZjZGcEw3b3Bxc0NFaW9Ba1pmdkRzSzRmendad3VjNl9BRTRUclhuZHo3VkdnMW1KQmNwclgyUVZGX2ZGQ3gwUENmaTZTZ3oMCAliCAgAEAAYACAA&gcp=3",
+      "method": "POST",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.688936+00:00"
+    },
+    {
+      "url": "https://adservice.google.com/ddm/fls/z/dc_pre=CNHv9Y_i35YDFRqNOAgd71YX6g;src=10535253;type=invmedia;cat=akasa0;rcb=7;ord=7996557831527;npa=0;auiddc=*;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;_tu=KFA;gtm=45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea;gcd=13l3l3l3l1l1;dma=0;dc_fmt=2;tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385423~120469145~120469153;epver=2;dc_random=1788897404_rI5XwSLBVjRdgcTHzlRAYpCms8vK_JzldQ;_dc_test=1;~oref=https%3A%2F%2Fwww.akasaair.com%2F",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://10535253.fls.doubleclick.net/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:44.815467+00:00"
+    },
+    {
+      "url": "https://www.google.co.in/pagead/1p-conversion/11046280665/?random=204056332&cv=11&fst=1788897404269&fmt=8&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45be6930h1v9183312776z8861446287za20gzb861446287zd861446287xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938466~115938469~117776795~118897920~118897930~120213116~120385422~120469145~120469153&u_w=1440&u_h=900&url=https%3A%2F%2Fwww.akasaair.com%2F&rcb=16&label=CVT5CLHn_4kYENm7o5Mp&frm=0&tiba=Book%20Flights%20Online%20with%20Akasa%20Air%20at%20affordable%20fares.&value=0&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1086868417.1788897403&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&ec_mode=a&oidsrc=3&ecsid2=2097216953.1788897404&_tu=CBA&gcl_ctr=1~0~0~0&category=acrcp_v1_512&em=tv.1&emd=tvd.1&ept=5&ct_cookie_present=false&eoid=CkQKEQjw5P7UBhD48a6snbLHw44BEi8A0zlCFbEcj7zYANXohbAE49ECMvTJdMdfyJcmo7Rje1D6Ooi7b3b219Vz-GbwyPD_BwE&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQII1-ixAgi0xrECCJPasQII29yxAgiH27ECCNPFsQII68yxAgjtzrECCNXPsQII9NqxAgji6rECCOjusQIIkuuxAgjJ47ECCJfUsQIIyduxAgjN5rECCLHhsQIIs-GxAgim3bECCLDesQIIgNuxAgjL4bEC&cerd=CgSDsL4t&eitems=ChAI8OT-1AYQtbzl_e6JmrAXEh0Azyks5omXh6e3wkh6VR429oKXNGRZmWw-TSv0NA&fsk=ChEI8OT-1AYQ4YOqyJqPwqm6ARIsAIch8ca4dKRo2yGtGpwwtt-Y0Y32hvx5fFiW0bjkw8bZY7qvVyvcKj07AsgaAhvQ&gcp=3&ipr=y&pscrd=IhMIwc38j-LflgMVdyW3AB1J5AaeOhlodHRwczovL3d3dy5ha2FzYWFpci5jb20vQlNDaEFJOE9ULTFBWVE3ZjZGcEw3b3Bxc0NFaW9Ba1pmdkRzSzRmendad3VjNl9BRTRUclhuZHo3VkdnMW1KQmNwclgyUVZGX2ZGQ3gwUENmaTZTZ3oMCAliCAgAEAAYACAAggETcAGIAQHiAQEC8QGTMwtQYWftPw",
+      "method": "GET",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "referer": "https://www.akasaair.com/"
+      },
+      "timestamp": "2026-09-08T19:56:44.888978+00:00"
+    },
+    {
+      "url": "https://www.googleadservices.com/pagead/conversion/460123840/?random=1788897405210&cv=9&fst=1788897405210&num=1&npa=1&label=rqWOCPzg7cUZEMDds9sB&guid=ON&resp=GooglemKTybQhCsO&eid=375603261%2C466465925%2C512247838%2C658953495&u_h=600&u_w=800&ig=1&auid=1086868417.1788897403&frm=2&url=https%3A%2F%2F10535253.fls.doubleclick.net%2Factivityi%3Bdc_pre%3DCNHv9Y_i35YDFRqNOAgd71YX6g%3Bsrc%3D10535253%3Btype%3Dinvmedia%3Bcat%3Dakasa0%3Brcb%3D7%3Bord%3D7996557831527%3Bnpa%3D0%3Bauiddc%3D1086868417.1788897403%3Buaa%3Dx86%3Buab%3D64%3Buafvl%3DChromium%253B152.0.7977.76%257CNot%25253FA_Brand%253B24.0.0.0%257CGoogle%252520Chrome%253B152.0.7977.76%3Buamb%3D0%3Buam%3D%3Buap%3DWindows%3Buapv%3D10.0%3Buaw%3D0%3Bpscdl%3Dnoapi%3Bfrm%3D0%3B_tu%3DKFA%3Bgtm%3D45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea%3Bgcd%3D13l3l3l3l1l1%3Bdma%3D0%3Bdc_fmt%3D2%3Btag_exp%3D115938466~115938468~117776795~118897920~118897930~&ref=https%3A%2F%2Fwww.akasaair.com%2F&top=https%3A%2F%2Fwww.akasaair.com%2F&hn=www.googleadservices.com&rfmt=3&fmt=4",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://10535253.fls.doubleclick.net/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:45.221304+00:00"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/460123840/?random=1372564310&cv=9&fst=1788897405210&num=1&npa=1&label=rqWOCPzg7cUZEMDds9sB&guid=ON&resp=GooglemKTybQhCsO&eid=375603261%2C466465925%2C512247838%2C658953495&u_h=600&u_w=800&ig=1&auid=1086868417.1788897403&frm=2&url=https%3A%2F%2F10535253.fls.doubleclick.net%2Factivityi%3Bdc_pre%3DCNHv9Y_i35YDFRqNOAgd71YX6g%3Bsrc%3D10535253%3Btype%3Dinvmedia%3Bcat%3Dakasa0%3Brcb%3D7%3Bord%3D7996557831527%3Bnpa%3D0%3Bauiddc%3D1086868417.1788897403%3Buaa%3Dx86%3Buab%3D64%3Buafvl%3DChromium%253B152.0.7977.76%257CNot%25253FA_Brand%253B24.0.0.0%257CGoogle%252520Chrome%253B152.0.7977.76%3Buamb%3D0%3Buam%3D%3Buap%3DWindows%3Buapv%3D10.0%3Buaw%3D0%3Bpscdl%3Dnoapi%3Bfrm%3D0%3B_tu%3DKFA%3Bgtm%3D45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea%3Bgcd%3D13l3l3l3l1l1%3Bdma%3D0%3Bdc_fmt%3D2%3Btag_exp%3D115938466~115938468~117776795~118897920~118897930~&ref=https%3A%2F%2Fwww.akasaair.com%2F&top=https%3A%2F%2Fwww.akasaair.com%2F&hn=www.googleadservices.com&fmt=3&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQII1-ixAgi0xrECCJPasQII29yxAgiH27ECCNPFsQII68yxAgjtzrECCNXPsQII9NqxAgji6rECCOjusQIIkuuxAgjJ47ECCJfUsQIIyduxAgjN5rECCNTmsQIIseGxAgiz4bECCKbdsQIIsN6xAgiA27EC&cerd=Cgjbib4tgrC-LQ&fsk=ChEI8OT-1AYQ4YOqyJqPwqm6ARIsAIch8cbNJB4I8NElk6YK5-N4YerCirhHEE80UsNXfy04CibzGkGD7y_vm5saAr4S&pscrd=IhMI68mlkOLflgMV2NVzAR3ywy3QOiVodHRwczovLzEwNTM1MjUzLmZscy5kb3VibGVjbGljay5uZXQvQlNDaEFJOE9ULTFBWVE3ZjZGcEw3b3Bxc0NFaW9Ba1pmdkRveVpyRXNVeHpidTQ3VjYzNWM5LWVEZnV4NlQ3VFU4ajd6NUNlT0pUOWtmOERjb00tRXoMCAliCAgAEAAYACAA",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://10535253.fls.doubleclick.net/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:45.347237+00:00"
+    },
+    {
+      "url": "https://ad.doubleclick.net/activity;dc_pre=CIGq5Y_i35YDFfrohAAdArEgUA;src=10535253;type=invmedia;cat=akasa0;rcb=7;ord=7996557831527;npa=0;auiddc=1086868417.1788897403;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;_tu=KFA;gtm=45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea;gcd=13l3l3l3l1l1;dma=0;dc_fmt=3;tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385423~120469145~120469153;epver=2;dc_random=1788897404_rI5XwSLBVjRdgcTHzlRAYpCms8vK_JzldQ;~oref=https%3A%2F%2Fwww.akasaair.com%2F?",
+      "method": "GET",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "referer": "https://www.akasaair.com/"
+      },
+      "timestamp": "2026-09-08T19:56:45.384498+00:00"
+    },
+    {
+      "url": "https://www.google.com/gmp/conversion/_dc_unique_id=11871133687847366220;_dc_ptd=ChEI8OT-1AYQ2LvBq_3xoanXARIfAHQpldo26yJ2qGej-L4wbFHAt1rx7fLZGgF3e80e1A;_dc_time=1788897398;dc_pre=CIGq5Y_i35YDFfrohAAdArEgUA;src=10535253;type=invmedia;cat=akasa0;rcb=7;ord=7996557831527;npa=0;auiddc=1086868417.1788897403;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.76%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.76;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;_tu=KFA;gtm=45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea;gcd=13l3l3l3l1l1;dma=0;dc_fmt=3;tag_exp=115938466~115938468~117776795~118897920~118897930~120213116~120385423~120469145~120469153;epver=2;dc_random=1788897404_rI5XwSLBVjRdgcTHzlRAYpCms8vK_JzldQ;~oref=https%3A%2F%2Fwww.akasaair.com%2F?",
+      "method": "GET",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "referer": "https://www.akasaair.com/"
+      },
+      "timestamp": "2026-09-08T19:56:45.385005+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=MAA&destination=DEL&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "RhYsMkvYXfOWO1k2fQ0CuAOJDjCGUYUSP87rN0TyKD/77zz0s4v+cfCZ+5QUMEKFzJE0mMCEmXi/8A0kaXhg8LqmKbC0LAlL4c4bhXwIXJOJyeQT59sQJJHsrDx9SS5LK2oXv2hF7UP/saDL2Dhqwq9bq46EJpyRGTHGMVfxvkTr2VIzpHXsHv/YKvJQfH8fc5wyg1HglE4MSsUW5R9ybijRhM9sNepGMCt6p9rfLDrybGqzbUSJD6QLGlaj8Ot91jEonwS4DSO8PcsWeUPqvi90ZOn3rov/J7dBL9NR4HrUeoM836cfDQ==",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:45.623065+00:00"
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-conversion/460123840/?random=1372564310&cv=9&fst=1788897405210&num=1&npa=1&label=rqWOCPzg7cUZEMDds9sB&guid=ON&resp=GooglemKTybQhCsO&eid=375603261%2C466465925%2C512247838%2C658953495&u_h=600&u_w=800&ig=1&auid=1086868417.1788897403&frm=2&url=https%3A%2F%2F10535253.fls.doubleclick.net%2Factivityi%3Bdc_pre%3DCNHv9Y_i35YDFRqNOAgd71YX6g%3Bsrc%3D10535253%3Btype%3Dinvmedia%3Bcat%3Dakasa0%3Brcb%3D7%3Bord%3D7996557831527%3Bnpa%3D0%3Bauiddc%3D1086868417.1788897403%3Buaa%3Dx86%3Buab%3D64%3Buafvl%3DChromium%253B152.0.7977.76%257CNot%25253FA_Brand%253B24.0.0.0%257CGoogle%252520Chrome%253B152.0.7977.76%3Buamb%3D0%3Buam%3D%3Buap%3DWindows%3Buapv%3D10.0%3Buaw%3D0%3Bpscdl%3Dnoapi%3Bfrm%3D0%3B_tu%3DKFA%3Bgtm%3D45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea%3Bgcd%3D13l3l3l3l1l1%3Bdma%3D0%3Bdc_fmt%3D2%3Btag_exp%3D115938466~115938468~117776795~118897920~118897930~&ref=https%3A%2F%2Fwww.akasaair.com%2F&top=https%3A%2F%2Fwww.akasaair.com%2F&hn=www.googleadservices.com&fmt=3&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQII1-ixAgi0xrECCJPasQII29yxAgiH27ECCNPFsQII68yxAgjtzrECCNXPsQII9NqxAgji6rECCOjusQIIkuuxAgjJ47ECCJfUsQIIyduxAgjN5rECCNTmsQIIseGxAgiz4bECCKbdsQIIsN6xAgiA27EC&cerd=Cgjbib4tgrC-LQ&fsk=ChEI8OT-1AYQ4YOqyJqPwqm6ARIsAIch8cbNJB4I8NElk6YK5-N4YerCirhHEE80UsNXfy04CibzGkGD7y_vm5saAr4S&pscrd=IhMI68mlkOLflgMV2NVzAR3ywy3QOiVodHRwczovLzEwNTM1MjUzLmZscy5kb3VibGVjbGljay5uZXQvQlNDaEFJOE9ULTFBWVE3ZjZGcEw3b3Bxc0NFaW9Ba1pmdkRveVpyRXNVeHpidTQ3VjYzNWM5LWVEZnV4NlQ3VFU4ajd6NUNlT0pUOWtmOERjb00tRXoMCAliCAgAEAAYACAA&is_vtc=1&vdi=1&cid=CAQSvgEAQM4h3BMgKQueNJdfrq9zDOerK8QHb1bYfnWZg9joefQAcmw88Af1SLTP36o3n4kd5iRHnk-Mt14UT6JzCtxEC9M6XJHjbtL5wAp96GPjkb9Hmlx8TX_tINcdWLe12BOxJihBTP0xtj3Ie4ZpK9eLc27ykc27elsmmLJjK2eFkVzZWPUQLWqTjNxfx3rc15VL5-ROhXHpD1A4zg-LiGfRMuum1fBksWtjJ4MNWNVRVc2f3drGgtvVnwSl2CQb&random=3071074823&resp=GooglemKTybQhCsO",
+      "method": "GET",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "referer": "https://10535253.fls.doubleclick.net/"
+      },
+      "timestamp": "2026-09-08T19:56:45.701110+00:00"
+    },
+    {
+      "url": "https://www.google.co.in/pagead/1p-conversion/460123840/?random=1372564310&cv=9&fst=1788897405210&num=1&npa=1&label=rqWOCPzg7cUZEMDds9sB&guid=ON&resp=GooglemKTybQhCsO&eid=375603261%2C466465925%2C512247838%2C658953495&u_h=600&u_w=800&ig=1&auid=1086868417.1788897403&frm=2&url=https%3A%2F%2F10535253.fls.doubleclick.net%2Factivityi%3Bdc_pre%3DCNHv9Y_i35YDFRqNOAgd71YX6g%3Bsrc%3D10535253%3Btype%3Dinvmedia%3Bcat%3Dakasa0%3Brcb%3D7%3Bord%3D7996557831527%3Bnpa%3D0%3Bauiddc%3D1086868417.1788897403%3Buaa%3Dx86%3Buab%3D64%3Buafvl%3DChromium%253B152.0.7977.76%257CNot%25253FA_Brand%253B24.0.0.0%257CGoogle%252520Chrome%253B152.0.7977.76%3Buamb%3D0%3Buam%3D%3Buap%3DWindows%3Buapv%3D10.0%3Buaw%3D0%3Bpscdl%3Dnoapi%3Bfrm%3D0%3B_tu%3DKFA%3Bgtm%3D45fe6930h1v9190097116z8861446287za20gzb861446287zd861446287xea%3Bgcd%3D13l3l3l3l1l1%3Bdma%3D0%3Bdc_fmt%3D2%3Btag_exp%3D115938466~115938468~117776795~118897920~118897930~&ref=https%3A%2F%2Fwww.akasaair.com%2F&top=https%3A%2F%2Fwww.akasaair.com%2F&hn=www.googleadservices.com&fmt=3&ct_cookie_present=false&crd=CLTesQII8t-xAgit4bECCK_hsQIIobixAgixwbECCLDBsQIIscOxAgiKxbECCMLJsQII1-ixAgi0xrECCJPasQII29yxAgiH27ECCNPFsQII68yxAgjtzrECCNXPsQII9NqxAgji6rECCOjusQIIkuuxAgjJ47ECCJfUsQIIyduxAgjN5rECCNTmsQIIseGxAgiz4bECCKbdsQIIsN6xAgiA27EC&cerd=Cgjbib4tgrC-LQ&fsk=ChEI8OT-1AYQ4YOqyJqPwqm6ARIsAIch8cbNJB4I8NElk6YK5-N4YerCirhHEE80UsNXfy04CibzGkGD7y_vm5saAr4S&is_vtc=1&vdi=1&cid=CAQSvgEAQM4h3BMgKQueNJdfrq9zDOerK8QHb1bYfnWZg9joefQAcmw88Af1SLTP36o3n4kd5iRHnk-Mt14UT6JzCtxEC9M6XJHjbtL5wAp96GPjkb9Hmlx8TX_tINcdWLe12BOxJihBTP0xtj3Ie4ZpK9eLc27ykc27elsmmLJjK2eFkVzZWPUQLWqTjNxfx3rc15VL5-ROhXHpD1A4zg-LiGfRMuum1fBksWtjJ4MNWNVRVc2f3drGgtvVnwSl2CQb&random=3071074823&resp=GooglemKTybQhCsO&ipr=y&pscrd=IhMI68mlkOLflgMV2NVzAR3ywy3QOiVodHRwczovLzEwNTM1MjUzLmZscy5kb3VibGVjbGljay5uZXQvQlNDaEFJOE9ULTFBWVE3ZjZGcEw3b3Bxc0NFaW9Ba1pmdkRveVpyRXNVeHpidTQ3VjYzNWM5LWVEZnV4NlQ3VFU4ajd6NUNlT0pUOWtmOERjb00tRXoMCAliCAgAEAAYACAAggEPcAGIAQHxAW7DGG7DGO4_",
+      "method": "GET",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "referer": "https://10535253.fls.doubleclick.net/"
+      },
+      "timestamp": "2026-09-08T19:56:45.998781+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=DEL&destination=HYD&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "RhYsMkvYXfOWO1k2fQ0CuAOJDjCGUYUSP87rN0TyKD/77zz0s4v+cfCZ+5QUMEKFzJE0mMCEmXi/8A0kaXhg8LqmKbC0LAlL4c4bhXwIXJOJyeQT59sQJJHsrDx9SS5LK2oXv2hF7UP/saDL2Dhqwq9bq46EJpyRGTHGMVfxvkTr2VIzpHXsHv/YKvJQfH8fc5wyg1HglE4MSsUW5R9ybijRhM9sNepGMCt6p9rfLDrybGqzbUSJD6QLGlaj8Ot91jEonwS4DSO8PcsWeUPqvi90ZOn3rov/J7dBL9NR4HrUeoM836cfDQ==",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:47.042507+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=BOM&destination=GOI&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "RhYsMkvYXfOWO1k2fQ0CuAOJDjCGUYUSP87rN0TyKD/77zz0s4v+cfCZ+5QUMEKFzJE0mMCEmXi/8A0kaXhg8LqmKbC0LAlL4c4bhXwIXJOJyeQT59sQJJHsrDx9SS5LK2oXv2hF7UP/saDL2Dhqwq9bq46EJpyRGTHGMVfxvkTr2VIzpHXsHv/YKvJQfH8fc5wyg1HglE4MSsUW5R9ybijRhM9sNepGMCt6p9rfLDrybGqzbUSJD6QLGlaj8Ot91jEonwS4DSO8PcsWeUPqvi90ZOn3rov/J7dBL9NR4HrUeoM836cfDQ==",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:48.333969+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=BOM&destination=MAA&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "RhYsMkvYXfOWO1k2fQ0CuAOJDjCGUYUSP87rN0TyKD/77zz0s4v+cfCZ+5QUMEKFzJE0mMCEmXi/8A0kaXhg8LqmKbC0LAlL4c4bhXwIXJOJyeQT59sQJJHsrDx9SS5LK2oXv2hF7UP/saDL2Dhqwq9bq46EJpyRGTHGMVfxvkTr2VIzpHXsHv/YKvJQfH8fc5wyg1HglE4MSsUW5R9ybijRhM9sNepGMCt6p9rfLDrybGqzbUSJD6QLGlaj8Ot91jEonwS4DSO8PcsWeUPqvi90ZOn3rov/J7dBL9NR4HrUeoM836cfDQ==",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:48.459910+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/static/chunks/7604.d5b5a000fcfbd022.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:48.939770+00:00"
+    },
+    {
+      "url": "https://www.akasaair.com/_next/image?url=https%3A%2F%2Fassets.akasaair.com%2Ff%2F159922%2F2880x1000%2F2ab7ef0a5c%2Fhanoi_hero-banner_desktop_2880x1000-2.jpg%2Fm%2Ffilters%3Aformat(webp)&w=1920&q=75",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:48.951386+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=CCU&destination=BLR&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "RhYsMkvYXfOWO1k2fQ0CuAOJDjCGUYUSP87rN0TyKD/77zz0s4v+cfCZ+5QUMEKFzJE0mMCEmXi/8A0kaXhg8LqmKbC0LAlL4c4bhXwIXJOJyeQT59sQJJHsrDx9SS5LK2oXv2hF7UP/saDL2Dhqwq9bq46EJpyRGTHGMVfxvkTr2VIzpHXsHv/YKvJQfH8fc5wyg1HglE4MSsUW5R9ybijRhM9sNepGMCt6p9rfLDrybGqzbUSJD6QLGlaj8Ot91jEonwS4DSO8PcsWeUPqvi90ZOn3rov/J7dBL9NR4HrUeoM836cfDQ==",
+        "referer": "https://www.akasaair.com/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "accept": "application/json, text/plain, */*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "timestamp": "2026-09-08T19:56:49.343632+00:00"
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=DEL&destination=BOM&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 406,
+      "timestamp": "2026-09-08T19:56:42.270511+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=DEL&destination=BLR&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 406,
+      "timestamp": "2026-09-08T19:56:42.360539+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=BOM&destination=BLR&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 406,
+      "timestamp": "2026-09-08T19:56:42.485173+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=DEL&destination=CCU&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 200,
+      "timestamp": "2026-09-08T19:56:43.735233+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/nsk/v2/resources/markets?ActiveOnly=true",
+      "status": 200,
+      "timestamp": "2026-09-08T19:56:44.304146+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=BLR&destination=HYD&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 200,
+      "timestamp": "2026-09-08T19:56:45.614714+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=MAA&destination=DEL&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 200,
+      "timestamp": "2026-09-08T19:56:47.036776+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=DEL&destination=HYD&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 200,
+      "timestamp": "2026-09-08T19:56:48.158043+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=BOM&destination=GOI&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 422,
+      "timestamp": "2026-09-08T19:56:48.444809+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=BOM&destination=MAA&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 200,
+      "timestamp": "2026-09-08T19:56:49.335652+00:00"
+    },
+    {
+      "url": "https://prod-bl.qp.akasaair.com/api/ibe/availability/v2/search?origin=CCU&destination=BLR&startDate=2026-09-09T01%3A26%3A42%2B05%3A30&numberOfPassengers=1&channel=WEB&currencyCode=INR",
+      "status": 200,
+      "timestamp": "2026-09-08T19:56:50.552208+00:00"
+    }
+  ]
+}

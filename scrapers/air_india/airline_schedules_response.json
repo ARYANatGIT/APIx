@@ -1,0 +1,2431 @@
+{
+  "data": [
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2757",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-09T18:45:00Z",
+            "departureLocalTime": "2026-09-10T00:15:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-09T21:40:00Z",
+            "arrivalLocalTime": "2026-09-10T03:10:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-09-18T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2653",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10200,
+          "duration": 10200,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-09T23:00:00Z",
+            "departureLocalTime": "2026-09-10T04:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T01:50:00Z",
+            "arrivalLocalTime": "2026-09-10T07:20:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10200
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2409",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T00:30:00Z",
+            "departureLocalTime": "2026-09-10T06:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T03:25:00Z",
+            "arrivalLocalTime": "2026-09-10T08:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-09-18T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2803",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T01:00:00Z",
+            "departureLocalTime": "2026-09-10T06:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T03:55:00Z",
+            "arrivalLocalTime": "2026-09-10T09:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-10-05T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2815",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "321",
+          "airCraftTypeName": "AIRBUS A321",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T01:30:00Z",
+            "departureLocalTime": "2026-09-10T07:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T04:25:00Z",
+            "arrivalLocalTime": "2026-09-10T09:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "427",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "788",
+          "airCraftTypeName": "BOEING 787-8",
+          "flightDuration": 10200,
+          "duration": 10200,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T03:00:00Z",
+            "departureLocalTime": "2026-09-10T08:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T05:50:00Z",
+            "arrivalLocalTime": "2026-09-10T11:20:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-01T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10200
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2415",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T04:00:00Z",
+            "departureLocalTime": "2026-09-10T09:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T06:55:00Z",
+            "arrivalLocalTime": "2026-09-10T12:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-07T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2485",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10200,
+          "duration": 10200,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T05:00:00Z",
+            "departureLocalTime": "2026-09-10T10:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T07:50:00Z",
+            "arrivalLocalTime": "2026-09-10T13:20:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10200
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2417",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T07:30:00Z",
+            "departureLocalTime": "2026-09-10T13:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T10:25:00Z",
+            "arrivalLocalTime": "2026-09-10T15:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-10-02T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2819",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T09:30:00Z",
+            "departureLocalTime": "2026-09-10T15:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T12:25:00Z",
+            "arrivalLocalTime": "2026-09-10T17:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-10-03T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2664",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "321",
+          "airCraftTypeName": "AIRBUS A321",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T10:20:00Z",
+            "departureLocalTime": "2026-09-10T15:50:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T13:15:00Z",
+            "arrivalLocalTime": "2026-09-10T18:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2817",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 9900,
+          "duration": 9900,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T11:00:00Z",
+            "departureLocalTime": "2026-09-10T16:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T13:45:00Z",
+            "arrivalLocalTime": "2026-09-10T19:15:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-07T00:00:00.000Z",
+            "end": "2026-09-19T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 9900
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2487",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T13:00:00Z",
+            "departureLocalTime": "2026-09-10T18:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T15:55:00Z",
+            "arrivalLocalTime": "2026-09-10T21:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2512",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T13:30:00Z",
+            "departureLocalTime": "2026-09-10T19:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T16:25:00Z",
+            "arrivalLocalTime": "2026-09-10T21:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-06T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2809",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10200,
+          "duration": 10200,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T14:00:00Z",
+            "departureLocalTime": "2026-09-10T19:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T16:50:00Z",
+            "arrivalLocalTime": "2026-09-10T22:20:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-20T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10200
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2412",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T16:00:00Z",
+            "departureLocalTime": "2026-09-10T21:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T18:55:00Z",
+            "arrivalLocalTime": "2026-09-11T00:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "9431",
+          "airlineType": "CODE_SHARE",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "737",
+          "airCraftTypeName": "BOEING 737 ALL SERIES PASSENGER",
+          "airCraftOperatorCode": "IX",
+          "airCraftOperatorName": "AIR INDIA EXPRESS",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T12:50:00Z",
+            "departureLocalTime": "2026-09-10T18:20:00.000+05:30",
+            "airportTerminal": "1",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T15:45:00Z",
+            "arrivalLocalTime": "2026-09-10T21:15:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-01T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "9773",
+          "airlineType": "CODE_SHARE",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "320",
+          "airCraftTypeName": "AIRBUS A320",
+          "airCraftOperatorCode": "IX",
+          "airCraftOperatorName": "AIR INDIA EXPRESS",
+          "flightDuration": 10500,
+          "duration": 10500,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T15:30:00Z",
+            "departureLocalTime": "2026-09-10T21:00:00.000+05:30",
+            "airportTerminal": "1",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T18:25:00Z",
+            "arrivalLocalTime": "2026-09-10T23:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-02T00:00:00.000Z",
+            "end": "2026-10-01T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 10500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2963",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8100,
+          "duration": 8100,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T03:30:00Z",
+            "departureLocalTime": "2026-09-10T09:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T05:45:00Z",
+            "arrivalLocalTime": "2026-09-10T11:15:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-10-01T00:00:00.000Z"
+          },
+          "connectionTime": 2700
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2632",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 18300,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T06:30:00Z",
+            "departureLocalTime": "2026-09-10T12:00:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T08:35:00Z",
+            "arrivalLocalTime": "2026-09-10T14:05:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-10-01T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 18300
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2941",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "321",
+          "airCraftTypeName": "AIRBUS A321",
+          "flightDuration": 8400,
+          "duration": 8400,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T11:00:00Z",
+            "departureLocalTime": "2026-09-10T16:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T13:20:00Z",
+            "arrivalLocalTime": "2026-09-10T18:50:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "tuesday",
+            "thursday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-29T00:00:00.000Z"
+          },
+          "connectionTime": 3300
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2865",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 19200,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T14:15:00Z",
+            "departureLocalTime": "2026-09-10T19:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T16:20:00Z",
+            "arrivalLocalTime": "2026-09-10T21:50:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "tuesday",
+            "thursday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-29T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 19200
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2975",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8400,
+          "duration": 8400,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T01:00:00Z",
+            "departureLocalTime": "2026-09-10T06:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T03:20:00Z",
+            "arrivalLocalTime": "2026-09-10T08:50:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-17T00:00:00.000Z"
+          },
+          "connectionTime": 4200
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2863",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 20100,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T04:30:00Z",
+            "departureLocalTime": "2026-09-10T10:00:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T06:35:00Z",
+            "arrivalLocalTime": "2026-09-10T12:05:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-17T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 20100
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2678",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8100,
+          "duration": 8100,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T03:00:00Z",
+            "departureLocalTime": "2026-09-10T08:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T05:15:00Z",
+            "arrivalLocalTime": "2026-09-10T10:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          },
+          "connectionTime": 4500
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2632",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 20100,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T06:30:00Z",
+            "departureLocalTime": "2026-09-10T12:00:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T08:35:00Z",
+            "arrivalLocalTime": "2026-09-10T14:05:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 20100
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "1785",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T06:30:00Z",
+            "departureLocalTime": "2026-09-10T12:00:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T08:55:00Z",
+            "arrivalLocalTime": "2026-09-10T14:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-10-23T00:00:00.000Z"
+          },
+          "connectionTime": 3600
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2853",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 20100,
+          "duration": 7800,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T09:55:00Z",
+            "departureLocalTime": "2026-09-10T15:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T12:05:00Z",
+            "arrivalLocalTime": "2026-09-10T17:35:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-10-23T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 20100
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2805",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "321",
+          "airCraftTypeName": "AIRBUS A321",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T14:30:00Z",
+            "departureLocalTime": "2026-09-10T20:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T16:55:00Z",
+            "arrivalLocalTime": "2026-09-10T22:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "wednesday",
+            "thursday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-07T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          },
+          "connectionTime": 3900
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2857",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 20100,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T18:00:00Z",
+            "departureLocalTime": "2026-09-10T23:30:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T20:05:00Z",
+            "arrivalLocalTime": "2026-09-11T01:35:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "wednesday",
+            "thursday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-07T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 20100
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "441",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "77W",
+          "airCraftTypeName": "BOEING 777-300ER",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T11:30:00Z",
+            "departureLocalTime": "2026-09-10T17:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T13:55:00Z",
+            "arrivalLocalTime": "2026-09-10T19:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-09-25T00:00:00.000Z"
+          },
+          "connectionTime": 4800
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2401",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 20700,
+          "duration": 7200,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T15:15:00Z",
+            "departureLocalTime": "2026-09-10T20:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T17:15:00Z",
+            "arrivalLocalTime": "2026-09-10T22:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-09-25T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 20700
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "1777",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T10:30:00Z",
+            "departureLocalTime": "2026-09-10T16:00:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T12:55:00Z",
+            "arrivalLocalTime": "2026-09-10T18:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-17T00:00:00.000Z"
+          },
+          "connectionTime": 4800
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2865",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 21000,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T14:15:00Z",
+            "departureLocalTime": "2026-09-10T19:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T16:20:00Z",
+            "arrivalLocalTime": "2026-09-10T21:50:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-17T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 21000
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2951",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8400,
+          "duration": 8400,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T08:00:00Z",
+            "departureLocalTime": "2026-09-10T13:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T10:20:00Z",
+            "arrivalLocalTime": "2026-09-10T15:50:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-10-02T00:00:00.000Z"
+          },
+          "connectionTime": 6000
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2849",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 21900,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T12:00:00Z",
+            "departureLocalTime": "2026-09-10T17:30:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T14:05:00Z",
+            "arrivalLocalTime": "2026-09-10T19:35:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-09T00:00:00.000Z",
+            "end": "2026-10-02T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 21900
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2985",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T14:00:00Z",
+            "departureLocalTime": "2026-09-10T19:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T16:25:00Z",
+            "arrivalLocalTime": "2026-09-10T21:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-07T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          },
+          "connectionTime": 5700
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2857",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 21900,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T18:00:00Z",
+            "departureLocalTime": "2026-09-10T23:30:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T20:05:00Z",
+            "arrivalLocalTime": "2026-09-11T01:35:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-07T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 21900
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2941",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "321",
+          "airCraftTypeName": "AIRBUS A321",
+          "flightDuration": 8400,
+          "duration": 8400,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T11:00:00Z",
+            "departureLocalTime": "2026-09-10T16:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T13:20:00Z",
+            "arrivalLocalTime": "2026-09-10T18:50:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "tuesday",
+            "thursday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-24T00:00:00.000Z"
+          },
+          "connectionTime": 6900
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2401",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 22500,
+          "duration": 7200,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T15:15:00Z",
+            "departureLocalTime": "2026-09-10T20:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T17:15:00Z",
+            "arrivalLocalTime": "2026-09-10T22:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "tuesday",
+            "thursday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-24T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 22500
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2933",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T10:00:00Z",
+            "departureLocalTime": "2026-09-10T15:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T12:25:00Z",
+            "arrivalLocalTime": "2026-09-10T17:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-17T00:00:00.000Z"
+          },
+          "connectionTime": 6600
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2865",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 22800,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T14:15:00Z",
+            "departureLocalTime": "2026-09-10T19:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T16:20:00Z",
+            "arrivalLocalTime": "2026-09-10T21:50:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-17T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 22800
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2943",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "359",
+          "airCraftTypeName": "AIRBUS A350-900",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T02:00:00Z",
+            "departureLocalTime": "2026-09-10T07:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T04:25:00Z",
+            "arrivalLocalTime": "2026-09-10T09:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-06T00:00:00.000Z",
+            "end": "2026-10-01T00:00:00.000Z"
+          },
+          "connectionTime": 7500
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2632",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 23700,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T06:30:00Z",
+            "departureLocalTime": "2026-09-10T12:00:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T08:35:00Z",
+            "arrivalLocalTime": "2026-09-10T14:05:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-06T00:00:00.000Z",
+            "end": "2026-10-01T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 23700
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2945",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "788",
+          "airCraftTypeName": "BOEING 787-8",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T05:30:00Z",
+            "departureLocalTime": "2026-09-10T11:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T07:55:00Z",
+            "arrivalLocalTime": "2026-09-10T13:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "wednesday",
+            "thursday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-16T00:00:00.000Z"
+          },
+          "connectionTime": 7200
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2853",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 23700,
+          "duration": 7800,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T09:55:00Z",
+            "departureLocalTime": "2026-09-10T15:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T12:05:00Z",
+            "arrivalLocalTime": "2026-09-10T17:35:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "wednesday",
+            "thursday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-16T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 23700
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "1780",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 13800,
+          "duration": 13800,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T10:40:00Z",
+            "departureLocalTime": "2026-09-10T16:10:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T14:30:00Z",
+            "arrivalLocalTime": "2026-09-10T20:00:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 1,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-25T00:00:00.000Z"
+          },
+          "connectionTime": 2700
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2401",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 23700,
+          "duration": 7200,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T15:15:00Z",
+            "departureLocalTime": "2026-09-10T20:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T17:15:00Z",
+            "arrivalLocalTime": "2026-09-10T22:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-25T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 23700
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2977",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T13:30:00Z",
+            "departureLocalTime": "2026-09-10T19:00:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T15:55:00Z",
+            "arrivalLocalTime": "2026-09-10T21:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-07T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          },
+          "connectionTime": 7500
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2857",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 23700,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T18:00:00Z",
+            "departureLocalTime": "2026-09-10T23:30:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T20:05:00Z",
+            "arrivalLocalTime": "2026-09-11T01:35:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-07T00:00:00.000Z",
+            "end": "2026-09-30T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 23700
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2433",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T16:00:00Z",
+            "departureLocalTime": "2026-09-10T21:30:00.000+05:30",
+            "airportTerminal": "3",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T18:25:00Z",
+            "arrivalLocalTime": "2026-09-10T23:55:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-17T00:00:00.000Z"
+          },
+          "connectionTime": 7800
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2812",
+          "airlineType": "AI",
+          "fsAvailable": false,
+          "fsAvailabilityCode": "OUTSIDE_RANGE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 24000,
+          "duration": 7500,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T20:35:00Z",
+            "departureLocalTime": "2026-09-11T02:05:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T22:40:00Z",
+            "arrivalLocalTime": "2026-09-11T04:10:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-10T00:00:00.000Z",
+            "end": "2026-09-17T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 24000
+    },
+    {
+      "flights": [
+        {
+          "carrierCode": "AI",
+          "flightNumber": "1777",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 8700,
+          "duration": 8700,
+          "origin": {
+            "airportCode": "DEL",
+            "departureTime": "2026-09-10T10:30:00Z",
+            "departureLocalTime": "2026-09-10T16:00:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "INDIRA GANDHI INTL",
+            "airportCity": "DELHI"
+          },
+          "destination": {
+            "airportCode": "BOM",
+            "arrivalTime": "2026-09-10T12:55:00Z",
+            "arrivalLocalTime": "2026-09-10T18:25:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-25T00:00:00.000Z"
+          },
+          "connectionTime": 8400
+        },
+        {
+          "carrierCode": "AI",
+          "flightNumber": "2401",
+          "airlineType": "AI",
+          "fsAvailable": true,
+          "fsAvailabilityCode": "AVAILABLE",
+          "carrierName": "AIR INDIA",
+          "airCraftType": "32N",
+          "airCraftTypeName": "AIRBUS A320NEO",
+          "flightDuration": 24300,
+          "duration": 7200,
+          "origin": {
+            "airportCode": "BOM",
+            "departureTime": "2026-09-10T15:15:00Z",
+            "departureLocalTime": "2026-09-10T20:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "CHHATRAPATI S MAHARAJ",
+            "airportCity": "MUMBAI"
+          },
+          "destination": {
+            "airportCode": "BLR",
+            "arrivalTime": "2026-09-10T17:15:00Z",
+            "arrivalLocalTime": "2026-09-10T22:45:00.000+05:30",
+            "airportTerminal": "2",
+            "airportName": "KEMPEGOWDA INTL",
+            "airportCity": "BENGALURU"
+          },
+          "operatingDays": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "stops": 0,
+          "validityPeriod": {
+            "start": "2026-09-08T00:00:00.000Z",
+            "end": "2026-09-25T00:00:00.000Z"
+          }
+        }
+      ],
+      "duration": 24300
+    }
+  ]
+}
