@@ -1,8 +1,13 @@
 import React from 'react';
 
-export default function Logo() {
+export default function Logo({ onClick }) {
   return (
-    <a href="#" className="brand-logo" aria-label="APIx India Home">
+    <a
+      href="#home"
+      className="brand-logo"
+      onClick={onClick ? (e) => { e.preventDefault(); onClick(); } : undefined}
+      aria-label="APIx India Home"
+    >
       <div className="logo-icon-wrap">
         <svg
           width="26"

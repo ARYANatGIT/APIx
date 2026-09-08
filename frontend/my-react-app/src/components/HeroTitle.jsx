@@ -1,15 +1,18 @@
 import React from 'react';
 
+/**
+ * HeroTitle:
+ * Words separated into spans for the cinematic word-by-word blur-in reveal
+ * (Matching reference: "Find" -> "Your" -> "Perfect").
+ */
 export default function HeroTitle() {
   return (
     <div className="hero-title-section">
       <h1 className="hero-main-heading">
-        Real-Time Airfare <span className="highlight-space">Price Index</span>
+        <span className="hero-word-reveal word-1">Real-Time</span>{' '}
+        <span className="hero-word-reveal word-2">Airfare</span>{' '}
+        <span className="hero-word-reveal word-3 highlight-space">Price Index</span>
       </h1>
-      <p className="hero-subtitle">
-        Automated Web Scraping Of Airline & OTA Portals For Augmentation Of The Consumer Price Index (CPI).
-        <br className="subtitle-break" /> High-Frequency Inflation Tracking Across Representative Indian City-Pairs.
-      </p>
     </div>
   );
 }

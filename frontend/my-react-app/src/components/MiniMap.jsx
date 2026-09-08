@@ -11,26 +11,26 @@ export default function MiniMap({ onOpenMapModal }) {
       onClick={onOpenMapModal}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      title="Click to view live flight radar & navigation telemetry"
+      title="Click to view live DGCA domestic corridor telemetry & flight radar"
       role="button"
       tabIndex={0}
     >
       <div className="mini-map-circle flight-radar-circle">
         <img
           src={radarMapImg}
-          alt="Flight Air Traffic Radar Map"
+          alt="DGCA Air Traffic Radar Map"
           className="mini-map-img"
         />
 
         {/* Dynamic Rotating Radar Sweep Line */}
         <div className="radar-sweep-beam"></div>
 
-        {/* Flight Trajectory Route Arc */}
+        {/* Flight Trajectory Route Arc (DEL -> BOM) */}
         <svg className="radar-flight-path" viewBox="0 0 100 100">
           <path
-            d="M 15 80 Q 50 30 85 20"
+            d="M 30 20 Q 25 55 28 85"
             fill="none"
-            stroke="rgba(248, 220, 129, 0.75)"
+            stroke="rgba(248, 220, 129, 0.85)"
             strokeWidth="2"
             strokeDasharray="3 3"
           />
@@ -45,21 +45,21 @@ export default function MiniMap({ onOpenMapModal }) {
           </div>
         </div>
 
-        {/* Aviation Overlays */}
+        {/* Indian DGCA Aviation Overlays */}
         <div className="mini-map-overlay">
-          <span className="map-label label-forest">JFK</span>
-          <span className="map-label label-ridge">LHR</span>
+          <span className="map-label label-forest">DEL</span>
+          <span className="map-label label-ridge">BOM</span>
         </div>
 
         {/* Flight Telemetry Pill */}
         <div className="radar-telemetry-badge">
-          <span>FL380</span>
+          <span>FL360</span>
         </div>
       </div>
 
       {isHovered && (
         <div className="mini-map-hover-hint">
-          <span>Live Radar</span>
+          <span>DGCA Radar</span>
         </div>
       )}
     </div>
