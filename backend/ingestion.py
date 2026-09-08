@@ -174,7 +174,6 @@ def ingest_scraper_batch(
     finally:
         if should_close:
             db.close()
-<<<<<<< HEAD
 
 
 def ingest_normalized_dataset(
@@ -388,7 +387,3 @@ if __name__ == "__main__":
         print(f"  [{code}]: {count:,} quotes")
     print(f"Corridors Covered : {res['corridors_updated']}")
     print("=" * 80)
-
-
-=======
->>>>>>> origin/aryan
