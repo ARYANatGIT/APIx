@@ -41,11 +41,28 @@ def ingest_scraper_batch(
     user_agent: str | None = None,
     error_message: str | None = None,
     raw_payload: str | None = None,
-    db: Session | None = None
+    db: Session | None = None,
 ) -> dict:
     """
+<<<<<<< HEAD
     Uploads scraped flight price quotes for a single corridor and records a crawler audit log.
     Conforms to Table 4 (price_quotes) and Table 5 (scraper_audit_logs) specification.
+=======
+    Uploads scraped flight price quotes and records a crawler audit log in a single transaction.
+
+    Args:
+        route_code: e.g. "DEL-BOM"
+        airline_code: e.g. "6E" or "MMT"
+        quotes: List of flight dictionaries extracted by the scraper
+        crawler_status: "SUCCESS", "BLOCKED_CLOUDFLARE", "CAPTCHA_TRIGGERED", "TIMEOUT", "ERROR"
+        http_status: HTTP response code (e.g. 200, 403, 429)
+        latency_ms: Scraper request duration in milliseconds
+        proxy_ip: IP address of the proxy used
+        user_agent: User-Agent string used
+        error_message: Error details if scraper failed
+        raw_payload: Raw HTML or JSON string from the site for audit proof
+        db: Optional existing SQLAlchemy session
+>>>>>>> origin/aryan
     """
     should_close = False
     if db is None:
@@ -55,11 +72,15 @@ def ingest_scraper_batch(
     try:
         route = db.query(Route).filter_by(route_code=route_code).first()
         if not route:
-            raise ValueError(f"Route '{route_code}' not found in database. Must be one of the DGCA basket corridors.")
+            raise ValueError(
+                f"Route '{route_code}' not found in database. Must be one of the DGCA basket corridors."
+            )
 
         airline = db.query(Airline).filter_by(code=airline_code).first()
         if not airline:
-            raise ValueError(f"Airline/OTA code '{airline_code}' not found in database.")
+            raise ValueError(
+                f"Airline/OTA code '{airline_code}' not found in database."
+            )
 
         now_utc = datetime.now(timezone.utc)
         snapshot_hash = None
@@ -86,9 +107,18 @@ def ingest_scraper_batch(
             q_hash = q.get("snapshot_hash") or snapshot_hash
             q_path = q.get("snapshot_path") or snapshot_path
 
+            # Resolve specific airline if specified in quote, otherwise fallback to batch airline
+            q_airline_id = airline.id
+            if q.get("airline_code"):
+                sub_airline = (
+                    db.query(Airline).filter_by(code=q["airline_code"]).first()
+                )
+                if sub_airline:
+                    q_airline_id = sub_airline.id
+
             quote_obj = PriceQuote(
                 route_id=route.id,
-                airline_id=airline.id,
+                airline_id=q_airline_id,
                 scraped_at=now_utc,
                 flight_date=f_date,
                 advance_window=q.get("advance_window", "T+7"),
@@ -107,7 +137,7 @@ def ingest_scraper_batch(
                 cleaned_fare=float(q.get("cleaned_fare") or total_fare),
                 snapshot_hash=q_hash,
                 snapshot_path=q_path,
-                source_url=source_url,
+                source_url=q.get("source_url") or source_url,
             )
             quote_objects.append(quote_obj)
 
@@ -124,7 +154,7 @@ def ingest_scraper_batch(
             proxy_ip=proxy_ip,
             user_agent=user_agent,
             error_message=error_message,
-            timestamp=now_utc
+            timestamp=now_utc,
         )
         db.add(audit_log)
         db.commit()
@@ -135,7 +165,7 @@ def ingest_scraper_batch(
             "airline_code": airline_code,
             "quotes_saved": len(quote_objects),
             "snapshot_hash": snapshot_hash,
-            "timestamp": now_utc.isoformat()
+            "timestamp": now_utc.isoformat(),
         }
 
     except Exception as e:
@@ -144,6 +174,7 @@ def ingest_scraper_batch(
     finally:
         if should_close:
             db.close()
+<<<<<<< HEAD
 
 
 def ingest_normalized_dataset(
@@ -359,3 +390,5 @@ if __name__ == "__main__":
     print("=" * 80)
 
 
+=======
+>>>>>>> origin/aryan
