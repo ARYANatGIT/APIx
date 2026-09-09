@@ -15,14 +15,14 @@ import {
 
 export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, latestIndex = 104.77 }) {
   const navItems = [
-    { id: 'deck', label: 'Flight Deck', icon: LayoutDashboard },
-    { id: 'routes', label: 'Route Basket', icon: Compass },
-    { id: 'trajectory', label: 'Index Trend', icon: TrendingUp },
-    { id: 'windows', label: 'Advance Windows', icon: Clock },
-    { id: 'airlines', label: 'Airlines & OTAs', icon: Plane },
-    { id: 'quotes', label: 'Live Quotes', icon: FileSearch },
-    { id: 'scraper', label: 'Crawler Health', icon: Cpu },
-    { id: 'export', label: 'NSO Export', icon: Download }
+    { id: 'deck', label: 'FLIGHT DECK', icon: LayoutDashboard },
+    { id: 'routes', label: 'ROUTE BASKET', icon: Compass },
+    { id: 'trajectory', label: 'INDEX TREND', icon: TrendingUp },
+    { id: 'windows', label: 'ADVANCE CURVE', icon: Clock },
+    { id: 'airlines', label: 'AIRLINES & OTAs', icon: Plane },
+    { id: 'quotes', label: 'LIVE QUOTES', icon: FileSearch },
+    { id: 'scraper', label: 'CRAWLER HEALTH', icon: Cpu },
+    { id: 'export', label: 'NSO EXPORT', icon: Download }
   ];
 
   const handleNavClick = (e, item) => {
@@ -45,27 +45,27 @@ export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, la
           onClick={() => onNavigate && onNavigate('home')}
           aria-label="Back to Home Landing Screen"
         >
-          <ArrowLeft size={14} />
-          <span>Back to Home</span>
+          <ArrowLeft size={13} strokeWidth={1.5} />
+          <span>RETURN TO POSTER</span>
         </button>
 
-        {/* Live Index Ticker Card */}
+        {/* Live Index Ticker Card - Sharp 0px Mono Box */}
         <div className="sidebar-ticker-card">
           <div className="ticker-live-row">
             <span className="ticker-live-dot"></span>
-            <span className="sidebar-ticker-label">APIx Index</span>
+            <span className="sidebar-ticker-label">APIx BENCHMARK</span>
             <span className="sidebar-ticker-chg">+0.15%</span>
           </div>
           <div className="ticker-val-row">
-            <span className="sidebar-ticker-val">{latestIndex}</span>
-            <span className="sidebar-ticker-sub">Base 100.0</span>
+            <span className="sidebar-ticker-val">{typeof latestIndex === 'number' ? latestIndex.toFixed(2) : latestIndex}</span>
+            <span className="sidebar-ticker-sub">BASE 100.0</span>
           </div>
         </div>
       </div>
 
       {/* Navigation List on Left Side */}
       <nav className="sidebar-nav-menu">
-        <div className="sidebar-section-label">MONITORING SUITE</div>
+        <div className="sidebar-section-label">MONITORING ARCHITECTURE</div>
         <ul className="sidebar-nav-list">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -78,9 +78,9 @@ export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, la
                   onClick={(e) => handleNavClick(e, item)}
                   aria-label={`Go to ${item.label}`}
                 >
-                  <Icon size={17} className="sidebar-btn-icon" />
+                  <Icon size={16} strokeWidth={1.5} className="sidebar-btn-icon" />
                   <span className="sidebar-btn-text">{item.label}</span>
-                  {isActive && <span className="active-pill-bar"></span>}
+                  {isActive && <span className="active-sharp-indicator"></span>}
                 </button>
               </li>
             );
@@ -96,13 +96,13 @@ export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, la
           onClick={onBookClick}
           aria-label="Inspect APIx Calculation"
         >
-          <Sparkles size={16} />
-          <span>Inspect APIx</span>
+          <Sparkles size={14} strokeWidth={1.5} />
+          <span>INSPECT APIx ENGINE</span>
         </button>
 
         <div className="sidebar-footer-note">
-          <span>MoSPI CPI Augmentation</span>
-          <span className="sidebar-ver-tag">v2.4.0</span>
+          <span>MoSPI HIGH-FREQUENCY CPI</span>
+          <span className="sidebar-ver-tag">REV 2026.09</span>
         </div>
       </div>
     </aside>

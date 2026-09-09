@@ -150,17 +150,20 @@ def seed_database():
             db.commit()
             print(f"[OK] Created {len(sample_logs)} crawler audit records.")
 
-        # 5. Seed Initial Airfare Price Index (APIx) Records
-        print("[5/5] Calculating & Seeding Initial APIx Macro Index Records...")
-        if db.query(AirfareIndexRecord).count() == 0:
+        # 5. Seed Initial Airfare Price Index (APIx) Records (30 Days)
+        print("[5/5] Calculating & Seeding Initial APIx Macro Index Records (30 Days)...")
+        if db.query(AirfareIndexRecord).count() < 30:
+            db.query(AirfareIndexRecord).delete()
             index_records = []
             today = date.today()
             base_apix = 100.0
-            for i in range(14, -1, -1):
+            prev_apix = 99.85
+            for i in range(29, -1, -1):
                 calc_date = today - timedelta(days=i)
-                daily_drift = (14 - i) * 0.35 + random.uniform(-0.2, 0.4)
+                daily_drift = (29 - i) * 0.16 + random.uniform(-0.15, 0.25)
                 current_apix = round(base_apix + daily_drift, 2)
-                dod_change = round(random.uniform(-0.15, 0.45), 2)
+                dod_change = round(((current_apix - prev_apix) / prev_apix) * 100, 2)
+                prev_apix = current_apix
                 
                 idx_rec = AirfareIndexRecord(
                     calculation_date=calc_date,
@@ -173,12 +176,12 @@ def seed_database():
                     change_pct_m1=round(current_apix - 100.0, 2),
                     total_quotes_used=random.randint(480, 560),
                     outliers_excluded=random.randint(4, 12),
-                    average_fare=round(6200.0 + (daily_drift * 45.0), 2)
+                    average_fare=round(6200.0 + (daily_drift * 35.0), 2)
                 )
                 index_records.append(idx_rec)
             db.bulk_save_objects(index_records)
             db.commit()
-            print(f"[OK] Created {len(index_records)} APIx daily index records.")
+            print(f"[OK] Created {len(index_records)} APIx daily index records (30-day series).")
 
         print("[SUCCESS] Step 1 Database & Route Basket setup completed successfully!")
     finally:

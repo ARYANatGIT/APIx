@@ -4,7 +4,10 @@ import { Calendar, Clock, AlertTriangle, TrendingUp, ShieldAlert, ArrowUpRight, 
 export default function AdvanceWindowsView({ windowsData = [] }) {
   const [selectedWindow, setSelectedWindow] = useState('T+1');
 
-  const currentWindow = windowsData.find(w => w.window === selectedWindow) || windowsData[0];
+  const currentWindow = windowsData.find(w => (w.window || w.advance_window) === selectedWindow) || windowsData[0];
+  const t45Window = windowsData.find(w => (w.window || w.advance_window) === 'T+45' || (w.window || w.advance_window) === 'T+30') || windowsData[windowsData.length - 1];
+  const baselineFare = t45Window ? Math.round(t45Window.average_fare) : 4814;
+  const baselineLabel = t45Window ? (t45Window.window || t45Window.advance_window) : 'T+45';
 
   return (
     <div className="advance-windows-view">
@@ -16,41 +19,45 @@ export default function AdvanceWindowsView({ windowsData = [] }) {
           </div>
           <h2 className="section-title">Advance Purchase Windows Analysis</h2>
           <p className="section-subtitle">
-            MoSPI monitors 5 distinct purchasing horizons to dissect dynamic surge pricing from base transport inflation.
+            MoSPI monitors 6 distinct purchasing horizons (T+0 to T+45) to dissect dynamic surge pricing from base transport inflation.
           </p>
         </div>
       </div>
 
-      {/* 5 Advance Window Cards */}
+      {/* Advance Window Cards */}
       <div className="windows-cards-grid">
         {windowsData.map((w) => {
-          const isSelected = selectedWindow === w.window;
-          const isT1 = w.window === 'T+1';
+          const winKey = w.window || w.advance_window;
+          const isSelected = selectedWindow === winKey;
+          const isT1 = winKey === 'T+1';
+          const isT0 = winKey === 'T+0';
+          const surgeVal = w.surge_ratio || w.surge_multiplier || 1.0;
+          const quoteCnt = w.quotes_count !== undefined ? w.quotes_count : (w.quote_count || 0);
 
           return (
             <div
-              key={w.window}
-              className={`window-card ${isSelected ? 'active-card' : ''} ${isT1 ? 't1-surge-card' : ''}`}
-              onClick={() => setSelectedWindow(w.window)}
+              key={winKey}
+              className={`window-card ${isSelected ? 'active-card' : ''} ${isT1 || isT0 ? 't1-surge-card' : ''}`}
+              onClick={() => setSelectedWindow(winKey)}
               role="button"
               tabIndex={0}
             >
               <div className="window-card-top">
-                <span className="window-tag">{w.window}</span>
+                <span className="window-tag">{winKey}</span>
                 {isT1 && (
                   <span className="outlier-alert-pill">
-                    <AlertTriangle size={11} /> {w.outliers_detected} Outliers
+                    <AlertTriangle size={11} /> {w.outliers_detected || 0} Outliers
                   </span>
                 )}
-                {w.surge_ratio > 1 && (
+                {surgeVal > 1 && (
                   <span className="surge-tag">
-                    {w.surge_ratio}x Surge
+                    {surgeVal}x Surge
                   </span>
                 )}
               </div>
 
               <div className="window-fare-val">
-                ₹{Math.round(w.average_fare).toLocaleString()}
+                ₹{Math.round(w.average_fare || 0).toLocaleString()}
                 <span className="fare-sub">avg fare</span>
               </div>
 
@@ -59,15 +66,15 @@ export default function AdvanceWindowsView({ windowsData = [] }) {
               <div className="window-meta-stats">
                 <div className="meta-stat">
                   <span>Min</span>
-                  <strong>₹{Math.round(w.min_fare).toLocaleString()}</strong>
+                  <strong>₹{Math.round(w.min_fare || 0).toLocaleString()}</strong>
                 </div>
                 <div className="meta-stat">
                   <span>Max</span>
-                  <strong>₹{Math.round(w.max_fare).toLocaleString()}</strong>
+                  <strong>₹{Math.round(w.max_fare || 0).toLocaleString()}</strong>
                 </div>
                 <div className="meta-stat">
                   <span>Quotes</span>
-                  <strong>{w.quotes_count.toLocaleString()}</strong>
+                  <strong>{quoteCnt.toLocaleString()}</strong>
                 </div>
               </div>
             </div>
@@ -80,19 +87,19 @@ export default function AdvanceWindowsView({ windowsData = [] }) {
         <div className="window-detail-card">
           <div className="detail-card-header">
             <div>
-              <h3>Window Horizon: {currentWindow.window} • Statistical Insights</h3>
+              <h3>Window Horizon: {currentWindow.window || currentWindow.advance_window} • Statistical Insights</h3>
               <p>{currentWindow.description}</p>
             </div>
             <div className="surge-multiplier-badge">
               <span>Dynamic Surge Ratio:</span>
-              <strong>{currentWindow.surge_ratio}x Baseline (T+45)</strong>
+              <strong>{currentWindow.surge_ratio || currentWindow.surge_multiplier}x Baseline ({baselineLabel})</strong>
             </div>
           </div>
 
           <div className="horizon-comparison-bar-wrap">
             <div className="horizon-bar-label">
-              <span>Fare relative to T+45 leisure floor (₹4,814)</span>
-              <span><strong>₹{Math.round(currentWindow.average_fare).toLocaleString()}</strong></span>
+              <span>Fare relative to {baselineLabel} leisure floor (₹{baselineFare.toLocaleString()})</span>
+              <span><strong>₹{Math.round(currentWindow.average_fare || 0).toLocaleString()}</strong></span>
             </div>
             <div className="horizon-bar-track">
               <div

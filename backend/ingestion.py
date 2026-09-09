@@ -44,10 +44,6 @@ def ingest_scraper_batch(
     db: Session | None = None,
 ) -> dict:
     """
-<<<<<<< HEAD
-    Uploads scraped flight price quotes for a single corridor and records a crawler audit log.
-    Conforms to Table 4 (price_quotes) and Table 5 (scraper_audit_logs) specification.
-=======
     Uploads scraped flight price quotes and records a crawler audit log in a single transaction.
 
     Args:
@@ -62,7 +58,6 @@ def ingest_scraper_batch(
         error_message: Error details if scraper failed
         raw_payload: Raw HTML or JSON string from the site for audit proof
         db: Optional existing SQLAlchemy session
->>>>>>> origin/aryan
     """
     should_close = False
     if db is None:
@@ -158,6 +153,30 @@ def ingest_scraper_batch(
         )
         db.add(audit_log)
         db.commit()
+
+        # Automatically store into MongoDB collection 'price_quotes' & 'scraper_audit_logs'
+        try:
+            from backend.mongo import save_quotes_to_mongo, save_audit_log_to_mongo
+            mongo_quotes = []
+            for q in quotes:
+                mq = dict(q)
+                mq["route_code"] = route_code
+                mq["airline_code"] = airline_code
+                mq["snapshot_hash"] = snapshot_hash
+                mongo_quotes.append(mq)
+            save_quotes_to_mongo(mongo_quotes, scraper_id=f"{airline_code}_{route_code}")
+            save_audit_log_to_mongo({
+                "scraper_id": f"{airline_code}_{route_code}",
+                "airline_code": airline_code,
+                "route_code": route_code,
+                "status": crawler_status,
+                "http_status": http_status,
+                "latency_ms": latency_ms,
+                "quotes_extracted": len(quotes),
+                "created_at": now_utc.isoformat()
+            })
+        except Exception as me:
+            pass
 
         return {
             "status": "SUCCESS",
@@ -298,6 +317,13 @@ def ingest_normalized_dataset(
                 db.add(audit_log)
 
         db.commit()
+
+        # Automatically store master dataset into MongoDB collection 'price_quotes'
+        try:
+            from backend.mongo import save_master_dataset_to_mongo
+            save_master_dataset_to_mongo(dataset)
+        except Exception as me:
+            pass
 
         result = {
             "status": "SUCCESS",

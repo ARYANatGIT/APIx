@@ -11,7 +11,7 @@ export default function FeatureBadge({ label, positionClass, tooltipText }) {
       role="button"
       tabIndex={0}
     >
-      <span className="diamond-bullet">◆</span>
+      <span className="badge-bullet">■</span>
       <span className="badge-text">{label}</span>
 
       {tooltipText && showTooltip && (

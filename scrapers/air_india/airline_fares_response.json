@@ -259,12 +259,12 @@
           {
             "departureDate": "2026-09-28",
             "totalPrice": {
-              "base": "5219",
-              "tax": "1703",
-              "total": "6922",
+              "base": "5492",
+              "tax": "1487",
+              "total": "6979",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.9",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -324,12 +324,12 @@
           {
             "departureDate": "2026-10-03",
             "totalPrice": {
-              "base": "5439",
-              "tax": "1484",
-              "total": "6923",
+              "base": "5477",
+              "tax": "1486",
+              "total": "6963",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.9",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -350,12 +350,12 @@
           {
             "departureDate": "2026-10-05",
             "totalPrice": {
-              "base": "5439",
-              "tax": "1484",
-              "total": "6923",
+              "base": "5477",
+              "tax": "1486",
+              "total": "6963",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.9",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -389,12 +389,12 @@
           {
             "departureDate": "2026-10-08",
             "totalPrice": {
-              "base": "5439",
-              "tax": "1484",
-              "total": "6923",
+              "base": "5477",
+              "tax": "1486",
+              "total": "6963",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.9",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -441,12 +441,12 @@
           {
             "departureDate": "2026-10-12",
             "totalPrice": {
-              "base": "5439",
-              "tax": "1484",
-              "total": "6923",
+              "base": "5492",
+              "tax": "1487",
+              "total": "6979",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.9",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -454,12 +454,12 @@
           {
             "departureDate": "2026-10-13",
             "totalPrice": {
-              "base": "5439",
-              "tax": "1484",
-              "total": "6923",
+              "base": "5492",
+              "tax": "1487",
+              "total": "6979",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.9",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -467,12 +467,12 @@
           {
             "departureDate": "2026-10-14",
             "totalPrice": {
-              "base": "5439",
-              "tax": "1484",
-              "total": "6923",
+              "base": "5492",
+              "tax": "1487",
+              "total": "6979",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.9",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -493,9 +493,9 @@
           {
             "departureDate": "2026-10-16",
             "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
                 "value": "7.4",
@@ -506,9 +506,9 @@
           {
             "departureDate": "2026-10-17",
             "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
                 "value": "7.4",
@@ -532,44 +532,18 @@
           {
             "departureDate": "2026-10-19",
             "totalPrice": {
-              "base": "5790",
-              "tax": "1502",
-              "total": "7292",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.3",
+                "value": "7.4",
                 "unit": "K"
               }
             }
           },
           {
             "departureDate": "2026-10-20",
-            "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "7.4",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-10-21",
-            "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "7.4",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-10-22",
             "totalPrice": {
               "base": "5958",
               "tax": "1510",
@@ -582,11 +556,37 @@
             }
           },
           {
+            "departureDate": "2026-10-21",
+            "totalPrice": {
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "7.4",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-10-22",
+            "totalPrice": {
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "7.4",
+                "unit": "K"
+              }
+            }
+          },
+          {
             "departureDate": "2026-10-23",
             "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
                 "value": "7.4",
@@ -597,9 +597,9 @@
           {
             "departureDate": "2026-10-24",
             "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
                 "value": "7.4",
@@ -636,9 +636,9 @@
           {
             "departureDate": "2026-10-27",
             "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
                 "value": "7.4",
@@ -649,9 +649,9 @@
           {
             "departureDate": "2026-10-28",
             "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
                 "value": "7.4",
@@ -662,9 +662,9 @@
           {
             "departureDate": "2026-10-29",
             "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
                 "value": "7.4",
@@ -675,9 +675,9 @@
           {
             "departureDate": "2026-10-30",
             "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
                 "value": "7.4",
@@ -688,9 +688,9 @@
           {
             "departureDate": "2026-10-31",
             "totalPrice": {
-              "base": "5636",
-              "tax": "1724",
-              "total": "7360",
+              "base": "5686",
+              "tax": "1727",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
                 "value": "7.4",
@@ -701,12 +701,12 @@
           {
             "departureDate": "2026-11-01",
             "totalPrice": {
-              "base": "6020",
-              "tax": "1743",
-              "total": "7763",
+              "base": "5920",
+              "tax": "1738",
+              "total": "7658",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "7.7",
                 "unit": "K"
               }
             }
@@ -714,12 +714,12 @@
           {
             "departureDate": "2026-11-02",
             "totalPrice": {
-              "base": "5489",
-              "tax": "1487",
-              "total": "6976",
+              "base": "5905",
+              "tax": "1508",
+              "total": "7413",
               "currency": "INR",
               "priceLabel": {
-                "value": "7",
+                "value": "7.4",
                 "unit": "K"
               }
             }
@@ -782,12 +782,12 @@
           {
             "departureDate": "2026-09-12",
             "totalPrice": {
-              "base": "7423",
-              "tax": "1853",
-              "total": "9276",
+              "base": "7283",
+              "tax": "1846",
+              "total": "9129",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.3",
+                "value": "9.1",
                 "unit": "K"
               }
             }
@@ -821,12 +821,12 @@
           {
             "departureDate": "2026-09-15",
             "totalPrice": {
-              "base": "7283",
-              "tax": "1846",
-              "total": "9129",
+              "base": "7426",
+              "tax": "1853",
+              "total": "9279",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.1",
+                "value": "9.3",
                 "unit": "K"
               }
             }
@@ -899,12 +899,12 @@
           {
             "departureDate": "2026-09-21",
             "totalPrice": {
-              "base": "7423",
-              "tax": "1853",
-              "total": "9276",
+              "base": "7373",
+              "tax": "1850",
+              "total": "9223",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.3",
+                "value": "9.2",
                 "unit": "K"
               }
             }
@@ -990,12 +990,12 @@
           {
             "departureDate": "2026-09-28",
             "totalPrice": {
-              "base": "7423",
-              "tax": "1853",
-              "total": "9276",
+              "base": "7373",
+              "tax": "1850",
+              "total": "9223",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.3",
+                "value": "9.2",
                 "unit": "K"
               }
             }
@@ -1042,12 +1042,12 @@
           {
             "departureDate": "2026-10-02",
             "totalPrice": {
-              "base": "7426",
-              "tax": "1853",
-              "total": "9279",
+              "base": "7283",
+              "tax": "1846",
+              "total": "9129",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.3",
+                "value": "9.1",
                 "unit": "K"
               }
             }
@@ -1500,12 +1500,12 @@
           {
             "departureDate": "2026-09-11",
             "totalPrice": {
-              "base": "8387",
-              "tax": "2113",
-              "total": "10500",
+              "base": "9199",
+              "tax": "1629",
+              "total": "10828",
               "currency": "INR",
               "priceLabel": {
-                "value": "10.5",
+                "value": "10.8",
                 "unit": "K"
               }
             }
@@ -1513,12 +1513,12 @@
           {
             "departureDate": "2026-09-12",
             "totalPrice": {
-              "base": "5163",
-              "tax": "1427",
-              "total": "6590",
+              "base": "7040",
+              "tax": "1521",
+              "total": "8561",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.6",
+                "value": "8.6",
                 "unit": "K"
               }
             }
@@ -1552,12 +1552,12 @@
           {
             "departureDate": "2026-09-15",
             "totalPrice": {
-              "base": "3977",
-              "tax": "1368",
-              "total": "5345",
+              "base": "5163",
+              "tax": "1427",
+              "total": "6590",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "6.6",
                 "unit": "K"
               }
             }
@@ -1565,12 +1565,12 @@
           {
             "departureDate": "2026-09-16",
             "totalPrice": {
-              "base": "3977",
-              "tax": "1368",
-              "total": "5345",
+              "base": "4337",
+              "tax": "1386",
+              "total": "5723",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5.7",
                 "unit": "K"
               }
             }
@@ -1630,12 +1630,12 @@
           {
             "departureDate": "2026-09-21",
             "totalPrice": {
-              "base": "3977",
-              "tax": "1368",
-              "total": "5345",
+              "base": "5571",
+              "tax": "1447",
+              "total": "7018",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -1643,12 +1643,12 @@
           {
             "departureDate": "2026-09-22",
             "totalPrice": {
-              "base": "3977",
-              "tax": "1368",
-              "total": "5345",
+              "base": "4337",
+              "tax": "1386",
+              "total": "5723",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5.7",
                 "unit": "K"
               }
             }
@@ -1773,12 +1773,12 @@
           {
             "departureDate": "2026-10-02",
             "totalPrice": {
-              "base": "5571",
-              "tax": "1447",
-              "total": "7018",
+              "base": "5674",
+              "tax": "1453",
+              "total": "7127",
               "currency": "INR",
               "priceLabel": {
-                "value": "7",
+                "value": "7.1",
                 "unit": "K"
               }
             }
@@ -1786,12 +1786,12 @@
           {
             "departureDate": "2026-10-03",
             "totalPrice": {
-              "base": "3977",
-              "tax": "1368",
-              "total": "5345",
+              "base": "5571",
+              "tax": "1447",
+              "total": "7018",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -1812,12 +1812,12 @@
           {
             "departureDate": "2026-10-05",
             "totalPrice": {
-              "base": "4337",
-              "tax": "1386",
-              "total": "5723",
+              "base": "5571",
+              "tax": "1447",
+              "total": "7018",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.7",
+                "value": "7",
                 "unit": "K"
               }
             }
@@ -1994,12 +1994,12 @@
           {
             "departureDate": "2026-10-19",
             "totalPrice": {
-              "base": "5528",
-              "tax": "1445",
-              "total": "6973",
+              "base": "4124",
+              "tax": "1375",
+              "total": "5499",
               "currency": "INR",
               "priceLabel": {
-                "value": "7",
+                "value": "5.5",
                 "unit": "K"
               }
             }
@@ -2007,12 +2007,12 @@
           {
             "departureDate": "2026-10-20",
             "totalPrice": {
-              "base": "5528",
-              "tax": "1445",
-              "total": "6973",
+              "base": "4124",
+              "tax": "1375",
+              "total": "5499",
               "currency": "INR",
               "priceLabel": {
-                "value": "7",
+                "value": "5.5",
                 "unit": "K"
               }
             }
@@ -2020,12 +2020,12 @@
           {
             "departureDate": "2026-10-21",
             "totalPrice": {
-              "base": "5528",
-              "tax": "1445",
-              "total": "6973",
+              "base": "4124",
+              "tax": "1375",
+              "total": "5499",
               "currency": "INR",
               "priceLabel": {
-                "value": "7",
+                "value": "5.5",
                 "unit": "K"
               }
             }
@@ -2033,12 +2033,12 @@
           {
             "departureDate": "2026-10-22",
             "totalPrice": {
-              "base": "5528",
-              "tax": "1445",
-              "total": "6973",
+              "base": "4124",
+              "tax": "1375",
+              "total": "5499",
               "currency": "INR",
               "priceLabel": {
-                "value": "7",
+                "value": "5.5",
                 "unit": "K"
               }
             }
@@ -2046,12 +2046,12 @@
           {
             "departureDate": "2026-10-23",
             "totalPrice": {
-              "base": "5528",
-              "tax": "1445",
-              "total": "6973",
+              "base": "4124",
+              "tax": "1375",
+              "total": "5499",
               "currency": "INR",
               "priceLabel": {
-                "value": "7",
+                "value": "5.5",
                 "unit": "K"
               }
             }
@@ -2059,12 +2059,12 @@
           {
             "departureDate": "2026-10-24",
             "totalPrice": {
-              "base": "6059",
-              "tax": "1472",
-              "total": "7531",
+              "base": "5880",
+              "tax": "1463",
+              "total": "7343",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.5",
+                "value": "7.3",
                 "unit": "K"
               }
             }
@@ -2098,9 +2098,9 @@
           {
             "departureDate": "2026-10-27",
             "totalPrice": {
-              "base": "6834",
-              "tax": "1511",
-              "total": "8345",
+              "base": "6279",
+              "tax": "2008",
+              "total": "8287",
               "currency": "INR",
               "priceLabel": {
                 "value": "8.3",
@@ -2124,12 +2124,12 @@
           {
             "departureDate": "2026-10-29",
             "totalPrice": {
-              "base": "7717",
-              "tax": "1555",
-              "total": "9272",
+              "base": "6279",
+              "tax": "2008",
+              "total": "8287",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.3",
+                "value": "8.3",
                 "unit": "K"
               }
             }
@@ -2137,9 +2137,9 @@
           {
             "departureDate": "2026-10-30",
             "totalPrice": {
-              "base": "6834",
-              "tax": "1511",
-              "total": "8345",
+              "base": "6279",
+              "tax": "2008",
+              "total": "8287",
               "currency": "INR",
               "priceLabel": {
                 "value": "8.3",
@@ -2176,12 +2176,12 @@
           {
             "departureDate": "2026-11-02",
             "totalPrice": {
-              "base": "7899",
-              "tax": "1564",
-              "total": "9463",
+              "base": "6329",
+              "tax": "2010",
+              "total": "8339",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.5",
+                "value": "8.3",
                 "unit": "K"
               }
             }
@@ -2751,12 +2751,12 @@
           {
             "departureDate": "2026-10-21",
             "totalPrice": {
-              "base": "8106",
-              "tax": "1529",
-              "total": "9635",
+              "base": "7407",
+              "tax": "1494",
+              "total": "8901",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.6",
+                "value": "8.9",
                 "unit": "K"
               }
             }
@@ -2816,9 +2816,9 @@
           {
             "departureDate": "2026-10-26",
             "totalPrice": {
-              "base": "15650",
-              "tax": "1906",
-              "total": "17556",
+              "base": "14739",
+              "tax": "2825",
+              "total": "17564",
               "currency": "INR",
               "priceLabel": {
                 "value": "17.6",
@@ -2936,9 +2936,9 @@
           {
             "departureDate": "2026-09-09",
             "totalPrice": {
-              "base": "12206",
-              "tax": "1933",
-              "total": "14139",
+              "base": "11617",
+              "tax": "2501",
+              "total": "14118",
               "currency": "INR",
               "priceLabel": {
                 "value": "14.1",
@@ -2949,12 +2949,12 @@
           {
             "departureDate": "2026-09-10",
             "totalPrice": {
-              "base": "5722",
-              "tax": "2731",
-              "total": "8453",
+              "base": "7400",
+              "tax": "2395",
+              "total": "9795",
               "currency": "INR",
               "priceLabel": {
-                "value": "8.5",
+                "value": "9.8",
                 "unit": "K"
               }
             }
@@ -2962,12 +2962,12 @@
           {
             "departureDate": "2026-09-11",
             "totalPrice": {
-              "base": "5722",
-              "tax": "2731",
-              "total": "8453",
+              "base": "6396",
+              "tax": "2765",
+              "total": "9161",
               "currency": "INR",
               "priceLabel": {
-                "value": "8.5",
+                "value": "9.2",
                 "unit": "K"
               }
             }
@@ -2975,12 +2975,12 @@
           {
             "departureDate": "2026-09-12",
             "totalPrice": {
-              "base": "5715",
-              "tax": "1609",
-              "total": "7324",
+              "base": "4242",
+              "tax": "1535",
+              "total": "5777",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.3",
+                "value": "5.8",
                 "unit": "K"
               }
             }
@@ -3001,12 +3001,12 @@
           {
             "departureDate": "2026-09-14",
             "totalPrice": {
-              "base": "4746",
-              "tax": "1560",
-              "total": "6306",
+              "base": "4242",
+              "tax": "1535",
+              "total": "5777",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.3",
+                "value": "5.8",
                 "unit": "K"
               }
             }
@@ -3014,12 +3014,12 @@
           {
             "departureDate": "2026-09-15",
             "totalPrice": {
-              "base": "4329",
-              "tax": "1539",
-              "total": "5868",
+              "base": "3951",
+              "tax": "1520",
+              "total": "5471",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.9",
+                "value": "5.5",
                 "unit": "K"
               }
             }
@@ -3027,9 +3027,9 @@
           {
             "departureDate": "2026-09-16",
             "totalPrice": {
-              "base": "3985",
-              "tax": "1522",
-              "total": "5507",
+              "base": "3951",
+              "tax": "1520",
+              "total": "5471",
               "currency": "INR",
               "priceLabel": {
                 "value": "5.5",
@@ -3040,12 +3040,12 @@
           {
             "departureDate": "2026-09-17",
             "totalPrice": {
-              "base": "3508",
-              "tax": "1498",
-              "total": "5006",
+              "base": "4623",
+              "tax": "1554",
+              "total": "6177",
               "currency": "INR",
               "priceLabel": {
-                "value": "5",
+                "value": "6.2",
                 "unit": "K"
               }
             }
@@ -3053,9 +3053,9 @@
           {
             "departureDate": "2026-09-18",
             "totalPrice": {
-              "base": "3985",
-              "tax": "1522",
-              "total": "5507",
+              "base": "3951",
+              "tax": "1520",
+              "total": "5471",
               "currency": "INR",
               "priceLabel": {
                 "value": "5.5",
@@ -3066,9 +3066,9 @@
           {
             "departureDate": "2026-09-19",
             "totalPrice": {
-              "base": "3985",
-              "tax": "1522",
-              "total": "5507",
+              "base": "3951",
+              "tax": "1520",
+              "total": "5471",
               "currency": "INR",
               "priceLabel": {
                 "value": "5.5",
@@ -3092,9 +3092,9 @@
           {
             "departureDate": "2026-09-21",
             "totalPrice": {
-              "base": "3508",
-              "tax": "1498",
-              "total": "5006",
+              "base": "3489",
+              "tax": "1497",
+              "total": "4986",
               "currency": "INR",
               "priceLabel": {
                 "value": "5",
@@ -3118,9 +3118,9 @@
           {
             "departureDate": "2026-09-23",
             "totalPrice": {
-              "base": "3508",
-              "tax": "1498",
-              "total": "5006",
+              "base": "3489",
+              "tax": "1497",
+              "total": "4986",
               "currency": "INR",
               "priceLabel": {
                 "value": "5",
@@ -3131,9 +3131,9 @@
           {
             "departureDate": "2026-09-24",
             "totalPrice": {
-              "base": "3728",
-              "tax": "1509",
-              "total": "5237",
+              "base": "3708",
+              "tax": "1508",
+              "total": "5216",
               "currency": "INR",
               "priceLabel": {
                 "value": "5.2",
@@ -3144,9 +3144,9 @@
           {
             "departureDate": "2026-09-25",
             "totalPrice": {
-              "base": "3728",
-              "tax": "1509",
-              "total": "5237",
+              "base": "3708",
+              "tax": "1508",
+              "total": "5216",
               "currency": "INR",
               "priceLabel": {
                 "value": "5.2",
@@ -3157,12 +3157,12 @@
           {
             "departureDate": "2026-09-26",
             "totalPrice": {
-              "base": "3508",
-              "tax": "1498",
-              "total": "5006",
+              "base": "3708",
+              "tax": "1508",
+              "total": "5216",
               "currency": "INR",
               "priceLabel": {
-                "value": "5",
+                "value": "5.2",
                 "unit": "K"
               }
             }
@@ -3196,6 +3196,45 @@
           {
             "departureDate": "2026-09-29",
             "totalPrice": {
+              "base": "3489",
+              "tax": "1497",
+              "total": "4986",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "5",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-30",
+            "totalPrice": {
+              "base": "3951",
+              "tax": "1520",
+              "total": "5471",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "5.5",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-10-01",
+            "totalPrice": {
+              "base": "3299",
+              "tax": "1488",
+              "total": "4787",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "4.8",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-10-02",
+            "totalPrice": {
               "base": "3508",
               "tax": "1498",
               "total": "5006",
@@ -3207,53 +3246,14 @@
             }
           },
           {
-            "departureDate": "2026-09-30",
-            "totalPrice": {
-              "base": "3985",
-              "tax": "1522",
-              "total": "5507",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "5.5",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-10-01",
-            "totalPrice": {
-              "base": "3558",
-              "tax": "1501",
-              "total": "5059",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "5.1",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-10-02",
-            "totalPrice": {
-              "base": "3783",
-              "tax": "1512",
-              "total": "5295",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "5.3",
-                "unit": "K"
-              }
-            }
-          },
-          {
             "departureDate": "2026-10-03",
             "totalPrice": {
-              "base": "3558",
-              "tax": "1501",
-              "total": "5059",
+              "base": "3299",
+              "tax": "1488",
+              "total": "4787",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "4.8",
                 "unit": "K"
               }
             }
@@ -3261,12 +3261,12 @@
           {
             "departureDate": "2026-10-04",
             "totalPrice": {
-              "base": "3558",
-              "tax": "1501",
-              "total": "5059",
+              "base": "3299",
+              "tax": "1488",
+              "total": "4787",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "4.8",
                 "unit": "K"
               }
             }
@@ -3274,12 +3274,12 @@
           {
             "departureDate": "2026-10-05",
             "totalPrice": {
-              "base": "3783",
-              "tax": "1512",
-              "total": "5295",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3287,12 +3287,12 @@
           {
             "departureDate": "2026-10-06",
             "totalPrice": {
-              "base": "3558",
-              "tax": "1501",
-              "total": "5059",
+              "base": "3299",
+              "tax": "1488",
+              "total": "4787",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "4.8",
                 "unit": "K"
               }
             }
@@ -3300,12 +3300,12 @@
           {
             "departureDate": "2026-10-07",
             "totalPrice": {
-              "base": "3783",
-              "tax": "1512",
-              "total": "5295",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3313,12 +3313,12 @@
           {
             "departureDate": "2026-10-08",
             "totalPrice": {
-              "base": "3558",
-              "tax": "1501",
-              "total": "5059",
+              "base": "3299",
+              "tax": "1488",
+              "total": "4787",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "4.8",
                 "unit": "K"
               }
             }
@@ -3326,12 +3326,12 @@
           {
             "departureDate": "2026-10-09",
             "totalPrice": {
-              "base": "4019",
-              "tax": "1524",
-              "total": "5543",
+              "base": "3728",
+              "tax": "1509",
+              "total": "5237",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.5",
+                "value": "5.2",
                 "unit": "K"
               }
             }
@@ -3339,12 +3339,12 @@
           {
             "departureDate": "2026-10-10",
             "totalPrice": {
-              "base": "3783",
-              "tax": "1512",
-              "total": "5295",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3365,12 +3365,12 @@
           {
             "departureDate": "2026-10-12",
             "totalPrice": {
-              "base": "6226",
-              "tax": "1634",
-              "total": "7860",
+              "base": "5670",
+              "tax": "1606",
+              "total": "7276",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.9",
+                "value": "7.3",
                 "unit": "K"
               }
             }
@@ -3404,12 +3404,12 @@
           {
             "departureDate": "2026-10-15",
             "totalPrice": {
-              "base": "6226",
-              "tax": "1634",
-              "total": "7860",
+              "base": "3747",
+              "tax": "2633",
+              "total": "6380",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.9",
+                "value": "6.4",
                 "unit": "K"
               }
             }
@@ -3430,12 +3430,12 @@
           {
             "departureDate": "2026-10-17",
             "totalPrice": {
-              "base": "6396",
-              "tax": "2765",
-              "total": "9161",
+              "base": "3747",
+              "tax": "2633",
+              "total": "6380",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.2",
+                "value": "6.4",
                 "unit": "K"
               }
             }
@@ -3456,12 +3456,12 @@
           {
             "departureDate": "2026-10-19",
             "totalPrice": {
-              "base": "3783",
-              "tax": "1512",
-              "total": "5295",
+              "base": "3728",
+              "tax": "1509",
+              "total": "5237",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5.2",
                 "unit": "K"
               }
             }
@@ -3469,12 +3469,12 @@
           {
             "departureDate": "2026-10-20",
             "totalPrice": {
-              "base": "3558",
-              "tax": "1501",
-              "total": "5059",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3482,12 +3482,12 @@
           {
             "departureDate": "2026-10-21",
             "totalPrice": {
-              "base": "3783",
-              "tax": "1512",
-              "total": "5295",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3495,12 +3495,12 @@
           {
             "departureDate": "2026-10-22",
             "totalPrice": {
-              "base": "3558",
-              "tax": "1501",
-              "total": "5059",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3508,12 +3508,12 @@
           {
             "departureDate": "2026-10-23",
             "totalPrice": {
-              "base": "4696",
-              "tax": "1558",
-              "total": "6254",
+              "base": "4329",
+              "tax": "1539",
+              "total": "5868",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.3",
+                "value": "5.9",
                 "unit": "K"
               }
             }
@@ -3521,12 +3521,12 @@
           {
             "departureDate": "2026-10-24",
             "totalPrice": {
-              "base": "3783",
-              "tax": "1512",
-              "total": "5295",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3534,12 +3534,12 @@
           {
             "departureDate": "2026-10-25",
             "totalPrice": {
-              "base": "4019",
-              "tax": "1524",
-              "total": "5543",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.5",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3547,12 +3547,12 @@
           {
             "departureDate": "2026-10-26",
             "totalPrice": {
-              "base": "3558",
-              "tax": "1501",
-              "total": "5059",
+              "base": "3299",
+              "tax": "1488",
+              "total": "4787",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "4.8",
                 "unit": "K"
               }
             }
@@ -3560,12 +3560,12 @@
           {
             "departureDate": "2026-10-27",
             "totalPrice": {
-              "base": "3783",
-              "tax": "1512",
-              "total": "5295",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3573,12 +3573,12 @@
           {
             "departureDate": "2026-10-28",
             "totalPrice": {
-              "base": "4019",
-              "tax": "1524",
-              "total": "5543",
+              "base": "3728",
+              "tax": "1509",
+              "total": "5237",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.5",
+                "value": "5.2",
                 "unit": "K"
               }
             }
@@ -3586,12 +3586,12 @@
           {
             "departureDate": "2026-10-29",
             "totalPrice": {
-              "base": "3783",
-              "tax": "1512",
-              "total": "5295",
+              "base": "3508",
+              "tax": "1498",
+              "total": "5006",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -3599,12 +3599,12 @@
           {
             "departureDate": "2026-10-30",
             "totalPrice": {
-              "base": "4696",
-              "tax": "1558",
-              "total": "6254",
+              "base": "4329",
+              "tax": "1539",
+              "total": "5868",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.3",
+                "value": "5.9",
                 "unit": "K"
               }
             }
@@ -3612,12 +3612,12 @@
           {
             "departureDate": "2026-10-31",
             "totalPrice": {
-              "base": "4696",
-              "tax": "1558",
-              "total": "6254",
+              "base": "4329",
+              "tax": "1539",
+              "total": "5868",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.3",
+                "value": "5.9",
                 "unit": "K"
               }
             }
@@ -3625,12 +3625,12 @@
           {
             "departureDate": "2026-11-01",
             "totalPrice": {
-              "base": "4746",
-              "tax": "1560",
-              "total": "6306",
+              "base": "4329",
+              "tax": "1539",
+              "total": "5868",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.3",
+                "value": "5.9",
                 "unit": "K"
               }
             }
@@ -3638,12 +3638,12 @@
           {
             "departureDate": "2026-11-02",
             "totalPrice": {
-              "base": "5715",
-              "tax": "1609",
-              "total": "7324",
+              "base": "5099",
+              "tax": "1578",
+              "total": "6677",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.3",
+                "value": "6.7",
                 "unit": "K"
               }
             }
@@ -3667,12 +3667,12 @@
           {
             "departureDate": "2026-09-09",
             "totalPrice": {
-              "base": "8426",
-              "tax": "2153",
-              "total": "10579",
+              "base": "9599",
+              "tax": "2211",
+              "total": "11810",
               "currency": "INR",
               "priceLabel": {
-                "value": "10.6",
+                "value": "11.8",
                 "unit": "K"
               }
             }
@@ -3680,12 +3680,12 @@
           {
             "departureDate": "2026-09-10",
             "totalPrice": {
-              "base": "8426",
-              "tax": "2153",
-              "total": "10579",
+              "base": "9599",
+              "tax": "2211",
+              "total": "11810",
               "currency": "INR",
               "priceLabel": {
-                "value": "10.6",
+                "value": "11.8",
                 "unit": "K"
               }
             }
@@ -3706,12 +3706,12 @@
           {
             "departureDate": "2026-09-12",
             "totalPrice": {
-              "base": "9599",
-              "tax": "2211",
-              "total": "11810",
+              "base": "8631",
+              "tax": "2163",
+              "total": "10794",
               "currency": "INR",
               "priceLabel": {
-                "value": "11.8",
+                "value": "10.8",
                 "unit": "K"
               }
             }
@@ -3966,9 +3966,9 @@
           {
             "departureDate": "2026-10-02",
             "totalPrice": {
-              "base": "8426",
-              "tax": "2153",
-              "total": "10579",
+              "base": "8406",
+              "tax": "2152",
+              "total": "10558",
               "currency": "INR",
               "priceLabel": {
                 "value": "10.6",
@@ -4437,12 +4437,12 @@
           {
             "departureDate": "2026-09-12",
             "totalPrice": {
-              "base": "7358",
-              "tax": "1751",
-              "total": "9109",
+              "base": "7022",
+              "tax": "1735",
+              "total": "8757",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.1",
+                "value": "8.8",
                 "unit": "K"
               }
             }
@@ -4450,12 +4450,12 @@
           {
             "departureDate": "2026-09-13",
             "totalPrice": {
-              "base": "7358",
-              "tax": "1751",
-              "total": "9109",
+              "base": "7022",
+              "tax": "1735",
+              "total": "8757",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.1",
+                "value": "8.8",
                 "unit": "K"
               }
             }
@@ -4463,12 +4463,12 @@
           {
             "departureDate": "2026-09-14",
             "totalPrice": {
-              "base": "7358",
-              "tax": "1751",
-              "total": "9109",
+              "base": "7022",
+              "tax": "1735",
+              "total": "8757",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.1",
+                "value": "8.8",
                 "unit": "K"
               }
             }
@@ -4476,12 +4476,12 @@
           {
             "departureDate": "2026-09-15",
             "totalPrice": {
-              "base": "7358",
-              "tax": "1751",
-              "total": "9109",
+              "base": "7022",
+              "tax": "1735",
+              "total": "8757",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.1",
+                "value": "8.8",
                 "unit": "K"
               }
             }
@@ -4489,12 +4489,12 @@
           {
             "departureDate": "2026-09-16",
             "totalPrice": {
-              "base": "7358",
-              "tax": "1751",
-              "total": "9109",
+              "base": "7022",
+              "tax": "1735",
+              "total": "8757",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.1",
+                "value": "8.8",
                 "unit": "K"
               }
             }
@@ -4502,12 +4502,12 @@
           {
             "departureDate": "2026-09-17",
             "totalPrice": {
-              "base": "7358",
-              "tax": "1751",
-              "total": "9109",
+              "base": "7022",
+              "tax": "1735",
+              "total": "8757",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.1",
+                "value": "8.8",
                 "unit": "K"
               }
             }
@@ -4541,12 +4541,12 @@
           {
             "departureDate": "2026-09-20",
             "totalPrice": {
-              "base": "7358",
-              "tax": "1751",
-              "total": "9109",
+              "base": "7568",
+              "tax": "1762",
+              "total": "9330",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.1",
+                "value": "9.3",
                 "unit": "K"
               }
             }
@@ -5129,12 +5129,12 @@
           {
             "departureDate": "2026-09-09",
             "totalPrice": {
-              "base": "7053",
-              "tax": "1269",
-              "total": "8322",
+              "base": "8053",
+              "tax": "1319",
+              "total": "9372",
               "currency": "INR",
               "priceLabel": {
-                "value": "8.3",
+                "value": "9.4",
                 "unit": "K"
               }
             }
@@ -5155,12 +5155,12 @@
           {
             "departureDate": "2026-09-11",
             "totalPrice": {
-              "base": "12942",
-              "tax": "1563",
-              "total": "14505",
+              "base": "15556",
+              "tax": "2856",
+              "total": "18412",
               "currency": "INR",
               "priceLabel": {
-                "value": "14.5",
+                "value": "18.4",
                 "unit": "K"
               }
             }
@@ -5168,12 +5168,12 @@
           {
             "departureDate": "2026-09-12",
             "totalPrice": {
-              "base": "8818",
-              "tax": "1357",
-              "total": "10175",
+              "base": "8873",
+              "tax": "1820",
+              "total": "10693",
               "currency": "INR",
               "priceLabel": {
-                "value": "10.2",
+                "value": "10.7",
                 "unit": "K"
               }
             }
@@ -5181,12 +5181,12 @@
           {
             "departureDate": "2026-09-13",
             "totalPrice": {
-              "base": "4031",
-              "tax": "1117",
-              "total": "5148",
+              "base": "4436",
+              "tax": "1138",
+              "total": "5574",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "5.6",
                 "unit": "K"
               }
             }
@@ -5194,12 +5194,12 @@
           {
             "departureDate": "2026-09-14",
             "totalPrice": {
-              "base": "3626",
-              "tax": "1097",
-              "total": "4723",
+              "base": "3900",
+              "tax": "1111",
+              "total": "5011",
               "currency": "INR",
               "priceLabel": {
-                "value": "4.7",
+                "value": "5",
                 "unit": "K"
               }
             }
@@ -5220,12 +5220,12 @@
           {
             "departureDate": "2026-09-16",
             "totalPrice": {
-              "base": "4553",
-              "tax": "1144",
-              "total": "5697",
+              "base": "3626",
+              "tax": "1097",
+              "total": "4723",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.7",
+                "value": "4.7",
                 "unit": "K"
               }
             }
@@ -5272,9 +5272,9 @@
           {
             "departureDate": "2026-09-20",
             "totalPrice": {
-              "base": "3494",
-              "tax": "1551",
-              "total": "5045",
+              "base": "3900",
+              "tax": "1111",
+              "total": "5011",
               "currency": "INR",
               "priceLabel": {
                 "value": "5",
@@ -5298,9 +5298,9 @@
           {
             "departureDate": "2026-09-22",
             "totalPrice": {
-              "base": "3428",
-              "tax": "1087",
-              "total": "4515",
+              "base": "3378",
+              "tax": "1085",
+              "total": "4463",
               "currency": "INR",
               "priceLabel": {
                 "value": "4.5",
@@ -5324,12 +5324,12 @@
           {
             "departureDate": "2026-09-24",
             "totalPrice": {
-              "base": "6050",
-              "tax": "1218",
-              "total": "7268",
+              "base": "5350",
+              "tax": "1183",
+              "total": "6533",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.3",
+                "value": "6.5",
                 "unit": "K"
               }
             }
@@ -5337,12 +5337,12 @@
           {
             "departureDate": "2026-09-25",
             "totalPrice": {
-              "base": "3699",
-              "tax": "1561",
-              "total": "5260",
+              "base": "3599",
+              "tax": "1556",
+              "total": "5155",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5.2",
                 "unit": "K"
               }
             }
@@ -5454,12 +5454,12 @@
           {
             "departureDate": "2026-10-04",
             "totalPrice": {
-              "base": "3626",
-              "tax": "1097",
-              "total": "4723",
+              "base": "3800",
+              "tax": "1106",
+              "total": "4906",
               "currency": "INR",
               "priceLabel": {
-                "value": "4.7",
+                "value": "4.9",
                 "unit": "K"
               }
             }
@@ -5519,12 +5519,12 @@
           {
             "departureDate": "2026-10-09",
             "totalPrice": {
-              "base": "4176",
-              "tax": "1125",
-              "total": "5301",
+              "base": "4597",
+              "tax": "1146",
+              "total": "5743",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.3",
+                "value": "5.7",
                 "unit": "K"
               }
             }
@@ -5571,12 +5571,12 @@
           {
             "departureDate": "2026-10-13",
             "totalPrice": {
-              "base": "3431",
-              "tax": "1087",
-              "total": "4518",
+              "base": "3626",
+              "tax": "1097",
+              "total": "4723",
               "currency": "INR",
               "priceLabel": {
-                "value": "4.5",
+                "value": "4.7",
                 "unit": "K"
               }
             }
@@ -5597,12 +5597,12 @@
           {
             "departureDate": "2026-10-15",
             "totalPrice": {
-              "base": "5038",
-              "tax": "1168",
-              "total": "6206",
+              "base": "4597",
+              "tax": "1146",
+              "total": "5743",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.2",
+                "value": "5.7",
                 "unit": "K"
               }
             }
@@ -5636,12 +5636,12 @@
           {
             "departureDate": "2026-10-18",
             "totalPrice": {
-              "base": "4031",
-              "tax": "1117",
-              "total": "5148",
+              "base": "3800",
+              "tax": "1106",
+              "total": "4906",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "4.9",
                 "unit": "K"
               }
             }
@@ -5649,12 +5649,12 @@
           {
             "departureDate": "2026-10-19",
             "totalPrice": {
-              "base": "4031",
-              "tax": "1117",
-              "total": "5148",
+              "base": "3800",
+              "tax": "1106",
+              "total": "4906",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "4.9",
                 "unit": "K"
               }
             }
@@ -5701,12 +5701,12 @@
           {
             "departureDate": "2026-10-23",
             "totalPrice": {
-              "base": "4597",
-              "tax": "1146",
-              "total": "5743",
+              "base": "5038",
+              "tax": "1168",
+              "total": "6206",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.7",
+                "value": "6.2",
                 "unit": "K"
               }
             }
@@ -5727,12 +5727,12 @@
           {
             "departureDate": "2026-10-25",
             "totalPrice": {
-              "base": "3626",
-              "tax": "1097",
-              "total": "4723",
+              "base": "3431",
+              "tax": "1087",
+              "total": "4518",
               "currency": "INR",
               "priceLabel": {
-                "value": "4.7",
+                "value": "4.5",
                 "unit": "K"
               }
             }
@@ -5740,12 +5740,12 @@
           {
             "departureDate": "2026-10-26",
             "totalPrice": {
-              "base": "4436",
-              "tax": "1138",
-              "total": "5574",
+              "base": "4031",
+              "tax": "1117",
+              "total": "5148",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.6",
+                "value": "5.1",
                 "unit": "K"
               }
             }
@@ -5753,12 +5753,12 @@
           {
             "departureDate": "2026-10-27",
             "totalPrice": {
-              "base": "4436",
-              "tax": "1138",
-              "total": "5574",
+              "base": "4031",
+              "tax": "1117",
+              "total": "5148",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.6",
+                "value": "5.1",
                 "unit": "K"
               }
             }
@@ -5766,12 +5766,12 @@
           {
             "departureDate": "2026-10-28",
             "totalPrice": {
-              "base": "3626",
-              "tax": "1097",
-              "total": "4723",
+              "base": "3431",
+              "tax": "1087",
+              "total": "4518",
               "currency": "INR",
               "priceLabel": {
-                "value": "4.7",
+                "value": "4.5",
                 "unit": "K"
               }
             }
@@ -5779,12 +5779,12 @@
           {
             "departureDate": "2026-10-29",
             "totalPrice": {
-              "base": "5663",
-              "tax": "1199",
-              "total": "6862",
+              "base": "4597",
+              "tax": "1146",
+              "total": "5743",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.9",
+                "value": "5.7",
                 "unit": "K"
               }
             }
@@ -5805,12 +5805,12 @@
           {
             "departureDate": "2026-10-31",
             "totalPrice": {
-              "base": "4031",
-              "tax": "1117",
-              "total": "5148",
+              "base": "3626",
+              "tax": "1097",
+              "total": "4723",
               "currency": "INR",
               "priceLabel": {
-                "value": "5.1",
+                "value": "4.7",
                 "unit": "K"
               }
             }
@@ -5831,12 +5831,12 @@
           {
             "departureDate": "2026-11-02",
             "totalPrice": {
-              "base": "7053",
-              "tax": "1269",
-              "total": "8322",
+              "base": "6353",
+              "tax": "1234",
+              "total": "7587",
               "currency": "INR",
               "priceLabel": {
-                "value": "8.3",
+                "value": "7.6",
                 "unit": "K"
               }
             }
@@ -5873,12 +5873,12 @@
           {
             "departureDate": "2026-09-10",
             "totalPrice": {
-              "base": "6463",
-              "tax": "1502",
-              "total": "7965",
+              "base": "4886",
+              "tax": "2283",
+              "total": "7169",
               "currency": "INR",
               "priceLabel": {
-                "value": "8",
+                "value": "7.2",
                 "unit": "K"
               }
             }
@@ -5886,12 +5886,12 @@
           {
             "departureDate": "2026-09-11",
             "totalPrice": {
-              "base": "11351",
-              "tax": "2606",
-              "total": "13957",
+              "base": "11951",
+              "tax": "2636",
+              "total": "14587",
               "currency": "INR",
               "priceLabel": {
-                "value": "14",
+                "value": "14.6",
                 "unit": "K"
               }
             }
@@ -6146,12 +6146,12 @@
           {
             "departureDate": "2026-10-01",
             "totalPrice": {
-              "base": "5886",
-              "tax": "1473",
-              "total": "7359",
+              "base": "6034",
+              "tax": "1480",
+              "total": "7514",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.4",
+                "value": "7.5",
                 "unit": "K"
               }
             }
@@ -6185,12 +6185,12 @@
           {
             "departureDate": "2026-10-04",
             "totalPrice": {
-              "base": "5886",
-              "tax": "1473",
-              "total": "7359",
+              "base": "6034",
+              "tax": "1480",
+              "total": "7514",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.4",
+                "value": "7.5",
                 "unit": "K"
               }
             }
@@ -6604,12 +6604,12 @@
           {
             "departureDate": "2026-09-10",
             "totalPrice": {
-              "base": "10463",
-              "tax": "2499",
-              "total": "12962",
+              "base": "10737",
+              "tax": "2512",
+              "total": "13249",
               "currency": "INR",
               "priceLabel": {
-                "value": "13",
+                "value": "13.2",
                 "unit": "K"
               }
             }
@@ -6617,12 +6617,12 @@
           {
             "departureDate": "2026-09-11",
             "totalPrice": {
-              "base": "7163",
-              "tax": "2334",
-              "total": "9497",
+              "base": "7004",
+              "tax": "2326",
+              "total": "9330",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.5",
+                "value": "9.3",
                 "unit": "K"
               }
             }
@@ -6630,18 +6630,200 @@
           {
             "departureDate": "2026-09-12",
             "totalPrice": {
-              "base": "6204",
-              "tax": "2286",
-              "total": "8490",
+              "base": "6028",
+              "tax": "2277",
+              "total": "8305",
               "currency": "INR",
               "priceLabel": {
-                "value": "8.5",
+                "value": "8.3",
                 "unit": "K"
               }
             }
           },
           {
             "departureDate": "2026-09-13",
+            "totalPrice": {
+              "base": "7004",
+              "tax": "2326",
+              "total": "9330",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "9.3",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-14",
+            "totalPrice": {
+              "base": "6504",
+              "tax": "2583",
+              "total": "9087",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "9.1",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-15",
+            "totalPrice": {
+              "base": "7004",
+              "tax": "2326",
+              "total": "9330",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "9.3",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-16",
+            "totalPrice": {
+              "base": "6504",
+              "tax": "2301",
+              "total": "8805",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "8.8",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-17",
+            "totalPrice": {
+              "base": "7004",
+              "tax": "2326",
+              "total": "9330",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "9.3",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-18",
+            "totalPrice": {
+              "base": "6504",
+              "tax": "2301",
+              "total": "8805",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "8.8",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-19",
+            "totalPrice": {
+              "base": "7004",
+              "tax": "2326",
+              "total": "9330",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "9.3",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-20",
+            "totalPrice": {
+              "base": "7646",
+              "tax": "2640",
+              "total": "10286",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "10.3",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-21",
+            "totalPrice": {
+              "base": "7404",
+              "tax": "2346",
+              "total": "9750",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "9.8",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-22",
+            "totalPrice": {
+              "base": "6028",
+              "tax": "2277",
+              "total": "8305",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "8.3",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-23",
+            "totalPrice": {
+              "base": "6028",
+              "tax": "2277",
+              "total": "8305",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "8.3",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-24",
+            "totalPrice": {
+              "base": "6504",
+              "tax": "2301",
+              "total": "8805",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "8.8",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-25",
+            "totalPrice": {
+              "base": "6504",
+              "tax": "2301",
+              "total": "8805",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "8.8",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-26",
+            "totalPrice": {
+              "base": "6504",
+              "tax": "2301",
+              "total": "8805",
+              "currency": "INR",
+              "priceLabel": {
+                "value": "8.8",
+                "unit": "K"
+              }
+            }
+          },
+          {
+            "departureDate": "2026-09-27",
             "totalPrice": {
               "base": "6789",
               "tax": "2597",
@@ -6654,196 +6836,14 @@
             }
           },
           {
-            "departureDate": "2026-09-14",
-            "totalPrice": {
-              "base": "6704",
-              "tax": "2311",
-              "total": "9015",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "9",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-15",
-            "totalPrice": {
-              "base": "6504",
-              "tax": "2583",
-              "total": "9087",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "9.1",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-16",
-            "totalPrice": {
-              "base": "5710",
-              "tax": "2261",
-              "total": "7971",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "8",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-17",
-            "totalPrice": {
-              "base": "5710",
-              "tax": "2261",
-              "total": "7971",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "8",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-18",
-            "totalPrice": {
-              "base": "5710",
-              "tax": "2261",
-              "total": "7971",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "8",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-19",
-            "totalPrice": {
-              "base": "5710",
-              "tax": "2261",
-              "total": "7971",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "8",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-20",
-            "totalPrice": {
-              "base": "7804",
-              "tax": "2366",
-              "total": "10170",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "10.2",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-21",
-            "totalPrice": {
-              "base": "6204",
-              "tax": "2286",
-              "total": "8490",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "8.5",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-22",
-            "totalPrice": {
-              "base": "5304",
-              "tax": "2241",
-              "total": "7545",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "7.5",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-23",
-            "totalPrice": {
-              "base": "5304",
-              "tax": "2241",
-              "total": "7545",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "7.5",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-24",
-            "totalPrice": {
-              "base": "5304",
-              "tax": "2241",
-              "total": "7545",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "7.5",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-25",
-            "totalPrice": {
-              "base": "5304",
-              "tax": "2241",
-              "total": "7545",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "7.5",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-26",
-            "totalPrice": {
-              "base": "5304",
-              "tax": "2241",
-              "total": "7545",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "7.5",
-                "unit": "K"
-              }
-            }
-          },
-          {
-            "departureDate": "2026-09-27",
-            "totalPrice": {
-              "base": "5710",
-              "tax": "2261",
-              "total": "7971",
-              "currency": "INR",
-              "priceLabel": {
-                "value": "8",
-                "unit": "K"
-              }
-            }
-          },
-          {
             "departureDate": "2026-09-28",
             "totalPrice": {
-              "base": "5004",
-              "tax": "2226",
-              "total": "7230",
+              "base": "6028",
+              "tax": "2277",
+              "total": "8305",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.2",
+                "value": "8.3",
                 "unit": "K"
               }
             }
@@ -6851,12 +6851,12 @@
           {
             "departureDate": "2026-09-29",
             "totalPrice": {
-              "base": "5004",
-              "tax": "2226",
-              "total": "7230",
+              "base": "6028",
+              "tax": "2277",
+              "total": "8305",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.2",
+                "value": "8.3",
                 "unit": "K"
               }
             }
@@ -6864,12 +6864,12 @@
           {
             "departureDate": "2026-09-30",
             "totalPrice": {
-              "base": "4704",
-              "tax": "2211",
-              "total": "6915",
+              "base": "6028",
+              "tax": "2277",
+              "total": "8305",
               "currency": "INR",
               "priceLabel": {
-                "value": "6.9",
+                "value": "8.3",
                 "unit": "K"
               }
             }
@@ -6877,12 +6877,12 @@
           {
             "departureDate": "2026-10-01",
             "totalPrice": {
-              "base": "5554",
-              "tax": "2253",
-              "total": "7807",
+              "base": "6104",
+              "tax": "2281",
+              "total": "8385",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "8.4",
                 "unit": "K"
               }
             }
@@ -6890,12 +6890,12 @@
           {
             "departureDate": "2026-10-02",
             "totalPrice": {
-              "base": "5554",
-              "tax": "2253",
-              "total": "7807",
+              "base": "6104",
+              "tax": "2281",
+              "total": "8385",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "8.4",
                 "unit": "K"
               }
             }
@@ -6903,12 +6903,12 @@
           {
             "departureDate": "2026-10-03",
             "totalPrice": {
-              "base": "5213",
-              "tax": "2236",
-              "total": "7449",
+              "base": "5704",
+              "tax": "2261",
+              "total": "7965",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.4",
+                "value": "8",
                 "unit": "K"
               }
             }
@@ -6916,12 +6916,12 @@
           {
             "departureDate": "2026-10-04",
             "totalPrice": {
-              "base": "6504",
-              "tax": "2583",
-              "total": "9087",
+              "base": "7004",
+              "tax": "2326",
+              "total": "9330",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.1",
+                "value": "9.3",
                 "unit": "K"
               }
             }
@@ -6929,12 +6929,12 @@
           {
             "departureDate": "2026-10-05",
             "totalPrice": {
-              "base": "5554",
-              "tax": "2253",
-              "total": "7807",
+              "base": "6504",
+              "tax": "2301",
+              "total": "8805",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "8.8",
                 "unit": "K"
               }
             }
@@ -6942,12 +6942,12 @@
           {
             "departureDate": "2026-10-06",
             "totalPrice": {
-              "base": "5213",
-              "tax": "2236",
-              "total": "7449",
+              "base": "5704",
+              "tax": "2261",
+              "total": "7965",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.4",
+                "value": "8",
                 "unit": "K"
               }
             }
@@ -6955,12 +6955,12 @@
           {
             "departureDate": "2026-10-07",
             "totalPrice": {
-              "base": "5554",
-              "tax": "2253",
-              "total": "7807",
+              "base": "6104",
+              "tax": "2281",
+              "total": "8385",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "8.4",
                 "unit": "K"
               }
             }
@@ -6968,12 +6968,12 @@
           {
             "departureDate": "2026-10-08",
             "totalPrice": {
-              "base": "5554",
-              "tax": "2253",
-              "total": "7807",
+              "base": "6104",
+              "tax": "2281",
+              "total": "8385",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "8.4",
                 "unit": "K"
               }
             }
@@ -6981,12 +6981,12 @@
           {
             "departureDate": "2026-10-09",
             "totalPrice": {
-              "base": "5554",
-              "tax": "2253",
-              "total": "7807",
+              "base": "5704",
+              "tax": "2261",
+              "total": "7965",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "8",
                 "unit": "K"
               }
             }
@@ -6994,12 +6994,12 @@
           {
             "departureDate": "2026-10-10",
             "totalPrice": {
-              "base": "6402",
-              "tax": "2296",
-              "total": "8698",
+              "base": "6104",
+              "tax": "2281",
+              "total": "8385",
               "currency": "INR",
               "priceLabel": {
-                "value": "8.7",
+                "value": "8.4",
                 "unit": "K"
               }
             }
@@ -7007,12 +7007,12 @@
           {
             "departureDate": "2026-10-11",
             "totalPrice": {
-              "base": "5554",
-              "tax": "2253",
-              "total": "7807",
+              "base": "6104",
+              "tax": "2281",
+              "total": "8385",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "8.4",
                 "unit": "K"
               }
             }
@@ -7020,12 +7020,12 @@
           {
             "departureDate": "2026-10-12",
             "totalPrice": {
-              "base": "5554",
-              "tax": "2253",
-              "total": "7807",
+              "base": "6504",
+              "tax": "2301",
+              "total": "8805",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "8.8",
                 "unit": "K"
               }
             }
@@ -7033,12 +7033,12 @@
           {
             "departureDate": "2026-10-13",
             "totalPrice": {
-              "base": "5554",
-              "tax": "2253",
-              "total": "7807",
+              "base": "6789",
+              "tax": "2597",
+              "total": "9386",
               "currency": "INR",
               "priceLabel": {
-                "value": "7.8",
+                "value": "9.4",
                 "unit": "K"
               }
             }
@@ -7046,12 +7046,12 @@
           {
             "departureDate": "2026-10-14",
             "totalPrice": {
-              "base": "7170",
-              "tax": "2616",
-              "total": "9786",
+              "base": "7646",
+              "tax": "2640",
+              "total": "10286",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.8",
+                "value": "10.3",
                 "unit": "K"
               }
             }
@@ -7059,12 +7059,12 @@
           {
             "departureDate": "2026-10-15",
             "totalPrice": {
-              "base": "9744",
-              "tax": "2463",
-              "total": "12207",
+              "base": "12770",
+              "tax": "2614",
+              "total": "15384",
               "currency": "INR",
               "priceLabel": {
-                "value": "12.2",
+                "value": "15.4",
                 "unit": "K"
               }
             }
@@ -7072,12 +7072,12 @@
           {
             "departureDate": "2026-10-16",
             "totalPrice": {
-              "base": "14971",
-              "tax": "2724",
-              "total": "17695",
+              "base": "16076",
+              "tax": "2779",
+              "total": "18855",
               "currency": "INR",
               "priceLabel": {
-                "value": "17.7",
+                "value": "18.9",
                 "unit": "K"
               }
             }
@@ -7085,12 +7085,12 @@
           {
             "departureDate": "2026-10-17",
             "totalPrice": {
-              "base": "11864",
-              "tax": "2569",
-              "total": "14433",
+              "base": "16178",
+              "tax": "3382",
+              "total": "19560",
               "currency": "INR",
               "priceLabel": {
-                "value": "14.4",
+                "value": "19.6",
                 "unit": "K"
               }
             }
@@ -7098,12 +7098,12 @@
           {
             "departureDate": "2026-10-18",
             "totalPrice": {
-              "base": "9744",
-              "tax": "2463",
-              "total": "12207",
+              "base": "12770",
+              "tax": "2614",
+              "total": "15384",
               "currency": "INR",
               "priceLabel": {
-                "value": "12.2",
+                "value": "15.4",
                 "unit": "K"
               }
             }
@@ -7111,12 +7111,12 @@
           {
             "departureDate": "2026-10-19",
             "totalPrice": {
-              "base": "7503",
-              "tax": "2351",
-              "total": "9854",
+              "base": "10515",
+              "tax": "2501",
+              "total": "13016",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.9",
+                "value": "13",
                 "unit": "K"
               }
             }
@@ -7137,12 +7137,12 @@
           {
             "departureDate": "2026-10-21",
             "totalPrice": {
-              "base": "14200",
-              "tax": "2968",
-              "total": "17168",
+              "base": "13955",
+              "tax": "2956",
+              "total": "16911",
               "currency": "INR",
               "priceLabel": {
-                "value": "17.2",
+                "value": "16.9",
                 "unit": "K"
               }
             }
@@ -7150,12 +7150,12 @@
           {
             "departureDate": "2026-10-22",
             "totalPrice": {
-              "base": "14200",
-              "tax": "2968",
-              "total": "17168",
+              "base": "13955",
+              "tax": "2956",
+              "total": "16911",
               "currency": "INR",
               "priceLabel": {
-                "value": "17.2",
+                "value": "16.9",
                 "unit": "K"
               }
             }
@@ -7163,12 +7163,12 @@
           {
             "departureDate": "2026-10-23",
             "totalPrice": {
-              "base": "17438",
-              "tax": "3130",
-              "total": "20568",
+              "base": "13955",
+              "tax": "2956",
+              "total": "16911",
               "currency": "INR",
               "priceLabel": {
-                "value": "20.6",
+                "value": "16.9",
                 "unit": "K"
               }
             }
@@ -7176,12 +7176,12 @@
           {
             "departureDate": "2026-10-24",
             "totalPrice": {
-              "base": "18341",
-              "tax": "3490",
-              "total": "21831",
+              "base": "21014",
+              "tax": "3624",
+              "total": "24638",
               "currency": "INR",
               "priceLabel": {
-                "value": "21.8",
+                "value": "24.6",
                 "unit": "K"
               }
             }
@@ -7189,12 +7189,12 @@
           {
             "departureDate": "2026-10-25",
             "totalPrice": {
-              "base": "23968",
-              "tax": "3929",
-              "total": "27897",
+              "base": "23078",
+              "tax": "3884",
+              "total": "26962",
               "currency": "INR",
               "priceLabel": {
-                "value": "27.9",
+                "value": "27",
                 "unit": "K"
               }
             }
@@ -7215,12 +7215,12 @@
           {
             "departureDate": "2026-10-27",
             "totalPrice": {
-              "base": "14971",
-              "tax": "2724",
-              "total": "17695",
+              "base": "12770",
+              "tax": "2614",
+              "total": "15384",
               "currency": "INR",
               "priceLabel": {
-                "value": "17.7",
+                "value": "15.4",
                 "unit": "K"
               }
             }
@@ -7228,12 +7228,12 @@
           {
             "departureDate": "2026-10-28",
             "totalPrice": {
-              "base": "11864",
-              "tax": "2569",
-              "total": "14433",
+              "base": "12770",
+              "tax": "2614",
+              "total": "15384",
               "currency": "INR",
               "priceLabel": {
-                "value": "14.4",
+                "value": "15.4",
                 "unit": "K"
               }
             }
@@ -7241,12 +7241,12 @@
           {
             "departureDate": "2026-10-29",
             "totalPrice": {
-              "base": "8909",
-              "tax": "2421",
-              "total": "11330",
+              "base": "9626",
+              "tax": "2457",
+              "total": "12083",
               "currency": "INR",
               "priceLabel": {
-                "value": "11.3",
+                "value": "12.1",
                 "unit": "K"
               }
             }
@@ -7254,12 +7254,12 @@
           {
             "departureDate": "2026-10-30",
             "totalPrice": {
-              "base": "7503",
-              "tax": "2351",
-              "total": "9854",
+              "base": "8104",
+              "tax": "2381",
+              "total": "10485",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.9",
+                "value": "10.5",
                 "unit": "K"
               }
             }
@@ -7267,12 +7267,12 @@
           {
             "departureDate": "2026-10-31",
             "totalPrice": {
-              "base": "8909",
-              "tax": "2421",
-              "total": "11330",
+              "base": "9626",
+              "tax": "2457",
+              "total": "12083",
               "currency": "INR",
               "priceLabel": {
-                "value": "11.3",
+                "value": "12.1",
                 "unit": "K"
               }
             }
@@ -7280,12 +7280,12 @@
           {
             "departureDate": "2026-11-01",
             "totalPrice": {
-              "base": "8185",
-              "tax": "2385",
-              "total": "10570",
+              "base": "9626",
+              "tax": "2457",
+              "total": "12083",
               "currency": "INR",
               "priceLabel": {
-                "value": "10.6",
+                "value": "12.1",
                 "unit": "K"
               }
             }
@@ -7293,12 +7293,12 @@
           {
             "departureDate": "2026-11-02",
             "totalPrice": {
-              "base": "7553",
-              "tax": "2353",
-              "total": "9906",
+              "base": "8104",
+              "tax": "2381",
+              "total": "10485",
               "currency": "INR",
               "priceLabel": {
-                "value": "9.9",
+                "value": "10.5",
                 "unit": "K"
               }
             }

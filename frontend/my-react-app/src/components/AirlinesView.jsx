@@ -63,12 +63,29 @@ export default function AirlinesView({ airlines = [] }) {
             <div className="airline-metrics-row">
               <div className="air-metric">
                 <Database size={13} />
-                <span>{airline.quotes_recorded || 800} Quotes Ingested</span>
+                <span>{airline.quotes_recorded ? airline.quotes_recorded.toLocaleString() : '800'} Quotes Ingested</span>
               </div>
               <div className="air-metric live-status">
                 <CheckCircle size={13} />
                 <span>Active Crawler</span>
               </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '8px', marginTop: '12px', paddingTop: '10px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+              <a
+                href="#scraper"
+                className="btn-secondary"
+                style={{ flex: 1, padding: '5px 10px', fontSize: '0.75rem', textAlign: 'center', textDecoration: 'none' }}
+              >
+                Inspect Proof
+              </a>
+              <a
+                href="#quotes"
+                className="btn-primary"
+                style={{ flex: 1, padding: '5px 10px', fontSize: '0.75rem', textAlign: 'center', textDecoration: 'none' }}
+              >
+                Browse Fares
+              </a>
             </div>
           </div>
         ))}
@@ -105,12 +122,29 @@ export default function AirlinesView({ airlines = [] }) {
             <div className="airline-metrics-row">
               <div className="air-metric">
                 <Database size={13} />
-                <span>Cross-validation Node</span>
+                <span>{ota.quotes_recorded ? ota.quotes_recorded.toLocaleString() : '800'} Quotes Ingested</span>
               </div>
               <div className="air-metric live-status">
                 <CheckCircle size={13} />
                 <span>Audited Daily</span>
               </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '8px', marginTop: '12px', paddingTop: '10px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+              <a
+                href="#scraper"
+                className="btn-secondary"
+                style={{ flex: 1, padding: '5px 10px', fontSize: '0.75rem', textAlign: 'center', textDecoration: 'none' }}
+              >
+                Inspect Proof
+              </a>
+              <a
+                href="#quotes"
+                className="btn-primary"
+                style={{ flex: 1, padding: '5px 10px', fontSize: '0.75rem', textAlign: 'center', textDecoration: 'none' }}
+              >
+                Browse Fares
+              </a>
             </div>
           </div>
         ))}

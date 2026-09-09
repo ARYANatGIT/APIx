@@ -53,71 +53,71 @@ export default function ProofOfSourceModal({ isOpen, onClose, quote }) {
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal-card proof-modal-card" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-card proof-modal-card bold-modal-card" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
-          <X size={20} />
+          <X size={18} strokeWidth={1.5} />
         </button>
 
         <div className="proof-modal-content">
           <div className="proof-header">
-            <div className="proof-seal-badge">
-              <ShieldCheck size={16} />
+            <div className="proof-seal-badge bold-mono-pill">
+              <span className="accent-square">■</span>
               <span>MoSPI PROOF-OF-SOURCE AUDIT TRAIL</span>
             </div>
-            <h2>Government Data Verification & Audit Proof</h2>
+            <h2 className="bold-display-h2">DATA PROVENANCE & CRYPTOGRAPHIC PROOF</h2>
             <p className="proof-subtitle">
               Cryptographically sealed airfare quotation observation compliant with NSO data provenance requirements.
             </p>
           </div>
 
-          <div className="proof-status-card">
+          <div className="proof-status-card bold-status-banner">
             <div className="status-indicator">
-              <CheckCircle2 size={24} className="icon-green" />
+              <CheckCircle2 size={20} strokeWidth={1.5} className="text-accent" />
               <div>
-                <div className="status-title">Cryptographic Integrity Verified</div>
-                <div className="status-sub">SHA-256 Digital Fingerprint matches raw source extraction</div>
+                <div className="status-title">CRYPTOGRAPHIC INTEGRITY VERIFIED</div>
+                <div className="status-sub">SHA-256 digital fingerprint matches raw crawler response</div>
               </div>
             </div>
-            <div className="status-stamp">TAMPER PROOF</div>
+            <div className="status-stamp bold-stamp">TAMPER PROOF</div>
           </div>
 
-          <div className="proof-grid">
-            <div className="proof-item">
-              <span className="p-label">Flight Observation</span>
-              <span className="p-val font-mono">{quote.flight_number} • {quote.route_code}</span>
+          <div className="proof-grid bold-summary-grid">
+            <div className="proof-item bold-proof-cell">
+              <span className="p-label">FLIGHT OBSERVATION</span>
+              <span className="p-val font-mono">{quote.flight_number} // {quote.route_code}</span>
             </div>
-            <div className="proof-item">
-              <span className="p-label">Monitored Entity</span>
+            <div className="proof-item bold-proof-cell">
+              <span className="p-label">MONITORED CARRIER</span>
               <span className="p-val">{quote.airline_name} ({quote.airline_code})</span>
             </div>
-            <div className="proof-item">
-              <span className="p-label">Observation Timestamp</span>
-              <span className="p-val">{quote.scraped_at ? new Date(quote.scraped_at).toLocaleString() : '2026-09-05 10:15 UTC'}</span>
+            <div className="proof-item bold-proof-cell">
+              <span className="p-label">TIMESTAMP (UTC)</span>
+              <span className="p-val font-mono">{quote.scraped_at ? new Date(quote.scraped_at).toISOString() : '2026-09-09T12:00:00Z'}</span>
             </div>
-            <div className="proof-item">
-              <span className="p-label">Advance Booking Window</span>
-              <span className="p-val">{quote.advance_window} (Flight: {quote.flight_date})</span>
+            <div className="proof-item bold-proof-cell">
+              <span className="p-label">PURCHASE HORIZON</span>
+              <span className="p-val font-mono">{quote.advance_window} (Flight: {quote.flight_date})</span>
             </div>
-            <div className="proof-item">
-              <span className="p-label">Total Normalised Fare</span>
-              <span className="p-val font-bold val-gold">₹{quote.total_fare.toLocaleString()}</span>
+            <div className="proof-item bold-proof-cell">
+              <span className="p-label">RECORDED FARE</span>
+              <span className="p-val font-mono text-accent font-bold">₹{quote.total_fare.toLocaleString()}</span>
             </div>
-            <div className="proof-item">
-              <span className="p-label">Base Fare / Taxes Split</span>
-              <span className="p-val">₹{quote.base_fare.toLocaleString()} / ₹{quote.taxes_and_fees.toLocaleString()}</span>
+            <div className="proof-item bold-proof-cell">
+              <span className="p-label">BASE / TAXES SPLIT</span>
+              <span className="p-val font-mono">₹{quote.base_fare.toLocaleString()} / ₹{quote.taxes_and_fees.toLocaleString()}</span>
             </div>
           </div>
 
           {/* Cryptographic Hash Section */}
-          <div className="hash-box">
+          <div className="hash-box bold-hash-box">
             <div className="hash-box-header">
               <div className="hash-title">
-                <Hash size={14} />
+                <Hash size={13} strokeWidth={1.5} />
                 <span>SHA-256 RAW SNAPSHOT HASH</span>
               </div>
-              <button className="copy-hash-btn" onClick={handleCopyHash}>
-                {copied ? <Check size={13} /> : <Copy size={13} />}
-                <span>{copied ? 'Copied' : 'Copy Hash'}</span>
+              <button type="button" className="copy-hash-btn" onClick={handleCopyHash}>
+                {copied ? <Check size={12} /> : <Copy size={12} />}
+                <span>{copied ? 'COPIED' : 'COPY HASH'}</span>
               </button>
             </div>
             <div className="hash-string font-mono">
@@ -126,24 +126,38 @@ export default function ProofOfSourceModal({ isOpen, onClose, quote }) {
           </div>
 
           {/* Source URL & Evidence Link */}
-          <div className="evidence-link-box">
-            <Globe size={15} />
+          <div className="evidence-link-box bold-evidence-box">
+            <Globe size={14} strokeWidth={1.5} />
             <span className="evidence-url font-mono">
               {quote.source_url || 'https://portal.crawler.mospi.gov.in/evidence/snapshot'}
             </span>
           </div>
 
           <div className="proof-modal-actions">
-            <button className="btn-secondary" onClick={onClose}>
-              Close Inspector
+            <button type="button" className="btn-secondary-bold" onClick={onClose}>
+              CLOSE INSPECTOR
             </button>
             <button
-              className="btn-primary"
+              type="button"
+              className="btn-primary-bold"
               onClick={() => {
-                alert(`Exporting official MoSPI Audit Certificate for Quote #${quote.id}`);
+                const certContent = `MoSPI REAL-TIME AIRFARE PRICE INDEX (APIx) - AUDIT CERTIFICATE\n` +
+                  `Quote ID: #${quote.id}\n` +
+                  `Flight: ${quote.flight_number} (${quote.route_code})\n` +
+                  `Fare: INR ${quote.total_fare}\n` +
+                  `Date: ${quote.flight_date} (${quote.advance_window})\n` +
+                  `SHA-256 Hash: ${proofData?.snapshot_hash_sha256 || quote.snapshot_hash}\n` +
+                  `Verification: VERIFIED_TAMPER_PROOF by MoSPI / NSO`;
+                const blob = new Blob([certContent], { type: 'text/plain;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `MoSPI_Audit_Proof_Quote_${quote.id}.txt`;
+                a.click();
               }}
             >
-              <Download size={15} /> Download Audit Certificate (PDF)
+              <Download size={14} strokeWidth={1.5} />
+              <span>DOWNLOAD AUDIT CERTIFICATE (.TXT)</span>
             </button>
           </div>
         </div>

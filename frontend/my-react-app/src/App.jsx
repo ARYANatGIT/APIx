@@ -5,7 +5,7 @@ import HeroTitle from './components/HeroTitle';
 import FeatureBadge from './components/FeatureBadge';
 import BookingBar from './components/BookingBar';
 import BookingModal from './components/BookingModal';
-import MiniMap from './components/MiniMap';
+import Grainient from './components/Grainient';
 import MapModal from './components/MapModal';
 import IndiaRouteMap from './components/IndiaRouteMap';
 import IndexTrendChart from './components/IndexTrendChart';
@@ -24,7 +24,8 @@ import {
   Plane,
   FileSearch,
   Cpu,
-  Download
+  Download,
+  RefreshCw
 } from 'lucide-react';
 
 import { apiService, FALLBACK_ROUTES, FALLBACK_AIRLINES, FALLBACK_WINDOWS, FALLBACK_INDEX_SERIES, FALLBACK_LOGS } from './services/api';
@@ -91,15 +92,58 @@ function App() {
   const [indexSeries, setIndexSeries] = useState(FALLBACK_INDEX_SERIES);
   const [scraperLogs, setScraperLogs] = useState(FALLBACK_LOGS);
 
-  // Load data on mount from backend API
-  useEffect(() => {
-    apiService.getOverview().then(data => setOverviewData(data)).catch(console.error);
-    apiService.getRoutes().then(data => setRoutes(data)).catch(console.error);
-    apiService.getAirlines().then(data => setAirlines(data)).catch(console.error);
-    apiService.getAdvanceWindows().then(data => setWindowsData(data)).catch(console.error);
-    apiService.getIndexSeries().then(data => setIndexSeries(data)).catch(console.error);
-    apiService.getScraperLogs().then(data => setScraperLogs(data)).catch(console.error);
+  // Real-time synchronization state
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [lastRefreshed, setLastRefreshed] = useState(new Date());
+
+  // Master refresh function to update entire frontend data suite from backend
+  const refreshAllData = useCallback(async () => {
+    setIsRefreshing(true);
+    try {
+      const [overview, routesData, airlinesData, windows, series, logs] = await Promise.all([
+        apiService.getOverview(),
+        apiService.getRoutes(),
+        apiService.getAirlines(),
+        apiService.getAdvanceWindows(),
+        apiService.getIndexSeries(),
+        apiService.getScraperLogs()
+      ]);
+      if (overview) setOverviewData(overview);
+      if (routesData && routesData.length > 0) setRoutes(routesData);
+      if (airlinesData && airlinesData.length > 0) setAirlines(airlinesData);
+      if (windows && windows.length > 0) setWindowsData(windows);
+      if (series && series.length > 0) setIndexSeries(series);
+      if (logs && logs.length > 0) setScraperLogs(logs);
+      setLastRefreshed(new Date());
+    } catch (e) {
+      console.error("Error refreshing whole frontend data:", e);
+    } finally {
+      setIsRefreshing(false);
+    }
   }, []);
+
+  // Initial load + automatic 30s background sync
+  useEffect(() => {
+    refreshAllData();
+    const interval = setInterval(refreshAllData, 30000);
+    return () => clearInterval(interval);
+  }, [refreshAllData]);
+
+  // Synchronize active corridor details from live backend route data
+  useEffect(() => {
+    if (routes && routes.length > 0) {
+      const active = routes.find(r => r.route_code === selectedRoute.route_code) || routes[0];
+      setSelectedRoute({
+        code: `${active.origin_code} ✈ ${active.destination_code}`,
+        route_code: active.route_code,
+        name: `${active.origin_city} (${active.origin_code}) → ${active.destination_city} (${active.destination_code})`,
+        trafficWeight: active.weight_pct_str ? `${active.weight_pct_str} DGCA Basket` : `${(active.weight * 100).toFixed(2)}% DGCA Basket`,
+        avgFare: `₹${Math.round(active.average_fare || 6675).toLocaleString()}`,
+        distance: active.distance_km,
+        pax: (active.annual_passengers || 7420000).toLocaleString()
+      });
+    }
+  }, [routes]);
 
   const handleOpenIndexModal = () => {
     setIsIndexModalOpen(true);
@@ -110,7 +154,7 @@ function App() {
       code: `${routeObj.origin_code} ✈ ${routeObj.destination_code}`,
       route_code: routeObj.route_code,
       name: `${routeObj.origin_city} (${routeObj.origin_code}) → ${routeObj.destination_city} (${routeObj.destination_code})`,
-      trafficWeight: `${(routeObj.weight * 100).toFixed(2)}% DGCA Basket`,
+      trafficWeight: routeObj.weight_pct_str ? `${routeObj.weight_pct_str} DGCA Basket` : `${(routeObj.weight * 100).toFixed(2)}% DGCA Basket`,
       avgFare: `₹${Math.round(routeObj.average_fare || 6500).toLocaleString()}`,
       distance: routeObj.distance_km,
       pax: (routeObj.annual_passengers || 0).toLocaleString()
@@ -156,24 +200,44 @@ function App() {
   const isDeckScreen = activeTab === 'deck';
 
   return (
-    <div
-      className={`harmont-page-root ${isHomeScreen ? 'flight-page-theme flight-in-motion' : 'dashboard-white-theme'}`}
-      style={{
-        backgroundImage: isHomeScreen ? `url(${planeBg})` : 'none',
-        backgroundColor: isHomeScreen ? 'transparent' : '#f8fafc'
-      }}
-    >
-      {/* Fullscreen atmospheric ambient cloud overlay (Home Screen only) */}
+    <div className="harmont-page-root bold-typography-root">
+      {/* React Bits Grainient Background on Home Page */}
       {isHomeScreen && (
-        <>
-          <div className="ambient-clouds-layer"></div>
-          <div className="frame-overlay-gradient"></div>
-        </>
+        <div className="home-grainient-bg" aria-hidden="true">
+          <Grainient
+            color1="#FF3D00"
+            color2="#080808"
+            color3="#161616"
+            timeSpeed={0.12}
+            warpStrength={1.1}
+            warpFrequency={4.0}
+            warpSpeed={1.0}
+            warpAmplitude={50.0}
+            blendSoftness={0.08}
+            rotationAmount={320.0}
+            noiseScale={1.8}
+            grainAmount={0.07}
+            grainScale={2.5}
+            grainAnimated={true}
+            contrast={1.3}
+            gamma={1.0}
+            saturation={1.15}
+            zoom={0.9}
+            lightMode={false}
+          />
+        </div>
       )}
 
-      {/* Main Viewport Inset Frame */}
+      {/* Subtle Typographic Backdrop Watermark Layer */}
+      {isHomeScreen && (
+        <div className="bold-backdrop-watermark" aria-hidden="true">
+          APIx
+        </div>
+      )}
+
+      {/* Main Viewport Inset Frame - Sharp 0px Border */}
       <div className={`harmont-viewport-frame ${isHomeScreen ? 'home-simple-frame' : 'dashboard-viewport-frame'} ${isHomeScreen && introBorderComplete ? 'border-completed' : ''}`}>
-        {/* Animated SVG Frame Border that traces 0% to 100% on Home Screen */}
+        {/* Animated Sharp Rectangular Border Frame on Home Screen */}
         {isHomeScreen && (
           <AnimatedBorderFrame
             key={`border-${introKey}`}
@@ -192,59 +256,113 @@ function App() {
           />
         )}
 
-        {/* 1. Home Screen: Clean Landing with Button Redirecting to Deck */}
+        {/* 1. Home Screen: Editorial Typographic Poster Spread */}
         {isHomeScreen && (
           <div
             key={`home-container-${introKey}`}
-            className={`home-simple-container ${!introDone ? 'home-intro-active' : 'home-intro-completed'}`}
+            className={`home-simple-container bold-home-container ${!introDone ? 'home-intro-active' : 'home-intro-completed'}`}
           >
-            {/* Top Section: Minimal Header + Large Title Above the Airplane */}
+            {/* Top Section: Editorial Topbar + Direct Suite Links */}
             <div className="home-top-section">
-              <header className="home-simple-topbar">
+              <header className="home-simple-topbar bold-home-topbar">
                 <Logo onClick={isHomeScreen ? handleReplayIntro : () => handleNavigate('home')} />
-                <div className="home-agency-pill">
-                  <span className="live-status-dot"></span>
-                  <span>MoSPI • Official Portal</span>
+                
+                <nav className="home-nav-shortcuts">
+                  <button type="button" className="home-shortcut-link" onClick={() => handleNavigate('deck')}>
+                    FLIGHT DECK
+                  </button>
+                  <button type="button" className="home-shortcut-link" onClick={() => handleNavigate('trajectory')}>
+                    INDEX TREND
+                  </button>
+                  <button type="button" className="home-shortcut-link" onClick={() => handleNavigate('routes')}>
+                    ROUTE BASKET
+                  </button>
+                  <button type="button" className="home-shortcut-link" onClick={() => handleNavigate('quotes')}>
+                    LIVE QUOTES
+                  </button>
+                </nav>
+
+                <div className="home-agency-pill bold-mono-pill">
+                  <span className="accent-square">■</span>
+                  <span>MoSPI // HIGH-FREQUENCY INGESTION</span>
                 </div>
               </header>
 
+              {/* Massive Typographic Headline */}
               <div className="home-title-top-area">
                 <HeroTitle />
               </div>
             </div>
 
-            {/* Middle Area: Floating Feature Badges over the Airplane Scene */}
-            <div className="cabin-feature-badges-layer flight-badges-layer">
-              <FeatureBadge
-                label="T+1 to T+45 Windows"
-                positionClass="plane-badge-left"
-                tooltipText="Advance purchase horizons: T+1, T+7, T+15, T+30, T+45 days"
-              />
-              <FeatureBadge
-                label="DGCA Sector Baskets"
-                positionClass="plane-badge-top"
-                tooltipText="10 Representative corridors: DEL-BOM, DEL-BLR, BOM-BLR, DEL-CCU, BLR-HYD, MAA-DEL..."
-              />
-              <FeatureBadge
-                label="Multi-Source Scraping"
-                positionClass="plane-badge-right"
-                tooltipText="Automated daily scraping across IndiGo, Air India, Akasa, SpiceJet & leading OTAs"
+            {/* High-Impact Real-Time Statistics Row */}
+            <div className="home-poster-stats-grid">
+              <div className="poster-stat-cell">
+                <span className="stat-label">DOMESTIC CORRIDORS</span>
+                <span className="stat-num text-accent">10</span>
+                <span className="stat-sub">High-Density DGCA Routes</span>
+              </div>
+              <div className="poster-stat-cell">
+                <span className="stat-label">ANNUAL PASSENGERS</span>
+                <span className="stat-num font-mono">33.2M</span>
+                <span className="stat-sub">Tracked Basket Volume</span>
+              </div>
+              <div className="poster-stat-cell">
+                <span className="stat-label">ACTIVE QUOTES</span>
+                <span className="stat-num font-mono">
+                  {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : '17,452'}
+                </span>
+                <span className="stat-sub">Scraped Price Corpus</span>
+              </div>
+              <div className="poster-stat-cell highlight-cell">
+                <span className="stat-label">BENCHMARK APIx</span>
+                <span className="stat-num text-accent font-mono">
+                  {typeof latestIndexVal === 'number' ? latestIndexVal.toFixed(2) : latestIndexVal}
+                </span>
+                <span className="stat-sub">Base Period 2024-Q1 = 100.00</span>
+              </div>
+            </div>
+
+            {/* Middle Section: Sharp Modular Booking / Query Bar */}
+            <div className="home-query-bar-container">
+              <BookingBar
+                selectedRoute={selectedRoute}
+                setSelectedRoute={setSelectedRoute}
+                advanceWindow={advanceWindow}
+                setAdvanceWindow={setAdvanceWindow}
+                indexFrequency={indexFrequency}
+                setIndexFrequency={setIndexFrequency}
+                dataSource={dataSource}
+                setDataSource={setDataSource}
+                onGenerateIndex={handleOpenIndexModal}
+                routes={routes}
               />
             </div>
 
-            {/* Bottom Area: Get Started Button Below the Airplane */}
-            <div className="home-bottom-content">
+            {/* Bottom Actions Row: Primary Text CTAs */}
+            <div className="home-bottom-content bold-home-bottom">
               <div className="home-action-row">
                 <button
-                  id="btn-redirect-original"
-                  className="btn-redirect-original"
+                  type="button"
+                  className="btn-primary-bold"
                   onClick={() => handleNavigate('deck')}
-                  aria-label="Redirect to executive deck"
+                  aria-label="Access Flight Deck"
                 >
-                  <Sparkles size={19} className="btn-sparkle-icon" />
-                  <span className="btn-redirect-text">Get Started</span>
-                  <ArrowRight size={20} className="btn-arrow-icon" />
+                  <span>ACCESS FLIGHT DECK</span>
+                  <ArrowRight size={15} strokeWidth={2} />
                 </button>
+                <button
+                  type="button"
+                  className="btn-secondary-bold"
+                  onClick={() => handleNavigate('trajectory')}
+                  aria-label="View 30-Day Inflation Trajectory"
+                >
+                  <span>VIEW 30-DAY TRAJECTORY</span>
+                </button>
+              </div>
+
+              <div className="home-footer-meta" aria-hidden="true">
+                <span className="meta-dot">■</span>
+                <span>OFFICIAL DGCA PRICE BASKET // MOSPI CPI PLATFORM</span>
               </div>
             </div>
           </div>
@@ -282,6 +400,24 @@ function App() {
                     <button
                       type="button"
                       className="deck-header-action-btn"
+                      style={{
+                        background: isRefreshing ? 'rgba(229, 181, 79, 0.25)' : 'rgba(255, 255, 255, 0.08)',
+                        border: '1px solid rgba(229, 181, 79, 0.35)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        cursor: 'pointer'
+                      }}
+                      onClick={refreshAllData}
+                      title={`Last synced: ${lastRefreshed.toLocaleTimeString()}`}
+                    >
+                      <RefreshCw size={15} className={isRefreshing ? 'spin-pulse' : ''} />
+                      <span>{isRefreshing ? 'Updating...' : 'Sync Scraped Data'}</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="deck-header-action-btn"
                       onClick={handleOpenIndexModal}
                     >
                       <Sparkles size={16} />
@@ -300,10 +436,12 @@ function App() {
                     </div>
                     <div className="kpi-value-row">
                       <span className="kpi-number">{latestIndexVal}</span>
-                      <span className="kpi-pill-badge positive">+0.15%</span>
+                      <span className="kpi-pill-badge positive">
+                        {overviewData?.latest_index?.change_pct_d1 !== undefined ? (overviewData.latest_index.change_pct_d1 >= 0 ? `+${overviewData.latest_index.change_pct_d1}%` : `${overviewData.latest_index.change_pct_d1}%`) : '+0.15%'}
+                      </span>
                     </div>
                     <div className="kpi-footer-text">
-                      <span>Base 2024-Q1 = 100.00</span>
+                      <span>Base {overviewData?.latest_index?.base_period || '2024-Q1'} = 100.00</span>
                       <span className="kpi-bullet">•</span>
                       <span>MoSPI CPI Augmentation</span>
                     </div>
@@ -317,12 +455,12 @@ function App() {
                     </div>
                     <div className="kpi-value-row">
                       <span className="kpi-text-val">{selectedRoute.code}</span>
-                      <span className="kpi-pill-badge neutral">22.35% Basket</span>
+                      <span className="kpi-pill-badge neutral">{selectedRoute.trafficWeight || '22.35% Basket'}</span>
                     </div>
                     <div className="kpi-footer-text">
                       <span>Avg Fare: {selectedRoute.avgFare || '₹6,840'}</span>
                       <span className="kpi-bullet">•</span>
-                      <span>7.42M annual pax</span>
+                      <span>{selectedRoute.pax || '7.42M'} annual pax</span>
                     </div>
                   </div>
 
@@ -337,7 +475,7 @@ function App() {
                       <span className="kpi-pill-badge blue">Spot Curve</span>
                     </div>
                     <div className="kpi-footer-text">
-                      <span>5 Horizons: T+1 to T+45 days</span>
+                      <span>6 Horizons: T+0 to T+45 days</span>
                     </div>
                   </div>
 
@@ -348,11 +486,15 @@ function App() {
                       <span className="kpi-icon-wrap green"><Cpu size={18} /></span>
                     </div>
                     <div className="kpi-value-row">
-                      <span className="kpi-number">14,820</span>
-                      <span className="kpi-pill-badge green">100% Ingested</span>
+                      <span className="kpi-number">
+                        {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : '4,194'}
+                      </span>
+                      <span className="kpi-pill-badge green">Live MongoDB</span>
                     </div>
                     <div className="kpi-footer-text">
-                      <span>5 Airlines + 6 Leading OTAs</span>
+                      <span>
+                        {overviewData?.airline_stats ? `${overviewData.airline_stats.carriers_count} Airlines + ${overviewData.airline_stats.otas_count} OTAs` : '5 Airlines + 2 OTAs'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -376,6 +518,7 @@ function App() {
                       dataSource={dataSource}
                       setDataSource={setDataSource}
                       onGenerateIndex={handleOpenIndexModal}
+                      routes={routes}
                     />
                   </div>
                 </div>
@@ -462,47 +605,27 @@ function App() {
                       </div>
                     </div>
 
-                    {/* Advance Windows Progress Bars */}
+                    {/* Advance Windows Progress Bars (Live Dynamic from MongoDB) */}
                     <div className="advance-horizons-mini-list">
-                      <div className="horizon-item">
-                        <div className="horizon-labels">
-                          <span className="h-name">T+1 Day (Last-Minute Dynamic)</span>
-                          <span className="h-val font-mono">₹8,420 • +24.6%</span>
-                        </div>
-                        <div className="horizon-bar-track">
-                          <div className="horizon-bar-fill fill-red" style={{ width: '88%' }}></div>
-                        </div>
-                      </div>
-
-                      <div className="horizon-item">
-                        <div className="horizon-labels">
-                          <span className="h-name">T+7 Days (Weekly Anchor)</span>
-                          <span className="h-val font-mono">₹6,840 • +0.15%</span>
-                        </div>
-                        <div className="horizon-bar-track">
-                          <div className="horizon-bar-fill fill-gold" style={{ width: '68%' }}></div>
-                        </div>
-                      </div>
-
-                      <div className="horizon-item">
-                        <div className="horizon-labels">
-                          <span className="h-name">T+15 Days (Mid-Horizon)</span>
-                          <span className="h-val font-mono">₹5,410 • -8.2%</span>
-                        </div>
-                        <div className="horizon-bar-track">
-                          <div className="horizon-bar-fill fill-blue" style={{ width: '52%' }}></div>
-                        </div>
-                      </div>
-
-                      <div className="horizon-item">
-                        <div className="horizon-labels">
-                          <span className="h-name">T+30 Days (Standard Monthly)</span>
-                          <span className="h-val font-mono">₹4,890 • -14.3%</span>
-                        </div>
-                        <div className="horizon-bar-track">
-                          <div className="horizon-bar-fill fill-emerald" style={{ width: '42%' }}></div>
-                        </div>
-                      </div>
+                      {windowsData.slice(0, 5).map((win, idx) => {
+                        const colorClass = idx === 0 ? 'fill-red' : idx === 1 ? 'fill-gold' : idx === 2 ? 'fill-blue' : 'fill-emerald';
+                        const maxVal = Math.max(...windowsData.map(w => w.average_fare || 10000), 12000);
+                        const pct = Math.min(100, Math.max(20, Math.round(((win.average_fare || 6000) / maxVal) * 100)));
+                        const multiplierText = win.surge_multiplier ? ` • ${win.surge_multiplier}x` : '';
+                        return (
+                          <div className="horizon-item" key={win.advance_window}>
+                            <div className="horizon-labels">
+                              <span className="h-name">{win.label || win.advance_window}</span>
+                              <span className="h-val font-mono">
+                                ₹{Math.round(win.average_fare || 6500).toLocaleString()}{multiplierText} • {win.quote_count || 0} quotes
+                              </span>
+                            </div>
+                            <div className="horizon-bar-track">
+                              <div className={`horizon-bar-fill ${colorClass}`} style={{ width: `${pct}%` }}></div>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -630,7 +753,7 @@ function App() {
             {activeTab === 'quotes' && (
               <div className="analytics-scroll-container">
                 <div className="analytics-inner-wrap">
-                  <QuotesExplorer />
+                  <QuotesExplorer refreshTrigger={lastRefreshed} />
                 </div>
               </div>
             )}

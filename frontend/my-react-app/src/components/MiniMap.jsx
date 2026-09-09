@@ -22,16 +22,16 @@ export default function MiniMap({ onOpenMapModal }) {
           className="mini-map-img"
         />
 
-        {/* Dynamic Rotating Radar Sweep Line */}
+        {/* Sharp Square Frame & Radar Sweep Line */}
         <div className="radar-sweep-beam"></div>
 
-        {/* Flight Trajectory Route Arc (DEL -> BOM) */}
+        {/* Flight Trajectory Route Arc */}
         <svg className="radar-flight-path" viewBox="0 0 100 100">
           <path
             d="M 30 20 Q 25 55 28 85"
             fill="none"
-            stroke="rgba(248, 220, 129, 0.85)"
-            strokeWidth="2"
+            stroke="#FF3D00"
+            strokeWidth="1.8"
             strokeDasharray="3 3"
           />
         </svg>
@@ -39,9 +39,8 @@ export default function MiniMap({ onOpenMapModal }) {
         {/* Center Airplane Indicator & Beacon Pulse */}
         <div className="radar-crosshair flight-radar-center">
           <div className="radar-pulse-ring ring-1"></div>
-          <div className="radar-pulse-ring ring-2"></div>
           <div className="plane-radar-icon-box">
-            <Plane size={13} className="plane-mini-icon" />
+            <Plane size={13} strokeWidth={1.5} className="plane-mini-icon" />
           </div>
         </div>
 
@@ -53,13 +52,13 @@ export default function MiniMap({ onOpenMapModal }) {
 
         {/* Flight Telemetry Pill */}
         <div className="radar-telemetry-badge">
-          <span>FL360</span>
+          <span>CORRIDORS (10)</span>
         </div>
       </div>
 
       {isHovered && (
         <div className="mini-map-hover-hint">
-          <span>DGCA Radar</span>
+          <span>EXPAND RADAR</span>
         </div>
       )}
     </div>
