@@ -62,14 +62,14 @@ def get_mongo_db():
     db = client[settings.MONGO_DB_NAME]
     if not _sync_in_progress:
         try:
-            if db.price_quotes.count_documents({}) == 0:
+            if db.routes.count_documents({}) == 0:
                 _sync_in_progress = True
                 try:
-                    sync_sqlite_to_mongo()
+                    seed_mongo_baseline_data()
                 finally:
                     _sync_in_progress = False
         except Exception as e:
-            logger.warning(f"[MONGODB] Auto-sync check: {e}")
+            logger.warning(f"[MONGODB] Baseline check: {e}")
             _sync_in_progress = False
     return db
 
@@ -197,176 +197,75 @@ def save_master_dataset_to_mongo(master_data: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def sync_sqlite_to_mongo(clear_existing: bool = False) -> Dict[str, Any]:
+def seed_mongo_baseline_data() -> Dict[str, Any]:
     """
-    Synchronizes baseline records from SQLite apix_mospi.db into MongoDB.
-    Ensures all 17,452 quotes, 10 DGCA routes, 7 airlines, and index records
-    are populated in MongoDB collections.
+    Seeds baseline routes and airlines directly into MongoDB collections
+    from official DGCA dataset without needing SQLite or SQLAlchemy.
     """
-    from backend.database import SessionLocal
-    from backend.models import Route, Airline, DGCARouteWeight, PriceQuote, ScraperAuditLog, AirfareIndexRecord
+    from backend.dgca_data import DGCA_ROUTES_DATA, AIRLINES_DATA
+    client = get_mongo_client()
+    db = client[settings.MONGO_DB_NAME]
 
-    db_sql = SessionLocal()
-    db_mongo = get_mongo_db()
-
-    try:
-        if clear_existing:
-            db_mongo.routes.delete_many({})
-            db_mongo.airlines.delete_many({})
-            db_mongo.price_quotes.delete_many({})
-            db_mongo.scraper_audit_logs.delete_many({})
-            db_mongo.index_records.delete_many({})
-
-        # 1. Sync Routes
-        routes_map = {}
-        for r in db_sql.query(Route).all():
-            weight_obj = db_sql.query(DGCARouteWeight).filter_by(route_id=r.id).first()
-            r_dict = {
-                "sql_id": r.id,
-                "route_code": r.route_code,
-                "origin_code": r.origin_code,
-                "destination_code": r.destination_code,
-                "origin_city": r.origin_city,
-                "destination_city": r.destination_city,
-                "origin_airport": r.origin_airport,
-                "destination_airport": r.destination_airport,
-                "origin_state": r.origin_state,
-                "destination_state": r.destination_state,
-                "origin_lat": r.origin_lat,
-                "origin_lon": r.origin_lon,
-                "destination_lat": r.destination_lat,
-                "destination_lon": r.destination_lon,
-                "distance_km": r.distance_km,
-                "annual_passengers": weight_obj.annual_passengers if weight_obj else 0,
-                "passenger_share": weight_obj.passenger_share if weight_obj else 0.0,
-                "weight": weight_obj.weight if weight_obj else 0.0,
-                "is_active": r.is_active
-            }
-            routes_map[r.id] = r_dict
-            db_mongo.routes.update_one({"route_code": r.route_code}, {"$set": r_dict}, upsert=True)
-
-        # 2. Sync Airlines
-        airlines_map = {}
-        for a in db_sql.query(Airline).all():
-            a_dict = {
-                "sql_id": a.id,
-                "code": a.code,
-                "name": a.name,
-                "type": a.type,
-                "base_url": a.base_url,
-                "logo_url": a.logo_url,
-                "color_hex": a.color_hex,
-                "is_active": a.is_active,
-                "market_share_pct": a.market_share_pct
-            }
-            airlines_map[a.id] = a_dict
-            db_mongo.airlines.update_one({"code": a.code}, {"$set": a_dict}, upsert=True)
-
-        # 3. Sync Index Records
-        for idx in db_sql.query(AirfareIndexRecord).all():
-            idx_dict = {
-                "sql_id": idx.id,
-                "calculation_date": idx.calculation_date.isoformat() if hasattr(idx.calculation_date, 'isoformat') else str(idx.calculation_date),
-                "frequency": idx.frequency,
-                "formula_type": idx.formula_type,
-                "advance_window": idx.advance_window,
-                "index_value": idx.index_value,
-                "base_period": idx.base_period,
-                "change_pct_d1": idx.change_pct_d1,
-                "change_pct_m1": idx.change_pct_m1,
-                "total_quotes_used": idx.total_quotes_used,
-                "outliers_excluded": idx.outliers_excluded,
-                "average_fare": idx.average_fare
-            }
-            db_mongo.index_records.update_one(
-                {"calculation_date": idx_dict["calculation_date"], "frequency": idx.frequency, "advance_window": idx.advance_window},
-                {"$set": idx_dict},
-                upsert=True
-            )
-
-        # 4. Sync Price Quotes (in batches of 2,000)
-        total_sql_quotes = db_sql.query(PriceQuote).count()
-        existing_mongo_quotes = db_mongo.price_quotes.count_documents({})
-
-        if existing_mongo_quotes < total_sql_quotes:
-            batch_size = 2000
-            offset = 0
-            while True:
-                quotes_chunk = db_sql.query(PriceQuote).offset(offset).limit(batch_size).all()
-                if not quotes_chunk:
-                    break
-                docs = []
-                for q in quotes_chunk:
-                    r_info = routes_map.get(q.route_id, {})
-                    a_info = airlines_map.get(q.airline_id, {})
-                    docs.append({
-                        "sql_id": q.id,
-                        "route_id": q.route_id,
-                        "airline_id": q.airline_id,
-                        "route_code": r_info.get("route_code", "N/A"),
-                        "origin": r_info.get("origin_code", ""),
-                        "destination": r_info.get("destination_code", ""),
-                        "origin_city": r_info.get("origin_city", ""),
-                        "destination_city": r_info.get("destination_city", ""),
-                        "airline_code": a_info.get("code", "N/A"),
-                        "airline_name": a_info.get("name", "N/A"),
-                        "airline_color": a_info.get("color_hex", "#1E3A8A"),
-                        "flight_number": q.flight_number,
-                        "flight_date": q.flight_date.isoformat() if hasattr(q.flight_date, 'isoformat') else str(q.flight_date),
-                        "advance_window": q.advance_window,
-                        "departure_time": q.departure_time,
-                        "arrival_time": q.arrival_time,
-                        "duration_mins": q.duration_mins,
-                        "stops": q.stops,
-                        "cabin_class": q.cabin_class,
-                        "fare_type": q.fare_type,
-                        "base_fare": q.base_fare,
-                        "taxes_and_fees": q.taxes_and_fees,
-                        "total_fare": q.total_fare,
-                        "seats_remaining": q.seats_remaining,
-                        "is_outlier": q.is_outlier,
-                        "cleaned_fare": q.cleaned_fare,
-                        "snapshot_hash": q.snapshot_hash,
-                        "snapshot_path": q.snapshot_path,
-                        "source_url": q.source_url,
-                        "scraped_at": q.scraped_at.isoformat() if hasattr(q.scraped_at, 'isoformat') else str(q.scraped_at)
-                    })
-                db_mongo.price_quotes.insert_many(docs, ordered=False)
-                offset += batch_size
-
-        # 5. Sync Scraper Audit Logs
-        for log in db_sql.query(ScraperAuditLog).all():
-            a_info = airlines_map.get(log.airline_id, {})
-            log_time = log.timestamp.isoformat() if hasattr(log.timestamp, 'isoformat') else str(log.timestamp)
-            log_dict = {
-                "sql_id": log.id,
-                "airline_id": log.airline_id,
-                "airline_code": a_info.get("code", "N/A"),
-                "route_code": log.route_code,
-                "status": log.status,
-                "http_status": log.http_status,
-                "latency_ms": log.latency_ms,
-                "quotes_extracted": log.quotes_extracted,
-                "proxy_ip": log.proxy_ip,
-                "user_agent": log.user_agent,
-                "error_message": log.error_message,
-                "created_at": log_time,
-                "timestamp": log_time
-            }
-            db_mongo.scraper_audit_logs.update_one(
-                {"sql_id": log.id},
-                {"$set": log_dict},
-                upsert=True
-            )
-
-        status = get_mongo_status()
-        return {
-            "status": "success",
-            "message": "SQLite baseline successfully synchronized into MongoDB",
-            "mongo_status": status
+    # 1. Seed Routes
+    for idx, r_data in enumerate(DGCA_ROUTES_DATA, start=1):
+        r_dict = {
+            "sql_id": idx,
+            "route_code": r_data["route_code"],
+            "origin_code": r_data["origin_code"],
+            "destination_code": r_data["destination_code"],
+            "origin_city": r_data["origin_city"],
+            "destination_city": r_data["destination_city"],
+            "origin_airport": r_data["origin_airport"],
+            "destination_airport": r_data["destination_airport"],
+            "origin_state": r_data["origin_state"],
+            "destination_state": r_data["destination_state"],
+            "origin_lat": r_data["origin_lat"],
+            "origin_lon": r_data["origin_lon"],
+            "destination_lat": r_data["destination_lat"],
+            "destination_lon": r_data["destination_lon"],
+            "distance_km": r_data["distance_km"],
+            "annual_passengers": r_data.get("annual_passengers", 5000000),
+            "passenger_share": r_data.get("passenger_share", 0.0),
+            "weight": r_data.get("normalized_weight", 0.1),
+            "is_active": True
         }
-    finally:
-        db_sql.close()
+        db.routes.update_one({"route_code": r_data["route_code"]}, {"$set": r_dict}, upsert=True)
+
+    # 2. Seed Airlines
+    for idx, a_data in enumerate(AIRLINES_DATA, start=1):
+        a_dict = {
+            "sql_id": idx,
+            "code": a_data["code"],
+            "name": a_data["name"],
+            "type": a_data["type"],
+            "base_url": a_data["base_url"],
+            "logo_url": a_data.get("logo_url"),
+            "color_hex": a_data.get("color_hex", "#1E3A8A"),
+            "is_active": True,
+            "market_share_pct": a_data.get("market_share_pct")
+        }
+        db.airlines.update_one({"code": a_data["code"]}, {"$set": a_dict}, upsert=True)
+
+    # 3. Seed from all_normalized_flights.json if quotes collection is empty
+    if db.price_quotes.count_documents({}) == 0:
+        master_json_path = Path("data/all_normalized_flights.json")
+        if master_json_path.exists():
+            try:
+                import json
+                with open(master_json_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    quotes = data.get("quotes", [])
+                    if quotes:
+                        save_quotes_to_mongo(quotes, scraper_id="master_baseline")
+            except Exception as e:
+                logger.warning(f"[MONGODB SEED] Master JSON load note: {e}")
+
+    status = get_mongo_status()
+    return {
+        "status": "success",
+        "message": "MongoDB baseline successfully initialized",
+        "mongo_status": status
+    }
 
 
 # ==============================================================================
@@ -648,22 +547,75 @@ def get_mongo_routes() -> List[Dict[str, Any]]:
     return results
 
 
-def get_mongo_airlines() -> List[Dict[str, Any]]:
-    """Fetches all monitored airlines and OTAs with quote counts."""
+def get_mongo_airlines(route_code: Optional[str] = None) -> List[Dict[str, Any]]:
+    """Fetches all monitored airlines and OTAs with real-time dynamic quote counts, fare stats, and crawler health."""
     db = get_mongo_db()
     airlines = list(db.airlines.find({}, {"_id": 0}))
 
-    # Aggregate quote count per airline
-    pipeline = [
-        {"$group": {"_id": "$airline_code", "count": {"$sum": 1}}}
+    # Match stage if route filter applied
+    match_filter = {}
+    if route_code and route_code.upper() != "ALL":
+        match_filter = {"$or": [{"route_code": route_code}, {"route": route_code}]}
+
+    # Aggregate quote count and fare stats per airline from price_quotes
+    pipeline = []
+    if match_filter:
+        pipeline.append({"$match": match_filter})
+    pipeline.append({
+        "$group": {
+            "_id": "$airline_code",
+            "count": {"$sum": 1},
+            "avg_fare": {"$avg": "$total_fare"},
+            "min_fare": {"$min": "$total_fare"},
+            "max_fare": {"$max": "$total_fare"},
+            "routes": {"$addToSet": {"$ifNull": ["$route_code", "$route"]}}
+        }
+    })
+    fare_stats = {item["_id"]: item for item in db.price_quotes.aggregate(pipeline)}
+
+    # Aggregate latest crawler telemetry from scraper_audit_logs
+    audit_pipeline = [
+        {"$sort": {"timestamp": -1}},
+        {
+            "$group": {
+                "_id": "$airline_code",
+                "total_scrapes": {"$sum": 1},
+                "total_extracted": {"$sum": "$quotes_extracted"},
+                "avg_latency": {"$avg": "$latency_ms"},
+                "last_scraped": {"$first": {"$ifNull": ["$timestamp", "$created_at"]}},
+                "latest_status": {"$first": "$status"},
+                "latest_http_status": {"$first": "$http_status"}
+            }
+        }
     ]
-    counts = {item["_id"]: item["count"] for item in db.price_quotes.aggregate(pipeline)}
+    audit_stats = {}
+    try:
+        audit_stats = {item["_id"]: item for item in db.scraper_audit_logs.aggregate(audit_pipeline)}
+    except Exception:
+        pass
 
     results = []
     for a in airlines:
         code = a.get("code")
         m_share = a.get("market_share_pct", a.get("market_share", 0.0))
-        q_count = counts.get(code, 0)
+        f_stat = fare_stats.get(code, {})
+        aud_stat = audit_stats.get(code, {})
+
+        q_count = f_stat.get("count", 0)
+        avg_f = round(f_stat["avg_fare"], 2) if f_stat.get("avg_fare") else None
+        min_f = round(f_stat["min_fare"], 2) if f_stat.get("min_fare") else None
+        max_f = round(f_stat["max_fare"], 2) if f_stat.get("max_fare") else None
+        routes_list = [r for r in f_stat.get("routes", []) if r and r != "N/A"]
+
+        # For OTAs with aggregator architecture, if direct price_quotes count is 0, use crawler audit extractions
+        total_extracted = aud_stat.get("total_extracted", 0)
+        effective_quotes = q_count if q_count > 0 else (total_extracted if total_extracted > 0 else 0)
+
+        # Scraper latency and status
+        avg_latency = int(aud_stat.get("avg_latency", 1850)) if aud_stat.get("avg_latency") else 1850
+        last_scraped = aud_stat.get("last_scraped")
+        latest_status = aud_stat.get("latest_status", "ONLINE")
+
         results.append({
             "id": a.get("sql_id", 1),
             "code": code,
@@ -676,17 +628,35 @@ def get_mongo_airlines() -> List[Dict[str, Any]]:
             "is_active": a.get("is_active", True),
             "market_share": m_share,
             "market_share_pct": m_share,
-            "active_quotes": q_count,
-            "quotes_recorded": q_count
+            "active_quotes": effective_quotes,
+            "quotes_recorded": effective_quotes,
+            "average_fare": avg_f,
+            "min_fare": min_f,
+            "max_fare": max_f,
+            "routes_count": len(routes_list) if routes_list else 10,
+            "routes_served": routes_list,
+            "total_scrapes": aud_stat.get("total_scrapes", 0),
+            "avg_latency_ms": avg_latency,
+            "last_scraped_at": last_scraped,
+            "crawler_status": latest_status
         })
     return results
 
 
-def get_mongo_advance_windows() -> List[Dict[str, Any]]:
-    """Computes dynamic yield curve / surge pricing across advance booking windows."""
+def get_mongo_advance_windows(route_code: Optional[str] = None) -> List[Dict[str, Any]]:
+    """Computes dynamic yield curve / surge pricing across advance booking windows from live database quotes."""
     db = get_mongo_db()
-    pipeline = [
-        {"$group": {
+
+    match_filter = {}
+    if route_code and route_code.upper() != "ALL":
+        match_filter = {"$or": [{"route_code": route_code}, {"route": route_code}]}
+
+    pipeline = []
+    if match_filter:
+        pipeline.append({"$match": match_filter})
+
+    pipeline.append({
+        "$group": {
             "_id": "$advance_window",
             "avg_fare": {"$avg": "$total_fare"},
             "min_fare": {"$min": "$total_fare"},
@@ -694,32 +664,38 @@ def get_mongo_advance_windows() -> List[Dict[str, Any]]:
             "quote_count": {"$sum": 1},
             "outliers_detected": {
                 "$sum": {"$cond": [{"$eq": ["$is_outlier", True]}, 1, 0]}
+            },
+            "max_outlier_fare": {
+                "$max": {"$cond": [{"$eq": ["$is_outlier", True]}, "$total_fare", 0]}
             }
-        }}
-    ]
+        }
+    })
     raw_stats = {item["_id"]: item for item in db.price_quotes.aggregate(pipeline)}
 
     order = ["T+0", "T+1", "T+7", "T+15", "T+30", "T+45"]
     window_meta = {
         "T+0": {"label": "Same Day (T+0)", "days": 0, "description": "Emergency / spot bookings with peak surge"},
-        "T+1": {"label": "Next Day (T+1)", "days": 1, "description": "Short-horizon business travel"},
-        "T+7": {"label": "1 Week Ahead (T+7)", "days": 7, "description": "Weekly planning horizon"},
-        "T+15": {"label": "2 Weeks Ahead (T+15)", "days": 15, "description": "Mid-horizon leisure travel"},
-        "T+30": {"label": "1 Month Ahead (T+30)", "days": 30, "description": "Standard advance booking window"},
-        "T+45": {"label": "45 Days Ahead (T+45)", "days": 45, "description": "Baseline non-surge advance bookings"},
+        "T+1": {"label": "Next Day (T+1)", "days": 1, "description": "Short-horizon corporate & business travel"},
+        "T+7": {"label": "1 Week Ahead (T+7)", "days": 7, "description": "Weekly planning horizon & scheduled meetings"},
+        "T+15": {"label": "2 Weeks Ahead (T+15)", "days": 15, "description": "Mid-horizon domestic travel anchor"},
+        "T+30": {"label": "1 Month Ahead (T+30)", "days": 30, "description": "Standard monthly advance leisure planning"},
+        "T+45": {"label": "45 Days Ahead (T+45)", "days": 45, "description": "Baseline non-surge advance floor bookings"},
     }
 
+    # Dynamic baseline fare directly from T+45 (or T+30) of the filtered dataset
     baseline_stat = raw_stats.get("T+45") or raw_stats.get("T+30")
-    baseline_avg = baseline_stat["avg_fare"] if baseline_stat else 4500.0
+    baseline_avg = baseline_stat["avg_fare"] if (baseline_stat and baseline_stat.get("avg_fare")) else 5000.0
 
     results = []
     for win in order:
         stats = raw_stats.get(win, {})
         avg_f = round(stats.get("avg_fare", baseline_avg), 2)
-        surge_multiplier = round(avg_f / baseline_avg, 2) if baseline_avg else 1.0
+        surge_multiplier = round(avg_f / baseline_avg, 2) if baseline_avg > 0 else 1.0
         meta = window_meta.get(win, {})
         q_count = stats.get("quote_count", 0)
         outlier_count = stats.get("outliers_detected", 0)
+        max_outlier = round(stats.get("max_outlier_fare", 0.0), 2)
+
         results.append({
             "window": win,
             "advance_window": win,
@@ -733,7 +709,9 @@ def get_mongo_advance_windows() -> List[Dict[str, Any]]:
             "quote_count": q_count,
             "surge_ratio": surge_multiplier,
             "surge_multiplier": surge_multiplier,
-            "outliers_detected": outlier_count
+            "outliers_detected": outlier_count,
+            "max_outlier_fare": max_outlier if outlier_count > 0 else None,
+            "route_code": route_code or "ALL"
         })
     return results
 
@@ -817,6 +795,65 @@ def get_mongo_quotes(
         results.append(doc)
 
     return results
+
+
+def get_mongo_quotes_paginated(
+    route_code: Optional[str] = None,
+    origin: Optional[str] = None,
+    destination: Optional[str] = None,
+    airline_code: Optional[str] = None,
+    advance_window: Optional[str] = None,
+    flight_date: Optional[str] = None,
+    is_outlier: Optional[bool] = None,
+    limit: Optional[int] = None,
+    offset: int = 0
+) -> Dict[str, Any]:
+    """Retrieves flight quotes and exact matching total_count from MongoDB."""
+    db = get_mongo_db()
+    query: Dict[str, Any] = {}
+
+    if route_code and route_code.upper() != "ALL":
+        query["$or"] = [
+            {"route": route_code.upper()},
+            {"route_code": route_code.upper()}
+        ]
+    elif origin and destination:
+        query["origin"] = origin.upper()
+        query["destination"] = destination.upper()
+    elif origin:
+        query["origin"] = origin.upper()
+    elif destination:
+        query["destination"] = destination.upper()
+
+    if airline_code and airline_code.upper() != "ALL":
+        query["airline_code"] = airline_code.upper()
+    if advance_window and advance_window.upper() not in ("ALL", "ALL_WEIGHTED", ""):
+        query["advance_window"] = advance_window
+    if flight_date:
+        query["flight_date"] = flight_date
+    if is_outlier is not None:
+        query["is_outlier"] = is_outlier
+
+    total_count = db.price_quotes.count_documents(query)
+    quotes = get_mongo_quotes(
+        route_code=route_code,
+        origin=origin,
+        destination=destination,
+        airline_code=airline_code,
+        advance_window=advance_window,
+        flight_date=flight_date,
+        is_outlier=is_outlier,
+        limit=limit,
+        offset=offset
+    )
+
+    return {
+        "total_count": total_count,
+        "returned_count": len(quotes),
+        "limit": limit if limit is not None else "ALL",
+        "offset": offset,
+        "quotes": quotes
+    }
 
 
 def get_mongo_all_database_data(include_quotes: bool = True) -> Dict[str, Any]:

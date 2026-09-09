@@ -190,21 +190,12 @@ def main():
     # 3. Consolidate Normalized Flight Data into Master JSON
     master_data = consolidate_normalized_data()
 
-    # 4. Upload Consolidated Normalized Data into MoSPI Database & MongoDB
-    banner("UPLOADING MASTER NORMALIZED DATASET INTO MOSPI DATABASE & MONGODB")
+    # 4. Upload Consolidated Normalized Data into MongoDB Atlas
+    banner("UPLOADING MASTER NORMALIZED DATASET INTO MONGODB ATLAS")
     from backend.ingestion import ingest_normalized_dataset, clean_database_duplicates
     clean_database_duplicates()
     db_res = ingest_normalized_dataset(master_data, clear_previous_scrapes=True)
-    print(f"[SUCCESS] SQLite Database: {db_res.get('quotes_saved', 0):,} quotes committed to price_quotes in apix_mospi.db")
-
-    # Automatically store master dataset into MongoDB
-    try:
-        from backend.mongo import save_master_dataset_to_mongo, get_mongo_status
-        mongo_res = save_master_dataset_to_mongo(master_data)
-        m_status = get_mongo_status()
-        print(f"[SUCCESS] MongoDB Storage: {mongo_res.get('quotes_saved', 0):,} quotes committed to MongoDB collection 'price_quotes' ({m_status['driver']})")
-    except Exception as me:
-        print(f"[WARN] MongoDB Storage note: {me}")
+    print(f"[SUCCESS] MongoDB Atlas: {db_res.get('quotes_saved', 0):,} quotes committed to collection 'price_quotes'")
 
     # Optionally notify live FastAPI backend ingestion endpoint if running
     try:

@@ -1,6 +1,6 @@
 """
 MongoDB Synchronization and Seeding Utility for MoSPI APIx
-Synchronizes existing SQLite baseline data (17,452 quotes, 10 DGCA routes, 7 airlines)
+Synchronizes baseline data (36,449 quotes, 10 DGCA routes, 7 airlines)
 and normalized JSON files directly into MongoDB collections.
 """
 
@@ -24,7 +24,7 @@ from backend.mongo import (
     get_mongo_client,
     get_mongo_db,
     get_mongo_status,
-    sync_sqlite_to_mongo,
+    seed_mongo_baseline_data,
     save_master_dataset_to_mongo
 )
 from backend.config import settings, DATA_DIR
@@ -48,9 +48,9 @@ def main():
     print(f"\nInitial Connection : {initial_status['status'].upper()} ({initial_status['driver']})")
     print(f"Existing Quotes    : {initial_status['total_quotes']:,}")
 
-    # 2. Run Sync from SQLite Database
-    print("\n[STEP 1] Migrating Baseline Records from SQLite (apix_mospi.db) to MongoDB...")
-    sync_res = sync_sqlite_to_mongo(clear_existing=False)
+    # 2. Seed Baseline Records in MongoDB
+    print("\n[STEP 1] Ensuring Baseline Records (DGCA corridors & airlines) in MongoDB Atlas...")
+    seed_res = seed_mongo_baseline_data(clear_existing=False)
     
     # 3. Check if Master JSON exists and has additional quotes
     master_json_path = DATA_DIR / "all_normalized_flights.json"

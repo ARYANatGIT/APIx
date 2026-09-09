@@ -12,20 +12,14 @@ SNAPSHOTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "MoSPI Real-time Airfare Price Index (APIx)"
+    PROJECT_NAME: str = "AirSetu - MoSPI Real-time Airfare Price Index (APIx)"
     VERSION: str = "1.0.0"
     API_V1_STR: str = "/api/v1"
     
-    # Database: SQLite by default for instant local setup; configurable for PostgreSQL / TimescaleDB
-    DATABASE_URL: str = os.getenv(
-        "DATABASE_URL", 
-        f"sqlite:///{DATA_DIR / 'apix_mospi.db'}"
-    )
-
-    # MongoDB Configuration
+    # MongoDB Database Configuration (Primary & Exclusive Data Store)
     MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://localhost:27017")
     MONGO_DB_NAME: str = os.getenv("MONGO_DB_NAME", "apix_mospi")
-    USE_MONGODB: bool = os.getenv("USE_MONGODB", "true").lower() in ("true", "1", "yes")
+    USE_MONGODB: bool = True
 
     # Scraper Scheduler Configuration (Default: 30 minutes)
     SCHEDULER_INTERVAL_MINUTES: int = int(os.getenv("SCHEDULER_INTERVAL_MINUTES", "30"))
@@ -44,6 +38,7 @@ class Settings(BaseSettings):
     class Config:
         case_sensitive = True
         env_file = ".env"
+        extra = "ignore"
 
 
 settings = Settings()

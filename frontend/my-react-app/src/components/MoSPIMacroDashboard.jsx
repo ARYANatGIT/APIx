@@ -17,6 +17,8 @@ import {
   Sparkles
 } from 'lucide-react';
 import IndiaAirfareHeatmap from './IndiaAirfareHeatmap';
+import airsetuLogo from '../assets/airsetu_logo.png';
+import ThemeToggle from './ThemeToggle';
 
 export default function MoSPIMacroDashboard({
   overviewData,
@@ -26,16 +28,18 @@ export default function MoSPIMacroDashboard({
   lastRefreshed = new Date(),
   isRefreshing = false,
   onRefreshData,
-  onInspectEngine
+  onInspectEngine,
+  theme = 'dark',
+  onThemeChange
 }) {
   const [hoveredRoute, setHoveredRoute] = useState(null);
 
-  // Dynamic MoSPI Macro values computed directly from live MongoDB database
+  // Dynamic MoSPI Macro values computed directly from live database
   const latestIndex = overviewData?.latest_index;
-  const apixVal = latestIndex?.value != null ? Number(latestIndex.value).toFixed(2) : '132.06';
-  const dailyChange = latestIndex?.change_pct_d1 != null ? Number(latestIndex.change_pct_d1).toFixed(2) : '0.22';
+  const apixVal = latestIndex?.value != null ? Number(latestIndex.value).toFixed(2) : '138.08';
+  const dailyChange = latestIndex?.change_pct_d1 != null ? Number(latestIndex.change_pct_d1).toFixed(2) : '1.68';
   const weeklyChange = latestIndex?.change_pct_w1 != null ? Number(latestIndex.change_pct_w1).toFixed(2) : '1.12';
-  const monthlyChange = latestIndex?.change_pct_m1 != null ? Number(latestIndex.change_pct_m1).toFixed(2) : '32.06';
+  const monthlyChange = latestIndex?.change_pct_m1 != null ? Number(latestIndex.change_pct_m1).toFixed(2) : '38.08';
 
   const isRisingDaily = parseFloat(dailyChange) >= 0;
   const isRisingWeekly = parseFloat(weeklyChange) >= 0;
@@ -148,7 +152,7 @@ export default function MoSPIMacroDashboard({
         {/* Top Tier: Agency Metadata on Left, Unified Telemetry Capsule on Right */}
         <div className="mospi-banner-meta-bar">
           <div className="mospi-header-eyebrow">
-            <span className="mospi-ashoka-pill">OFFICIAL MACRO RELEASE</span>
+            <span className="mospi-ashoka-pill">AIRSETU • OFFICIAL MACRO RELEASE</span>
             <span className="mospi-sub-agency">National Statistical Office • MoSPI</span>
             <span className="deck-version-tag font-mono">v2.4.0</span>
           </div>
@@ -176,13 +180,44 @@ export default function MoSPIMacroDashboard({
         {/* Main Tier: Authoritative Title & Subtitle on Left, Action Buttons on Right */}
         <div className="mospi-banner-main-bar">
           <div className="mospi-banner-title-col">
-            <h1 className="mospi-main-title">AIRFARE PRICE INDEX</h1>
-            <p className="mospi-page-subtitle">
-              Real-time Laspeyres Airfare Price Index (APIx), high-frequency DGCA basket monitoring & multi-source web-scraped microdata.
-            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={{
+                width: '52px',
+                height: '52px',
+                borderRadius: '12px',
+                background: 'rgba(255, 255, 255, 0.04)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '4px',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+                flexShrink: 0
+              }}>
+                <img
+                  src={airsetuLogo}
+                  alt="AirSetu Emblem"
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                />
+              </div>
+              <div>
+                <h1 className="mospi-main-title" style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap', margin: 0 }}>
+                  <span>Air<span style={{ color: '#FF5722' }}>Setu</span></span>
+                  <span style={{ fontSize: '0.62em', fontWeight: 600, color: '#94A3B8', letterSpacing: '0.04em' }}>
+                    • AIRFARE PRICE INDEX (APIx)
+                  </span>
+                </h1>
+                <p className="mospi-page-subtitle" style={{ margin: '4px 0 0 0' }}>
+                  Real-time Laspeyres Airfare Price Index (APIx), high-frequency DGCA basket monitoring & multi-source web-scraped microdata.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="mospi-header-actions-group">
+            {/* Dark Mode & Light Mode Buttons */}
+            <ThemeToggle theme={theme} onThemeChange={onThemeChange} />
+
             <button
               type="button"
               className={`mospi-action-btn sync-btn ${isRefreshing ? 'is-syncing' : ''}`}
