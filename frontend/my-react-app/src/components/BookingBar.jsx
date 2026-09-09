@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Plane, Calendar, Database, ChevronDown, Check, TrendingUp, Layers, Activity } from 'lucide-react';
+import { Plane, Calendar, Database, ChevronDown, Check, TrendingUp } from 'lucide-react';
 
 export default function BookingBar({
   selectedRoute,
@@ -10,12 +10,12 @@ export default function BookingBar({
   setIndexFrequency,
   dataSource,
   setDataSource,
-  onGenerateIndex
+  onGenerateIndex,
+  routes = []
 }) {
-  const [activeDropdown, setActiveDropdown] = useState(null); // 'sector' | 'window' | 'frequency' | 'sources' | null
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
-  // Top 10 Indian Domestic Corridors based on official DGCA Passenger Traffic Statistics
-  const sectorList = [
+  const defaultSectorList = [
     { code: 'DEL ✈ BOM', route_code: 'DEL-BOM', name: 'Delhi (DEL) → Mumbai (BOM)', trafficWeight: '22.35% DGCA Basket', avgFare: '₹6,840', distance: 1148, pax: '7,420,000' },
     { code: 'DEL ✈ BLR', route_code: 'DEL-BLR', name: 'Delhi (DEL) → Bengaluru (BLR)', trafficWeight: '14.91% DGCA Basket', avgFare: '₹7,920', distance: 1740, pax: '4,950,000' },
     { code: 'BOM ✈ BLR', route_code: 'BOM-BLR', name: 'Mumbai (BOM) → Bengaluru (BLR)', trafficWeight: '11.08% DGCA Basket', avgFare: '₹4,960', distance: 842, pax: '3,680,000' },
@@ -28,7 +28,19 @@ export default function BookingBar({
     { code: 'CCU ✈ BLR', route_code: 'CCU-BLR', name: 'Kolkata (CCU) → Bengaluru (BLR)', trafficWeight: '5.57% DGCA Basket', avgFare: '₹7,120', distance: 1540, pax: '1,850,000' },
   ];
 
-  // Multiple advance-purchase windows
+  const sectorList = (routes && routes.length > 0)
+    ? routes.map(r => ({
+        code: `${r.origin_code} ✈ ${r.destination_code}`,
+        route_code: r.route_code,
+        name: `${r.origin_city} (${r.origin_code}) → ${r.destination_city} (${r.destination_code})`,
+        trafficWeight: r.weight_pct_str ? `${r.weight_pct_str} DGCA Basket` : `${((r.weight || 0.1) * 100).toFixed(2)}% DGCA Basket`,
+        avgFare: `₹${Math.round(r.average_fare || 6500).toLocaleString()}`,
+        distance: r.distance_km,
+        pax: (r.annual_passengers || 0).toLocaleString(),
+        average_fare: r.average_fare
+      }))
+    : defaultSectorList;
+
   const advanceWindowsList = [
     { code: 'T+1 Day', desc: 'Last-minute dynamic spot pricing' },
     { code: 'T+7 Days', desc: 'Weekly advance-purchase window' },
@@ -51,7 +63,6 @@ export default function BookingBar({
 
   const barRef = useRef(null);
 
-  // Close dropdowns on outside click
   useEffect(() => {
     function handleClickOutside(event) {
       if (barRef.current && !barRef.current.contains(event.target)) {
@@ -75,34 +86,32 @@ export default function BookingBar({
           onClick={() => toggleDropdown('sector')}
         >
           <div className="field-icon-box">
-            <Plane size={16} className="field-icon flight-plane-icon" />
+            <Plane size={15} strokeWidth={1.5} className="field-icon" />
           </div>
           <div className="field-text-content">
-            <span className="field-label">Sector Pair</span>
+            <span className="field-label">CORRIDOR BASKET</span>
             <span className="field-value">{selectedRoute.code}</span>
           </div>
-          <ChevronDown size={15} className={`field-chevron ${activeDropdown === 'sector' ? 'rotated' : ''}`} />
+          <ChevronDown size={14} strokeWidth={1.5} className={`field-chevron ${activeDropdown === 'sector' ? 'rotated' : ''}`} />
 
-          {/* Sector Dropdown */}
           {activeDropdown === 'sector' && (
-            <div className="booking-dropdown-popover route-popover" onClick={(e) => e.stopPropagation()}>
-              <div className="popover-title">Representative DGCA City-Pairs</div>
+            <div className="booking-dropdown-popover sector-popover" onClick={(e) => e.stopPropagation()}>
+              <div className="popover-title">DGCA HIGH-DENSITY CORRIDORS</div>
               <div className="popover-list">
-                {sectorList.map((sector) => (
+                {sectorList.map((s) => (
                   <div
-                    key={sector.code}
-                    className={`popover-option ${selectedRoute.code === sector.code ? 'selected' : ''}`}
+                    key={s.route_code}
+                    className={`popover-option ${selectedRoute.route_code === s.route_code ? 'selected' : ''}`}
                     onClick={() => {
-                      setSelectedRoute(sector);
+                      setSelectedRoute(s);
                       setActiveDropdown(null);
                     }}
                   >
                     <div className="option-info">
-                      <div className="option-name">{sector.name}</div>
-                      <div className="option-subtitle">{sector.trafficWeight}</div>
+                      <div className="option-name">{s.name}</div>
+                      <div className="option-subtitle">{s.trafficWeight} • {s.distance} km • Avg {s.avgFare}</div>
                     </div>
-                    <div className="option-price-tag">{sector.avgFare}</div>
-                    {selectedRoute.code === sector.code && <Check size={16} className="option-check" />}
+                    {selectedRoute.route_code === s.route_code && <Check size={15} strokeWidth={2} className="option-check" />}
                   </div>
                 ))}
               </div>
@@ -118,18 +127,17 @@ export default function BookingBar({
           onClick={() => toggleDropdown('window')}
         >
           <div className="field-icon-box">
-            <Calendar size={16} className="field-icon" />
+            <Calendar size={15} strokeWidth={1.5} className="field-icon" />
           </div>
           <div className="field-text-content">
-            <span className="field-label">Advance Window</span>
+            <span className="field-label">PURCHASE HORIZON</span>
             <span className="field-value">{advanceWindow}</span>
           </div>
-          <ChevronDown size={15} className={`field-chevron ${activeDropdown === 'window' ? 'rotated' : ''}`} />
+          <ChevronDown size={14} strokeWidth={1.5} className={`field-chevron ${activeDropdown === 'window' ? 'rotated' : ''}`} />
 
-          {/* Window Dropdown */}
           {activeDropdown === 'window' && (
-            <div className="booking-dropdown-popover date-popover" onClick={(e) => e.stopPropagation()}>
-              <div className="popover-title">Advance-Purchase Lead Time</div>
+            <div className="booking-dropdown-popover window-popover" onClick={(e) => e.stopPropagation()}>
+              <div className="popover-title">BOOKING ADVANCE WINDOW</div>
               <div className="popover-list">
                 {advanceWindowsList.map((w) => (
                   <div
@@ -144,7 +152,7 @@ export default function BookingBar({
                       <div className="option-name">{w.code}</div>
                       <div className="option-subtitle">{w.desc}</div>
                     </div>
-                    {advanceWindow === w.code && <Check size={16} className="option-check" />}
+                    {advanceWindow === w.code && <Check size={15} strokeWidth={2} className="option-check" />}
                   </div>
                 ))}
               </div>
@@ -154,24 +162,23 @@ export default function BookingBar({
 
         <div className="booking-divider" />
 
-        {/* Field 3: Index Frequency */}
+        {/* Field 3: Frequency */}
         <div
           className={`booking-field-item ${activeDropdown === 'frequency' ? 'field-active' : ''}`}
           onClick={() => toggleDropdown('frequency')}
         >
           <div className="field-icon-box">
-            <TrendingUp size={16} className="field-icon" />
+            <TrendingUp size={15} strokeWidth={1.5} className="field-icon" />
           </div>
           <div className="field-text-content">
-            <span className="field-label">Frequency</span>
+            <span className="field-label">SAMPLING CADENCE</span>
             <span className="field-value">{indexFrequency}</span>
           </div>
-          <ChevronDown size={15} className={`field-chevron ${activeDropdown === 'frequency' ? 'rotated' : ''}`} />
+          <ChevronDown size={14} strokeWidth={1.5} className={`field-chevron ${activeDropdown === 'frequency' ? 'rotated' : ''}`} />
 
-          {/* Frequency Dropdown */}
           {activeDropdown === 'frequency' && (
             <div className="booking-dropdown-popover date-popover" onClick={(e) => e.stopPropagation()}>
-              <div className="popover-title">Index Computation Frequency</div>
+              <div className="popover-title">INDEX COMPUTATION CADENCE</div>
               <div className="popover-list">
                 {frequencyList.map((f) => (
                   <div
@@ -186,7 +193,7 @@ export default function BookingBar({
                       <div className="option-name">{f.code}</div>
                       <div className="option-subtitle">{f.desc}</div>
                     </div>
-                    {indexFrequency === f.code && <Check size={16} className="option-check" />}
+                    {indexFrequency === f.code && <Check size={15} strokeWidth={2} className="option-check" />}
                   </div>
                 ))}
               </div>
@@ -202,18 +209,17 @@ export default function BookingBar({
           onClick={() => toggleDropdown('sources')}
         >
           <div className="field-icon-box">
-            <Database size={16} className="field-icon" />
+            <Database size={15} strokeWidth={1.5} className="field-icon" />
           </div>
           <div className="field-text-content">
-            <span className="field-label">Portals & OTAs</span>
+            <span className="field-label">INGESTION CHANNELS</span>
             <span className="field-value">{dataSource.split(' ')[0]} Sources</span>
           </div>
-          <ChevronDown size={15} className={`field-chevron ${activeDropdown === 'sources' ? 'rotated' : ''}`} />
+          <ChevronDown size={14} strokeWidth={1.5} className={`field-chevron ${activeDropdown === 'sources' ? 'rotated' : ''}`} />
 
-          {/* Sources Dropdown */}
           {activeDropdown === 'sources' && (
             <div className="booking-dropdown-popover guests-popover" onClick={(e) => e.stopPropagation()}>
-              <div className="popover-title">Scraping Sources (Airlines & OTAs)</div>
+              <div className="popover-title">CARRIER PORTALS & OTAs</div>
               <div className="popover-list">
                 {sourceList.map((s) => (
                   <div
@@ -228,7 +234,7 @@ export default function BookingBar({
                       <div className="option-name">{s.code}</div>
                       <div className="option-subtitle">{s.desc}</div>
                     </div>
-                    {dataSource === s.code && <Check size={16} className="option-check" />}
+                    {dataSource === s.code && <Check size={15} strokeWidth={2} className="option-check" />}
                   </div>
                 ))}
               </div>
@@ -236,13 +242,14 @@ export default function BookingBar({
           )}
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Button - Bold Vermillion Primary */}
         <button
+          type="button"
           className="btn-book-stay btn-book-flight-cta"
           onClick={onGenerateIndex}
-          aria-label="Generate Airfare Price Index"
+          aria-label="Compute Real-Time Airfare Price Index"
         >
-          Generate APIx
+          <span>COMPUTE APIx</span>
         </button>
       </div>
     </div>

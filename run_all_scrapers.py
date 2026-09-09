@@ -190,12 +190,36 @@ def main():
     # 3. Consolidate Normalized Flight Data into Master JSON
     master_data = consolidate_normalized_data()
 
-    # 4. Upload Consolidated Normalized Data into MoSPI Database
-    banner("UPLOADING MASTER NORMALIZED DATASET INTO MOSPI DATABASE")
+    # 4. Upload Consolidated Normalized Data into MoSPI Database & MongoDB
+    banner("UPLOADING MASTER NORMALIZED DATASET INTO MOSPI DATABASE & MONGODB")
     from backend.ingestion import ingest_normalized_dataset, clean_database_duplicates
     clean_database_duplicates()
     db_res = ingest_normalized_dataset(master_data, clear_previous_scrapes=True)
-    print(f"[SUCCESS] Database Ingestion: {db_res.get('quotes_saved', 0):,} quotes committed to price_quotes table in apix_mospi.db")
+    print(f"[SUCCESS] SQLite Database: {db_res.get('quotes_saved', 0):,} quotes committed to price_quotes in apix_mospi.db")
+
+    # Automatically store master dataset into MongoDB
+    try:
+        from backend.mongo import save_master_dataset_to_mongo, get_mongo_status
+        mongo_res = save_master_dataset_to_mongo(master_data)
+        m_status = get_mongo_status()
+        print(f"[SUCCESS] MongoDB Storage: {mongo_res.get('quotes_saved', 0):,} quotes committed to MongoDB collection 'price_quotes' ({m_status['driver']})")
+    except Exception as me:
+        print(f"[WARN] MongoDB Storage note: {me}")
+
+    # Optionally notify live FastAPI backend ingestion endpoint if running
+    try:
+        import urllib.request
+        req = urllib.request.Request(
+            "http://127.0.0.1:8000/api/v1/ingest/normalized-dataset",
+            data=json.dumps(master_data, default=str).encode("utf-8"),
+            headers={"Content-Type": "application/json"}
+        )
+        with urllib.request.urlopen(req, timeout=3) as resp:
+            if resp.status == 200:
+                print("[SUCCESS] Backend Ingestion API: Successfully notified live FastAPI backend endpoint")
+    except Exception:
+        # Backend might not be running in this terminal session, which is completely fine
+        pass
 
     # 5. Summary Table
     banner("MASTER SCRAPING & CONSOLIDATION REPORT")

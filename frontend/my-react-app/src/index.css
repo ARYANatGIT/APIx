@@ -1,25 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+/* ==========================================================================
+   Bold Typography Design System - Global Tokens & Foundations
+   Aesthetic: Poster design translated to web. Confident. Editorial. Deliberate.
+   ========================================================================== */
 
 :root {
-  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --color-gold: #FBE697;
-  --color-gold-hover: #F5DC80;
-  --color-gold-deep: #E5B54F;
-  --color-space-yellow: #E8CF7A;
-  --color-dark: #161A17;
-  --color-charcoal: #1F2420;
-  --color-text-muted: #5C6560;
-  --color-magenta: #E6347A;
-  --color-magenta-hover: #D4286C;
-  --color-card-bg: rgba(255, 255, 255, 0.93);
-  --color-glass-dark: rgba(20, 24, 28, 0.52);
-  --color-border-white: rgba(255, 255, 255, 0.88);
+  /* Colors (Dark Canvas) */
+  --bg: #0A0A0A;
+  --fg: #FAFAFA;
+  --muted: #1A1A1A;
+  --muted-fg: #737373;
+  --accent: #FF3D00;
+  --accent-fg: #0A0A0A;
+  --border: #262626;
+  --border-hover: #404040;
+  --input: #1A1A1A;
+  --card: #0F0F0F;
+  --card-fg: #FAFAFA;
+  --ring: #FF3D00;
+
+  /* Typography Stacks */
+  --font-sans: "Inter Tight", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Scale Hierarchy (Strict 6:1+ ratio between display and body) */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 2rem;      /* 32px */
+  --text-4xl: 2.5rem;    /* 40px */
+  --text-5xl: 3.5rem;    /* 56px */
+  --text-6xl: 4.5rem;    /* 72px */
+  --text-7xl: 6rem;      /* 96px */
+  --text-8xl: 8rem;      /* 128px */
+  --text-9xl: 10rem;     /* 160px */
+
+  /* Tracking System */
+  --tracking-tighter: -0.06em;
+  --tracking-tight: -0.04em;
+  --tracking-normal: -0.01em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
+
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  /* Geometry & Borders: STRICT 0px radius */
+  --radius: 0px;
+  --border-width: 1px;
+  --border-thick: 2px;
+
+  /* Motion: Fast, decisive, zero bounce */
+  --ease-fast: cubic-bezier(0.25, 0, 0, 1);
+  --duration-micro: 150ms;
+  --duration-standard: 200ms;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  border-radius: 0 !important; /* Enforce sharp geometry across entire site */
 }
 
 html, body, #root {
@@ -29,11 +78,29 @@ html, body, #root {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: var(--font-family);
-  background-color: #0c0f0d;
-  color: #1a1e1b;
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--fg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle fractal noise grain texture layer (1.8% opacity) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Focus state: 2px accent outline, 2px offset, no glow */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 
 button {
@@ -41,25 +108,93 @@ button {
   cursor: pointer;
   border: none;
   background: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: inherit;
+  transition: all var(--duration-micro) var(--ease-fast);
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: all var(--duration-micro) var(--ease-fast);
 }
 
-/* Custom smooth scrollbar */
+/* Bold Typography Button Primitives */
+.btn-primary-bold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  padding: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary-bold::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent);
+  transform-origin: left center;
+  transition: transform var(--duration-micro) var(--ease-fast);
+}
+
+.btn-primary-bold:hover::after {
+  transform: scaleX(1.1);
+}
+
+.btn-primary-bold:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary-bold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: background-color var(--duration-micro) var(--ease-fast),
+              color var(--duration-micro) var(--ease-fast);
+}
+
+.btn-secondary-bold:hover {
+  background-color: var(--fg);
+  color: var(--bg);
+}
+
+.btn-secondary-bold:active {
+  transform: translateY(1px);
+}
+
+/* Sharp, precise scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #111412;
+  background: #0A0A0A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3a423e;
-  border-radius: 4px;
+  background: #262626;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #5c6560;
+  background: #404040;
 }

@@ -3,8 +3,9 @@ import { Search, Filter, ShieldCheck, AlertCircle, Plane, Clock, Eye, Download, 
 import { apiService } from '../services/api';
 import ProofOfSourceModal from './ProofOfSourceModal';
 
-export default function QuotesExplorer({ initialQuotes = [] }) {
+export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
   const [quotes, setQuotes] = useState(initialQuotes);
+  const [totalCount, setTotalCount] = useState(initialQuotes.length || 4291);
   const [loading, setLoading] = useState(false);
   const [selectedRoute, setSelectedRoute] = useState('');
   const [selectedAirline, setSelectedAirline] = useState('');
@@ -17,12 +18,12 @@ export default function QuotesExplorer({ initialQuotes = [] }) {
 
   useEffect(() => {
     fetchFilteredQuotes();
-  }, [selectedRoute, selectedAirline, selectedWindow, outlierOnly]);
+  }, [selectedRoute, selectedAirline, selectedWindow, outlierOnly, refreshTrigger]);
 
   const fetchFilteredQuotes = async () => {
     setLoading(true);
     try {
-      const params = { limit: 40 };
+      const params = { limit: 50 };
       if (selectedRoute) params.route_code = selectedRoute;
       if (selectedAirline) params.airline_code = selectedAirline;
       if (selectedWindow) params.advance_window = selectedWindow;
@@ -31,6 +32,7 @@ export default function QuotesExplorer({ initialQuotes = [] }) {
       const res = await apiService.getQuotes(params);
       if (res && res.quotes) {
         setQuotes(res.quotes);
+        if (res.total_count) setTotalCount(res.total_count);
       }
     } catch (e) {
       console.error(e);
@@ -42,11 +44,10 @@ export default function QuotesExplorer({ initialQuotes = [] }) {
   const filteredQuotes = quotes.filter(q => {
     if (!searchTerm) return true;
     const term = searchTerm.toLowerCase();
-    return (
-      q.flight_number.toLowerCase().includes(term) ||
-      q.route_code.toLowerCase().includes(term) ||
-      q.airline_name.toLowerCase().includes(term)
-    );
+    const flightNum = (q.flight_number || '').toLowerCase();
+    const rCode = (q.route_code || q.route || '').toLowerCase();
+    const aName = (q.airline_name || q.airline || '').toLowerCase();
+    return flightNum.includes(term) || rCode.includes(term) || aName.includes(term);
   });
 
   return (
@@ -59,7 +60,7 @@ export default function QuotesExplorer({ initialQuotes = [] }) {
           </div>
           <h2 className="section-title">Live Price Quotes Explorer</h2>
           <p className="section-subtitle">
-            Searchable repository of 4,000+ individual flight ticket price quotes collected across 10 DGCA corridors and 5 booking horizons.
+            Searchable repository of {totalCount.toLocaleString()} individual flight ticket price quotes collected across 10 DGCA corridors and 6 booking horizons (T+0 to T+45).
           </p>
         </div>
       </div>
@@ -118,9 +119,10 @@ export default function QuotesExplorer({ initialQuotes = [] }) {
           onChange={(e) => setSelectedWindow(e.target.value)}
           className="filter-select"
         >
-          <option value="">All Windows (T+1 .. T+45)</option>
-          <option value="T+1">T+1 Day (Spot / Distress)</option>
-          <option value="T+7">T+7 Days (Weekly)</option>
+          <option value="">All Windows (T+0 .. T+45)</option>
+          <option value="T+0">T+0 Day (Same-Day / Distress)</option>
+          <option value="T+1">T+1 Day (Spot / Corporate)</option>
+          <option value="T+7">T+7 Days (Weekly Anchor)</option>
           <option value="T+15">T+15 Days (Mid-term)</option>
           <option value="T+30">T+30 Days (Monthly Leisure)</option>
           <option value="T+45">T+45 Days (Early Floor)</option>
@@ -155,18 +157,18 @@ export default function QuotesExplorer({ initialQuotes = [] }) {
             </tr>
           </thead>
           <tbody>
-            {filteredQuotes.map((q) => (
-              <tr key={q.id} className={q.is_outlier ? 'outlier-row' : ''}>
+            {filteredQuotes.map((q, idx) => (
+              <tr key={q.id || idx} className={q.is_outlier ? 'outlier-row' : ''}>
                 <td className="font-mono font-bold">{q.flight_number}</td>
                 <td>
-                  <span className="route-badge-sm">{q.route_code}</span>
+                  <span className="route-badge-sm">{q.route_code || q.route}</span>
                 </td>
                 <td>
                   <span
                     className="carrier-tag-pill"
                     style={{ borderColor: q.airline_color || '#E5B54F' }}
                   >
-                    {q.airline_name}
+                    {q.airline_name || q.airline}
                   </span>
                 </td>
                 <td>
@@ -177,10 +179,10 @@ export default function QuotesExplorer({ initialQuotes = [] }) {
                 <td className="font-mono">
                   {q.departure_time} ➔ {q.arrival_time}
                 </td>
-                <td>{q.duration_mins}m (Direct)</td>
-                <td>₹{q.base_fare.toLocaleString()}</td>
-                <td>₹{q.taxes_and_fees.toLocaleString()}</td>
-                <td className="font-bold val-gold">₹{q.total_fare.toLocaleString()}</td>
+                <td>{q.stops_text || (q.duration_mins ? `${q.duration_mins}m` : (q.stops === 0 ? 'Non-stop' : `${q.stops} stops`))}</td>
+                <td>₹{Math.round(q.base_fare || 0).toLocaleString()}</td>
+                <td>₹{Math.round(q.taxes_and_fees || 0).toLocaleString()}</td>
+                <td className="font-bold val-gold">₹{Math.round(q.total_fare || 0).toLocaleString()}</td>
                 <td>
                   {q.is_outlier ? (
                     <span className="tag-outlier">IQR Spiked</span>

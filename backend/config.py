@@ -21,6 +21,15 @@ class Settings(BaseSettings):
         "DATABASE_URL", 
         f"sqlite:///{DATA_DIR / 'apix_mospi.db'}"
     )
+
+    # MongoDB Configuration
+    MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+    MONGO_DB_NAME: str = os.getenv("MONGO_DB_NAME", "apix_mospi")
+    USE_MONGODB: bool = os.getenv("USE_MONGODB", "true").lower() in ("true", "1", "yes")
+
+    # Scraper Scheduler Configuration (Default: 30 minutes)
+    SCHEDULER_INTERVAL_MINUTES: int = int(os.getenv("SCHEDULER_INTERVAL_MINUTES", "30"))
+    SCHEDULER_INTERVAL_HOURS: float = float(os.getenv("SCHEDULER_INTERVAL_HOURS", "0.5"))
     
     # Statistical Index Parameters
     BASE_INDEX_VALUE: float = 100.0
