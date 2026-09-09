@@ -35,14 +35,14 @@ export default function BookingModal({
           <div className="modal-header">
             <span className="modal-badge bold-mono-pill">
               <span className="accent-square">■</span>
-              <span>MoSPI // NSO // RBI INFLATION FRAMEWORK</span>
+              <span>MoSPI (NSO & RBI Inflation Framework)</span>
             </span>
             <h2 className="bold-display-h2">SECTOR AIRFARE PRICE INDEX (APIx)</h2>
             <p className="modal-subtitle">HIGH-FREQUENCY RETAIL INFLATION FOR CPI TRANSPORT SUB-GROUP</p>
           </div>
 
           <div className="flight-route-hero-card bold-route-banner">
-            <div className="frh-airliner">CORRIDOR // {route.name}</div>
+            <div className="frh-airliner">CORRIDOR ({route.name})</div>
             <div className="frh-route-title">
               INDEX: <span className="text-accent">{currentSectorIndex}</span>{' '}
               <span className="frh-route-mom">({momPct >= 0 ? `+${momPct}` : momPct}% MoM)</span>

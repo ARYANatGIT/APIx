@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
-import { Plane, Compass, Navigation2, Info, MapPin } from 'lucide-react';
-
-// City node coordinates on a 600x680 SVG canvas representing India's air space
-const CITY_COORDS = {
-  DEL: { x: 250, y: 155, name: 'Delhi', code: 'DEL', airport: 'Indira Gandhi Int’l' },
-  BOM: { x: 175, y: 395, name: 'Mumbai', code: 'BOM', airport: 'Chhatrapati Shivaji Maharaj' },
-  BLR: { x: 270, y: 535, name: 'Bengaluru', code: 'BLR', airport: 'Kempegowda Int’l' },
-  CCU: { x: 490, y: 295, name: 'Kolkata', code: 'CCU', airport: 'Netaji Subhash Chandra Bose' },
-  HYD: { x: 285, y: 440, name: 'Hyderabad', code: 'HYD', airport: 'Rajiv Gandhi Int’l' },
-  MAA: { x: 325, y: 540, name: 'Chennai', code: 'MAA', airport: 'Chennai Int’l' },
-  GOI: { x: 190, y: 485, name: 'Goa', code: 'GOI', airport: 'Dabolim / Manohar Int’l' }
-};
+import { Compass } from 'lucide-react';
+import { CITY_COORDS, MAP_VIEWBOX, INDIA_SVG_PATH, INDIA_STATES_PATH } from './indiaMapData';
 
 export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRouteCode }) {
   const [hoveredRoute, setHoveredRoute] = useState(null);
@@ -27,7 +17,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
             <span>DGCA AIR CORRIDORS RADAR</span>
           </div>
           <h3 className="map-title">Indian Domestic Route Basket</h3>
-          <p className="map-subtitle">Top 10 High-Density Corridors • Official MoSPI Consumer Price Index (CPI) Basket</p>
+          <p className="map-subtitle">Official Survey of India Boundaries • Top 10 High-Density MoSPI Corridors</p>
         </div>
 
         {activeRoute && (
@@ -50,82 +40,64 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
 
       <div className="svg-map-wrapper">
         <svg
-          viewBox="0 0 600 680"
+          viewBox={MAP_VIEWBOX}
           className="india-air-svg"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
             {/* Radial glow for airport beacons */}
             <radialGradient id="beaconGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#2563eb" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#2563eb" stopOpacity="0" />
+              <stop offset="0%" stopColor="#ff4d00" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#ff4d00" stopOpacity="0" />
             </radialGradient>
 
             <linearGradient id="corridorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#2563eb" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#0284c7" stopOpacity="0.75" />
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#0284c7" stopOpacity="0.45" />
             </linearGradient>
 
             <linearGradient id="activeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#e11d48" stopOpacity="1" />
+              <stop offset="0%" stopColor="#ff4d00" stopOpacity="1" />
               <stop offset="100%" stopColor="#f59e0b" stopOpacity="1" />
             </linearGradient>
 
-            {/* Filter for clean shadow on the map outline */}
+            {/* Clean subtle shadow on the map outline */}
             <filter id="mapShadow" x="-10%" y="-10%" width="130%" height="130%">
-              <feDropShadow dx="0" dy="6" stdDeviation="10" floodColor="#0f172a" floodOpacity="0.08" />
+              <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#000000" floodOpacity="0.5" />
             </filter>
           </defs>
 
-          {/* Stylized background airspace grid & radar rings */}
-          <circle cx="300" cy="340" r="280" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 4" />
-          <circle cx="300" cy="340" r="190" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 4" />
-          <circle cx="300" cy="340" r="100" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 4" />
+          {/* Airspace grid & radar rings */}
+          <circle cx="320" cy="360" r="300" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="4 4" />
+          <circle cx="320" cy="360" r="200" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="4 4" />
+          <circle cx="320" cy="360" r="100" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="4 4" />
 
-          <line x1="300" y1="40" x2="300" y2="640" stroke="#f1f5f9" strokeWidth="1" />
-          <line x1="40" y1="340" x2="560" y2="340" stroke="#f1f5f9" strokeWidth="1" />
+          <line x1="320" y1="20" x2="320" y2="700" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
+          <line x1="20" y1="360" x2="620" y2="360" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
 
-          {/* Authentic India Geographic Landmass SVG Outline */}
+          {/* Official Survey of India (SOI) Geographic Landmass Layer */}
           <g className="india-landmass-layer" filter="url(#mapShadow)">
             <path
-              d="M 250,45 
-                 C 240,60 215,80 205,100
-                 C 195,120 190,140 185,160
-                 C 170,185 150,215 140,240
-                 C 130,265 110,285 95,305
-                 C 90,315 105,325 125,325
-                 C 145,325 145,340 135,355
-                 C 125,370 140,385 155,380
-                 C 170,375 180,390 178,410
-                 C 175,440 185,475 190,500
-                 C 195,530 210,570 230,600
-                 C 245,620 270,645 285,655
-                 C 295,645 315,600 325,565
-                 C 335,530 355,480 375,450
-                 C 395,420 425,380 445,350
-                 C 465,320 480,295 495,290
-                 C 505,290 515,270 500,255
-                 C 485,240 480,230 495,225
-                 C 520,215 545,205 565,215
-                 C 575,220 570,235 550,245
-                 C 530,255 520,270 505,280
-                 C 485,295 470,315 460,335
-                 C 450,305 455,270 465,245
-                 C 475,220 455,215 440,225
-                 C 420,240 395,215 365,210
-                 C 335,205 310,185 290,170
-                 C 270,155 260,110 258,80
-                 Z"
-              fill="#f1f5f9"
-              stroke="#94a3b8"
-              strokeWidth="2.5"
+              d={INDIA_SVG_PATH}
+              fill="#181a1e"
+              stroke="#ff4d00"
+              strokeWidth="1.2"
+              strokeOpacity="0.55"
               strokeLinejoin="round"
+              fillRule="evenodd"
             />
+          </g>
 
-            {/* Regional Air Corridor Guidemarks */}
-            <path d="M 140,240 Q 250,250 365,210" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3 3" />
-            <path d="M 178,410 Q 285,440 445,350" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3 3" />
-            <path d="M 190,500 Q 270,535 325,565" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3 3" />
+          {/* State-Level Administrative Borders */}
+          <g className="india-states-layer">
+            <path
+              d={INDIA_STATES_PATH}
+              fill="none"
+              stroke="rgba(248, 113, 113, 0.30)"
+              strokeWidth="0.9"
+              strokeLinejoin="round"
+              strokeDasharray="4 2.5"
+            />
           </g>
 
           {/* Flight Trajectory Great-Circle Arcs across India */}
@@ -134,7 +106,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
             const dest = CITY_COORDS[r.destination_code];
             if (!orig || !dest) return null;
 
-            // Calculate subtle curved control point for great circle arc
+            // Subtle curved control point for great circle arc
             const dx = dest.x - orig.x;
             const dy = dest.y - orig.y;
             const cx = (orig.x + dest.x) / 2 - dy * 0.18;
@@ -142,7 +114,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
 
             const isSelected = (r.route_code === selectedRouteCode);
             const isHovered = (r.route_code === hoveredRoute);
-            const strokeWidth = isSelected || isHovered ? 4 : Math.max(2.2, (r.weight || 0.1) * 12);
+            const strokeWidth = isSelected || isHovered ? 3.5 : Math.max(1.8, (r.weight || 0.1) * 10);
 
             return (
               <g
@@ -153,7 +125,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
                 onClick={() => onSelectRoute && onSelectRoute(r)}
                 style={{ cursor: 'pointer' }}
               >
-                {/* Wider invisible stroke for easy hover target */}
+                {/* Wider invisible stroke for easy hit testing */}
                 <path
                   d={`M ${orig.x} ${orig.y} Q ${cx} ${cy} ${dest.x} ${dest.y}`}
                   fill="none"
@@ -161,28 +133,28 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
                   strokeWidth="24"
                 />
 
-                {/* Visible route curve */}
+                {/* Visible corridor arc */}
                 <path
                   d={`M ${orig.x} ${orig.y} Q ${cx} ${cy} ${dest.x} ${dest.y}`}
                   fill="none"
                   stroke={isSelected || isHovered ? "url(#activeGrad)" : "url(#corridorGrad)"}
                   strokeWidth={strokeWidth}
-                  strokeDasharray={isSelected || isHovered ? "none" : "6 4"}
+                  strokeDasharray={isSelected || isHovered ? "none" : "5 4"}
                   className={`route-arc ${isSelected ? 'selected-arc' : ''}`}
                 />
 
-                {/* Animated flight dot moving along arc */}
+                {/* Animated flight beacon dot */}
                 {(isSelected || isHovered) && (
                   <circle
-                    r="5"
-                    fill="#e11d48"
+                    r="4.5"
+                    fill="#ff4d00"
                     stroke="#ffffff"
                     strokeWidth="1.5"
-                    filter="drop-shadow(0 0 6px #e11d48)"
+                    filter="drop-shadow(0 0 6px #ff4d00)"
                   >
                     <animateMotion
                       path={`M ${orig.x} ${orig.y} Q ${cx} ${cy} ${dest.x} ${dest.y}`}
-                      dur="3.2s"
+                      dur="3s"
                       repeatCount="indefinite"
                     />
                   </circle>
@@ -194,6 +166,8 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
           {/* Airport City Nodes on Indian Map */}
           {Object.entries(CITY_COORDS).map(([code, city]) => {
             const isCityHovered = hoveredCity === code;
+            const badgeDx = city.badgeDx ?? 12;
+            const badgeDy = city.badgeDy ?? -10;
 
             return (
               <g
@@ -205,44 +179,53 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
                 style={{ cursor: 'pointer' }}
               >
                 {/* Radar beacon pulse ring */}
-                <circle cx="0" cy="0" r="16" fill="url(#beaconGlow)" className="radar-beacon-anim" />
-                <circle cx="0" cy="0" r="5.5" fill="#1d4ed8" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.15))" />
+                <circle cx="0" cy="0" r="14" fill="url(#beaconGlow)" className="radar-beacon-anim" />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="4"
+                  fill={isCityHovered ? "#ff4d00" : "#38bdf8"}
+                  stroke="#ffffff"
+                  strokeWidth="1.5"
+                  filter="drop-shadow(0 0 6px rgba(0,0,0,0.4))"
+                />
 
-                {/* Airport Label Badge */}
-                <g transform="translate(10, -10)">
+                {/* Airport Code Badge */}
+                <g transform={`translate(${badgeDx}, ${badgeDy})`}>
                   <rect
                     x="0"
                     y="0"
-                    width="44"
-                    height="20"
-                    rx="10"
-                    fill="#ffffff"
-                    stroke="#2563eb"
-                    strokeWidth="1.5"
-                    filter="drop-shadow(0 2px 6px rgba(0,0,0,0.1))"
+                    width="38"
+                    height="18"
+                    rx="3"
+                    fill="#141619"
+                    stroke={isCityHovered ? "#ff4d00" : "#27272a"}
+                    strokeWidth="1"
+                    filter="drop-shadow(0 2px 4px rgba(0,0,0,0.5))"
                   />
                   <text
-                    x="22"
-                    y="14"
+                    x="19"
+                    y="13"
                     textAnchor="middle"
-                    fill="#1e40af"
-                    fontSize="11"
+                    fill={isCityHovered ? "#ff4d00" : "#f1f5f9"}
+                    fontSize="10"
                     fontWeight="800"
+                    fontFamily="monospace"
                     letterSpacing="0.5"
                   >
                     {code}
                   </text>
                 </g>
 
-                {/* City name caption */}
+                {/* City Name Caption */}
                 <text
-                  x="0"
-                  y="24"
+                  x={badgeDx + 19}
+                  y={badgeDy + 28}
                   textAnchor="middle"
-                  fill="#0f172a"
-                  fontSize="11"
-                  fontWeight="700"
-                  filter="drop-shadow(0 1px 2px rgba(255,255,255,0.9))"
+                  fill="#94a3b8"
+                  fontSize="9.5"
+                  fontWeight="600"
+                  fontFamily="sans-serif"
                 >
                   {city.name}
                 </text>
@@ -255,7 +238,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
       <div className="map-legend-row">
         <div className="legend-item">
           <span className="legend-line line-solid"></span>
-          <span>Selected / Active Corridor (DEL-BOM 22.35%)</span>
+          <span>Selected Corridor ({activeRoute?.route_code || 'DEL-BOM'} {activeRoute?.weight_pct_str || '22.35%'})</span>
         </div>
         <div className="legend-item">
           <span className="legend-line line-dashed"></span>

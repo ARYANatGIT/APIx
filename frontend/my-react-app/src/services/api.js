@@ -425,7 +425,17 @@ const BACKEND_URL = 'http://127.0.0.1:8000/api/v1';
 const LOCALHOST_URL = 'http://localhost:8000/api/v1';
 
 async function fetchWithFallback(endpoint, fallbackData) {
-  // Attempt direct cross-origin connection to FastAPI Backend via CORS
+  // 1. Attempt relative path via Vite dev server proxy
+  try {
+    const relRes = await fetch(`/api/v1${endpoint}`);
+    if (relRes.ok) {
+      return await relRes.json();
+    }
+  } catch (e) {
+    // Relative proxy attempt skipped/failed, continue to direct origins
+  }
+
+  // 2. Attempt direct cross-origin connection to FastAPI Backend via CORS
   try {
     const res = await fetch(`${BACKEND_URL}${endpoint}`);
     if (res.ok) {
@@ -450,13 +460,14 @@ export const apiService = {
   async getOverview() {
     return fetchWithFallback('/overview', {
       latest_index: {
-        value: 104.77,
+        value: 132.06,
         base_period: "2024-Q1",
         base_value: 100.0,
-        calculation_date: "2026-09-05",
-        change_pct_d1: 0.15,
-        change_pct_m1: 4.77,
-        average_fare: 6835.0,
+        calculation_date: "2026-09-09",
+        change_pct_d1: 0.22,
+        change_pct_w1: 1.12,
+        change_pct_m1: 32.06,
+        average_fare: 8368.09,
         formula: "Laspeyres Basket Normalized Index"
       },
       basket_stats: {

@@ -84,7 +84,7 @@ export default function ProofOfSourceModal({ isOpen, onClose, quote }) {
           <div className="proof-grid bold-summary-grid">
             <div className="proof-item bold-proof-cell">
               <span className="p-label">FLIGHT OBSERVATION</span>
-              <span className="p-val font-mono">{quote.flight_number} // {quote.route_code}</span>
+              <span className="p-val font-mono">{quote.flight_number} ({quote.route_code})</span>
             </div>
             <div className="proof-item bold-proof-cell">
               <span className="p-label">MONITORED CARRIER</span>

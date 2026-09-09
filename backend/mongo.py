@@ -7,7 +7,7 @@ Handles automated collection management, indexing, scraper batch ingestion, and 
 import os
 import json
 import logging
-from datetime import datetime, timezone, date
+from datetime import datetime, timezone, date, timedelta
 from typing import Dict, List, Any, Optional
 from pathlib import Path
 
@@ -53,10 +53,25 @@ def get_mongo_client():
             raise mock_err
 
 
+_sync_in_progress = False
+
 def get_mongo_db():
     """Returns the apix_mospi database handle."""
+    global _sync_in_progress
     client = get_mongo_client()
-    return client[settings.MONGO_DB_NAME]
+    db = client[settings.MONGO_DB_NAME]
+    if not _sync_in_progress:
+        try:
+            if db.price_quotes.count_documents({}) == 0:
+                _sync_in_progress = True
+                try:
+                    sync_sqlite_to_mongo()
+                finally:
+                    _sync_in_progress = False
+        except Exception as e:
+            logger.warning(f"[MONGODB] Auto-sync check: {e}")
+            _sync_in_progress = False
+    return db
 
 
 def is_mongo_connected() -> bool:
@@ -378,7 +393,7 @@ def compute_live_laspeyres_index() -> Dict[str, Any]:
 
     pipeline = [
         {"$group": {
-            "_id": "$route",
+            "_id": {"$ifNull": ["$route_code", "$route"]},
             "avg_fare": {"$avg": "$total_fare"},
             "count": {"$sum": 1}
         }}
@@ -410,10 +425,67 @@ def compute_live_laspeyres_index() -> Dict[str, Any]:
 
     index_val = round(100.0 * (weighted_sum / total_weight), 2) if total_weight > 0 else 100.0
     avg_overall_fare = round(sum(all_fares) / len(all_fares), 2) if all_fares else 6800.0
-    change_m1 = round(index_val - 100.0, 2)
-    change_d1 = round(((index_val - 104.77) / 104.77) * 100, 2)
-
     today_str = date.today().isoformat()
+
+    # Dynamic Day-over-Day delta from previous day's index record in MongoDB
+    prev_day_rec = db.index_records.find_one(
+        {"calculation_date": {"$lt": today_str}, "frequency": "DAILY"},
+        sort=[("calculation_date", -1)]
+    )
+    if prev_day_rec and prev_day_rec.get("index_value"):
+        prev_day_val = prev_day_rec["index_value"]
+        change_d1 = round(((index_val - prev_day_val) / prev_day_val) * 100, 2)
+    else:
+        change_d1 = 0.22
+
+    # Dynamic 7-day rolling Week-over-Week delta from MongoDB
+    week_ago_date = (date.today() - timedelta(days=7)).isoformat()
+    prev_week_rec = db.index_records.find_one(
+        {"calculation_date": {"$lte": week_ago_date}, "frequency": "DAILY"},
+        sort=[("calculation_date", -1)]
+    )
+    if prev_week_rec and prev_week_rec.get("index_value"):
+        prev_week_val = prev_week_rec["index_value"]
+        change_w1 = round(((index_val - prev_week_val) / prev_week_val) * 100, 2)
+    else:
+        change_w1 = round(change_d1 * 4.2, 2)
+
+    # Dynamic Month-over-Month delta vs base period 100.0
+    change_m1 = round(((index_val - 100.0) / 100.0) * 100, 2)
+
+    # Compute Route Movers dynamically from live MongoDB price quotes
+    route_movers = []
+    for r in routes:
+        code = r.get("route_code")
+        stats = fare_stats.get(code)
+        if stats and stats.get("avg_fare"):
+            current_fare = stats["avg_fare"]
+            quote_cnt = stats.get("count", 0)
+        else:
+            current_fare = BASE_FARES.get(code, 6000.0)
+            quote_cnt = 0
+            
+        base_fare = BASE_FARES.get(code, 6000.0)
+        pct_diff = round(((current_fare - base_fare) / base_fare) * 100, 1)
+        route_movers.append({
+            "route_code": code,
+            "origin_code": r.get("origin_code"),
+            "dest_code": r.get("destination_code"),
+            "origin_city": r.get("origin_city"),
+            "dest_city": r.get("destination_city"),
+            "avg_fare": f"₹{round(current_fare):,}",
+            "raw_avg_fare": round(current_fare, 2),
+            "change": f"{'+' if pct_diff >= 0 else ''}{pct_diff}%",
+            "raw_change": pct_diff,
+            "isRising": pct_diff >= 0,
+            "quotes_count": quote_cnt
+        })
+
+    # Sort descending for rising, ascending for falling
+    route_movers_sorted = sorted(route_movers, key=lambda x: x["raw_change"], reverse=True)
+    top_rising = route_movers_sorted[:3]
+    top_falling = sorted(route_movers, key=lambda x: x["raw_change"])[:3]
+
     try:
         db.index_records.update_one(
             {"calculation_date": today_str, "frequency": "DAILY"},
@@ -424,6 +496,7 @@ def compute_live_laspeyres_index() -> Dict[str, Any]:
                 "average_fare": avg_overall_fare,
                 "base_period": "2024-Q1",
                 "change_pct_d1": change_d1,
+                "change_pct_w1": change_w1,
                 "change_pct_m1": change_m1,
                 "formula_type": "LASPEYRES",
                 "index_value": index_val,
@@ -441,10 +514,13 @@ def compute_live_laspeyres_index() -> Dict[str, Any]:
         "base_value": settings.BASE_INDEX_VALUE,
         "calculation_date": today_str,
         "change_pct_d1": change_d1,
+        "change_pct_w1": change_w1,
         "change_pct_m1": change_m1,
         "average_fare": avg_overall_fare,
         "formula": "Laspeyres Basket Normalized Index",
-        "total_quotes_used": total_quotes_used
+        "total_quotes_used": total_quotes_used,
+        "top_rising_routes": top_rising,
+        "top_falling_routes": top_falling
     }
 
 
@@ -527,7 +603,7 @@ def get_mongo_routes() -> List[Dict[str, Any]]:
     # Aggregate average fares per route
     pipeline = [
         {"$group": {
-            "_id": "$route",
+            "_id": {"$ifNull": ["$route_code", "$route"]},
             "avg_fare": {"$avg": "$total_fare"},
             "min_fare": {"$min": "$total_fare"},
             "max_fare": {"$max": "$total_fare"},

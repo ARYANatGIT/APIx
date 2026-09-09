@@ -14,12 +14,12 @@ import AirlinesView from './components/AirlinesView';
 import QuotesExplorer from './components/QuotesExplorer';
 import ScraperHealthView from './components/ScraperHealthView';
 import NsoExportView from './components/NsoExportView';
+import MoSPIMacroDashboard from './components/MoSPIMacroDashboard';
 import {
   Sparkles,
   ArrowRight,
   ArrowLeft,
   Compass,
-  TrendingUp,
   Clock,
   Plane,
   FileSearch,
@@ -195,7 +195,7 @@ function App() {
     setIntroKey(prev => prev + 1);
   };
 
-  const latestIndexVal = overviewData?.latest_index?.value || (indexSeries[indexSeries.length - 1]?.index_value || 104.77);
+  const latestIndexVal = overviewData?.latest_index?.value != null ? overviewData.latest_index.value : 132.06;
   const isHomeScreen = activeTab === 'home';
   const isDeckScreen = activeTab === 'deck';
 
@@ -253,6 +253,7 @@ function App() {
             onNavigate={handleNavigate}
             onBookClick={handleOpenIndexModal}
             latestIndex={latestIndexVal}
+            changePct={overviewData?.latest_index?.change_pct_d1 ?? 0.22}
           />
         )}
 
@@ -266,26 +267,6 @@ function App() {
             <div className="home-top-section">
               <header className="home-simple-topbar bold-home-topbar">
                 <Logo onClick={isHomeScreen ? handleReplayIntro : () => handleNavigate('home')} />
-                
-                <nav className="home-nav-shortcuts">
-                  <button type="button" className="home-shortcut-link" onClick={() => handleNavigate('deck')}>
-                    FLIGHT DECK
-                  </button>
-                  <button type="button" className="home-shortcut-link" onClick={() => handleNavigate('trajectory')}>
-                    INDEX TREND
-                  </button>
-                  <button type="button" className="home-shortcut-link" onClick={() => handleNavigate('routes')}>
-                    ROUTE BASKET
-                  </button>
-                  <button type="button" className="home-shortcut-link" onClick={() => handleNavigate('quotes')}>
-                    LIVE QUOTES
-                  </button>
-                </nav>
-
-                <div className="home-agency-pill bold-mono-pill">
-                  <span className="accent-square">■</span>
-                  <span>MoSPI // HIGH-FREQUENCY INGESTION</span>
-                </div>
               </header>
 
               {/* Massive Typographic Headline */}
@@ -298,18 +279,20 @@ function App() {
             <div className="home-poster-stats-grid">
               <div className="poster-stat-cell">
                 <span className="stat-label">DOMESTIC CORRIDORS</span>
-                <span className="stat-num text-accent">10</span>
+                <span className="stat-num text-accent">{overviewData?.basket_stats?.total_corridors || routes.length || 10}</span>
                 <span className="stat-sub">High-Density DGCA Routes</span>
               </div>
               <div className="poster-stat-cell">
                 <span className="stat-label">ANNUAL PASSENGERS</span>
-                <span className="stat-num font-mono">33.2M</span>
+                <span className="stat-num font-mono">
+                  {overviewData?.basket_stats?.tracked_annual_passengers ? `${(overviewData.basket_stats.tracked_annual_passengers / 1e6).toFixed(1)}M` : '33.2M'}
+                </span>
                 <span className="stat-sub">Tracked Basket Volume</span>
               </div>
               <div className="poster-stat-cell">
                 <span className="stat-label">ACTIVE QUOTES</span>
                 <span className="stat-num font-mono">
-                  {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : '17,452'}
+                  {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : '14,860'}
                 </span>
                 <span className="stat-sub">Scraped Price Corpus</span>
               </div>
@@ -318,52 +301,21 @@ function App() {
                 <span className="stat-num text-accent font-mono">
                   {typeof latestIndexVal === 'number' ? latestIndexVal.toFixed(2) : latestIndexVal}
                 </span>
-                <span className="stat-sub">Base Period 2024-Q1 = 100.00</span>
+                <span className="stat-sub">Base Period {overviewData?.latest_index?.base_period || '2024-Q1'} = 100.00</span>
               </div>
             </div>
 
-            {/* Middle Section: Sharp Modular Booking / Query Bar */}
-            <div className="home-query-bar-container">
-              <BookingBar
-                selectedRoute={selectedRoute}
-                setSelectedRoute={setSelectedRoute}
-                advanceWindow={advanceWindow}
-                setAdvanceWindow={setAdvanceWindow}
-                indexFrequency={indexFrequency}
-                setIndexFrequency={setIndexFrequency}
-                dataSource={dataSource}
-                setDataSource={setDataSource}
-                onGenerateIndex={handleOpenIndexModal}
-                routes={routes}
-              />
-            </div>
-
-            {/* Bottom Actions Row: Primary Text CTAs */}
-            <div className="home-bottom-content bold-home-bottom">
-              <div className="home-action-row">
-                <button
-                  type="button"
-                  className="btn-primary-bold"
-                  onClick={() => handleNavigate('deck')}
-                  aria-label="Access Flight Deck"
-                >
-                  <span>ACCESS FLIGHT DECK</span>
-                  <ArrowRight size={15} strokeWidth={2} />
-                </button>
-                <button
-                  type="button"
-                  className="btn-secondary-bold"
-                  onClick={() => handleNavigate('trajectory')}
-                  aria-label="View 30-Day Inflation Trajectory"
-                >
-                  <span>VIEW 30-DAY TRAJECTORY</span>
-                </button>
-              </div>
-
-              <div className="home-footer-meta" aria-hidden="true">
-                <span className="meta-dot">■</span>
-                <span>OFFICIAL DGCA PRICE BASKET // MOSPI CPI PLATFORM</span>
-              </div>
+            {/* Get Started Action Button */}
+            <div className="home-get-started-container">
+              <button
+                type="button"
+                className="btn-get-started-cta"
+                onClick={() => handleNavigate('deck')}
+                aria-label="Get Started"
+              >
+                <span>GET STARTED</span>
+                <ArrowRight size={18} strokeWidth={2.5} className="btn-get-started-arrow" />
+              </button>
             </div>
           </div>
         )}
@@ -374,80 +326,30 @@ function App() {
             {/* Tab 1: Executive Flight Deck (White Dashboard, No Co-relation to Home Screen) */}
             {activeTab === 'deck' && (
               <div className="deck-white-dashboard">
-                {/* 1. Header Section */}
-                <div className="deck-header-section">
-                  <div className="deck-header-left">
-                    <div className="deck-header-tag">
-                      <span className="live-status-dot"></span>
-                      <span>MoSPI Official Airfare Intelligence</span>
-                      <span className="deck-version-tag">v2.4.0</span>
-                    </div>
-                    <h1 className="deck-page-title">Executive Flight Deck</h1>
-                    <p className="deck-page-subtitle">
-                      Real-time Laspeyres Airfare Price Index (APIx), high-frequency DGCA basket monitoring & multi-source web-scraped microdata.
-                    </p>
+                {/* Official MoSPI / NSO Macro Architecture Header & Wireframe */}
+                <MoSPIMacroDashboard
+                  overviewData={overviewData}
+                  routes={routes}
+                  selectedRoute={selectedRoute}
+                  onSelectRoute={handleSelectRouteFromMap}
+                  lastRefreshed={lastRefreshed}
+                  isRefreshing={isRefreshing}
+                  onRefreshData={refreshAllData}
+                  onInspectEngine={handleOpenIndexModal}
+                />
+
+                {/* Section Divider: Extended Basket Telemetry & Operational Controls */}
+                <div className="deck-telemetry-divider">
+                  <div className="divider-line"></div>
+                  <div className="divider-badge">
+                    <span>EXTENDED DGCA BASKET TELEMETRY & FLIGHT DECK CONTROLS</span>
                   </div>
-
-                  <div className="deck-header-right">
-                    <div className="deck-header-status-card">
-                      <div className="status-indicator-row">
-                        <span className="live-pulse-dot"></span>
-                        <span className="status-label">Pipeline Active</span>
-                      </div>
-                      <div className="status-time">Live Scraped Data</div>
-                    </div>
-
-                    <button
-                      type="button"
-                      className="deck-header-action-btn"
-                      style={{
-                        background: isRefreshing ? 'rgba(229, 181, 79, 0.25)' : 'rgba(255, 255, 255, 0.08)',
-                        border: '1px solid rgba(229, 181, 79, 0.35)',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        cursor: 'pointer'
-                      }}
-                      onClick={refreshAllData}
-                      title={`Last synced: ${lastRefreshed.toLocaleTimeString()}`}
-                    >
-                      <RefreshCw size={15} className={isRefreshing ? 'spin-pulse' : ''} />
-                      <span>{isRefreshing ? 'Updating...' : 'Sync Scraped Data'}</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      className="deck-header-action-btn"
-                      onClick={handleOpenIndexModal}
-                    >
-                      <Sparkles size={16} />
-                      <span>Inspect APIx Calculation</span>
-                    </button>
-                  </div>
+                  <div className="divider-line"></div>
                 </div>
 
-                {/* 2. Top Metric KPI Cards (4 Cards Grid) */}
+                {/* 2. Operational Basket KPI Cards (3 Cards Grid) */}
                 <div className="deck-kpi-grid">
-                  {/* KPI 1 */}
-                  <div className="deck-kpi-card highlight-gold">
-                    <div className="kpi-card-top">
-                      <span className="kpi-label">HEADLINE APIx INDEX</span>
-                      <span className="kpi-icon-wrap gold"><TrendingUp size={18} /></span>
-                    </div>
-                    <div className="kpi-value-row">
-                      <span className="kpi-number">{latestIndexVal}</span>
-                      <span className="kpi-pill-badge positive">
-                        {overviewData?.latest_index?.change_pct_d1 !== undefined ? (overviewData.latest_index.change_pct_d1 >= 0 ? `+${overviewData.latest_index.change_pct_d1}%` : `${overviewData.latest_index.change_pct_d1}%`) : '+0.15%'}
-                      </span>
-                    </div>
-                    <div className="kpi-footer-text">
-                      <span>Base {overviewData?.latest_index?.base_period || '2024-Q1'} = 100.00</span>
-                      <span className="kpi-bullet">•</span>
-                      <span>MoSPI CPI Augmentation</span>
-                    </div>
-                  </div>
-
-                  {/* KPI 2 */}
+                  {/* KPI 1: Primary Corridor Anchor */}
                   <div className="deck-kpi-card">
                     <div className="kpi-card-top">
                       <span className="kpi-label">PRIMARY CORRIDOR ANCHOR</span>
@@ -464,7 +366,7 @@ function App() {
                     </div>
                   </div>
 
-                  {/* KPI 3 */}
+                  {/* KPI 2: Advance Booking Window */}
                   <div className="deck-kpi-card">
                     <div className="kpi-card-top">
                       <span className="kpi-label">ADVANCE BOOKING WINDOW</span>
@@ -476,10 +378,12 @@ function App() {
                     </div>
                     <div className="kpi-footer-text">
                       <span>6 Horizons: T+0 to T+45 days</span>
+                      <span className="kpi-bullet">•</span>
+                      <span>Lead Time Weights</span>
                     </div>
                   </div>
 
-                  {/* KPI 4 */}
+                  {/* KPI 3: Microdata Ingestion */}
                   <div className="deck-kpi-card">
                     <div className="kpi-card-top">
                       <span className="kpi-label">MICRODATA INGESTION</span>
@@ -487,7 +391,7 @@ function App() {
                     </div>
                     <div className="kpi-value-row">
                       <span className="kpi-number">
-                        {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : '4,194'}
+                        {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : '14,860'}
                       </span>
                       <span className="kpi-pill-badge green">Live MongoDB</span>
                     </div>
@@ -495,6 +399,8 @@ function App() {
                       <span>
                         {overviewData?.airline_stats ? `${overviewData.airline_stats.carriers_count} Airlines + ${overviewData.airline_stats.otas_count} OTAs` : '5 Airlines + 2 OTAs'}
                       </span>
+                      <span className="kpi-bullet">•</span>
+                      <span>Real-time Ingestion</span>
                     </div>
                   </div>
                 </div>
@@ -554,8 +460,8 @@ function App() {
                           </tr>
                         </thead>
                         <tbody>
-                          {routes.slice(0, 5).map(r => (
-                            <tr key={r.route_code} className={r.route_code === selectedRoute.route_code ? 'active-corridor-row' : ''}>
+                          {routes.slice(0, 5).map((r, idx) => (
+                            <tr key={r.route_code ? `${r.route_code}-${idx}` : idx} className={r.route_code === selectedRoute.route_code ? 'active-corridor-row' : ''}>
                               <td>
                                 <span className="route-tag-pill">{r.route_code}</span>
                               </td>
@@ -613,7 +519,7 @@ function App() {
                         const pct = Math.min(100, Math.max(20, Math.round(((win.average_fare || 6000) / maxVal) * 100)));
                         const multiplierText = win.surge_multiplier ? ` • ${win.surge_multiplier}x` : '';
                         return (
-                          <div className="horizon-item" key={win.advance_window}>
+                          <div className="horizon-item" key={win.advance_window ? `${win.advance_window}-${idx}` : idx}>
                             <div className="horizon-labels">
                               <span className="h-name">{win.label || win.advance_window}</span>
                               <span className="h-val font-mono">
@@ -646,7 +552,7 @@ function App() {
                   <div className="basket-weights-card">
                     <div className="card-header-flex">
                       <div>
-                        <h3 className="subgroup-title">Official DGCA Route Basket & Statistical Weights ($\sum w_r = 1.000000$)</h3>
+                        <h3 className="subgroup-title">Official DGCA Route Basket & Statistical Weights (Σ w_r = 1.000000)</h3>
                         <p className="subgroup-sub">Based on official Directorate General of Civil Aviation domestic passenger traffic statistics.</p>
                       </div>
                       <button className="btn-table-action" onClick={() => setActiveTab('deck')}>
@@ -669,8 +575,8 @@ function App() {
                           </tr>
                         </thead>
                         <tbody>
-                          {routes.map((r) => (
-                            <tr key={r.route_code} className={r.route_code === selectedRoute.route_code ? 'highlighted-row' : ''}>
+                          {routes.map((r, idx) => (
+                            <tr key={r.route_code ? `${r.route_code}-${idx}` : idx} className={r.route_code === selectedRoute.route_code ? 'highlighted-row' : ''}>
                               <td className="font-mono font-bold">
                                 <span className="route-badge-sm">{r.route_code}</span>
                               </td>
