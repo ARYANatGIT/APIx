@@ -104,7 +104,8 @@ export default function AnimatedBorderFrame({ isIntroActive, onBorderComplete })
   }, [isIntroActive]);
 
   const { width, height } = dimensions;
-  const strokeWidth = 2;
+  // Thicker 4px stroke with matching edge offset
+  const strokeWidth = 4;
   const offset = strokeWidth / 2;
   const left = offset;
   const top = offset;
@@ -143,10 +144,9 @@ export default function AnimatedBorderFrame({ isIntroActive, onBorderComplete })
       {/* Sharp 0px Monospace Percentage Indicator */}
       {showCapsule && (
         <div
-          className={`border-progress-capsule bold-progress-badge ${capsuleFading ? 'fading-out' : ''}`}
+          className={`border-progress-capsule bold-progress-badge ${capsuleFading ? 'capsule-fade-out fading-out' : 'capsule-visible'}`}
           style={{
-            left: `${midX}px`,
-            bottom: '0px'
+            left: `${midX}px`
           }}
         >
           <span className="bold-progress-dot">■</span>

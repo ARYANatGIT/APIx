@@ -112,7 +112,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
         <div>
           <div className="trend-pill bold-mono-pill">
             <span className="accent-square">■</span>
-            <span>MACRO CPI AUGMENTATION // HIGH-FREQUENCY INFLATION</span>
+            <span>MACRO CPI AUGMENTATION (High-Frequency Inflation)</span>
           </div>
           <h3 className="trend-title bold-display-title">MoSPI Airfare Price Index (APIx) Time-Series</h3>
           <p className="trend-subtitle bold-editorial-subtitle">
@@ -277,7 +277,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
             letterSpacing="0.1em"
             fontFamily="JetBrains Mono, monospace"
           >
-            CALCULATION TIMELINE // {activeSeries.length} ACTIVE SAMPLES
+            CALCULATION TIMELINE ({activeSeries.length} ACTIVE SAMPLES)
           </text>
 
           {/* Base 100.0 Reference Badge */}
@@ -416,7 +416,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
       <div className="chart-footer-note bold-footer-note">
         <div className="footer-metric">
           <span>{timeframe}D RANGE:</span>
-          <strong>HIGH {seriesHigh} // LOW {seriesLow}</strong>
+          <strong>HIGH {seriesHigh} (LOW {seriesLow})</strong>
         </div>
         <div className="footer-metric">
           <span>WEIGHTED BASKET FARE:</span>

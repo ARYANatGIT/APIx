@@ -1,13 +1,13 @@
 {
-  "run_date": "2026-09-09",
+  "run_date": "2026-09-10",
   "corridors_analyzed": 10,
   "radar_raw": {
     "BLR": {
       "origin": "BLR",
       "originCity": "Bengaluru",
       "currency": "INR",
-      "travelDate": "2026-09-10",
-      "dateLabel": "Thu, 10 Sep",
+      "travelDate": "2026-09-11",
+      "dateLabel": "Fri, 11 Sep",
       "fares": [
         {
           "iata": "MAA",
@@ -16,34 +16,34 @@
           "time": "12:45"
         },
         {
-          "iata": "DEL",
-          "city": "Delhi",
-          "fare": 8207,
-          "time": "13:55"
-        },
-        {
           "iata": "HYD",
           "city": "Hyderabad",
-          "fare": 8369,
-          "time": "13:10"
+          "fare": 6402,
+          "time": "12:40"
         },
         {
           "iata": "CCU",
           "city": "Kolkata",
-          "fare": 8448,
-          "time": "17:45"
-        },
-        {
-          "iata": "BOM",
-          "city": "Mumbai",
-          "fare": 10381,
-          "time": "12:35"
+          "fare": 8921,
+          "time": "16:25"
         },
         {
           "iata": "GOI",
           "city": "Goa",
-          "fare": 10667,
-          "time": "15:15"
+          "fare": 9141,
+          "time": "07:05"
+        },
+        {
+          "iata": "DEL",
+          "city": "Delhi",
+          "fare": 9739,
+          "time": "13:55"
+        },
+        {
+          "iata": "BOM",
+          "city": "Mumbai",
+          "fare": 9912,
+          "time": "08:05"
         }
       ]
     },
@@ -51,32 +51,20 @@
       "origin": "BOM",
       "originCity": "Mumbai",
       "currency": "INR",
-      "travelDate": "2026-09-10",
-      "dateLabel": "Thu, 10 Sep",
+      "travelDate": "2026-09-11",
+      "dateLabel": "Fri, 11 Sep",
       "fares": [
-        {
-          "iata": "BLR",
-          "city": "Bengaluru",
-          "fare": 5273,
-          "time": "01:10"
-        },
         {
           "iata": "HYD",
           "city": "Hyderabad",
-          "fare": 5691,
-          "time": "00:30"
+          "fare": 6006,
+          "time": "05:45"
         },
         {
           "iata": "DEL",
           "city": "Delhi",
-          "fare": 5980,
-          "time": "17:35"
-        },
-        {
-          "iata": "MAA",
-          "city": "Chennai",
-          "fare": 7352,
-          "time": "04:05"
+          "fare": 6337,
+          "time": "11:30"
         },
         {
           "iata": "CCU",
@@ -85,10 +73,22 @@
           "time": "05:30"
         },
         {
+          "iata": "MAA",
+          "city": "Chennai",
+          "fare": 9300,
+          "time": "05:35"
+        },
+        {
+          "iata": "BLR",
+          "city": "Bengaluru",
+          "fare": 10862,
+          "time": "04:30"
+        },
+        {
           "iata": "GOI",
           "city": "Goa",
-          "fare": 10917,
-          "time": "05:00"
+          "fare": 12384,
+          "time": "05:45"
         }
       ]
     },
@@ -96,44 +96,44 @@
       "origin": "CCU",
       "originCity": "Kolkata",
       "currency": "INR",
-      "travelDate": "2026-09-10",
-      "dateLabel": "Thu, 10 Sep",
+      "travelDate": "2026-09-11",
+      "dateLabel": "Fri, 11 Sep",
       "fares": [
         {
           "iata": "GAU",
           "city": "Guwahati",
-          "fare": 4764,
-          "time": "09:20"
+          "fare": 4800,
+          "time": "06:05"
+        },
+        {
+          "iata": "HYD",
+          "city": "Hyderabad",
+          "fare": 8099,
+          "time": "07:55"
+        },
+        {
+          "iata": "MAA",
+          "city": "Chennai",
+          "fare": 8260,
+          "time": "11:45"
+        },
+        {
+          "iata": "BOM",
+          "city": "Mumbai",
+          "fare": 8530,
+          "time": "06:25"
         },
         {
           "iata": "DEL",
           "city": "Delhi",
-          "fare": 8106,
+          "fare": 8607,
           "time": "16:30"
         },
         {
           "iata": "BLR",
           "city": "Bengaluru",
-          "fare": 8745,
-          "time": "10:20"
-        },
-        {
-          "iata": "BOM",
-          "city": "Mumbai",
-          "fare": 8950,
-          "time": "06:25"
-        },
-        {
-          "iata": "MAA",
-          "city": "Chennai",
-          "fare": 9579,
-          "time": "21:15"
-        },
-        {
-          "iata": "HYD",
-          "city": "Hyderabad",
-          "fare": 12183,
-          "time": "10:20"
+          "fare": 8719,
+          "time": "14:00"
         }
       ]
     },
@@ -141,44 +141,44 @@
       "origin": "DEL",
       "originCity": "Delhi",
       "currency": "INR",
-      "travelDate": "2026-09-10",
-      "dateLabel": "Thu, 10 Sep",
+      "travelDate": "2026-09-11",
+      "dateLabel": "Fri, 11 Sep",
       "fares": [
         {
           "iata": "JAI",
           "city": "Jaipur",
-          "fare": 3389,
+          "fare": 3189,
           "time": "07:40"
         },
         {
           "iata": "BOM",
           "city": "Mumbai",
-          "fare": 6300,
-          "time": "09:00"
+          "fare": 6090,
+          "time": "05:40"
         },
         {
           "iata": "HYD",
           "city": "Hyderabad",
-          "fare": 8199,
-          "time": "18:10"
+          "fare": 8067,
+          "time": "15:50"
         },
         {
           "iata": "BLR",
           "city": "Bengaluru",
           "fare": 8570,
-          "time": "19:45"
+          "time": "15:50"
         },
         {
           "iata": "MAA",
           "city": "Chennai",
           "fare": 9682,
-          "time": "11:00"
+          "time": "07:15"
         },
         {
           "iata": "GOI",
           "city": "Goa",
-          "fare": 13387,
-          "time": "12:15"
+          "fare": 14542,
+          "time": "19:30"
         }
       ]
     },
@@ -186,20 +186,26 @@
       "origin": "MAA",
       "originCity": "Chennai",
       "currency": "INR",
-      "travelDate": "2026-09-10",
-      "dateLabel": "Thu, 10 Sep",
+      "travelDate": "2026-09-11",
+      "dateLabel": "Fri, 11 Sep",
       "fares": [
         {
           "iata": "BLR",
           "city": "Bengaluru",
-          "fare": 4546,
-          "time": "10:55"
+          "fare": 4241,
+          "time": "08:55"
         },
         {
           "iata": "HYD",
           "city": "Hyderabad",
-          "fare": 6773,
-          "time": "12:25"
+          "fare": 6055,
+          "time": "16:30"
+        },
+        {
+          "iata": "CCU",
+          "city": "Kolkata",
+          "fare": 7739,
+          "time": "16:30"
         },
         {
           "iata": "COK",
@@ -208,22 +214,16 @@
           "time": "08:00"
         },
         {
+          "iata": "BOM",
+          "city": "Mumbai",
+          "fare": 9668,
+          "time": "12:10"
+        },
+        {
           "iata": "DEL",
           "city": "Delhi",
           "fare": 9830,
-          "time": "13:00"
-        },
-        {
-          "iata": "CCU",
-          "city": "Kolkata",
-          "fare": 10955,
-          "time": "18:05"
-        },
-        {
-          "iata": "BOM",
-          "city": "Mumbai",
-          "fare": 11263,
-          "time": "12:10"
+          "time": "09:15"
         }
       ]
     }
@@ -233,60 +233,60 @@
       "route_code": "DEL-BOM",
       "origin": "DEL",
       "destination": "BOM",
-      "baseline_fare": 6300.0,
+      "baseline_fare": 6090.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
-          "base_fare": 7990.48,
-          "taxes_and_fees": 1144.52,
-          "total_fare": 9135.0,
+          "base_fare": 7700.0,
+          "taxes_and_fees": 1130.0,
+          "total_fare": 8830.0,
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
-          "base_fare": 7390.48,
-          "taxes_and_fees": 1114.52,
-          "total_fare": 8505.0,
+          "base_fare": 7120.95,
+          "taxes_and_fees": 1101.05,
+          "total_fare": 8222.0,
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
-          "base_fare": 5290.48,
-          "taxes_and_fees": 1009.52,
-          "total_fare": 6300.0,
+          "base_fare": 5090.48,
+          "taxes_and_fees": 999.52,
+          "total_fare": 6090.0,
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
-          "base_fare": 4570.48,
-          "taxes_and_fees": 973.52,
-          "total_fare": 5544.0,
+          "base_fare": 4394.29,
+          "taxes_and_fees": 964.71,
+          "total_fare": 5359.0,
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
-          "base_fare": 3730.48,
-          "taxes_and_fees": 931.52,
-          "total_fare": 4662.0,
+          "base_fare": 3582.86,
+          "taxes_and_fees": 924.14,
+          "total_fare": 4507.0,
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
-          "base_fare": 3190.48,
-          "taxes_and_fees": 904.52,
-          "total_fare": 4095.0,
+          "base_fare": 3060.0,
+          "taxes_and_fees": 898.0,
+          "total_fare": 3958.0,
           "currency": "INR"
         }
       }
@@ -298,7 +298,7 @@
       "baseline_fare": 8570.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
           "base_fare": 11124.76,
@@ -307,7 +307,7 @@
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
           "base_fare": 10309.52,
@@ -316,7 +316,7 @@
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
           "base_fare": 7452.38,
@@ -325,7 +325,7 @@
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
           "base_fare": 6473.33,
@@ -334,7 +334,7 @@
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
           "base_fare": 5330.48,
@@ -343,7 +343,7 @@
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
           "base_fare": 4595.24,
@@ -357,60 +357,60 @@
       "route_code": "BOM-BLR",
       "origin": "BOM",
       "destination": "BLR",
-      "baseline_fare": 5273.0,
+      "baseline_fare": 10862.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
-          "base_fare": 6572.38,
-          "taxes_and_fees": 1073.62,
-          "total_fare": 7646.0,
+          "base_fare": 14290.48,
+          "taxes_and_fees": 1459.52,
+          "total_fare": 15750.0,
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
-          "base_fare": 6070.48,
-          "taxes_and_fees": 1048.52,
-          "total_fare": 7119.0,
+          "base_fare": 13256.19,
+          "taxes_and_fees": 1407.81,
+          "total_fare": 14664.0,
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
-          "base_fare": 4312.38,
-          "taxes_and_fees": 960.62,
-          "total_fare": 5273.0,
+          "base_fare": 9635.24,
+          "taxes_and_fees": 1226.76,
+          "total_fare": 10862.0,
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
-          "base_fare": 3709.52,
-          "taxes_and_fees": 930.48,
-          "total_fare": 4640.0,
+          "base_fare": 8394.29,
+          "taxes_and_fees": 1164.71,
+          "total_fare": 9559.0,
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
-          "base_fare": 3006.67,
-          "taxes_and_fees": 895.33,
-          "total_fare": 3902.0,
+          "base_fare": 6945.71,
+          "taxes_and_fees": 1092.29,
+          "total_fare": 8038.0,
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
-          "base_fare": 2554.29,
-          "taxes_and_fees": 872.71,
-          "total_fare": 3427.0,
+          "base_fare": 6014.29,
+          "taxes_and_fees": 1045.71,
+          "total_fare": 7060.0,
           "currency": "INR"
         }
       }
@@ -419,60 +419,60 @@
       "route_code": "DEL-CCU",
       "origin": "DEL",
       "destination": "CCU",
-      "baseline_fare": 8106.0,
+      "baseline_fare": 8607.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
-          "base_fare": 10484.76,
-          "taxes_and_fees": 1269.24,
-          "total_fare": 11754.0,
+          "base_fare": 11176.19,
+          "taxes_and_fees": 1303.81,
+          "total_fare": 12480.0,
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
-          "base_fare": 9712.38,
-          "taxes_and_fees": 1230.62,
-          "total_fare": 10943.0,
+          "base_fare": 10356.19,
+          "taxes_and_fees": 1262.81,
+          "total_fare": 11619.0,
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
-          "base_fare": 7010.48,
-          "taxes_and_fees": 1095.52,
-          "total_fare": 8106.0,
+          "base_fare": 7487.62,
+          "taxes_and_fees": 1119.38,
+          "total_fare": 8607.0,
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
-          "base_fare": 6083.81,
-          "taxes_and_fees": 1049.19,
-          "total_fare": 7133.0,
+          "base_fare": 6503.81,
+          "taxes_and_fees": 1070.19,
+          "total_fare": 7574.0,
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
-          "base_fare": 5002.86,
-          "taxes_and_fees": 995.14,
-          "total_fare": 5998.0,
+          "base_fare": 5356.19,
+          "taxes_and_fees": 1012.81,
+          "total_fare": 6369.0,
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
-          "base_fare": 4308.57,
-          "taxes_and_fees": 960.43,
-          "total_fare": 5269.0,
+          "base_fare": 4619.05,
+          "taxes_and_fees": 975.95,
+          "total_fare": 5595.0,
           "currency": "INR"
         }
       }
@@ -481,60 +481,60 @@
       "route_code": "BLR-HYD",
       "origin": "BLR",
       "destination": "HYD",
-      "baseline_fare": 8369.0,
+      "baseline_fare": 6402.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
-          "base_fare": 10847.62,
-          "taxes_and_fees": 1287.38,
-          "total_fare": 12135.0,
+          "base_fare": 8131.43,
+          "taxes_and_fees": 1151.57,
+          "total_fare": 9283.0,
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
-          "base_fare": 10050.48,
-          "taxes_and_fees": 1247.52,
-          "total_fare": 11298.0,
+          "base_fare": 7521.9,
+          "taxes_and_fees": 1121.1,
+          "total_fare": 8643.0,
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
-          "base_fare": 7260.95,
-          "taxes_and_fees": 1108.05,
-          "total_fare": 8369.0,
+          "base_fare": 5387.62,
+          "taxes_and_fees": 1014.38,
+          "total_fare": 6402.0,
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
-          "base_fare": 6304.76,
-          "taxes_and_fees": 1060.24,
-          "total_fare": 7365.0,
+          "base_fare": 4656.19,
+          "taxes_and_fees": 977.81,
+          "total_fare": 5634.0,
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
-          "base_fare": 5188.57,
-          "taxes_and_fees": 1004.43,
-          "total_fare": 6193.0,
+          "base_fare": 3801.9,
+          "taxes_and_fees": 935.1,
+          "total_fare": 4737.0,
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
-          "base_fare": 4471.43,
-          "taxes_and_fees": 968.57,
-          "total_fare": 5440.0,
+          "base_fare": 3253.33,
+          "taxes_and_fees": 907.67,
+          "total_fare": 4161.0,
           "currency": "INR"
         }
       }
@@ -546,7 +546,7 @@
       "baseline_fare": 9830.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
           "base_fare": 12865.71,
@@ -555,7 +555,7 @@
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
           "base_fare": 11928.57,
@@ -564,7 +564,7 @@
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
           "base_fare": 8652.38,
@@ -573,7 +573,7 @@
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
           "base_fare": 7528.57,
@@ -582,7 +582,7 @@
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
           "base_fare": 6218.1,
@@ -591,7 +591,7 @@
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
           "base_fare": 5376.19,
@@ -605,60 +605,60 @@
       "route_code": "DEL-HYD",
       "origin": "DEL",
       "destination": "HYD",
-      "baseline_fare": 8199.0,
+      "baseline_fare": 8067.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
-          "base_fare": 10613.33,
-          "taxes_and_fees": 1275.67,
-          "total_fare": 11889.0,
+          "base_fare": 10430.48,
+          "taxes_and_fees": 1266.52,
+          "total_fare": 11697.0,
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
-          "base_fare": 9832.38,
-          "taxes_and_fees": 1236.62,
-          "total_fare": 11069.0,
+          "base_fare": 9661.9,
+          "taxes_and_fees": 1228.1,
+          "total_fare": 10890.0,
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
-          "base_fare": 7099.05,
-          "taxes_and_fees": 1099.95,
-          "total_fare": 8199.0,
+          "base_fare": 6973.33,
+          "taxes_and_fees": 1093.67,
+          "total_fare": 8067.0,
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
-          "base_fare": 6161.9,
-          "taxes_and_fees": 1053.1,
-          "total_fare": 7215.0,
+          "base_fare": 6051.43,
+          "taxes_and_fees": 1047.57,
+          "total_fare": 7099.0,
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
-          "base_fare": 5068.57,
-          "taxes_and_fees": 998.43,
-          "total_fare": 6067.0,
+          "base_fare": 4976.19,
+          "taxes_and_fees": 993.81,
+          "total_fare": 5970.0,
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
-          "base_fare": 4365.71,
-          "taxes_and_fees": 963.29,
-          "total_fare": 5329.0,
+          "base_fare": 4284.76,
+          "taxes_and_fees": 959.24,
+          "total_fare": 5244.0,
           "currency": "INR"
         }
       }
@@ -667,60 +667,60 @@
       "route_code": "BOM-GOI",
       "origin": "BOM",
       "destination": "GOI",
-      "baseline_fare": 10917.0,
+      "baseline_fare": 12384.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
-          "base_fare": 14366.67,
-          "taxes_and_fees": 1463.33,
-          "total_fare": 15830.0,
+          "base_fare": 16392.38,
+          "taxes_and_fees": 1564.62,
+          "total_fare": 17957.0,
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
-          "base_fare": 13326.67,
-          "taxes_and_fees": 1411.33,
-          "total_fare": 14738.0,
+          "base_fare": 15212.38,
+          "taxes_and_fees": 1505.62,
+          "total_fare": 16718.0,
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
-          "base_fare": 9687.62,
-          "taxes_and_fees": 1229.38,
-          "total_fare": 10917.0,
+          "base_fare": 11084.76,
+          "taxes_and_fees": 1299.24,
+          "total_fare": 12384.0,
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
-          "base_fare": 8440.0,
-          "taxes_and_fees": 1167.0,
-          "total_fare": 9607.0,
+          "base_fare": 9669.52,
+          "taxes_and_fees": 1228.48,
+          "total_fare": 10898.0,
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
-          "base_fare": 6984.76,
-          "taxes_and_fees": 1094.24,
-          "total_fare": 8079.0,
+          "base_fare": 8018.1,
+          "taxes_and_fees": 1145.9,
+          "total_fare": 9164.0,
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
-          "base_fare": 6048.57,
-          "taxes_and_fees": 1047.43,
-          "total_fare": 7096.0,
+          "base_fare": 6957.14,
+          "taxes_and_fees": 1092.86,
+          "total_fare": 8050.0,
           "currency": "INR"
         }
       }
@@ -729,60 +729,60 @@
       "route_code": "BOM-MAA",
       "origin": "BOM",
       "destination": "MAA",
-      "baseline_fare": 7352.0,
+      "baseline_fare": 9300.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
-          "base_fare": 9442.86,
-          "taxes_and_fees": 1217.14,
-          "total_fare": 10660.0,
+          "base_fare": 12133.33,
+          "taxes_and_fees": 1351.67,
+          "total_fare": 13485.0,
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
-          "base_fare": 8742.86,
-          "taxes_and_fees": 1182.14,
-          "total_fare": 9925.0,
+          "base_fare": 11247.62,
+          "taxes_and_fees": 1307.38,
+          "total_fare": 12555.0,
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
-          "base_fare": 6292.38,
-          "taxes_and_fees": 1059.62,
-          "total_fare": 7352.0,
+          "base_fare": 8147.62,
+          "taxes_and_fees": 1152.38,
+          "total_fare": 9300.0,
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
-          "base_fare": 5452.38,
-          "taxes_and_fees": 1017.62,
-          "total_fare": 6470.0,
+          "base_fare": 7084.76,
+          "taxes_and_fees": 1099.24,
+          "total_fare": 8184.0,
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
-          "base_fare": 4471.43,
-          "taxes_and_fees": 968.57,
-          "total_fare": 5440.0,
+          "base_fare": 5844.76,
+          "taxes_and_fees": 1037.24,
+          "total_fare": 6882.0,
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
-          "base_fare": 3841.9,
-          "taxes_and_fees": 937.1,
-          "total_fare": 4779.0,
+          "base_fare": 5047.62,
+          "taxes_and_fees": 997.38,
+          "total_fare": 6045.0,
           "currency": "INR"
         }
       }
@@ -791,60 +791,60 @@
       "route_code": "CCU-BLR",
       "origin": "CCU",
       "destination": "BLR",
-      "baseline_fare": 8745.0,
+      "baseline_fare": 8719.0,
       "windows": {
         "T+0": {
-          "flight_date": "2026-09-09",
+          "flight_date": "2026-09-10",
           "advance_window": "T+0",
           "days_in_advance": 0,
-          "base_fare": 11366.67,
-          "taxes_and_fees": 1313.33,
-          "total_fare": 12680.0,
+          "base_fare": 11331.43,
+          "taxes_and_fees": 1311.57,
+          "total_fare": 12643.0,
           "currency": "INR"
         },
         "T+1": {
-          "flight_date": "2026-09-10",
+          "flight_date": "2026-09-11",
           "advance_window": "T+1",
           "days_in_advance": 1,
-          "base_fare": 10534.29,
-          "taxes_and_fees": 1271.71,
-          "total_fare": 11806.0,
+          "base_fare": 10500.95,
+          "taxes_and_fees": 1270.05,
+          "total_fare": 11771.0,
           "currency": "INR"
         },
         "T+7": {
-          "flight_date": "2026-09-16",
+          "flight_date": "2026-09-17",
           "advance_window": "T+7",
           "days_in_advance": 7,
-          "base_fare": 7619.05,
-          "taxes_and_fees": 1125.95,
-          "total_fare": 8745.0,
+          "base_fare": 7594.29,
+          "taxes_and_fees": 1124.71,
+          "total_fare": 8719.0,
           "currency": "INR"
         },
         "T+15": {
-          "flight_date": "2026-09-24",
+          "flight_date": "2026-09-25",
           "advance_window": "T+15",
           "days_in_advance": 15,
-          "base_fare": 6620.0,
-          "taxes_and_fees": 1076.0,
-          "total_fare": 7696.0,
+          "base_fare": 6598.1,
+          "taxes_and_fees": 1074.9,
+          "total_fare": 7673.0,
           "currency": "INR"
         },
         "T+30": {
-          "flight_date": "2026-10-09",
+          "flight_date": "2026-10-10",
           "advance_window": "T+30",
           "days_in_advance": 30,
-          "base_fare": 5453.33,
-          "taxes_and_fees": 1017.67,
-          "total_fare": 6471.0,
+          "base_fare": 5435.24,
+          "taxes_and_fees": 1016.76,
+          "total_fare": 6452.0,
           "currency": "INR"
         },
         "T+45": {
-          "flight_date": "2026-10-24",
+          "flight_date": "2026-10-25",
           "advance_window": "T+45",
           "days_in_advance": 45,
-          "base_fare": 4703.81,
-          "taxes_and_fees": 980.19,
-          "total_fare": 5684.0,
+          "base_fare": 4687.62,
+          "taxes_and_fees": 979.38,
+          "total_fare": 5667.0,
           "currency": "INR"
         }
       }

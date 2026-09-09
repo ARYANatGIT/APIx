@@ -13,7 +13,7 @@ import {
   Sparkles
 } from 'lucide-react';
 
-export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, latestIndex = 104.77 }) {
+export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, latestIndex = 132.06, changePct = 0.22 }) {
   const navItems = [
     { id: 'deck', label: 'FLIGHT DECK', icon: LayoutDashboard },
     { id: 'routes', label: 'ROUTE BASKET', icon: Compass },
@@ -29,6 +29,10 @@ export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, la
     e.preventDefault();
     if (onNavigate) onNavigate(item.id);
   };
+
+  const formattedChange = typeof changePct === 'number'
+    ? `${changePct >= 0 ? '+' : ''}${changePct.toFixed(2)}%`
+    : (changePct || '+0.22%');
 
   return (
     <aside className="left-sidebar-nav">
@@ -54,11 +58,11 @@ export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, la
           <div className="ticker-live-row">
             <span className="ticker-live-dot"></span>
             <span className="sidebar-ticker-label">APIx BENCHMARK</span>
-            <span className="sidebar-ticker-chg">+0.15%</span>
+            <span className="sidebar-ticker-chg font-mono">{formattedChange}</span>
           </div>
           <div className="ticker-val-row">
-            <span className="sidebar-ticker-val">{typeof latestIndex === 'number' ? latestIndex.toFixed(2) : latestIndex}</span>
-            <span className="sidebar-ticker-sub">BASE 100.0</span>
+            <span className="sidebar-ticker-val font-mono">{typeof latestIndex === 'number' ? latestIndex.toFixed(2) : latestIndex}</span>
+            <span className="sidebar-ticker-sub font-mono">BASE 100.0</span>
           </div>
         </div>
       </div>

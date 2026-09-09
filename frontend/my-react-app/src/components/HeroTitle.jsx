@@ -3,11 +3,6 @@ import React from 'react';
 export default function HeroTitle() {
   return (
     <div className="hero-title-section">
-      <div className="hero-eyebrow-tag">
-        <span className="eyebrow-accent-bar"></span>
-        <span className="eyebrow-text">01 // HIGH-FREQUENCY MACRO INFLATION AUGMENTATION</span>
-      </div>
-
       <h1 className="hero-main-heading">
         <span className="hero-line-1">REAL-TIME</span>
         <span className="hero-line-2">
