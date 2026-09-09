@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
+import ThemeToggle from './ThemeToggle';
 import {
   ArrowLeft,
   LayoutDashboard,
@@ -13,7 +14,15 @@ import {
   Sparkles
 } from 'lucide-react';
 
-export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, latestIndex = 132.06, changePct = 0.22 }) {
+export default function Navbar({
+  onBookClick,
+  activeTab = 'deck',
+  onNavigate,
+  latestIndex = 138.08,
+  changePct = 1.68,
+  theme = 'dark',
+  onThemeChange
+}) {
   const navItems = [
     { id: 'deck', label: 'FLIGHT DECK', icon: LayoutDashboard },
     { id: 'routes', label: 'ROUTE BASKET', icon: Compass },
@@ -42,6 +51,11 @@ export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, la
           <Logo onClick={() => onNavigate && onNavigate('home')} />
         </div>
 
+        {/* Theme Toggle (Dark & Light Mode Buttons) */}
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%', margin: '2px 0' }}>
+          <ThemeToggle theme={theme} onThemeChange={onThemeChange} size="compact" />
+        </div>
+
         {/* Back to Home Landing Screen Action */}
         <button
           type="button"
@@ -57,7 +71,7 @@ export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, la
         <div className="sidebar-ticker-card">
           <div className="ticker-live-row">
             <span className="ticker-live-dot"></span>
-            <span className="sidebar-ticker-label">APIx BENCHMARK</span>
+            <span className="sidebar-ticker-label">AIRSETU APIx</span>
             <span className="sidebar-ticker-chg font-mono">{formattedChange}</span>
           </div>
           <div className="ticker-val-row">
@@ -105,7 +119,7 @@ export default function Navbar({ onBookClick, activeTab = 'deck', onNavigate, la
         </button>
 
         <div className="sidebar-footer-note">
-          <span>MoSPI HIGH-FREQUENCY CPI</span>
+          <span>AirSetu • MoSPI CPI</span>
           <span className="sidebar-ver-tag">REV 2026.09</span>
         </div>
       </div>

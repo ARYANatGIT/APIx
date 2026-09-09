@@ -1,43 +1,49 @@
-from sqlalchemy import create_engine, event
-from sqlalchemy.orm import declarative_base, sessionmaker
-from backend.config import settings
+"""
+Database Adapter for MoSPI Real-time Airfare Price Index (APIx).
+Exclusively interfaces with MongoDB Atlas. All SQLite connections and engines
+have been decommissioned.
+"""
 
-# Engine configuration
-connect_args = {}
-if settings.DATABASE_URL.startswith("sqlite"):
-    connect_args = {"check_same_thread": False}
-
-engine = create_engine(
-    settings.DATABASE_URL,
-    connect_args=connect_args,
-    echo=False,
-    future=True
-)
-
-# Enable foreign keys and WAL mode for SQLite
-if settings.DATABASE_URL.startswith("sqlite"):
-    @event.listens_for(engine, "connect")
-    def set_sqlite_pragma(dbapi_connection, connection_record):
-        cursor = dbapi_connection.cursor()
-        cursor.execute("PRAGMA foreign_keys=ON")
-        cursor.execute("PRAGMA journal_mode=WAL")
-        cursor.close()
-
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
+from typing import Generator
+from backend.mongo import get_mongo_db, seed_mongo_baseline_data
 
 
 def get_db():
-    """FastAPI database session dependency."""
-    db = SessionLocal()
+    """
+    FastAPI database dependency providing the active MongoDB database instance.
+    Replaces legacy SQLAlchemy Session generator.
+    """
+    db = get_mongo_db()
     try:
         yield db
     finally:
-        db.close()
+        pass
 
 
-def init_db():
-    """Initializes all database tables registered with Base metadata."""
-    import backend.models  # noqa: F401 ensures all models are imported
-    Base.metadata.create_all(bind=engine)
+def init_db() -> dict:
+    """
+    Initializes the database by ensuring baseline DGCA corridors,
+    airlines, and collections exist in MongoDB Atlas.
+    """
+    return seed_mongo_baseline_data(clear_existing=False)
+
+
+# Legacy SQLAlchemy stubs to maintain backwards-compatibility for any un-migrated imports
+class _DummyBase:
+    metadata = type("Metadata", (), {"create_all": lambda *args, **kwargs: None})()
+
+Base = _DummyBase
+
+class _DummySession:
+    def close(self): pass
+    def commit(self): pass
+    def rollback(self): pass
+    def query(self, *args, **kwargs): return self
+    def filter_by(self, *args, **kwargs): return self
+    def first(self): return None
+    def all(self): return []
+
+def SessionLocal():
+    return _DummySession()
+
 

@@ -15,6 +15,7 @@ import QuotesExplorer from './components/QuotesExplorer';
 import ScraperHealthView from './components/ScraperHealthView';
 import NsoExportView from './components/NsoExportView';
 import MoSPIMacroDashboard from './components/MoSPIMacroDashboard';
+import ThemeToggle from './components/ThemeToggle';
 import {
   Sparkles,
   ArrowRight,
@@ -42,6 +43,24 @@ function App() {
     }
     return 'home';
   });
+
+  // Color Theme State: 'dark' | 'light' (Persisted in localStorage)
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem('airsetu_theme') || 'dark';
+    } catch {
+      return 'dark';
+    }
+  });
+
+  useEffect(() => {
+    try {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('airsetu_theme', theme);
+    } catch {
+      // Ignore if localStorage unavailable
+    }
+  }, [theme]);
 
   const handleNavigate = (tabId) => {
     setActiveTab(tabId);
@@ -195,12 +214,12 @@ function App() {
     setIntroKey(prev => prev + 1);
   };
 
-  const latestIndexVal = overviewData?.latest_index?.value != null ? overviewData.latest_index.value : 132.06;
+  const latestIndexVal = overviewData?.latest_index?.value != null ? overviewData.latest_index.value : 138.08;
   const isHomeScreen = activeTab === 'home';
   const isDeckScreen = activeTab === 'deck';
 
   return (
-    <div className="harmont-page-root bold-typography-root">
+    <div className={`harmont-page-root bold-typography-root theme-${theme}`} data-theme={theme}>
       {/* React Bits Grainient Background on Home Page */}
       {isHomeScreen && (
         <div className="home-grainient-bg" aria-hidden="true">
@@ -223,7 +242,7 @@ function App() {
             gamma={1.0}
             saturation={1.15}
             zoom={0.9}
-            lightMode={false}
+            lightMode={theme === 'light'}
           />
         </div>
       )}
@@ -231,7 +250,7 @@ function App() {
       {/* Subtle Typographic Backdrop Watermark Layer */}
       {isHomeScreen && (
         <div className="bold-backdrop-watermark" aria-hidden="true">
-          APIx
+          AirSetu
         </div>
       )}
 
@@ -253,7 +272,9 @@ function App() {
             onNavigate={handleNavigate}
             onBookClick={handleOpenIndexModal}
             latestIndex={latestIndexVal}
-            changePct={overviewData?.latest_index?.change_pct_d1 ?? 0.22}
+            changePct={overviewData?.latest_index?.change_pct_d1 ?? 1.68}
+            theme={theme}
+            onThemeChange={setTheme}
           />
         )}
 
@@ -265,8 +286,9 @@ function App() {
           >
             {/* Top Section: Editorial Topbar + Direct Suite Links */}
             <div className="home-top-section">
-              <header className="home-simple-topbar bold-home-topbar">
+              <header className="home-simple-topbar bold-home-topbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Logo onClick={isHomeScreen ? handleReplayIntro : () => handleNavigate('home')} />
+                <ThemeToggle theme={theme} onThemeChange={setTheme} />
               </header>
 
               {/* Massive Typographic Headline */}
@@ -336,6 +358,8 @@ function App() {
                   isRefreshing={isRefreshing}
                   onRefreshData={refreshAllData}
                   onInspectEngine={handleOpenIndexModal}
+                  theme={theme}
+                  onThemeChange={setTheme}
                 />
 
                 {/* Section Divider: Extended Basket Telemetry & Operational Controls */}
@@ -503,11 +527,27 @@ function App() {
 
                     {/* Laspeyres Formula Snippet */}
                     <div className="formula-preview-box">
-                      <div className="formula-math-text">
-                        {'APIx_t = 100 × ∑ [ w_r × ( P_{r,t} / P_{r,0} ) ]'}
+                      <div className="math-equation math-equation-sm">
+                        <span className="math-var">APIx</span><sub>t</sub>
+                        <span className="math-op">=</span>
+                        <span className="math-const">100</span>
+                        <span className="math-op">×</span>
+                        <div className="math-sigma-wrap">
+                          <span className="sigma-limit-top">10</span>
+                          <span className="sigma-symbol">∑</span>
+                          <span className="sigma-limit-bot"><span className="math-var">r</span>=1</span>
+                        </div>
+                        <span className="math-bracket">[</span>
+                        <span className="math-var">w</span><sub>r</sub>
+                        <span className="math-op">×</span>
+                        <div className="math-fraction">
+                          <span className="math-num"><span className="math-var">P</span><sub>r,t</sub></span>
+                          <span className="math-denom"><span className="math-var">P</span><sub>r,0</sub></span>
+                        </div>
+                        <span className="math-bracket">]</span>
                       </div>
                       <div className="formula-caption">
-                        Official Laspeyres index algorithm aggregating high-frequency fares across 5 advance purchase horizons (T+1 to T+45).
+                        Official Laspeyres index algorithm: passenger traffic weighted sum of corridor price relatives (Base: 2024-Q1 = 100.0).
                       </div>
                     </div>
 
@@ -612,27 +652,6 @@ function App() {
               <div className="analytics-scroll-container">
                 <div className="analytics-inner-wrap">
                   <IndexTrendChart indexSeries={indexSeries} overviewData={overviewData} />
-
-                  <div className="macro-methodology-card">
-                    <h3>Laspeyres Formulation & Microdata Ingestion Architecture</h3>
-                    <p>
-                      The MoSPI Real-time Airfare Price Index is computed utilizing a Laspeyres price index formula augmented by high-frequency scraped microdata:
-                    </p>
-                    <div className="formula-math-display">
-                      {'APIx_t = 100 × ∑ [ w_r × ( P_{r,t} / P_{r,0} ) ]'}
-                    </div>
-                    <div className="formula-variables-grid">
-                      <div className="var-item">
-                        <strong>w_r:</strong> Normalized DGCA passenger traffic weight for corridor r (∑ w_r = 1.000000).
-                      </div>
-                      <div className="var-item">
-                        <strong>P_(r,t):</strong> Cleaned weighted average price across all 5 advance booking windows (T+1 to T+45) at time t.
-                      </div>
-                      <div className="var-item">
-                        <strong>P_(r,0):</strong> Base period price anchor established during 2024-Q1 (Base = 100.0).
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             )}

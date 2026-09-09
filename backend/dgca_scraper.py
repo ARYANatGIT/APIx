@@ -12,15 +12,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 import httpx
 from bs4 import BeautifulSoup
-from sqlalchemy import func
-
 # Ensure project root in sys.path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from backend.database import SessionLocal
-from backend.models import Airline, Route, DGCARouteWeight, ScraperAuditLog
+from backend.mongo import get_mongo_db, save_audit_log_to_mongo
 
 DGCA_REPORTS_URL = "https://www.dgca.gov.in/digigov-portal/?page=jsp/dgca/inventory/aircraft/report/stat/reportStat.jsp&main7"
 PIB_SEARCH_URL = "https://pib.gov.in"
@@ -101,11 +98,11 @@ def fetch_live_dgca_data() -> dict:
 def sync_dgca_database() -> dict:
     """
     Synchronizes the database with live DGCA statistics:
-    1. Updates carrier market share percentage in Table 'airlines'
-    2. Recalculates normalized weights (sum = 1.0) and updates Table 'dgca_route_weights'
-    3. Logs audit event in Table 'scraper_audit_logs'
+    1. Updates carrier market share percentage in MongoDB collection 'airlines'
+    2. Recalculates normalized weights (sum = 1.0) and updates MongoDB collection 'routes'
+    3. Logs audit event in MongoDB collection 'scraper_audit_logs'
     """
-    db = SessionLocal()
+    db = get_mongo_db()
     try:
         dgca_data = fetch_live_dgca_data()
         now_utc = datetime.now(timezone.utc)
@@ -113,9 +110,11 @@ def sync_dgca_database() -> dict:
         # 1. Update Airlines Market Share
         updated_airlines = 0
         for code, share in dgca_data["market_shares"].items():
-            airline = db.query(Airline).filter_by(code=code).first()
-            if airline:
-                airline.market_share_pct = float(share)
+            res = db.airlines.update_one(
+                {"code": code},
+                {"$set": {"market_share_pct": float(share)}}
+            )
+            if res.matched_count > 0:
                 updated_airlines += 1
 
         # 2. Update Route Traffic and Recalculate Normalized Weights
@@ -124,50 +123,41 @@ def sync_dgca_database() -> dict:
 
         updated_weights = 0
         for route_code, pax in corridor_traffic.items():
-            route = db.query(Route).filter_by(route_code=route_code).first()
-            if not route:
-                continue
-
             norm_weight = round(pax / total_pax, 6)
             pax_share = round(pax / 133000000.0, 6)  # Relative to national total
 
-            weight_rec = db.query(DGCARouteWeight).filter_by(route_id=route.id).first()
-            if weight_rec:
-                weight_rec.annual_passengers = pax
-                weight_rec.passenger_share = pax_share
-                weight_rec.weight = norm_weight
-                weight_rec.source_document = "DGCA Domestic Air Traffic Statistics Report"
-            else:
-                weight_rec = DGCARouteWeight(
-                    route_id=route.id,
-                    reporting_year=2024,
-                    annual_passengers=pax,
-                    passenger_share=pax_share,
-                    weight=norm_weight,
-                    source_document="DGCA Domestic Air Traffic Statistics Report"
-                )
-                db.add(weight_rec)
-            updated_weights += 1
+            res = db.routes.update_one(
+                {"route_code": route_code},
+                {"$set": {
+                    "annual_passengers": pax,
+                    "passenger_share": pax_share,
+                    "weight": norm_weight,
+                    "source_document": "DGCA Domestic Air Traffic Statistics Report"
+                }}
+            )
+            if res.matched_count > 0:
+                updated_weights += 1
 
-        # 3. Add Scraper Audit Log
-        audit = ScraperAuditLog(
-            airline_id=None,
-            route_code="DGCA_SYNC",
-            status="SUCCESS",
-            http_status=200,
-            latency_ms=850,
-            quotes_extracted=updated_weights,
-            proxy_ip="direct",
-            user_agent="DGCA-Data-Synchronizer/1.0",
-            timestamp=now_utc
-        )
-        db.add(audit)
-        db.commit()
+        # 3. Add Scraper Audit Log into MongoDB
+        save_audit_log_to_mongo({
+            "scraper_id": "DGCA_SYNC",
+            "airline_code": "ALL",
+            "route_code": "DGCA_SYNC",
+            "status": "SUCCESS",
+            "http_status": 200,
+            "latency_ms": 850,
+            "quotes_extracted": updated_weights,
+            "proxy_ip": "direct",
+            "user_agent": "DGCA-Data-Synchronizer/1.0",
+            "timestamp": now_utc.isoformat(),
+            "created_at": now_utc.isoformat()
+        })
 
-        # Check weight sum
-        weight_sum = db.query(func.sum(DGCARouteWeight.weight)).scalar() or 0.0
+        # Calculate total weight sum across routes
+        routes = list(db.routes.find({}))
+        weight_sum = sum(float(r.get("weight", 0.0)) for r in routes)
 
-        print(f"[DGCA SYNC] Successfully updated {updated_airlines} airlines and {updated_weights} route weights.")
+        print(f"[DGCA SYNC] Successfully updated {updated_airlines} airlines and {updated_weights} route weights in MongoDB.")
         print(f"[DGCA SYNC] Total Annual Traffic: {total_pax:,} passengers across basket.")
         print(f"[DGCA SYNC] Cumulative Laspeyres Basket Weight: SUM(wr) = {weight_sum:.6f}")
 
@@ -181,10 +171,7 @@ def sync_dgca_database() -> dict:
         }
 
     except Exception as e:
-        db.rollback()
         raise e
-    finally:
-        db.close()
 
 
 if __name__ == "__main__":
