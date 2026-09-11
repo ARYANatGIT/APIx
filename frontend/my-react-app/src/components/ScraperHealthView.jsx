@@ -180,22 +180,23 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
   ).length;
   const dynamicResilienceRate = totalLogsCount > 0
     ? ((successfulLogsCount / totalLogsCount) * 100).toFixed(1)
-    : '99.8';
+    : '100.0';
 
   const dynamicAvgLatency = totalLogsCount > 0
-    ? Math.round(liveLogs.reduce((acc, l) => acc + (l.latency_ms || 2150), 0) / totalLogsCount)
-    : 2180;
+    ? Math.round(liveLogs.reduce((acc, l) => acc + (l.latency_ms || 0), 0) / totalLogsCount)
+    : 0;
 
   const dynamicMasterQuotes = (
     masterData?.total_quotes ||
     masterData?.batch_quotes ||
     mongoStatus?.total_quotes ||
-    34165
+    0
   ).toLocaleString();
 
   const totalAuditedEvents = (
     mongoStatus?.collections?.scraper_audit_logs ||
-    (totalLogsCount > 0 ? totalLogsCount : 1285)
+    totalLogsCount ||
+    0
   ).toLocaleString();
 
   return (

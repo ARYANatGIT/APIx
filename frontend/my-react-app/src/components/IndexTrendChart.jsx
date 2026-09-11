@@ -269,9 +269,9 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
               type="button"
               className={`trend-range-btn ${timeframe === 'monthly' ? 'active' : ''}`}
               onClick={() => { setTimeframe('monthly'); setHoveredPoint(null); }}
-              title="Monthly APIx trajectory from base period till current month"
+              title="Monthly APIx continuous trajectory across active periods"
             >
-              MONTHLY (Till Sep 2026)
+              MONTHLY (2026 Trajectory)
             </button>
             <button
               type="button"
@@ -433,6 +433,8 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
             </linearGradient>
 
             <linearGradient id="strokeGradientDynamic" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#FAFAFA" />
+              <stop offset="50%" stopColor="#FAFAFA" />
               <stop offset="0%" stopColor="var(--chart-stroke-start, #FAFAFA)" />
               <stop offset="50%" stopColor="var(--chart-stroke-start, #FAFAFA)" />
               <stop offset="100%" stopColor="#FF3D00" />
@@ -450,6 +452,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
                   y1={y}
                   x2={width - padding.right}
                   y2={y}
+                  stroke={isBase ? "#FF3D00" : "#262626"}
                   stroke={isBase ? "#FF3D00" : "var(--chart-grid, #262626)"}
                   strokeDasharray={isBase ? "4 3" : "2 3"}
                   strokeWidth={isBase ? "1.6" : "1"}
@@ -461,6 +464,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
                   y1={y}
                   x2={padding.left}
                   y2={y}
+                  stroke="#525252"
                   stroke="var(--chart-axis, #525252)"
                   strokeWidth="1"
                 />
@@ -469,6 +473,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
                   x={padding.left - 10}
                   y={y + 4}
                   textAnchor="end"
+                  fill={isBase ? "#FF3D00" : "#A3A3A3"}
                   fill={isBase ? "#FF3D00" : "var(--chart-axis-text, #A3A3A3)"}
                   fontSize="11"
                   fontWeight={isBase ? "800" : "500"}
@@ -488,6 +493,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
                 y={base100Y - 18}
                 width="200"
                 height="17"
+                fill="#0A0A0A"
                 fill="var(--chart-bg, #0A0A0A)"
                 stroke="#FF3D00"
                 strokeWidth="1"
@@ -513,6 +519,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
             y1={padding.top}
             x2={padding.left}
             y2={height - padding.bottom}
+            stroke="#404040"
             stroke="var(--chart-axis, #404040)"
             strokeWidth="1.5"
           />
@@ -523,6 +530,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
             x={-(padding.top + (height - padding.bottom - padding.top) / 2)}
             y={22}
             textAnchor="middle"
+            fill="#737373"
             fill="var(--chart-axis-text, #737373)"
             fontSize="10"
             fontWeight="700"
@@ -538,6 +546,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
             y1={height - padding.bottom}
             x2={width - padding.right}
             y2={height - padding.bottom}
+            stroke="#404040"
             stroke="var(--chart-axis, #404040)"
             strokeWidth="1.5"
           />
@@ -547,6 +556,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
             x={padding.left + (width - padding.left - padding.right) / 2}
             y={height - 10}
             textAnchor="middle"
+            fill="#737373"
             fill="var(--chart-axis-text, #737373)"
             fontSize="10"
             fontWeight="700"
@@ -589,6 +599,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
                     y1={height - padding.bottom}
                     x2={p.x}
                     y2={height - padding.bottom + 6}
+                    stroke="#525252"
                     stroke="var(--chart-axis, #525252)"
                     strokeWidth="1"
                   />
@@ -600,6 +611,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
                     x={p.x}
                     y={height - padding.bottom + 22}
                     textAnchor="middle"
+                    fill="#A3A3A3"
                     fill="var(--chart-axis-text, #A3A3A3)"
                     fontSize="10"
                     fontWeight="600"
@@ -632,6 +644,8 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
                   y={p.y - (isHovered ? 5 : (activeSeries.length > 25 ? 2.5 : 3.5))}
                   width={isHovered ? 10 : (activeSeries.length > 25 ? 5 : 7)}
                   height={isHovered ? 10 : (activeSeries.length > 25 ? 5 : 7)}
+                  fill={isHovered ? "#FF3D00" : "#0A0A0A"}
+                  stroke={isHovered ? "#FAFAFA" : "#FF3D00"}
                   fill={isHovered ? "#FF3D00" : "var(--chart-bg, #0A0A0A)"}
                   stroke={isHovered ? "var(--chart-stroke-start, #FAFAFA)" : "#FF3D00"}
                   strokeWidth={isHovered ? 2.5 : 1.5}
@@ -660,6 +674,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
                   y="-42"
                   width={tooltipWidth}
                   height="58"
+                  fill="#0A0A0A"
                   fill="var(--chart-tooltip-bg, #0A0A0A)"
                   stroke="#FF3D00"
                   strokeWidth="1.5"
@@ -682,7 +697,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
       {/* 5. Live Footer Statistics */}
       <div className="chart-footer-note bold-footer-note">
         <div className="footer-metric">
-          <span>{isMonthly ? '33M RANGE:' : `${timeframe.toUpperCase()} RANGE:`}</span>
+          <span>{isMonthly ? `${activeSeries.length}M RANGE:` : `${timeframe.toUpperCase()} RANGE:`}</span>
           <strong>HIGH {kpis.series_high ? Number(kpis.series_high).toFixed(2) : 'N/A'} (LOW {kpis.series_low ? Number(kpis.series_low).toFixed(2) : 'N/A'})</strong>
         </div>
         <div className="footer-metric">

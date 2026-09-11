@@ -61,75 +61,13 @@ export default function MoSPIMacroDashboard({
   const formattedTime = formatTime(lastRefreshed);
 
   // Top Rising & Top Falling Routes dynamically computed from MongoDB price quotes
-  const risingRoutes = (latestIndex?.top_rising_routes && latestIndex.top_rising_routes.length > 0)
+  const risingRoutes = (latestIndex?.top_rising_routes && Array.isArray(latestIndex.top_rising_routes))
     ? latestIndex.top_rising_routes
-    : [
-        {
-          origin_code: 'BLR',
-          dest_code: 'HYD',
-          route_code: 'BLR-HYD',
-          origin_city: 'Bengaluru',
-          dest_city: 'Hyderabad',
-          change: '+78.8%',
-          isRising: true,
-          avg_fare: '₹7,511'
-        },
-        {
-          origin_code: 'BOM',
-          dest_code: 'GOI',
-          route_code: 'BOM-GOI',
-          origin_city: 'Mumbai',
-          dest_city: 'Goa',
-          change: '+61.4%',
-          isRising: true,
-          avg_fare: '₹7,261'
-        },
-        {
-          origin_code: 'CCU',
-          dest_code: 'BLR',
-          route_code: 'CCU-BLR',
-          origin_city: 'Kolkata',
-          dest_city: 'Bengaluru',
-          change: '+50.3%',
-          isRising: true,
-          avg_fare: '₹10,823'
-        }
-      ];
+    : [];
 
-  const fallingRoutes = (latestIndex?.top_falling_routes && latestIndex.top_falling_routes.length > 0)
+  const fallingRoutes = (latestIndex?.top_falling_routes && Array.isArray(latestIndex.top_falling_routes))
     ? latestIndex.top_falling_routes
-    : [
-        {
-          origin_code: 'DEL',
-          dest_code: 'BOM',
-          route_code: 'DEL-BOM',
-          origin_city: 'Delhi',
-          dest_city: 'Mumbai',
-          change: '+9.1%',
-          isRising: false,
-          avg_fare: '₹6,986'
-        },
-        {
-          origin_code: 'BOM',
-          dest_code: 'BLR',
-          route_code: 'BOM-BLR',
-          origin_city: 'Mumbai',
-          dest_city: 'Bengaluru',
-          change: '+14.1%',
-          isRising: false,
-          avg_fare: '₹5,931'
-        },
-        {
-          origin_code: 'DEL',
-          dest_code: 'BLR',
-          route_code: 'DEL-BLR',
-          origin_city: 'Delhi',
-          dest_city: 'Bengaluru',
-          change: '+22.4%',
-          isRising: false,
-          avg_fare: '₹9,301'
-        }
-      ];
+    : [];
 
   const handleRouteClick = (routeCode) => {
     if (!onSelectRoute) return;

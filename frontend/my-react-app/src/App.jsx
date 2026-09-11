@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Logo from './components/Logo';
 import Navbar from './components/Navbar';
 import HeroTitle from './components/HeroTitle';
-import FeatureBadge from './components/FeatureBadge';
 import BookingBar from './components/BookingBar';
 import BookingModal from './components/BookingModal';
 import Grainient from './components/Grainient';
@@ -29,7 +28,7 @@ import {
   RefreshCw
 } from 'lucide-react';
 
-import { apiService, FALLBACK_ROUTES, FALLBACK_AIRLINES, FALLBACK_WINDOWS, FALLBACK_INDEX_SERIES, FALLBACK_LOGS } from './services/api';
+import { apiService } from './services/api';
 import AnimatedBorderFrame from './components/AnimatedBorderFrame';
 import planeBg from './assets/plane-hero.jpg';
 import './App.css';
@@ -105,11 +104,11 @@ function App() {
 
   // Backend Data States
   const [overviewData, setOverviewData] = useState(null);
-  const [routes, setRoutes] = useState(FALLBACK_ROUTES);
-  const [airlines, setAirlines] = useState(FALLBACK_AIRLINES);
-  const [windowsData, setWindowsData] = useState(FALLBACK_WINDOWS);
-  const [indexSeries, setIndexSeries] = useState(FALLBACK_INDEX_SERIES);
-  const [scraperLogs, setScraperLogs] = useState(FALLBACK_LOGS);
+  const [routes, setRoutes] = useState([]);
+  const [airlines, setAirlines] = useState([]);
+  const [windowsData, setWindowsData] = useState([]);
+  const [indexSeries, setIndexSeries] = useState([]);
+  const [scraperLogs, setScraperLogs] = useState([]);
 
   // Real-time synchronization state
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -156,7 +155,7 @@ function App() {
         code: `${active.origin_code} ✈ ${active.destination_code}`,
         route_code: active.route_code,
         name: `${active.origin_city} (${active.origin_code}) → ${active.destination_city} (${active.destination_code})`,
-        trafficWeight: active.weight_pct_str ? `${active.weight_pct_str} DGCA Basket` : `${(active.weight * 100).toFixed(2)}% DGCA Basket`,
+        trafficWeight: active.weight_pct_str ? `${active.weight_pct_str} DGCA Basket` : `${((active.weight || 0.1) * 100).toFixed(2)}% DGCA Basket`,
         avgFare: `₹${Math.round(active.average_fare || 6675).toLocaleString()}`,
         distance: active.distance_km,
         pax: (active.annual_passengers || 7420000).toLocaleString()
@@ -173,7 +172,7 @@ function App() {
       code: `${routeObj.origin_code} ✈ ${routeObj.destination_code}`,
       route_code: routeObj.route_code,
       name: `${routeObj.origin_city} (${routeObj.origin_code}) → ${routeObj.destination_city} (${routeObj.destination_code})`,
-      trafficWeight: routeObj.weight_pct_str ? `${routeObj.weight_pct_str} DGCA Basket` : `${(routeObj.weight * 100).toFixed(2)}% DGCA Basket`,
+      trafficWeight: routeObj.weight_pct_str ? `${routeObj.weight_pct_str} DGCA Basket` : `${((routeObj.weight || 0.1) * 100).toFixed(2)}% DGCA Basket`,
       avgFare: `₹${Math.round(routeObj.average_fare || 6500).toLocaleString()}`,
       distance: routeObj.distance_km,
       pax: (routeObj.annual_passengers || 0).toLocaleString()
@@ -242,6 +241,7 @@ function App() {
             gamma={1.0}
             saturation={1.15}
             zoom={0.9}
+            lightMode={false}
             lightMode={theme === 'light'}
           />
         </div>
@@ -314,7 +314,7 @@ function App() {
               <div className="poster-stat-cell">
                 <span className="stat-label">ACTIVE QUOTES</span>
                 <span className="stat-num font-mono">
-                  {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : '14,860'}
+                  {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : (overviewData?.heatmap_stats?.total_quotes_tracked ? overviewData.heatmap_stats.total_quotes_tracked.toLocaleString() : '36,449')}
                 </span>
                 <span className="stat-sub">Scraped Price Corpus</span>
               </div>

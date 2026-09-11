@@ -105,6 +105,17 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
     return Math.round(total / valid.length);
   }, [carriers]);
 
+  const dominantCarrier = useMemo(() => {
+    if (!carriers.length) return { share: 60.5, code: '6E', name: 'IndiGo' };
+    const sorted = [...carriers].sort((a, b) => (b.market_share_pct || b.market_share || 0) - (a.market_share_pct || a.market_share || 0));
+    const top = sorted[0];
+    return {
+      share: top.market_share_pct || top.market_share || 0,
+      code: top.code,
+      name: top.name
+    };
+  }, [carriers]);
+
   return (
     <div className="airlines-view">
       {/* Header Row */}
@@ -215,9 +226,9 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
             <span className="kpi-label">Market Dominance</span>
             <Award size={16} style={{ color: '#E5B54F' }} />
           </div>
-          <div className="kpi-value font-mono">60.5% (6E)</div>
+          <div className="kpi-value font-mono">{dominantCarrier.share}% ({dominantCarrier.code})</div>
           <div className="kpi-caption">
-            IndiGo DGCA domestic passenger traffic share
+            {dominantCarrier.name} DGCA domestic passenger traffic share
           </div>
         </div>
       </div>
