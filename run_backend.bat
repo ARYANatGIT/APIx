@@ -1,7 +1,7 @@
 @echo off
-title MoSPI APIx Backend Server
+title AirSetu APIx Backend Server
 echo ==============================================================================
-echo  Starting MoSPI Real-Time Airfare Price Index (APIx) Backend Server
+echo  Starting AirSetu Real-Time Airfare Price Index (APIx) Backend Server
 echo  Connected to MongoDB: apix_mospi
 echo  Scheduler Interval: Every 30 Minutes
 echo ==============================================================================

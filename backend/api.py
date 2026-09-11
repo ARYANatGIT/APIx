@@ -22,12 +22,17 @@ from backend.config import settings, BASE_DIR, DATA_DIR, SNAPSHOTS_DIR
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Modern lifespan handler: connects to MongoDB Atlas and starts APScheduler background tasks."""
-    # 1. Initialize MongoDB connection
+    # 1. Initialize MongoDB connection & Ensure 2026 trajectory quotes
     try:
-        from backend.mongo import get_mongo_client, get_mongo_status
+        from backend.mongo import get_mongo_client, get_mongo_status, get_mongo_db
         get_mongo_client()
         m_status = get_mongo_status()
         print(f"[STARTUP] MongoDB Atlas active: {m_status.get('total_quotes', 0):,} quotes across collections.")
+        
+        db = get_mongo_db()
+        if db.price_quotes.count_documents({"flight_date": {"$lt": "2026-08-01"}}) == 0:
+            from backend.seed_historical_quotes import seed_historical_quotes
+            seed_historical_quotes()
     except Exception as e:
         print(f"[STARTUP NOTE] MongoDB initialization: {e}")
 
@@ -167,7 +172,9 @@ def get_macro_overview():
             "change_pct_yoy": dyn_kpis.get("change_pct_yoy", 21.08),
             "average_fare": dyn_kpis.get("current_basket_fare", 8461.6),
             "formula": "Laspeyres Basket Normalized Index (Monthly)",
-            "frequency": "MONTHLY"
+            "frequency": "MONTHLY",
+            "top_rising_routes": dyn_kpis.get("top_rising_routes", []),
+            "top_falling_routes": dyn_kpis.get("top_falling_routes", [])
         },
         "basket_stats": {
             "total_corridors": total_routes or 10,
@@ -236,6 +243,16 @@ def get_index_trend(
         advance_window=advance_window,
         route_code=route_code
     )
+
+
+@app.get("/api/v1/heatmap")
+def get_heatmap():
+    """
+    Returns authentic DGCA corridor heat matrix and 52-week calendar density
+    calculated dynamically from MongoDB price quotes.
+    """
+    from backend.index_calculator import compute_heatmap_data
+    return compute_heatmap_data()
 
 
 @app.get("/api/v1/index-records")
@@ -353,6 +370,7 @@ CARRIER_DIR_MAP = {
 
 
 @app.get("/api/v1/data/master-normalized")
+@app.get("/api/v1/scraper/master-dataset")
 def get_master_normalized():
     """Reads consolidated master scraped flight quotes from data/all_normalized_flights.json with live database stats from MongoDB."""
     master_file = DATA_DIR / "all_normalized_flights.json"
@@ -388,6 +406,7 @@ def get_master_normalized():
 
 
 @app.get("/api/v1/scrapers/artifacts")
+@app.get("/api/v1/scraper/artifacts")
 def get_scrapers_artifacts():
     """Returns details and file health of all individual carrier crawler output artifacts."""
     results = []
@@ -425,7 +444,7 @@ def get_scrapers_artifacts():
             "quotes_extracted": quotes_count,
             "last_run": last_run,
             "has_screenshot": screenshot_file.exists(),
-            "screenshot_url": f"/api/v1/scrapers/{code}/screenshot" if screenshot_file.exists() else None,
+            "screenshot_url": f"/api/v1/scraper/carrier-screenshot/{code}" if screenshot_file.exists() else None,
             "screenshot_size_kb": round(screenshot_file.stat().st_size / 1024, 1) if screenshot_file.exists() else 0,
             "flights_json_size_kb": round(flights_file.stat().st_size / 1024, 1) if flights_file.exists() else 0,
             "api_requests_logged": api_req_file.exists(),
@@ -437,6 +456,7 @@ def get_scrapers_artifacts():
 
 
 @app.get("/api/v1/scrapers/{carrier_code}/screenshot")
+@app.get("/api/v1/scraper/carrier-screenshot/{carrier_code}")
 def get_scraper_screenshot(carrier_code: str):
     """Serves the actual Playwright browser screenshot captured during the crawler session."""
     upper_code = carrier_code.upper()
@@ -457,6 +477,7 @@ def get_scraper_screenshot(carrier_code: str):
 
 
 @app.get("/api/v1/scrapers/{carrier_code}/data")
+@app.get("/api/v1/scraper/carriers/{carrier_code}/flights")
 def get_scraper_carrier_data(carrier_code: str):
     """Returns the parsed flights.json produced by the specific airline/OTA scraper."""
     upper_code = carrier_code.upper()

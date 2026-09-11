@@ -129,6 +129,10 @@ export const apiService = {
     return fetchFromBackend(`/scraper/carriers/${carrierCode}/flights`, null);
   },
 
+  async getCarrierFlights(carrierCode) {
+    return this.getCarrierFlightsJson(carrierCode);
+  },
+
   // 14. Full Pipeline Diagnostics
   async getPipelineStatus() {
     return fetchFromBackend('/pipeline/status', null);
@@ -184,5 +188,25 @@ export const apiService = {
   // 20. Snapshot Content Retrieval
   async getSnapshotContent(filename) {
     return fetchFromBackend(`/snapshots/${filename}`, null);
+  },
+
+  // 21. Dynamic Heatmap Matrix & Calendar Quotes from MongoDB
+  async getHeatmapData() {
+    return fetchFromBackend('/heatmap', null);
+  },
+
+  // 22. Set Scheduler Crawl Interval
+  async setSchedulerInterval(intervalMinutes) {
+    try {
+      const res = await fetch(`${BACKEND_CORS_1}/scheduler/interval?interval_minutes=${intervalMinutes}`, { method: 'POST' });
+      return await res.json();
+    } catch {
+      try {
+        const res2 = await fetch(`${BACKEND_PRIMARY}/scheduler/interval?interval_minutes=${intervalMinutes}`, { method: 'POST' });
+        return await res2.json();
+      } catch (e) {
+        return { status: "error", message: e.message };
+      }
+    }
   }
-};\n
+};

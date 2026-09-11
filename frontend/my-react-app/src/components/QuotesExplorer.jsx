@@ -49,7 +49,7 @@ export function formatFlightDuration(durationMins, depTime, arrTime) {
 
 export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
   const [quotes, setQuotes] = useState(initialQuotes);
-  const [totalCount, setTotalCount] = useState(initialQuotes.length || 34165);
+  const [totalCount, setTotalCount] = useState(initialQuotes.length || 0);
   const [loading, setLoading] = useState(false);
   const [selectedRoute, setSelectedRoute] = useState('');
   const [selectedAirline, setSelectedAirline] = useState('');
