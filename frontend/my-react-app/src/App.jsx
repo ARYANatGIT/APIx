@@ -41,14 +41,17 @@ import planeBg from './assets/plane-hero.jpg';
 import './App.css';
 
 function App() {
-  // Navigation State: 'home' | 'deck' | 'routes' | 'trajectory' | 'windows' | 'airlines' | 'quotes' | 'scraper' | 'export'
-  const [activeTab, setActiveTab] = useState(() => {
-    const hash = window.location.hash.replace('#', '');
-    if (['deck', 'routes', 'trajectory', 'windows', 'airlines', 'quotes', 'scraper', 'export'].includes(hash)) {
-      return hash;
+  // Navigation State: Always land at poster page ('home') whenever website is opened
+  const [activeTab, setActiveTab] = useState('home');
+
+  // Enforce landing on poster page on initial page load / refresh
+  useEffect(() => {
+    if (window.location.hash) {
+      try {
+        window.history.replaceState(null, '', window.location.pathname);
+      } catch {}
     }
-    return 'home';
-  });
+  }, []);
 
   // Mobile menu drawer state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

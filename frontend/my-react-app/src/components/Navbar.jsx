@@ -1,10 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
-import ThemeToggle from './ThemeToggle';
-import VolumeReaderButton from './VolumeReaderButton';
-import SearchNavButton from './SearchNavButton';
 import {
-  ArrowLeft,
   LayoutDashboard,
   Compass,
   TrendingUp,
@@ -86,41 +82,6 @@ export default function Navbar({
           {/* Brand Logo */}
           <div className="sidebar-brand-wrapper">
             <Logo onClick={handleBackHome} />
-          </div>
-
-          {/* Dedicated Search Bar Input for Left Sidebar */}
-          <div className="sidebar-search-bar-wrap">
-            <SearchNavButton onClick={onSearchClick} size="sidebar" fullWidth placeholder="Search" />
-          </div>
-
-          {/* Controls: Theme Toggle & Volume Read-Aloud Button */}
-          <div className="sidebar-controls-row">
-            <ThemeToggle theme={theme} onThemeChange={onThemeChange} size="sidebar" />
-            <VolumeReaderButton activeTab={activeTab} size="sidebar" />
-          </div>
-
-          {/* Back to Home Landing Screen Action */}
-          <button
-            type="button"
-            className="sidebar-back-home-btn"
-            onClick={handleBackHome}
-            aria-label="Back to Home Landing Screen"
-          >
-            <ArrowLeft size={15} strokeWidth={1.8} />
-            <span>RETURN TO POSTER</span>
-          </button>
-
-          {/* Live Index Ticker Card - Sharp 0px Mono Box */}
-          <div className="sidebar-ticker-card">
-            <div className="ticker-live-row">
-              <span className="ticker-live-dot"></span>
-              <span className="sidebar-ticker-label">AIRSETU APIx</span>
-              <span className="sidebar-ticker-chg font-mono">{formattedChange}</span>
-            </div>
-            <div className="ticker-val-row">
-              <span className="sidebar-ticker-val font-mono">{typeof latestIndex === 'number' ? latestIndex.toFixed(2) : latestIndex}</span>
-              <span className="sidebar-ticker-sub font-mono">BASE 100.0</span>
-            </div>
           </div>
         </div>
 

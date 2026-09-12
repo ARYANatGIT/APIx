@@ -878,19 +878,20 @@
 }
 
 .sidebar-brand-wrapper .brand-logo {
-  gap: 10px;
+  gap: 12px;
 }
 
-.sidebar-brand-wrapper .flight-logo-icon {
-  width: 24px !important;
-  height: 24px !important;
+.sidebar-brand-wrapper .flight-logo-icon,
+.sidebar-brand-wrapper .airsetu-icon-wrap {
+  width: 48px !important;
+  height: 48px !important;
 }
 
 .sidebar-brand-wrapper .brand-name {
   color: #FFFFFF !important;
-  font-size: 1.28rem;
+  font-size: 1.7rem;
   font-weight: 900;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.035em;
   text-shadow: none !important;
   line-height: 1;
 }
@@ -1199,8 +1200,8 @@
 }
 
 .airsetu-icon-wrap {
-  width: 42px;
-  height: 42px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1230,9 +1231,9 @@
 
 .brand-name {
   font-family: var(--font-display, inherit);
-  font-size: 1.65rem;
+  font-size: 2.15rem;
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.02em;
   color: #ffffff;
   display: inline-flex;
   align-items: baseline;
@@ -1248,56 +1249,58 @@
 
 .brand-tagline {
   font-family: var(--font-mono, monospace);
-  font-size: 0.62rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   color: #94A3B8;
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 /* Home Screen Topbar Brand - Large, commanding logo & typography */
 .home-simple-topbar .brand-logo {
-  gap: 14px;
-  padding: 2px 0;
+  gap: 16px;
+  padding: 4px 0;
 }
 
 .home-simple-topbar .brand-logo .airsetu-icon-wrap {
-  width: 52px;
-  height: 52px;
+  width: 66px;
+  height: 66px;
 }
 
 .home-simple-topbar .brand-logo .brand-name {
-  font-size: 2.1rem;
+  font-size: 2.75rem;
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.025em;
 }
 
 .home-simple-topbar .brand-logo .brand-tagline {
-  font-size: 0.75rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.18em;
 }
 
 /* Sidebar Brand Specific Dimensions */
 .sidebar-brand-wrapper .brand-logo {
-  gap: 10px;
+  gap: 12px;
 }
 
 .sidebar-brand-wrapper .airsetu-icon-wrap {
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
 }
 
 .sidebar-brand-wrapper .brand-name {
   color: #FFFFFF !important;
-  font-size: 1.25rem;
+  font-size: 1.7rem;
   font-weight: 900;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.02em;
   line-height: 1;
 }
 
 .sidebar-brand-wrapper .brand-tagline {
-  font-size: 0.58rem;
-  color: #64748B;
+  font-size: 0.72rem;
+  color: #94A3B8;
+  letter-spacing: 0.14em;
 }
 
 /* ==========================================================================
@@ -1346,29 +1349,25 @@
 }
 
 .hero-main-heading {
-  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
   font-family: var(--font-sans);
-  font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
   font-weight: 900;
   color: #ffffff;
-  letter-spacing: -0.035em;
-  line-height: 1.06;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
   margin-bottom: 12px;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
-  margin-bottom: 10px;
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.85);
 }
 
 .hero-line-1 {
   display: block;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.045em;
   color: #FAFAFA;
 }
 
 .hero-line-2 {
   display: block;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.05em;
   color: #FFFFFF;
 }
 
@@ -1924,7 +1923,7 @@
   font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
   font-size: 1.35rem;
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.045em;
   color: #FAFAFA !important;
   line-height: 1.2;
   text-transform: uppercase;
@@ -2506,7 +2505,7 @@
   font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
   font-size: clamp(1.75rem, 2.2vw, 2.1rem);
   font-weight: 900;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.05em;
   color: #FAFAFA;
   line-height: 1.12;
   text-transform: uppercase;
@@ -3281,7 +3280,7 @@
   font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
   font-size: clamp(1.75rem, 2.2vw, 2.0rem);
   font-weight: 900;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.05em;
   color: #FAFAFA;
   line-height: 1.15;
   text-transform: uppercase;
@@ -3965,7 +3964,7 @@
   font-size: clamp(1.8rem, 2.2vw, 2.4rem);
   font-weight: 900;
   color: var(--fg);
-  letter-spacing: var(--tracking-tighter);
+  letter-spacing: 0.045em;
   text-transform: uppercase;
   margin-bottom: 4px;
   line-height: 1.15;
@@ -9040,7 +9039,7 @@
     font-size: clamp(2.0rem, 7.5vw, 3.2rem) !important;
     line-height: 1.08 !important;
     margin-bottom: 12px !important;
-    letter-spacing: -0.03em !important;
+    letter-spacing: 0.04em !important;
   }
 
   .hero-subheading {
@@ -9391,7 +9390,7 @@
 .hud-title {
   font-size: 1.45rem;
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.055em;
   color: #FFFFFF;
   margin: 0;
   line-height: 1.25;
@@ -9727,6 +9726,7 @@
 .card-main-title {
   font-size: 1.15rem;
   font-weight: 900;
+  letter-spacing: 0.035em;
   color: #FFFFFF;
   margin: 0;
   line-height: 1.35;
@@ -10016,6 +10016,7 @@
 .agent-name {
   font-size: 1.05rem;
   font-weight: 900;
+  letter-spacing: 0.04em;
   color: #FFFFFF;
   margin: 0;
   line-height: 1.2;

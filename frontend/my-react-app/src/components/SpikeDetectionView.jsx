@@ -17,7 +17,6 @@ import {
   ExternalLink,
   ChevronRight,
   HelpCircle,
-  Database,
   ShieldCheck,
   Info,
   Layers
@@ -270,11 +269,6 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
             <span>ML Future Forecasts</span>
             <span className="chip-count font-mono">{stats.predictions}</span>
           </button>
-        </div>
-
-        <div className="hud-status-badge font-mono">
-          <Database size={13} />
-          <span>STORED IN MONGODB: <strong>intel_alerts</strong></span>
         </div>
       </div>
 

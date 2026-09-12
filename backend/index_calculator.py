@@ -207,6 +207,23 @@ def compute_dynamic_index_series(
         active_weights = {route_code: 1.0}
     weight_total = sum(active_weights.values())
 
+    # Retrieve pre-published immutable historical records from db.index_records
+    published_records = {}
+    try:
+        freq = "MONTHLY" if is_monthly else "DAILY"
+        query = {
+            "frequency": freq,
+            "formula_type": formula,
+            "advance_window": advance_window,
+            "route_code": route_code
+        }
+        for rec in db.index_records.find(query):
+            c_date = rec.get("calculation_date")
+            if c_date and rec.get("index_value") is not None:
+                published_records[c_date] = rec
+    except Exception:
+        published_records = {}
+
     # Calculate index series across all dates/months
     computed_series = []
     prev_index_val = None
@@ -238,6 +255,44 @@ def compute_dynamic_index_series(
             index_val = round(100.0 * (weighted_price_relative_sum / weight_total), 2)
 
         weighted_avg_fare = round(weighted_fare_sum / weight_total, 2)
+
+        # Enforce historical immutability: past dates use frozen published records so values never change daily
+        is_past_date = (d_str < current_month_str) if is_monthly else (d_str < today_str)
+        if is_past_date and d_str in published_records:
+            rec = published_records[d_str]
+            index_val = rec.get("index_value", index_val)
+            weighted_avg_fare = rec.get("average_fare", weighted_avg_fare)
+            if rec.get("total_quotes_used"):
+                quotes_count = rec["total_quotes_used"]
+            if rec.get("outliers_excluded"):
+                outliers_count = rec["outliers_excluded"]
+        elif is_past_date:
+            try:
+                db.index_records.update_one(
+                    {
+                        "calculation_date": d_str,
+                        "frequency": "MONTHLY" if is_monthly else "DAILY",
+                        "formula_type": formula,
+                        "advance_window": advance_window,
+                        "route_code": route_code
+                    },
+                    {"$set": {
+                        "calculation_date": d_str,
+                        "frequency": "MONTHLY" if is_monthly else "DAILY",
+                        "formula_type": formula,
+                        "advance_window": advance_window,
+                        "route_code": route_code,
+                        "index_value": index_val,
+                        "average_fare": weighted_avg_fare,
+                        "total_quotes_used": quotes_count,
+                        "outliers_excluded": outliers_count,
+                        "base_period": "2024-Q1",
+                        "is_locked": True
+                    }},
+                    upsert=True
+                )
+            except Exception:
+                pass
 
         # Period-over-period % change (DoD or MoM)
         if prev_index_val is not None and prev_index_val > 0:
