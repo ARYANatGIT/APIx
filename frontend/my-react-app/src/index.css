@@ -74,6 +74,32 @@
   --duration-standard: 200ms;
 }
 
+[data-theme="light"] {
+  /* Colors (Light Canvas) */
+  --bg: #F8FAFC;
+  --fg: #0F172A;
+  --muted: #F1F5F9;
+  --muted-fg: #475569;
+  --accent: #FF3D00;
+  --accent-fg: #FFFFFF;
+  --border: #E2E8F0;
+  --border-hover: #CBD5E1;
+  --input: #FFFFFF;
+  --card: #FFFFFF;
+  --card-fg: #0F172A;
+  --ring: #FF3D00;
+
+  /* SVG Chart Theme Tokens in Light Mode */
+  --chart-grid: #E2E8F0;
+  --chart-axis: #94A3B8;
+  --chart-bg: #FFFFFF;
+  --chart-axis-text: #475569;
+  --chart-stroke-start: #0F172A;
+  --chart-tooltip-bg: #FFFFFF;
+  --chart-tooltip-text: #0F172A;
+  --chart-tooltip-sub: #475569;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -93,6 +119,17 @@ html, body, #root {
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 860px) {
+  html, body, #root {
+    height: auto !important;
+    min-height: 100% !important;
+    max-height: none !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Subtle fractal noise grain texture layer (1.8% opacity) */

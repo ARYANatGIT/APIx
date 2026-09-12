@@ -1,4 +1,4 @@
-# AirSetu (एयरसेतु) • MoSPI Real-Time Airfare Price Index (APIx)
+# AirSetu • MoSPI Real-Time Airfare Price Index (APIx)
 ### Ministry of Statistics and Programme Implementation (MoSPI) • National Statistical Office (NSO)
 **Smart India Hackathon 2026 — Problem Statement: SIH26056**
 

@@ -15,6 +15,8 @@ import ScraperHealthView from './components/ScraperHealthView';
 import NsoExportView from './components/NsoExportView';
 import MoSPIMacroDashboard from './components/MoSPIMacroDashboard';
 import ThemeToggle from './components/ThemeToggle';
+import VolumeReaderButton from './components/VolumeReaderButton';
+import FloatingPageReader from './components/FloatingPageReader';
 import {
   Sparkles,
   ArrowRight,
@@ -25,7 +27,9 @@ import {
   FileSearch,
   Cpu,
   Download,
-  RefreshCw
+  RefreshCw,
+  Menu,
+  X
 } from 'lucide-react';
 
 import { apiService } from './services/api';
@@ -42,6 +46,9 @@ function App() {
     }
     return 'home';
   });
+
+  // Mobile menu drawer state
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Color Theme State: 'dark' | 'light' (Persisted in localStorage)
   const [theme, setTheme] = useState(() => {
@@ -63,6 +70,7 @@ function App() {
 
   const handleNavigate = (tabId) => {
     setActiveTab(tabId);
+    setMobileMenuOpen(false);
     if (tabId === 'home') {
       window.location.hash = '';
     } else {
@@ -73,6 +81,7 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
+      setMobileMenuOpen(false);
       if (['deck', 'routes', 'trajectory', 'windows', 'airlines', 'quotes', 'scraper', 'export'].includes(hash)) {
         setActiveTab(hash);
       } else if (!hash) {
@@ -275,6 +284,8 @@ function App() {
             changePct={overviewData?.latest_index?.change_pct_d1 ?? 1.68}
             theme={theme}
             onThemeChange={setTheme}
+            isMobileOpen={mobileMenuOpen}
+            onCloseMobile={() => setMobileMenuOpen(false)}
           />
         )}
 
@@ -288,7 +299,10 @@ function App() {
             <div className="home-top-section">
               <header className="home-simple-topbar bold-home-topbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Logo onClick={isHomeScreen ? handleReplayIntro : () => handleNavigate('home')} />
-                <ThemeToggle theme={theme} onThemeChange={setTheme} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <VolumeReaderButton activeTab="home" size="normal" />
+                  <ThemeToggle theme={theme} onThemeChange={setTheme} />
+                </div>
               </header>
 
               {/* Massive Typographic Headline */}
@@ -345,6 +359,31 @@ function App() {
         {/* Right Main Content Area (Dashboard & Analytics Suite on White Background) */}
         {!isHomeScreen && (
           <div className="harmont-content-area">
+            {/* Sticky Mobile Header Bar (Only visible on screens <= 860px) */}
+            <header className="mobile-app-header">
+              <button
+                type="button"
+                className="mobile-hamburger-btn"
+                onClick={() => setMobileMenuOpen(true)}
+                aria-label="Open Navigation Menu"
+              >
+                <Menu size={20} strokeWidth={2} />
+              </button>
+
+              <div className="mobile-header-title-wrap" onClick={() => handleNavigate('home')}>
+                <span className="mobile-header-brand">AirSetu</span>
+                <span className="mobile-header-accent font-mono">APIx</span>
+                <span className="mobile-active-tab-badge">
+                  {activeTab.toUpperCase()}
+                </span>
+              </div>
+
+              <div className="mobile-header-right">
+                <VolumeReaderButton activeTab={activeTab} size="compact" />
+                <ThemeToggle theme={theme} onThemeChange={setTheme} size="compact" />
+              </div>
+            </header>
+
             {/* Tab 1: Executive Flight Deck (White Dashboard, No Co-relation to Home Screen) */}
             {activeTab === 'deck' && (
               <div className="deck-white-dashboard">
@@ -726,6 +765,9 @@ function App() {
         isOpen={isMapModalOpen}
         onClose={() => setIsMapModalOpen(false)}
       />
+
+      {/* Floating Audio Screen Reader Docked Widget */}
+      <FloatingPageReader activeTab={activeTab} />
     </div>
   );
 }

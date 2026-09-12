@@ -1,12 +1,3 @@
-"""
-MoSPI Real-time Airfare Price Index (APIx) - Statistical Index Calculation Engine.
-SIH 2026 Problem Statement: SIH26056.
-
-High-performance mathematical calculation of Laspeyres and Geometric Young price indices
-directly from microdata flight price quotes. All metrics, time-series, corridor contributions,
-and statistics are calculated mathematically in real time with zero hardcoded or static values.
-"""
-
 import math
 import time
 from datetime import date, datetime

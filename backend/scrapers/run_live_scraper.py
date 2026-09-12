@@ -1,9 +1,3 @@
-"""
-Runner script for Live Flight Scraper across DGCA corridors and advance booking windows.
-Extracts live price quotes from airline/OTA portals using Playwright,
-saves audit snapshots, and writes structured quotes into the MoSPI database.
-"""
-
 import argparse
 import logging
 import sys

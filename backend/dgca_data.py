@@ -1,9 +1,3 @@
-"""
-Official DGCA Domestic Passenger Traffic Dataset & Route Basket Definitions.
-Data compiled in accordance with Directorate General of Civil Aviation (DGCA)
-domestic passenger traffic reports to augment MoSPI's Consumer Price Index (CPI).
-"""
-
 AIRLINES_DATA = [
     {
         "code": "6E",

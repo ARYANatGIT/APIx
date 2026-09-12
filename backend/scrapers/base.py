@@ -1,9 +1,3 @@
-"""
-Base Flight Scraper Module for MoSPI APIx.
-Defines the abstract scraper interface, date calculation for advance windows,
-flight normalization helpers, and ingestion hooks.
-"""
-
 import re
 from abc import ABC, abstractmethod
 from datetime import date, datetime, timedelta, timezone

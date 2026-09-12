@@ -1,12 +1,3 @@
-"""
-Command-line Flight Search Tool for MoSPI APIx.
-Searches live flight prices for any route and specific calendar date.
-
-Usage:
-    python backend/search_flight.py --route DEL-BLR --date 2026-10-10
-    python backend/search_flight.py --from DEL --to BLR --date 10/10/2026
-"""
-
 import argparse
 import sys
 from datetime import datetime

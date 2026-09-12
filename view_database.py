@@ -1,8 +1,3 @@
-"""
-Interactive Database Viewer & Inspector for MoSPI Airfare Price Index (APIx).
-Inspects live MongoDB Atlas collections, document statistics, schemas, and live records.
-"""
-
 import argparse
 import sys
 from pathlib import Path

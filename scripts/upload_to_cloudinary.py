@@ -1,19 +1,3 @@
-"""
-AirSetu - Cloudinary Image Deployment Utility
-Uploads the official AirSetu logo to Cloudinary and outputs the CDN retrieval URL.
-
-Usage:
-  1. Set your Cloudinary environment variables in .env or pass them directly:
-     CLOUDINARY_CLOUD_NAME=your_cloud_name
-     CLOUDINARY_API_KEY=your_api_key
-     CLOUDINARY_API_SECRET=your_api_secret
-     # OR for unsigned uploads:
-     CLOUDINARY_UPLOAD_PRESET=your_unsigned_preset
-
-  2. Run:
-     python scripts/upload_to_cloudinary.py
-"""
-
 import os
 import sys
 import json

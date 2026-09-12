@@ -1,10 +1,3 @@
-"""
-Automated Scraper Scheduler (Approach 1: FastAPI Background Scheduler)
- SIH 2026 Problem Statement: SIH26056
- Uses APScheduler BackgroundScheduler to periodically execute flight scrapers,
- ingest live flight price quotes into MongoDB, and provide thread-safe telemetry & manual triggers.
-"""
-
 import sys
 import time
 import threading

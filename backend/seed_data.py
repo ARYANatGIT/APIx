@@ -1,8 +1,3 @@
-"""
-Seed baseline routes, airlines, and master dataset into MongoDB Atlas.
-Fully replaces legacy SQLite seeding.
-"""
-
 import sys
 import json
 import random

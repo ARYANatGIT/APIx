@@ -1,9 +1,3 @@
-"""
-Database Adapter for MoSPI Real-time Airfare Price Index (APIx).
-Exclusively interfaces with MongoDB Atlas. All SQLite connections and engines
-have been decommissioned.
-"""
-
 from typing import Generator
 from backend.mongo import get_mongo_db, seed_mongo_baseline_data
 

@@ -1,9 +1,3 @@
-"""
-MongoDB Connection and High-Performance Aggregation Layer for MoSPI APIx.
-Provides seamless connection to MongoDB with mongomock fallback for zero-downtime resilience.
-Handles automated collection management, indexing, scraper batch ingestion, and analytical queries.
-"""
-
 import os
 import json
 import logging
@@ -197,7 +191,7 @@ def save_master_dataset_to_mongo(master_data: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def seed_mongo_baseline_data() -> Dict[str, Any]:
+def seed_mongo_baseline_data(clear_existing: bool = False) -> Dict[str, Any]:
     """
     Seeds baseline routes and airlines directly into MongoDB collections
     from official DGCA dataset without needing SQLite or SQLAlchemy.
@@ -205,6 +199,10 @@ def seed_mongo_baseline_data() -> Dict[str, Any]:
     from backend.dgca_data import DGCA_ROUTES_DATA, AIRLINES_DATA
     client = get_mongo_client()
     db = client[settings.MONGO_DB_NAME]
+
+    if clear_existing:
+        db.routes.delete_many({})
+        db.airlines.delete_many({})
 
     # 1. Seed Routes
     for idx, r_data in enumerate(DGCA_ROUTES_DATA, start=1):

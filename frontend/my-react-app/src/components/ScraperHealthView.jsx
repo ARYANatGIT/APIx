@@ -508,24 +508,11 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
       </div>
 
       {/* Sub-Tab Navigation Bar */}
-      <div className="scraper-subtab-bar" style={{ display: 'flex', gap: '10px', margin: '24px 0 20px 0', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
+      <div className="scraper-subtab-bar">
         <button
           type="button"
-          className={`scraper-tab-btn ${activeSubTab === 'artifacts' ? 'active-tab-btn' : ''}`}
+          className={`scraper-tab-btn tab-artifacts ${activeSubTab === 'artifacts' ? 'active-tab-btn' : ''}`}
           onClick={() => setActiveSubTab('artifacts')}
-          style={{
-            padding: '8px 16px',
-            borderRadius: '8px',
-            border: activeSubTab === 'artifacts' ? '1px solid #FBE697' : '1px solid rgba(255,255,255,0.1)',
-            background: activeSubTab === 'artifacts' ? 'rgba(251, 230, 151, 0.15)' : 'rgba(0,0,0,0.3)',
-            color: activeSubTab === 'artifacts' ? '#FBE697' : 'rgba(255,255,255,0.7)',
-            fontWeight: 700,
-            fontSize: '0.85rem',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
-          }}
         >
           <Image size={15} />
           <span>Proof Screenshots & Artifacts ({artifacts.length > 0 ? `${artifacts.length} Carriers Monitored` : '5 Carriers Monitored'})</span>
@@ -533,21 +520,8 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
 
         <button
           type="button"
-          className={`scraper-tab-btn ${activeSubTab === 'master' ? 'active-tab-btn' : ''}`}
+          className={`scraper-tab-btn tab-master ${activeSubTab === 'master' ? 'active-tab-btn' : ''}`}
           onClick={() => setActiveSubTab('master')}
-          style={{
-            padding: '8px 16px',
-            borderRadius: '8px',
-            border: activeSubTab === 'master' ? '1px solid #60a5fa' : '1px solid rgba(255,255,255,0.1)',
-            background: activeSubTab === 'master' ? 'rgba(96, 165, 250, 0.15)' : 'rgba(0,0,0,0.3)',
-            color: activeSubTab === 'master' ? '#60a5fa' : 'rgba(255,255,255,0.7)',
-            fontWeight: 700,
-            fontSize: '0.85rem',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
-          }}
         >
           <Database size={15} />
           <span>Master Normalized Dataset ({dynamicMasterQuotes} Live Quotes)</span>
@@ -555,21 +529,8 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
 
         <button
           type="button"
-          className={`scraper-tab-btn ${activeSubTab === 'logs' ? 'active-tab-btn' : ''}`}
+          className={`scraper-tab-btn tab-logs ${activeSubTab === 'logs' ? 'active-tab-btn' : ''}`}
           onClick={() => setActiveSubTab('logs')}
-          style={{
-            padding: '8px 16px',
-            borderRadius: '8px',
-            border: activeSubTab === 'logs' ? '1px solid #34d399' : '1px solid rgba(255,255,255,0.1)',
-            background: activeSubTab === 'logs' ? 'rgba(52, 211, 153, 0.15)' : 'rgba(0,0,0,0.3)',
-            color: activeSubTab === 'logs' ? '#34d399' : 'rgba(255,255,255,0.7)',
-            fontWeight: 700,
-            fontSize: '0.85rem',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
-          }}
         >
           <Activity size={15} />
           <span>Live Crawler Execution Logs ({liveLogs.length} Events • {isLiveStreaming ? '🟢 LIVE' : '⏸ PAUSED'})</span>
@@ -670,34 +631,25 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
                 <div style={{ padding: '18px', flex: 1, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, color: '#ffffff' }}>
+                      <h4 className="carrier-title">
                         {art.carrier_name} ({art.carrier_code})
                       </h4>
-                      <span style={{ fontSize: '0.76rem', color: 'rgba(255,255,255,0.5)' }}>
+                      <span className="carrier-dir-path">
                         scrapers/{art.directory}/
                       </span>
                     </div>
-                    <span
-                      style={{
-                        background: 'rgba(251, 230, 151, 0.15)',
-                        color: '#FBE697',
-                        padding: '4px 10px',
-                        borderRadius: '8px',
-                        fontSize: '0.82rem',
-                        fontWeight: 800
-                      }}
-                    >
+                    <span className="carrier-quotes-badge">
                       {art.quotes_extracted?.toLocaleString()} Quotes
                     </span>
                   </div>
 
                   {/* File Artifact Badges */}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', fontSize: '0.72rem' }}>
-                    <span style={{ padding: '3px 7px', background: 'rgba(255,255,255,0.07)', borderRadius: '5px', color: 'rgba(255,255,255,0.8)' }}>
+                    <span className="carrier-file-badge">
                       📄 flights.json ({art.flights_json_size_kb} KB)
                     </span>
                     {art.has_screenshot && (
-                      <span style={{ padding: '3px 7px', background: 'rgba(255,255,255,0.07)', borderRadius: '5px', color: 'rgba(255,255,255,0.8)' }}>
+                      <span className="carrier-file-badge">
                         🖼️ screenshot ({art.screenshot_size_kb} KB)
                       </span>
                     )}
@@ -740,24 +692,16 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
       {activeSubTab === 'master' && masterData && (
         <div className="master-dataset-section">
           {/* Master Summary Box */}
-          <div
-            style={{
-              background: 'rgba(22, 26, 23, 0.85)',
-              border: '1px solid rgba(96, 165, 250, 0.3)',
-              borderRadius: '16px',
-              padding: '24px',
-              marginBottom: '24px'
-            }}
-          >
+          <div className="master-summary-box">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '18px', flexWrap: 'wrap', gap: '12px' }}>
               <div>
                 <span className="badge-pill" style={{ background: 'rgba(96, 165, 250, 0.15)', color: '#60a5fa', borderColor: 'rgba(96, 165, 250, 0.3)' }}>
                   <Database size={12} /> CONSOLIDATED MASTER FLIGHT STORE
                 </span>
-                <h3 style={{ margin: '8px 0 4px 0', fontSize: '1.25rem', fontWeight: 800, color: '#ffffff' }}>
+                <h3 className="master-store-filename">
                   data/all_normalized_flights.json
                 </h3>
-                <p style={{ margin: 0, fontSize: '0.84rem', color: 'rgba(255,255,255,0.6)' }}>
+                <p className="master-store-desc">
                   Aggregated from 5 independent Playwright crawler scripts across 10 official DGCA domestic flight corridors.
                 </p>
               </div>
@@ -766,29 +710,24 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
                 <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#60a5fa', fontFamily: 'monospace' }}>
                   {masterData.total_quotes?.toLocaleString()}
                 </div>
-                <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)' }}>
+                <span className="master-store-sub">
                   Total Normalized Quotes ({masterData.file_size_kb || 4456} KB)
                 </span>
               </div>
             </div>
 
             {/* Carrier Breakdown Grid */}
-            <h4 style={{ margin: '16px 0 10px 0', fontSize: '0.92rem', color: '#FBE697', fontWeight: 700 }}>
+            <h4 className="master-section-subhead">
               Scraped Quotes by Airline / OTA
             </h4>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '20px' }}>
               {masterData.summary?.by_airline && Object.entries(masterData.summary.by_airline).map(([code, info]) => (
                 <div
                   key={code}
-                  style={{
-                    background: 'rgba(0,0,0,0.4)',
-                    padding: '12px 14px',
-                    borderRadius: '10px',
-                    border: '1px solid rgba(255,255,255,0.08)'
-                  }}
+                  className="carrier-breakdown-card"
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 800, color: '#ffffff' }}>{info.name} ({code})</span>
+                    <span className="carrier-breakdown-name">{info.name} ({code})</span>
                     <span style={{ fontWeight: 700, color: '#60a5fa', fontFamily: 'monospace' }}>
                       {info.quotes_count?.toLocaleString()}
                     </span>
@@ -807,7 +746,7 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
             </div>
 
             {/* Corridor Breakdown Grid */}
-            <h4 style={{ margin: '16px 0 10px 0', fontSize: '0.92rem', color: '#0f172a', fontWeight: 700 }}>
+            <h4 className="master-section-subhead">
               Quotes by 10 DGCA Domestic Flight Corridors
             </h4>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '8px' }}>

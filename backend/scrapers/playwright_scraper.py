@@ -1,10 +1,3 @@
-"""
-Playwright Flight Scraper Implementation for MoSPI APIx.
-Automates headless Chromium extraction of live flight price quotes,
-handles dynamic JavaScript hydration and popup dismissals,
-computes raw HTML snapshots for auditability, and persists results into the database.
-"""
-
 import logging
 import re
 import time

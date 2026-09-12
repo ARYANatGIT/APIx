@@ -6519,6 +6519,227 @@
 }
 
 /* ==========================================================================
+   Volume Screen Reader Button & Floating Audio Player (Dark Defaults)
+   ========================================================================== */
+.sidebar-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin: 3px 0;
+}
+
+.volume-reader-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(18, 18, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  color: #94A3B8;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.volume-reader-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.volume-reader-btn.compact-volume-btn {
+  padding: 3px 8px;
+  font-size: 0.68rem;
+  gap: 4px;
+}
+
+/* Active Speaking State */
+.volume-reader-btn.is-speaking {
+  background: rgba(255, 61, 0, 0.15) !important;
+  border-color: #FF3D00 !important;
+  color: #FF3D00 !important;
+  box-shadow: 0 0 14px rgba(255, 61, 0, 0.35) !important;
+}
+
+.volume-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volume-icon.speaking-pulse {
+  animation: speechPulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes speechPulse {
+  0% { transform: scale(0.92); opacity: 0.85; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Equalizer Bars in Volume Button */
+.speech-equalizer-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 11px;
+  margin-left: 2px;
+}
+
+.eq-bar {
+  width: 2px;
+  background: #FF3D00;
+  border-radius: 1px;
+  animation: eqBounce 0.75s ease-in-out infinite alternate;
+}
+
+.eq-bar.bar-1 { height: 4px; animation-delay: 0.1s; }
+.eq-bar.bar-2 { height: 10px; animation-delay: 0.3s; }
+.eq-bar.bar-3 { height: 6px; animation-delay: 0.2s; }
+
+@keyframes eqBounce {
+  0% { height: 2.5px; }
+  100% { height: 11px; }
+}
+
+/* Floating Page Reader Docked Accessibility Pill */
+.floating-page-reader {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-reader-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 10px;
+  background: rgba(15, 15, 15, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+  color: #FAFAFA;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-reader-btn:hover {
+  background: rgba(24, 24, 27, 0.98);
+  border-color: rgba(255, 61, 0, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 16px rgba(255, 61, 0, 0.25);
+}
+
+.floating-reader-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FF3D00;
+  transition: all 0.2s ease;
+}
+
+.floating-page-reader.speaking-active .floating-reader-btn {
+  background: rgba(24, 12, 10, 0.96) !important;
+  border-color: #FF3D00 !important;
+  box-shadow: 0 8px 32px rgba(255, 61, 0, 0.28), 0 0 18px rgba(255, 61, 0, 0.2) !important;
+}
+
+.floating-page-reader.speaking-active .floating-reader-icon-wrap {
+  background: #FF3D00;
+  color: #FFFFFF;
+}
+
+.floating-reader-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.floating-reader-title {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #FAFAFA;
+}
+
+.floating-reader-sub {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #94A3B8;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.floating-reader-action-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #FF3D00;
+  background: rgba(255, 61, 0, 0.12);
+  border: 1px solid rgba(255, 61, 0, 0.3);
+  border-radius: 12px;
+  padding: 2px 7px;
+  text-transform: uppercase;
+}
+
+.speech-wave-indicator {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 14px;
+}
+
+.wave-bar {
+  width: 2.5px;
+  background: #FF3D00;
+  border-radius: 2px;
+  animation: waveAnim 0.75s ease-in-out infinite alternate;
+}
+
+.wave-bar.w1 { height: 4px; animation-delay: 0.1s; }
+.wave-bar.w2 { height: 13px; animation-delay: 0.25s; }
+.wave-bar.w3 { height: 7px; animation-delay: 0.4s; }
+.wave-bar.w4 { height: 11px; animation-delay: 0.15s; }
+
+@keyframes waveAnim {
+  0% { height: 3px; }
+  100% { height: 13px; }
+}
+
+@media (max-width: 768px) {
+  .floating-page-reader {
+    bottom: 16px;
+    right: 14px;
+  }
+  .floating-reader-btn {
+    padding: 7px 12px 7px 9px;
+    gap: 8px;
+  }
+  .floating-reader-sub {
+    display: none;
+  }
+}
+
+/* ==========================================================================
    Light Mode Theme Overrides ([data-theme="light"])
    ========================================================================== */
 
@@ -6578,6 +6799,60 @@
   color: #0F172A;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #E2E8F0;
+}
+
+/* Volume Screen Reader Button in Light Mode */
+[data-theme="light"] .volume-reader-btn {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: #475569;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .volume-reader-btn:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+  border-color: #94A3B8;
+}
+
+[data-theme="light"] .volume-reader-btn.is-speaking {
+  background: #FFF1EE !important;
+  border-color: #FF3D00 !important;
+  color: #FF3D00 !important;
+  box-shadow: 0 0 12px rgba(255, 61, 0, 0.25) !important;
+}
+
+/* Floating Page Reader in Light Mode */
+[data-theme="light"] .floating-reader-btn {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: #CBD5E1;
+  color: #0F172A;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .floating-reader-btn:hover {
+  background: #FFFFFF;
+  border-color: #FF3D00;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16), 0 0 14px rgba(255, 61, 0, 0.15);
+}
+
+[data-theme="light"] .floating-reader-title {
+  color: #0F172A;
+}
+
+[data-theme="light"] .floating-reader-sub {
+  color: #64748B;
+}
+
+[data-theme="light"] .floating-reader-icon-wrap {
+  background: #F1F5F9;
+  color: #FF3D00;
+}
+
+[data-theme="light"] .floating-page-reader.speaking-active .floating-reader-btn {
+  background: #FFF7F5 !important;
+  border-color: #FF3D00 !important;
+  box-shadow: 0 8px 32px rgba(255, 61, 0, 0.2) !important;
 }
 
 /* Sidebar in Light Mode */
@@ -6741,27 +7016,39 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
 }
 
-[data-theme="light"] .mospi-route-card-title {
+[data-theme="light"] .mospi-route-card-title,
+[data-theme="light"] .route-matrix-title {
   color: #0F172A !important;
 }
 
 [data-theme="light"] .mospi-route-item {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
   border-bottom-color: #F1F5F9 !important;
 }
 
 [data-theme="light"] .mospi-route-item:hover {
   background: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
 }
 
-[data-theme="light"] .mospi-route-cities {
-  color: #1E293B !important;
+[data-theme="light"] .route-pill {
+  color: #0F172A !important;
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+
+[data-theme="light"] .mospi-route-cities,
+[data-theme="light"] .route-cities-text {
+  color: #334155 !important;
 }
 
 [data-theme="light"] .mospi-route-codes {
   color: #64748B !important;
 }
 
-[data-theme="light"] .mospi-route-fare {
+[data-theme="light"] .mospi-route-fare,
+[data-theme="light"] .route-fare {
   color: #0F172A !important;
 }
 
@@ -6811,21 +7098,35 @@
   color: #0F172A !important;
 }
 
-[data-theme="light"] .hero-main-heading {
+[data-theme="light"] .hero-main-heading,
+[data-theme="light"] .hero-line-1,
+[data-theme="light"] .hero-line-2 {
   color: #0F172A !important;
+  text-shadow: none !important;
 }
 
 [data-theme="light"] .hero-subheading {
   color: #334155 !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .hero-subheading .mono-stat {
+  color: #0F172A !important;
+  background: rgba(15, 23, 42, 0.06) !important;
+  border: 1px solid rgba(15, 23, 42, 0.14) !important;
 }
 
 [data-theme="light"] .hero-brand-badge {
-  background: rgba(0, 0, 0, 0.04) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
 }
 
-[data-theme="light"] .hero-brand-badge span {
-  color: #1E293B !important;
+[data-theme="light"] .hero-brand-text {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .hero-brand-sub {
+  color: #64748B !important;
 }
 
 /* Home Screen Poster Stats in Light Mode */
@@ -6983,7 +7284,37 @@
   border-color: #E2E8F0 !important;
 }
 
-[data-theme="light"] .formula-math-text {
+[data-theme="light"] .math-equation {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .math-var {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .math-bracket {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .math-op {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .sigma-symbol {
+  color: #FF3D00 !important;
+}
+
+[data-theme="light"] .sigma-limit-top,
+[data-theme="light"] .sigma-limit-bot {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .math-fraction {
+  border-color: #0F172A !important;
+}
+
+[data-theme="light"] .math-num,
+[data-theme="light"] .math-denom {
   color: #0F172A !important;
 }
 
@@ -7106,14 +7437,260 @@
   color: #0F172A !important;
 }
 
+[data-theme="light"] .item-val {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .modal-price-breakdown.bold-breakdown {
+  background: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+[data-theme="light"] .price-row {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .mono-fare {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .price-divider.bold-divider {
+  background: #E2E8F0 !important;
+}
+
+[data-theme="light"] .price-row.total-row {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .modal-guarantee.bold-guarantee {
+  background: #ECFDF5 !important;
+  border-color: #A7F3D0 !important;
+  color: #047857 !important;
+}
+
+[data-theme="light"] .btn-modal-cancel.btn-secondary-bold {
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .btn-modal-cancel.btn-secondary-bold:hover {
+  background: #E2E8F0 !important;
+  border-color: #94A3B8 !important;
+  color: #0F172A !important;
+}
+
+/* ==========================================================================
+   Scraper Sub-Tabs & Intelligence Base (Dark Mode Defaults)
+   ========================================================================== */
+.scraper-subtab-bar {
+  display: flex;
+  gap: 10px;
+  margin: 24px 0 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.scraper-tab-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.scraper-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.scraper-tab-btn.tab-artifacts.active-tab-btn {
+  border-color: #FBE697;
+  background: rgba(251, 230, 151, 0.15);
+  color: #FBE697;
+}
+
+.scraper-tab-btn.tab-master.active-tab-btn {
+  border-color: #60a5fa;
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+}
+
+.scraper-tab-btn.tab-logs.active-tab-btn {
+  border-color: #34d399;
+  background: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+}
+
+.carrier-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.carrier-dir-path {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.carrier-quotes-badge {
+  background: rgba(251, 230, 151, 0.15);
+  color: #FBE697;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.carrier-file-badge {
+  padding: 3px 7px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.master-summary-box {
+  background: rgba(22, 26, 23, 0.85);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.master-store-filename {
+  margin: 8px 0 4px 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.master-store-desc {
+  margin: 0;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.master-store-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.master-section-subhead {
+  margin: 16px 0 10px 0;
+  font-size: 0.92rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.carrier-breakdown-card {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.carrier-breakdown-name {
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
 /* Scraper Artifacts & Intelligence in Light Mode */
+[data-theme="light"] .scraper-subtab-bar {
+  border-bottom-color: #E2E8F0 !important;
+}
+
+[data-theme="light"] .scraper-tab-btn {
+  background: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .scraper-tab-btn:hover {
+  background: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .scraper-tab-btn.tab-artifacts.active-tab-btn {
+  background: #FEF3C7 !important;
+  border-color: #D97706 !important;
+  color: #B45309 !important;
+}
+
+[data-theme="light"] .scraper-tab-btn.tab-master.active-tab-btn {
+  background: #EFF6FF !important;
+  border-color: #2563EB !important;
+  color: #1D4ED8 !important;
+}
+
+[data-theme="light"] .scraper-tab-btn.tab-logs.active-tab-btn {
+  background: #ECFDF5 !important;
+  border-color: #059669 !important;
+  color: #047857 !important;
+}
+
 [data-theme="light"] .artifact-carrier-card {
   background: #FFFFFF !important;
   border-color: #E2E8F0 !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
 }
 
-[data-theme="light"] .artifact-carrier-card h4 {
+[data-theme="light"] .artifact-carrier-card h4,
+[data-theme="light"] .carrier-title {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .carrier-dir-path {
+  color: #64748B !important;
+}
+
+[data-theme="light"] .carrier-quotes-badge {
+  background: #FEF3C7 !important;
+  color: #B45309 !important;
+}
+
+[data-theme="light"] .carrier-file-badge {
+  background: #F1F5F9 !important;
+  color: #334155 !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+[data-theme="light"] .master-summary-box {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .master-store-filename {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .master-store-desc {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .master-store-sub {
+  color: #64748B !important;
+}
+
+[data-theme="light"] .master-section-subhead {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .carrier-breakdown-card {
+  background: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+[data-theme="light"] .carrier-breakdown-name {
   color: #0F172A !important;
 }
 
@@ -7202,8 +7779,651 @@
   border-color: #0F172A !important;
 }
 
+/* ==========================================================================
+   India Route Map in Light Mode (White India Map with High Contrast Visibility)
+   ========================================================================== */
+[data-theme="light"] .india-map-container {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+}
+
+[data-theme="light"] .map-title {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .map-subtitle {
+  color: #64748B !important;
+}
+
+[data-theme="light"] .map-active-corridor-card {
+  background: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+}
+
+[data-theme="light"] .corridor-code {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .corridor-names {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .corridor-metrics {
+  color: #64748B !important;
+}
+
+/* Soft Slate Radar Canvas Backdrop to provide clear contrast for the White India Map */
+[data-theme="light"] .svg-map-wrapper {
+  background: radial-gradient(circle at 50% 48%, #F8FAFC 0%, #EEF2F6 65%, #E2E8F0 100%) !important;
+  border: 1px solid #CBD5E1 !important;
+  border-radius: 6px !important;
+  padding: 16px 8px !important;
+  box-shadow: inset 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+}
+
+[data-theme="light"] .india-air-svg {
+  filter: drop-shadow(0 10px 24px rgba(15, 23, 42, 0.08)) !important;
+}
+
+/* The White India Map: Pure White Landmass with Crisp Vermillion Outline & Deep Elevation Shadow */
+[data-theme="light"] .india-landmass-path {
+  fill: #FFFFFF !important;
+  stroke: #FF3D00 !important;
+  stroke-width: 1.6px !important;
+  stroke-opacity: 0.95 !important;
+  filter: drop-shadow(0 14px 28px rgba(15, 23, 42, 0.16)) drop-shadow(0 2px 6px rgba(15, 23, 42, 0.08)) !important;
+}
+
+/* State-Level Administrative Borders: Clearly visible slate dashed lines inside the white landmass */
+[data-theme="light"] .india-states-path {
+  stroke: rgba(15, 23, 42, 0.22) !important;
+  stroke-width: 0.95px !important;
+  stroke-dasharray: 4 2.5 !important;
+}
+
+/* Airspace Grid & Radar Rings in Light Mode */
+[data-theme="light"] .radar-ring-circle {
+  stroke: rgba(15, 23, 42, 0.09) !important;
+}
+
+[data-theme="light"] .radar-axis-line {
+  stroke: rgba(15, 23, 42, 0.07) !important;
+}
+
+/* Flight Corridor Arcs across White India Map */
+[data-theme="light"] .corridor-arc-path {
+  stroke: #0284C7 !important;
+  stroke-opacity: 0.72 !important;
+}
+
+[data-theme="light"] .corridor-arc-path.selected-arc,
+[data-theme="light"] .route-path-group:hover .corridor-arc-path {
+  stroke: #FF3D00 !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Airport Node Badges in Light Mode */
+[data-theme="light"] .airport-badge-rect {
+  fill: #FFFFFF !important;
+  stroke: #94A3B8 !important;
+  stroke-width: 1.2px !important;
+  filter: drop-shadow(0 2px 5px rgba(15, 23, 42, 0.12)) !important;
+}
+
+[data-theme="light"] .airport-node-group:hover .airport-badge-rect {
+  stroke: #FF3D00 !important;
+}
+
+[data-theme="light"] .airport-badge-text {
+  fill: #0F172A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .airport-badge-text.hovered,
+[data-theme="light"] .airport-node-group:hover .airport-badge-text {
+  fill: #FF3D00 !important;
+}
+
+/* City Name Captions: High-contrast typography with crisp white halo outline */
+[data-theme="light"] .airport-city-caption {
+  fill: #0F172A !important;
+  font-weight: 700 !important;
+  paint-order: stroke fill;
+  stroke: #FFFFFF;
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
+}
+
+/* Map Legend in Light Mode */
+[data-theme="light"] .map-legend-row {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .map-legend-row .line-dashed {
+  border-top-color: #0284C7 !important;
+}
+
 /* Global val-white utility */
 .val-white {
   color: var(--fg);
+}
+
+/* ==========================================================================
+   Mobile Responsive System (AirSetu MoSPI APIx)
+   Breakpoints: <= 860px (Tablets & Mobile Shell), <= 768px (Phones), <= 480px (Compact)
+   ========================================================================== */
+
+/* Mobile Backdrop Overlay (Hidden on desktop) */
+.sidebar-mobile-backdrop {
+  display: none;
+}
+
+/* Mobile Close Button in Sidebar (Hidden on desktop) */
+.sidebar-mobile-close-btn {
+  display: none;
+}
+
+/* Mobile App Sticky Top Header (Hidden on desktop) */
+.mobile-app-header {
+  display: none;
+}
+
+/* --- Breakpoint 1: Tablets & Mobile Navigation Drawer (<= 860px) --- */
+@media (max-width: 860px) {
+  /* Allow root and viewport containers to scroll naturally */
+  .harmont-page-root {
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    position: relative !important;
+  }
+
+  .dashboard-viewport-frame {
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+
+  .harmont-content-area {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: calc(100vh - 54px) !important;
+    overflow: visible !important;
+  }
+
+  .deck-white-dashboard {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 16px 14px 44px 14px !important;
+  }
+
+  .analytics-scroll-container {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 16px 14px 44px 14px !important;
+  }
+
+  .analytics-inner-wrap {
+    gap: 18px !important;
+  }
+
+  /* Sticky Mobile Header Bar */
+  .mobile-app-header {
+    display: flex !important;
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 52px !important;
+    background: var(--bg) !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 0 14px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    z-index: 90 !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-hamburger-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 4px !important;
+    color: var(--fg) !important;
+    cursor: pointer !important;
+    transition: background 0.15s ease !important;
+  }
+
+  .mobile-hamburger-btn:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .mobile-header-title-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    cursor: pointer !important;
+    user-select: none !important;
+  }
+
+  .mobile-header-brand {
+    font-size: 1.05rem !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--fg) !important;
+  }
+
+  .mobile-header-accent {
+    color: var(--accent) !important;
+    font-size: 0.8rem !important;
+    font-weight: 800 !important;
+  }
+
+  .mobile-active-tab-badge {
+    display: inline-block !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.62rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+    padding: 2px 7px !important;
+    background: rgba(255, 61, 0, 0.12) !important;
+    color: var(--accent) !important;
+    border: 1px solid rgba(255, 61, 0, 0.3) !important;
+    border-radius: 2px !important;
+    margin-left: 4px !important;
+    white-space: nowrap !important;
+  }
+
+  .mobile-header-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  /* Left Sidebar transformed into Slide-out Navigation Drawer */
+  .left-sidebar-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 285px !important;
+    min-width: 285px !important;
+    max-width: 85vw !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow-y: auto !important;
+    box-shadow: 12px 0 40px rgba(0, 0, 0, 0.8) !important;
+    border-right: 1px solid var(--border) !important;
+    box-sizing: border-box !important;
+  }
+
+  .left-sidebar-nav.mobile-open {
+    transform: translateX(0) !important;
+  }
+
+  /* Mobile Backdrop Overlay */
+  .sidebar-mobile-backdrop {
+    display: block !important;
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.72) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    z-index: 999 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.25s ease !important;
+  }
+
+  .sidebar-mobile-backdrop.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Mobile Close Button in Sidebar Drawer */
+  .sidebar-mobile-close-btn {
+    display: flex !important;
+    position: absolute !important;
+    top: 14px !important;
+    right: 14px !important;
+    width: 32px !important;
+    height: 32px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: var(--fg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+  }
+
+  .sidebar-mobile-close-btn:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+  }
+}
+
+/* --- Breakpoint 2: Smartphone Viewports (<= 768px) --- */
+@media (max-width: 768px) {
+  /* 1. Home Editorial Poster Screen */
+  .home-simple-container.bold-home-container {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 18px 16px 36px 16px !important;
+    overflow: visible !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+  }
+
+  .home-simple-topbar.bold-home-topbar {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin-bottom: 6px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .hero-brand-badge {
+    margin-bottom: 12px !important;
+    padding: 4px 10px !important;
+  }
+
+  .hero-main-heading {
+    font-size: clamp(2.0rem, 7.5vw, 3.2rem) !important;
+    line-height: 1.08 !important;
+    margin-bottom: 12px !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .hero-subheading {
+    font-size: 0.85rem !important;
+    line-height: 1.45 !important;
+    max-width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Stats row adapted to 2x2 grid */
+  .home-poster-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 100% !important;
+    margin: 14px 0 !important;
+    border-radius: 6px !important;
+  }
+
+  .poster-stat-cell {
+    padding: 12px 14px !important;
+  }
+
+  .poster-stat-cell:nth-child(1),
+  .poster-stat-cell:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .poster-stat-cell:nth-child(2) {
+    border-right: none !important;
+  }
+
+  .poster-stat-cell:nth-child(3) {
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .poster-stat-cell:nth-child(4) {
+    border-right: none !important;
+  }
+
+  .poster-stat-cell .stat-num {
+    font-size: 1.4rem !important;
+  }
+
+  .poster-stat-cell .stat-label {
+    font-size: 0.62rem !important;
+  }
+
+  .home-get-started-container {
+    width: 100% !important;
+    padding: 10px 0 16px 0 !important;
+  }
+
+  .btn-get-started-cta {
+    width: 100% !important;
+    max-width: 360px !important;
+    padding: 14px 28px !important;
+    font-size: 0.95rem !important;
+    justify-content: center !important;
+  }
+
+  .bold-backdrop-watermark {
+    font-size: clamp(5rem, 18vw, 10rem) !important;
+    opacity: 0.015 !important;
+  }
+
+  /* 2. Flight Deck & MoSPI Macro Board */
+  .mospi-official-board {
+    gap: 16px !important;
+  }
+
+  .mospi-official-banner {
+    padding: 16px 12px !important;
+  }
+
+  .mospi-banner-meta-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .mospi-header-eyebrow {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .mospi-telemetry-strip {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  .mospi-hero-header-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+  }
+
+  .mospi-hero-stats {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+
+  .mospi-controls-group {
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .btn-sync-action,
+  .btn-inspect-action {
+    flex: 1 !important;
+    min-width: 130px !important;
+    justify-content: center !important;
+    padding: 8px 12px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .mospi-stats-board-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .deck-kpi-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .deck-lower-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* 3. Interactive Booking Capsule Bar (Transformed into Mobile Card Form) */
+  .deck-booking-bar-wrapper,
+  .booking-bar-wrapper {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 14px 0 !important;
+  }
+
+  .booking-capsule-bar {
+    flex-direction: column !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+  }
+
+  .booking-field-item {
+    width: 100% !important;
+    border-radius: 6px !important;
+    padding: 10px 12px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    box-sizing: border-box !important;
+  }
+
+  .booking-divider {
+    display: none !important;
+  }
+
+  .btn-book-flight-cta {
+    width: 100% !important;
+    border-radius: 6px !important;
+    padding: 13px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0.95rem !important;
+  }
+
+  .field-dropdown-menu {
+    width: 100% !important;
+    min-width: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    max-width: 100% !important;
+    border-radius: 6px !important;
+    position: absolute !important;
+    z-index: 100 !important;
+  }
+
+  /* 4. Table & Data Matrix Horizontal Scroll Protection */
+  .table-responsive-wrapper,
+  .deck-mini-table-wrap,
+  .quotes-table-container,
+  .quotes-table-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    position: relative !important;
+    border-radius: 4px !important;
+  }
+
+  .deck-mini-table,
+  .quotes-table {
+    min-width: 580px !important;
+  }
+
+  /* 5. India Route Map Scaling on Mobile */
+  .india-radar-layout {
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+
+  .india-air-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 420px !important;
+  }
+
+  .radar-side-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .radar-legend-bar {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* 6. Heatmap Scrollable Wrapper */
+  .heatmap-matrix-scroll,
+  .heatmap-grid-container {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* 7. Dialog & Modal Popups on Mobile */
+  .booking-modal-container,
+  .map-modal-container,
+  .proof-source-modal-container {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    max-height: 90vh !important;
+    padding: 18px 14px !important;
+    margin: 16px auto !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* --- Breakpoint 3: Compact Phones (<= 480px) --- */
+@media (max-width: 480px) {
+  .hero-main-heading {
+    font-size: clamp(1.75rem, 6.8vw, 2.4rem) !important;
+  }
+
+  .poster-stat-cell .stat-num {
+    font-size: 1.25rem !important;
+  }
+
+  .poster-stat-cell .stat-label {
+    font-size: 0.58rem !important;
+  }
+
+  .poster-stat-cell .stat-sub {
+    font-size: 0.62rem !important;
+  }
+
+  .deck-white-dashboard,
+  .analytics-scroll-container {
+    padding: 12px 8px 30px 8px !important;
+  }
+
+  .mospi-official-banner {
+    padding: 12px 10px !important;
+  }
+
+  .deck-kpi-card {
+    padding: 16px 14px !important;
+  }
+
+  .section-title {
+    font-size: 1.35rem !important;
+  }
 }
 

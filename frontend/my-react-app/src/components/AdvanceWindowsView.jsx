@@ -324,8 +324,9 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
                 y1={gy}
                 x2="750"
                 y2={gy}
-                stroke="rgba(255, 255, 255, 0.05)"
+                stroke="var(--chart-grid, rgba(255, 255, 255, 0.05))"
                 strokeDasharray="4 4"
+                className="advance-chart-grid-line"
               />
             ))}
 
@@ -377,7 +378,7 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
                     cx={pt.x}
                     cy={pt.y}
                     r={isSelected ? 5.5 : 4}
-                    fill={isSelected ? '#E5B54F' : '#111827'}
+                    fill={isSelected ? '#E5B54F' : 'var(--card)'}
                     stroke="#E5B54F"
                     strokeWidth="2"
                   />
@@ -387,10 +388,11 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
                     x={pt.x}
                     y="208"
                     textAnchor="middle"
-                    fill={isSelected ? '#E5B54F' : '#94a3b8'}
+                    fill={isSelected ? '#E5B54F' : 'var(--muted-fg)'}
                     fontSize="11"
                     fontFamily="monospace"
                     fontWeight={isSelected ? 'bold' : 'normal'}
+                    className="advance-chart-horizon-label"
                   >
                     {pt.window}
                   </text>
@@ -400,10 +402,11 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
                     x={pt.x}
                     y={pt.y - 10}
                     textAnchor="middle"
-                    fill="#f1f5f9"
+                    fill="var(--fg)"
                     fontSize="10"
                     fontFamily="monospace"
                     fontWeight="bold"
+                    className="advance-chart-price-label"
                   >
                     ₹{Math.round(pt.fare).toLocaleString()}
                   </text>
@@ -419,13 +422,14 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
             position: 'absolute',
             top: '20px',
             right: '24px',
-            background: 'rgba(17, 24, 39, 0.95)',
-            border: '1px solid var(--accent)',
+            background: 'var(--chart-tooltip-bg, #0A0A0A)',
+            color: 'var(--chart-tooltip-text, #FAFAFA)',
+            border: '1px solid var(--border)',
             padding: '8px 14px',
             borderRadius: '4px',
             fontSize: '0.74rem',
             fontFamily: 'var(--font-mono)',
-            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.5)',
+            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
             pointerEvents: 'none'
           }}>
             <div style={{ color: 'var(--accent)', fontWeight: 'bold', marginBottom: '2px' }}>

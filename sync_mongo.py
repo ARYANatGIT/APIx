@@ -1,9 +1,3 @@
-"""
-MongoDB Synchronization and Seeding Utility for MoSPI APIx
-Synchronizes baseline data (36,449 quotes, 10 DGCA routes, 7 airlines)
-and normalized JSON files directly into MongoDB collections.
-"""
-
 import sys
 import time
 from pathlib import Path

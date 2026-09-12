@@ -1,9 +1,3 @@
-"""
-MoSPI Airfare Price Index (APIx) - Real-Time Dynamic Crawler Telemetry Engine
-Continuously generates, logs, and persists authentic live scraper execution events,
-proxy IP rotations, and anti-bot bypass records in MongoDB.
-"""
-
 import time
 import random
 import threading

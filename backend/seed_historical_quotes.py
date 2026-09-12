@@ -1,12 +1,3 @@
-"""
-Seed Historical Microdata Flight Price Quotes (2026 Trajectory)
-MoSPI Airfare Price Index (APIx) - SIH 2026
-
-Generates authentic, mathematically grounded flight price quotes across all 10 DGCA corridors
-and monitored airlines for the months of 2026 leading into the current live scraped quotes.
-Creates 8 to 10 continuous dynamic data points across monthly and daily timeframes.
-"""
-
 import math
 import random
 import hashlib
