@@ -208,5 +208,45 @@ export const apiService = {
         return { status: "error", message: e.message };
       }
     }
+  },
+
+  // 23. Route Stress Index (RSI) - Dynamic multi-factor stress computation
+  async getRSI() {
+    return fetchFromBackend('/rsi', null);
+  },
+
+  // 24. Airport Catchment Substitution Intelligence
+  async getAirportSubstitution() {
+    return fetchFromBackend('/airport-substitution', null);
+  },
+
+  // 25. Airport Disruption Scenario Simulation
+  async runAirportSimulation(payload = {}) {
+    const defaultPayload = {
+      hub_code: payload.hub_code || 'DEL',
+      capacity_reduction_pct: payload.capacity_reduction_pct ?? 25.0,
+      weather_severity_pct: payload.weather_severity_pct ?? 50.0,
+      demand_surge_pct: payload.demand_surge_pct ?? 20.0
+    };
+
+    const endpoints = [
+      `${BACKEND_PRIMARY}/airport-simulation`,
+      `${BACKEND_CORS_1}/airport-simulation`,
+      `${BACKEND_CORS_2}/airport-simulation`
+    ];
+
+    for (const url of endpoints) {
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(defaultPayload)
+        });
+        if (res.ok) return await res.json();
+      } catch {
+        // try next endpoint
+      }
+    }
+    return null;
   }
 };

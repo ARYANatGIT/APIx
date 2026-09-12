@@ -17,6 +17,8 @@ import {
   Sparkles
 } from 'lucide-react';
 import IndiaAirfareHeatmap from './IndiaAirfareHeatmap';
+import RouteStressIndexWidget from './RouteStressIndexWidget';
+import AirportSubstitutionWidget from './AirportSubstitutionWidget';
 import airsetuLogo from '../assets/airsetu_logo.png';
 
 export default function MoSPIMacroDashboard({
@@ -32,6 +34,7 @@ export default function MoSPIMacroDashboard({
   onThemeChange
 }) {
   const [hoveredRoute, setHoveredRoute] = useState(null);
+  const [deckSectionTab, setDeckSectionTab] = useState('rsi'); // 'rsi' | 'substitution'
 
   // Dynamic MoSPI Macro values computed directly from live database
   const latestIndex = overviewData?.latest_index;
@@ -251,6 +254,42 @@ export default function MoSPIMacroDashboard({
             </span>
             <span className="mospi-delta-sub">MoM inflation</span>
           </div>
+        </div>
+      </div>
+
+      {/* 2.5. Intelligent Operational Modules: Route Stress Index (RSI) & Airport Substitution Studio */}
+      <div className="deck-modules-wrapper">
+        <div className="deck-modules-tab-bar font-mono">
+          <button
+            type="button"
+            className={`deck-module-tab-btn ${deckSectionTab === 'rsi' ? 'active' : ''}`}
+            onClick={() => setDeckSectionTab('rsi')}
+          >
+            <Activity size={15} />
+            <span>ROUTE STRESS INDEX (RSI)</span>
+            <span className="deck-tab-tag">5-FACTOR DYNAMIC MODEL</span>
+          </button>
+
+          <button
+            type="button"
+            className={`deck-module-tab-btn ${deckSectionTab === 'substitution' ? 'active' : ''}`}
+            onClick={() => setDeckSectionTab('substitution')}
+          >
+            <Compass size={15} />
+            <span>AIRPORT SUBSTITUTION & SIMULATION</span>
+            <span className="deck-tab-tag">CATCHMENT ARBITRAGE</span>
+          </button>
+        </div>
+
+        <div className="deck-module-content">
+          {deckSectionTab === 'rsi' ? (
+            <RouteStressIndexWidget
+              selectedRoute={selectedRoute?.route_code}
+              onSelectRoute={handleRouteClick}
+            />
+          ) : (
+            <AirportSubstitutionWidget />
+          )}
         </div>
       </div>
 

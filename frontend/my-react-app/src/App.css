@@ -2700,6 +2700,1207 @@
   color: #71717A;
 }
 
+/* ==========================================================================
+   Deck Intelligent Modules: Route Stress Index (RSI) & Airport Substitution
+   ========================================================================== */
+
+.deck-modules-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 8px 0 16px 0;
+}
+
+.deck-modules-tab-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.deck-module-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #A1A1AA;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deck-module-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #FFFFFF;
+}
+
+.deck-module-tab-btn.active {
+  background: #FF3D00;
+  color: #FFFFFF;
+  border-color: #FF3D00;
+  box-shadow: 0 4px 18px rgba(255, 61, 0, 0.35);
+}
+
+.deck-tab-tag {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+/* Route Stress Index Widget Container */
+.rsi-widget-container {
+  background: rgba(18, 18, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rsi-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.rsi-badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #FF7043;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.rsi-model-tag {
+  background: rgba(255, 112, 67, 0.15);
+  border: 1px solid rgba(255, 112, 67, 0.3);
+  padding: 1px 6px;
+  font-size: 0.65rem;
+  color: #FFA726;
+}
+
+.rsi-section-heading {
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: 0.045em;
+  color: #FFFFFF;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.rsi-section-sub {
+  font-size: 0.84rem;
+  color: #94A3B8;
+  max-width: 820px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.rsi-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rsi-btn-formula,
+.rsi-btn-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E2E8F0;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rsi-btn-formula:hover,
+.rsi-btn-refresh:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #FFFFFF;
+}
+
+/* Formula Capsule */
+.rsi-formula-capsule {
+  background: #0D0D11;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #FF5722;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rsi-formula-equation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.eq-label {
+  color: #64748B;
+  font-weight: 800;
+}
+
+.eq-term {
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 2px;
+}
+
+.term-rsi {
+  color: #FFFFFF;
+  background: #FF3D00;
+  font-weight: 900;
+}
+
+.term-fare { color: #FF7043; }
+.term-avail { color: #FBBF24; }
+.term-vol { color: #38BDF8; }
+.term-dem { color: #C084FC; }
+.term-agree { color: #34D399; }
+.eq-sym { color: #64748B; font-weight: 900; }
+
+.rsi-zero-hardcoded {
+  font-size: 0.72rem;
+  color: #34D399;
+  font-weight: 700;
+}
+
+/* Formula Explainer Panel */
+.rsi-formula-explainer-panel {
+  background: #09090D;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+}
+
+.explainer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.explainer-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #94A3B8;
+}
+
+.explainer-item-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFFFFF;
+}
+
+.factor-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 1px 6px;
+}
+
+.factor-pill.fare { background: rgba(255, 112, 67, 0.2); color: #FF7043; }
+.factor-pill.avail { background: rgba(251, 191, 36, 0.2); color: #FBBF24; }
+.factor-pill.vol { background: rgba(56, 189, 248, 0.2); color: #38BDF8; }
+.factor-pill.dem { background: rgba(192, 132, 252, 0.2); color: #C084FC; }
+.factor-pill.agree { background: rgba(52, 211, 153, 0.2); color: #34D399; }
+
+/* National Macro Summary Bar */
+.rsi-macro-summary-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 18px 24px;
+  flex-wrap: wrap;
+}
+
+.rsi-macro-gauge-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding-right: 24px;
+}
+
+.rsi-dial-value-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.rsi-dial-num {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rsi-dial-scale {
+  font-size: 0.95rem;
+  color: #71717A;
+}
+
+.rsi-level-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rsi-status-pill {
+  font-size: 0.74rem;
+  font-weight: 900;
+  padding: 3px 8px;
+  border: 1.5px solid;
+  letter-spacing: 0.06em;
+  display: inline-block;
+  text-align: center;
+}
+
+.rsi-gauge-subtext {
+  font-size: 0.7rem;
+  color: #71717A;
+}
+
+.rsi-macro-meta-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rsi-macro-narrative {
+  font-size: 0.88rem;
+  color: #E2E8F0;
+  line-height: 1.45;
+}
+
+.narrative-tag {
+  color: #FF5722;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.rsi-macro-pills-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.macro-pill {
+  font-size: 0.74rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+}
+
+/* Corridor Toolbar */
+.rsi-corridors-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.rsi-corridors-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #CBD5E1;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rsi-corridor-count {
+  color: #71717A;
+}
+
+.rsi-sort-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sort-label {
+  font-size: 0.74rem;
+  color: #71717A;
+  margin-right: 4px;
+}
+
+.rsi-sort-btn {
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94A3B8;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rsi-sort-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Corridors List */
+.rsi-corridors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rsi-corridor-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.rsi-corridor-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.rsi-corridor-card.is-selected {
+  border-color: #FF3D00;
+  background: rgba(255, 61, 0, 0.04);
+}
+
+.rsi-corridor-summary-row {
+  display: grid;
+  grid-template-columns: 2.2fr 1.6fr 2fr 1.8fr 0.4fr;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 16px;
+}
+
+@media (max-width: 960px) {
+  .rsi-corridor-summary-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+.rsi-col-route {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rsi-rank-pill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #71717A;
+  min-width: 24px;
+}
+
+.rsi-route-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rsi-route-code {
+  font-size: 0.96rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 0.03em;
+}
+
+.rsi-route-cities {
+  font-size: 0.74rem;
+  color: #94A3B8;
+}
+
+.rsi-col-fare {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rsi-fare-val {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #FFFFFF;
+}
+
+.rsi-fare-delta {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.rsi-fare-delta.pos { color: #FF7043; }
+.rsi-fare-delta.neg { color: #34D399; }
+
+.rsi-col-meter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rsi-meter-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.rsi-meter-fill {
+  height: 100%;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rsi-meter-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: #71717A;
+}
+
+.rsi-col-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.rsi-level-tag {
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 2px 6px;
+  border: 1px solid;
+  letter-spacing: 0.06em;
+}
+
+.rsi-driver-tag {
+  font-size: 0.7rem;
+  color: #A1A1AA;
+}
+
+.rsi-col-expand {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rsi-expand-btn {
+  background: none;
+  border: none;
+  color: #71717A;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.rsi-expand-btn:hover {
+  color: #FFFFFF;
+}
+
+/* Factor Breakdown Drawer */
+.rsi-factor-breakdown-drawer {
+  background: #08080C;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  color: #94A3B8;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.drawer-sub {
+  color: #FF5722;
+}
+
+.rsi-factors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+}
+
+.factor-breakdown-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.factor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.factor-name {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #FAFAFA;
+}
+
+.factor-weight {
+  font-size: 0.65rem;
+  color: #71717A;
+}
+
+.factor-meter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.factor-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.factor-fill {
+  height: 100%;
+}
+
+.factor-score {
+  font-size: 0.74rem;
+  font-weight: 900;
+  color: #FAFAFA;
+  min-width: 28px;
+  text-align: right;
+}
+
+.factor-detail {
+  font-size: 0.68rem;
+  color: #94A3B8;
+  line-height: 1.35;
+}
+
+.factor-contrib {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #34D399;
+  text-align: right;
+}
+
+/* ==========================================================================
+   Airport Substitution Intelligence & Scenario Simulation Studio
+   ========================================================================== */
+
+.airport-sub-widget-container {
+  background: rgba(18, 18, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.airport-sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.sub-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #38BDF8;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.sub-main-heading {
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: 0.045em;
+  color: #FFFFFF;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.sub-heading-desc {
+  font-size: 0.84rem;
+  color: #94A3B8;
+  max-width: 820px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.airport-sub-tab-switch {
+  display: flex;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2px;
+}
+
+.sub-tab-btn {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sub-tab-btn.active {
+  background: #FF3D00;
+  color: #FFFFFF;
+}
+
+/* Substitution Intelligence View */
+.sub-info-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0B0B0F;
+  border-left: 3px solid #38BDF8;
+  padding: 8px 14px;
+  font-size: 0.74rem;
+  color: #94A3B8;
+  font-weight: 700;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sub-svi-formula {
+  color: #38BDF8;
+}
+
+.substitution-pairs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+.sub-pair-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pair-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pair-region {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #FAFAFA;
+}
+
+.pair-svi-badge {
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 2px 6px;
+  border: 1px solid;
+  letter-spacing: 0.04em;
+}
+
+.pair-airports-comparison {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.airport-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.airport-type-tag {
+  font-size: 0.62rem;
+  color: #71717A;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.airport-type-tag.sub-tag {
+  color: #34D399;
+}
+
+.airport-code {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #FFFFFF;
+}
+
+.airport-fullname {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  line-height: 1.25;
+}
+
+.airport-fare {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #FAFAFA;
+  margin-top: 4px;
+}
+
+.fare-sub {
+  font-size: 0.65rem;
+  color: #71717A;
+}
+
+.versus-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #71717A;
+}
+
+.vs-circle {
+  font-size: 0.65rem;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 4px;
+}
+
+.pair-metrics-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.metric-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.metric-cell.highlight-green {
+  color: #34D399;
+  font-weight: 800;
+}
+
+.pair-advice-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.015);
+  border-left: 2px solid #F59E0B;
+  padding: 8px 10px;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.advice-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #F59E0B;
+}
+
+.advice-text {
+  color: #E2E8F0;
+}
+
+.best-for-text {
+  color: #94A3B8;
+  font-size: 0.72rem;
+}
+
+/* Simulation View Layout */
+.sim-layout-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 960px) {
+  .sim-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sim-controls-panel {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controls-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #FAFAFA;
+  letter-spacing: 0.06em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #94A3B8;
+}
+
+.hub-chips-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.hub-chip-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hub-chip-btn.active {
+  background: rgba(255, 61, 0, 0.15);
+  border-color: #FF3D00;
+}
+
+.chip-code {
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: #FFFFFF;
+}
+
+.chip-name {
+  font-size: 0.65rem;
+  color: #71717A;
+}
+
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #E2E8F0;
+}
+
+.sim-slider {
+  width: 100%;
+  accent-color: #FF3D00;
+  cursor: pointer;
+}
+
+.slider-hint {
+  font-size: 0.68rem;
+  color: #71717A;
+  line-height: 1.35;
+}
+
+.btn-run-simulation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: #FF3D00;
+  color: #FFFFFF;
+  border: none;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.btn-run-simulation:hover {
+  background: #E63600;
+  box-shadow: 0 4px 16px rgba(255, 61, 0, 0.4);
+}
+
+.btn-run-simulation:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sim-results-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.results-hero-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.result-kpi-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.result-kpi-card.fare-shock { border-top: 2px solid #FF3D00; }
+.result-kpi-card.rsi-shock { border-top: 2px solid #F59E0B; }
+.result-kpi-card.pax-shock { border-top: 2px solid #38BDF8; }
+
+.kpi-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #71717A;
+  letter-spacing: 0.04em;
+}
+
+.kpi-num {
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.kpi-sub {
+  font-size: 0.7rem;
+  color: #94A3B8;
+}
+
+.rsi-shock-transition {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.baseline-rsi {
+  color: #71717A;
+}
+
+.substitution-recommendation-card {
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sub-rec-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #10B981;
+  letter-spacing: 0.05em;
+}
+
+.rec-text {
+  font-size: 0.85rem;
+  color: #E2E8F0;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.rec-badges-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.rec-badge {
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+}
+
+.rec-badge.primary { border-color: rgba(239, 68, 68, 0.3); color: #FCA5A5; }
+.rec-badge.alternate { border-color: rgba(16, 185, 129, 0.4); color: #6EE7B7; font-weight: 800; }
+
+.corridors-shock-table-wrap {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow-x: auto;
+}
+
+.table-header {
+  padding: 10px 14px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sim-corridors-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.76rem;
+  text-align: left;
+}
+
+.sim-corridors-table th {
+  padding: 8px 14px;
+  color: #71717A;
+  font-weight: 800;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sim-corridors-table td {
+  padding: 10px 14px;
+  color: #CBD5E1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.table-risk-pill {
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 2px 6px;
+  border: 1px solid;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] .rsi-widget-container,
+[data-theme="light"] .airport-sub-widget-container {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+}
+
+[data-theme="light"] .rsi-section-heading,
+[data-theme="light"] .sub-main-heading,
+[data-theme="light"] .rsi-route-code,
+[data-theme="light"] .rsi-fare-val,
+[data-theme="light"] .airport-code,
+[data-theme="light"] .controls-header,
+[data-theme="light"] .pair-region,
+[data-theme="light"] .factor-name,
+[data-theme="light"] .explainer-item-header {
+  color: #0F172A;
+}
+
+[data-theme="light"] .rsi-formula-capsule,
+[data-theme="light"] .sub-info-banner {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+[data-theme="light"] .rsi-formula-explainer-panel {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+[data-theme="light"] .rsi-macro-summary-bar,
+[data-theme="light"] .rsi-corridor-card,
+[data-theme="light"] .sub-pair-card,
+[data-theme="light"] .result-kpi-card {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+[data-theme="light"] .rsi-corridor-card:hover {
+  background: #F1F5F9;
+}
+
+[data-theme="light"] .pair-airports-comparison,
+[data-theme="light"] .sim-controls-panel {
+  background: #F1F5F9;
+  border-color: #E2E8F0;
+}
+
+[data-theme="light"] .rsi-factor-breakdown-drawer {
+  background: #F8FAFC;
+  border-top-color: #E2E8F0;
+}
+
+[data-theme="light"] .rec-text,
+[data-theme="light"] .rsi-macro-narrative,
+[data-theme="light"] .advice-text {
+  color: #1E293B;
+}
+
+[data-theme="light"] .sim-corridors-table td {
+  color: #1E293B;
+}
+
 /* 3. Two-Column Routes Section */
 .mospi-routes-section {
   display: grid;

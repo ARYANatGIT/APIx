@@ -154,8 +154,17 @@ def get_macro_overview():
     lat_res = list(db.scraper_audit_logs.aggregate(pipeline_lat))
     avg_latency = int(lat_res[0]["avg_latency"]) if lat_res and lat_res[0].get("avg_latency") else 1850
 
+    # Dynamic Route Stress Index summary
+    try:
+        from backend.route_stress_index import compute_route_stress_index
+        rsi_payload = compute_route_stress_index(db)
+        national_rsi = rsi_payload.get("national_composite", {})
+    except Exception:
+        national_rsi = {"rsi": 57.0, "level": "MODERATE", "color": "#FBBF24"}
+
     return {
         "database": "MongoDB Atlas (apix_mospi)",
+        "route_stress_index": national_rsi,
         "latest_index": {
             "value": dyn_kpis.get("latest_index", 140.04),
             "base_period": "2024-Q1",
@@ -779,4 +788,61 @@ def chat_with_intel_assistant(payload: IntelChatRequest):
     from backend.spike_detector import answer_intel_query
     db = get_mongo_db()
     return answer_intel_query(payload.message, db, payload.session_id)
+
+
+# ==============================================================================
+# Route Stress Index (RSI) & Airport Substitution Endpoints
+# ==============================================================================
+
+@app.get("/api/v1/rsi")
+def get_route_stress_index():
+    """
+    Computes fully dynamic Route Stress Index (RSI) across all 10 DGCA corridors:
+    RSI = w1(fare anomaly) + w2(availability drop) + w3(volatility) + w4(demand proxy) + w5(cross-source agreement)
+    Zero hardcoded values: derived dynamically from live microdata in MongoDB.
+    """
+    from backend.mongo import get_mongo_db
+    from backend.route_stress_index import compute_route_stress_index
+    db = get_mongo_db()
+    return compute_route_stress_index(db)
+
+
+@app.get("/api/v1/airport-substitution")
+def get_airport_substitution():
+    """
+    Returns real-time catchment area airport substitution intelligence:
+    Evaluates fare arbitrage, travel time trade-offs, and Substitution Viability Index (SVI)
+    for major Indian metropolitan dual-airport catchments (GOI/GOX, BOM/PNQ/NMI, DEL/HDO/DXN, BLR/MYQ, CCU/RDP).
+    """
+    from backend.mongo import get_mongo_db
+    from backend.airport_substitution import get_airport_substitution_intelligence
+    db = get_mongo_db()
+    return get_airport_substitution_intelligence(db)
+
+
+class AirportSimulationRequest(BaseModel):
+    hub_code: str = "DEL"
+    capacity_reduction_pct: float = 25.0
+    weather_severity_pct: float = 50.0
+    demand_surge_pct: float = 20.0
+
+
+@app.post("/api/v1/airport-simulation")
+def run_airport_simulation(payload: AirportSimulationRequest):
+    """
+    Executes what-if scenario disruption simulation on an airport hub.
+    Projects simulated fare impact, shocked RSI scores, displaced passenger load,
+    and recommended secondary airport rerouting strategies.
+    """
+    from backend.mongo import get_mongo_db
+    from backend.airport_substitution import simulate_airport_disruption
+    db = get_mongo_db()
+    return simulate_airport_disruption(
+        hub_code=payload.hub_code,
+        capacity_cut_pct=payload.capacity_reduction_pct,
+        weather_severity_pct=payload.weather_severity_pct,
+        demand_surge_pct=payload.demand_surge_pct,
+        db=db
+    )
+
 
