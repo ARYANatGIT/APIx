@@ -6718,11 +6718,59 @@
 .wave-bar.w1 { height: 4px; animation-delay: 0.1s; }
 .wave-bar.w2 { height: 13px; animation-delay: 0.25s; }
 .wave-bar.w3 { height: 7px; animation-delay: 0.4s; }
-.wave-bar.w4 { height: 11px; animation-delay: 0.15s; }
+.wave-bar.w4 { height: 11px; animation-delay: 0.18s; }
 
 @keyframes waveAnim {
   0% { height: 3px; }
-  100% { height: 13px; }
+  100% { height: 14px; }
+}
+
+/* ==========================================================================
+   Word Highlighting during Speech Synthesis
+   Subtle, elegant, non-overwhelming styling
+   ========================================================================== */
+
+/* Native W3C CSS Custom Highlight API */
+::highlight(speech-word-highlight) {
+  background-color: rgba(255, 61, 0, 0.18);
+  color: #FF5722;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 61, 0, 0.45);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Universal Smooth Focus Overlay Cursor */
+#speech-reading-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 4px;
+  background: rgba(255, 61, 0, 0.10);
+  border-bottom: 2px solid rgba(255, 61, 0, 0.6);
+  box-shadow: 0 2px 8px rgba(255, 61, 0, 0.12);
+  transition: top 0.12s cubic-bezier(0.2, 0.8, 0.2, 1),
+              left 0.12s cubic-bezier(0.2, 0.8, 0.2, 1),
+              width 0.12s cubic-bezier(0.2, 0.8, 0.2, 1),
+              height 0.12s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 0.15s ease;
+  opacity: 0;
+}
+
+/* Spoken Word Badge inside Floating Accessibility Dock */
+.spoken-word-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #FF5722;
+  background: rgba(255, 61, 0, 0.14);
+  border: 1px solid rgba(255, 61, 0, 0.3);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 5px;
+  font-size: 0.65rem;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
 }
 
 @media (max-width: 768px) {
@@ -6853,6 +6901,28 @@
   background: #FFF7F5 !important;
   border-color: #FF3D00 !important;
   box-shadow: 0 8px 32px rgba(255, 61, 0, 0.2) !important;
+}
+
+/* Word Highlighting in Light Mode */
+[data-theme="light"] ::highlight(speech-word-highlight) {
+  background-color: rgba(234, 88, 12, 0.14);
+  color: #C2410C;
+  text-decoration: underline;
+  text-decoration-color: rgba(234, 88, 12, 0.45);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+[data-theme="light"] #speech-reading-cursor {
+  background: rgba(234, 88, 12, 0.08);
+  border-bottom: 2px solid rgba(234, 88, 12, 0.55);
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.10);
+}
+
+[data-theme="light"] .spoken-word-badge {
+  color: #C2410C;
+  background: rgba(234, 88, 12, 0.10);
+  border-color: rgba(234, 88, 12, 0.25);
 }
 
 /* Sidebar in Light Mode */

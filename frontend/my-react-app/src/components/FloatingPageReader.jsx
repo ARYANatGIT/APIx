@@ -5,11 +5,13 @@ import { togglePageReader, stopPageReader, subscribeSpeechState, getIsSpeaking }
 export default function FloatingPageReader({ activeTab }) {
   const [isSpeaking, setIsSpeaking] = useState(getIsSpeaking());
   const [currentSentence, setCurrentSentence] = useState('');
+  const [currentWord, setCurrentWord] = useState('');
 
   useEffect(() => {
-    const unsubscribe = subscribeSpeechState(({ isSpeaking, currentSentence }) => {
+    const unsubscribe = subscribeSpeechState(({ isSpeaking, currentSentence, currentWord }) => {
       setIsSpeaking(isSpeaking);
-      setCurrentSentence(currentSentence);
+      setCurrentSentence(currentSentence || '');
+      setCurrentWord(currentWord || '');
     });
     return unsubscribe;
   }, []);
@@ -45,9 +47,12 @@ export default function FloatingPageReader({ activeTab }) {
           <span className="floating-reader-title">
             {isSpeaking ? 'Reading Page Aloud' : 'Read Page Aloud'}
           </span>
-          {isSpeaking && currentSentence && (
+          {isSpeaking && (currentWord || currentSentence) && (
             <span className="floating-reader-sub">
-              {currentSentence.length > 38 ? `${currentSentence.slice(0, 38)}...` : currentSentence}
+              {currentWord && <span className="spoken-word-badge">{currentWord}</span>}
+              <span className="spoken-sentence-preview">
+                {currentSentence.length > 34 ? `${currentSentence.slice(0, 34)}...` : currentSentence}
+              </span>
             </span>
           )}
         </div>
@@ -66,4 +71,3 @@ export default function FloatingPageReader({ activeTab }) {
     </div>
   );
 }
-
