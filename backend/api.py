@@ -735,6 +735,7 @@ def sync_mongodb_from_baseline():
 # Spike Detection & Disruption Intelligence Radar Endpoints
 # ==============================================================================
 
+@app.get("/api/v1/intel/feed")
 @app.get("/api/v1/intel/spikes")
 @app.get("/api/v1/spikes")
 def get_spikes_feed():
@@ -742,9 +743,21 @@ def get_spikes_feed():
     Returns real-time stream of detected scraper price anomalies,
     transport disruption intelligence (e.g. Kerala floods, Delhi fog),
     and ML predictive future price surge forecasts (e.g. Dec 2026).
+    All events are stored and updated in MongoDB 'intel_alerts'.
     """
     from backend.mongo import get_mongo_db
     from backend.spike_detector import get_all_spikes_feed
+    db = get_mongo_db()
+    return get_all_spikes_feed(db)
+
+
+@app.post("/api/v1/intel/refresh")
+def force_refresh_intel_feed():
+    """Clears the live news cache and retrieves fresh real-time RSS intelligence."""
+    from backend.mongo import get_mongo_db
+    from backend.spike_detector import get_all_spikes_feed, _NEWS_CACHE
+    _NEWS_CACHE["timestamp"] = 0
+    _NEWS_CACHE["items"] = []
     db = get_mongo_db()
     return get_all_spikes_feed(db)
 
@@ -757,12 +770,13 @@ class IntelChatRequest(BaseModel):
 @app.post("/api/v1/intel/chat")
 def chat_with_intel_assistant(payload: IntelChatRequest):
     """
-    Conversational AI Assistant.
-    Explains methodology terms (Laspeyres formula, CPI weights, advance curves),
-    details news disruptions, and provides on-demand microdata analytics.
+    Ultra-Fast, Diverse Conversational AI Assistant.
+    Covers website navigation, database microdata, price formulas, external flight disruptions,
+    weather emergencies, aviation accidents & safety rules (DGCA CAR, RESA, CAT III-B),
+    and keeps user chat history temporarily in session cache only.
     """
     from backend.mongo import get_mongo_db
     from backend.spike_detector import answer_intel_query
     db = get_mongo_db()
-    return answer_intel_query(payload.message, db)
+    return answer_intel_query(payload.message, db, payload.session_id)
 

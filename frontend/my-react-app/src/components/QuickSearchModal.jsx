@@ -51,12 +51,12 @@ export default function QuickSearchModal({
       },
       {
         id: 'page-spikes',
-        title: 'Spike Detection & AI Disruption Radar',
-        subtitle: 'Scraper Price Anomalies, Kerala Floods News & Dec 2026 Forecasts',
+        title: 'Air Intel & Disruption Radar',
+        subtitle: 'Real-Time News Disruptions, Scraper Spikes, ML Forecasts & AI Assistant',
         category: 'Pages & Dashboards',
         icon: Activity,
         targetTab: 'spikes',
-        keywords: ['spike', 'spikes', 'anomaly', 'chat', 'kerala', 'flood', 'predict', 'forecast', 'ai', 'radar', 'unusual', 'surge', 'news', 'disruption']
+        keywords: ['intel', 'air intel', 'spike', 'spikes', 'anomaly', 'chat', 'kerala', 'flood', 'predict', 'forecast', 'ai', 'radar', 'unusual', 'surge', 'news', 'disruption', 'accident', 'safety', 'dgca']
       },
       {
         id: 'page-routes',

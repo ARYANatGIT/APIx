@@ -32,7 +32,7 @@ export default function Navbar({
 }) {
   const navItems = [
     { id: 'deck', label: 'FLIGHT DECK', icon: LayoutDashboard },
-    { id: 'spikes', label: 'SPIKE DETECTION', icon: Activity },
+    { id: 'spikes', label: 'AIR INTEL', icon: Activity },
     { id: 'routes', label: 'ROUTE BASKET', icon: Compass },
     { id: 'trajectory', label: 'INDEX TREND', icon: TrendingUp },
     { id: 'windows', label: 'ADVANCE CURVE', icon: Clock },
