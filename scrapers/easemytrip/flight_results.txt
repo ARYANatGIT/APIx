@@ -128,7 +128,7 @@ FASTEST
  11044 | 02h 00m
 Other Sort
 Sep 16
- 6,442
+ 6,528
 Sep 17
  6,090
 Sep 18
@@ -3676,6 +3676,66 @@ Grand Total
 Book Now
 Flight Detail
 AkasaAir
+QP-1128
+
+16:00
+
+New Delhi
+02h 20m
+Non-stop
+18:20
+
+Mumbai
+ 7,922
++ More Fare
+BOOK NOW
+Lock Price ₹
+397
+BOOKNOW: Get extra Rs.220 instant discount on this flight
+More Fare Options Available
+✖
+New Delhi - Mumbai AkasaAir • Sun-20Sep2026 • Departure at 16:00 - Arrival at 18:20
+SAVER
+7,922
+Baggage
+7Kgs Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 3999 onwards
+Date Change fee starts at Rs. 2999 onwards
+Refundable
+Selected
+Lock Now
+FLEXI
+8,323
+Baggage
+7Kgs Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 2499 onwards
+Date Change fee starts at Rs. 299 onwards
+Add-Ons
+Seat (Free seat)
+Refundable
+Select
+Lock Now
+EMTEXCLUSIVE
+8,171
+Baggage
+7Kgs Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 3999 onwards
+Date Change fee starts at Rs. 2999 onwards
+Refundable
+Select
+Lock Now
+Grand Total
+ 7,922
+*Additional charges may apply
+Book Now
+Flight Detail
+AkasaAir
 QP-1836
 
 12:30
@@ -4009,66 +4069,6 @@ Select
 Lock Now
 Grand Total
  8,172
-*Additional charges may apply
-Book Now
-Flight Detail
-AkasaAir
-QP-1128
-
-16:00
-
-New Delhi
-02h 20m
-Non-stop
-18:20
-
-Mumbai
- 8,370
-+ More Fare
-BOOK NOW
-Lock Price ₹
-419
-BOOKNOW: Get extra Rs.220 instant discount on this flight
-More Fare Options Available
-✖
-New Delhi - Mumbai AkasaAir • Sun-20Sep2026 • Departure at 16:00 - Arrival at 18:20
-SAVER
-8,370
-Baggage
-7Kgs Cabin Baggage
-15 Kgs Check-in Baggage
-Changeability
-Cancellation fee starts at Rs. 3999 onwards
-Date Change fee starts at Rs. 2999 onwards
-Refundable
-Selected
-Lock Now
-FLEXI
-8,769
-Baggage
-7Kgs Cabin Baggage
-15 Kgs Check-in Baggage
-Changeability
-Cancellation fee starts at Rs. 2499 onwards
-Date Change fee starts at Rs. 299 onwards
-Add-Ons
-Seat (Free seat)
-Refundable
-Select
-Lock Now
-EMTEXCLUSIVE
-8,619
-Baggage
-7Kgs Cabin Baggage
-15 Kgs Check-in Baggage
-Changeability
-Cancellation fee starts at Rs. 3999 onwards
-Date Change fee starts at Rs. 2999 onwards
-Refundable
-Select
-Lock Now
-Grand Total
- 8,370
 *Additional charges may apply
 Book Now
 Flight Detail
@@ -5786,17 +5786,17 @@ New Delhi
 18:30
 
 Mumbai
- 12,076
+ 11,866
 + More Fare
 BOOK NOW
 Lock Price ₹
-604
+594
 BOOKNOW: Get extra Rs.220 instant discount on this flight
 More Fare Options Available
 ✖
 New Delhi - Mumbai IndiGo • Sun-20Sep2026 • Departure at 13:20 - Arrival at 18:30
 SAVER
-12,076
+11,866
 Baggage
 7Kgs Cabin Baggage
 15 Kgs Check-in Baggage
@@ -5807,7 +5807,7 @@ Refundable
 Selected
 Lock Now
 FLEXIPLUS
-13,021
+12,811
 Baggage
 7Kgs Cabin Baggage
 15 Kgs Check-in Baggage
@@ -5818,7 +5818,7 @@ Refundable
 Select
 Lock Now
 INDIGOUPFRONT
-16,696
+16,486
 Baggage
 7Kgs Cabin Baggage
 20 Kgs Check-in Baggage
@@ -5829,7 +5829,7 @@ Refundable
 Select
 Lock Now
 EMTEXCLUSIVE
-12,375
+12,165
 Baggage
 7Kgs Cabin Baggage
 15 Kgs Check-in Baggage
@@ -5840,7 +5840,7 @@ Refundable
 Select
 Lock Now
 Grand Total
- 12,076
+ 11,866
 *Additional charges may apply
 Book Now
 Flight Detail
@@ -6030,6 +6030,57 @@ Select
 Lock Now
 Grand Total
  13,137
+*Additional charges may apply
+Book Now
+Flight Detail
+Enjoy Free Meals
+Air India
+AI-2909
+
+22:30
+
+New Delhi
+24h 10m
+1 stop
+22:40
+
+Mumbai
+ 13,643
++ More Fare
+BOOK NOW
+Lock Price ₹
+683
+5 Seats Left
+BOOKNOW: Get extra Rs.420 instant discount on this flight
+More Fare Options Available
+✖
+New Delhi - Mumbai Air India • Sun-20Sep2026 • Departure at 22:30 - Arrival at 22:40
+RETAIL
+13,643
+Baggage
+7KG Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 5250 onwards
+Date Change fee starts at Rs. 3150 onwards
+Add-Ons
+Seat (Free seat)
+Refundable
+Selected
+Lock Now
+EMTEXCLUSIVE
+13,942
+Baggage
+7KG Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 5250 onwards
+Date Change fee starts at Rs. 3150 onwards
+Refundable
+Select
+Lock Now
+Grand Total
+ 13,643
 *Additional charges may apply
 Book Now
 Flight Detail
@@ -6233,17 +6284,17 @@ New Delhi
 21:05
 
 Mumbai
- 14,472
+ 14,052
 + More Fare
 BOOK NOW
 Lock Price ₹
-724
+703
 BOOKNOW: Get extra Rs.220 instant discount on this flight
 More Fare Options Available
 ✖
 New Delhi - Mumbai IndiGo • Sun-20Sep2026 • Departure at 17:05 - Arrival at 21:05
 SAVER
-14,472
+14,052
 Baggage
 7Kgs Cabin Baggage
 15 Kgs Check-in Baggage
@@ -6254,7 +6305,7 @@ Refundable
 Selected
 Lock Now
 FLEXIPLUS
-15,417
+14,997
 Baggage
 7Kgs Cabin Baggage
 15 Kgs Check-in Baggage
@@ -6265,7 +6316,7 @@ Refundable
 Select
 Lock Now
 INDIGOUPFRONT
-17,832
+17,412
 Baggage
 7Kgs Cabin Baggage
 20 Kgs Check-in Baggage
@@ -6276,7 +6327,7 @@ Refundable
 Select
 Lock Now
 EMTEXCLUSIVE
-14,771
+14,351
 Baggage
 7Kgs Cabin Baggage
 15 Kgs Check-in Baggage
@@ -6287,7 +6338,7 @@ Refundable
 Select
 Lock Now
 Grand Total
- 14,472
+ 14,052
 *Additional charges may apply
 Book Now
 Flight Detail
@@ -6858,57 +6909,6 @@ Book Now
 Flight Detail
 Enjoy Free Meals
 Air India
-AI-885
-
-07:25
-
-New Delhi
-12h 00m
-1 stop
-19:25
-
-Mumbai
- 15,365
-+ More Fare
-BOOK NOW
-Lock Price ₹
-769
-9 Seats Left
-BOOKNOW: Get extra Rs.420 instant discount on this flight
-More Fare Options Available
-✖
-New Delhi - Mumbai Air India • Sun-20Sep2026 • Departure at 07:25 - Arrival at 19:25
-RETAIL
-15,365
-Baggage
-7KG Cabin Baggage
-15 Kgs Check-in Baggage
-Changeability
-Cancellation fee starts at Rs. 5250 onwards
-Date Change fee starts at Rs. 3150 onwards
-Add-Ons
-Seat (Free seat)
-Refundable
-Selected
-Lock Now
-EMTEXCLUSIVE
-15,664
-Baggage
-7KG Cabin Baggage
-15 Kgs Check-in Baggage
-Changeability
-Cancellation fee starts at Rs. 5250 onwards
-Date Change fee starts at Rs. 3150 onwards
-Refundable
-Select
-Lock Now
-Grand Total
- 15,365
-*Additional charges may apply
-Book Now
-Flight Detail
-Enjoy Free Meals
-Air India
 AI-2569
 
 20:25
@@ -7458,6 +7458,76 @@ Grand Total
 Book Now
 Flight Detail
 IndiGo
+6E-2341
+
+14:50
+
+New Delhi
+06h 00m
+1 stop
+20:50
+
+Navi Mumbai
+(24 km from Mumbai)
+ 16,978
++ More Fare
+BOOK NOW
+Lock Price ₹
+849
+BOOKNOW: Get extra Rs.220 instant discount on this flight
+More Fare Options Available
+✖
+New Delhi - Navi Mumbai IndiGo • Sun-20Sep2026 • Departure at 14:50 - Arrival at 20:50
+SAVER
+16,978
+Baggage
+7Kgs Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 4299 onwards
+Date Change fee starts at Rs. 3499 onwards
+Refundable
+Selected
+Lock Now
+FLEXIPLUS
+17,818
+Baggage
+7Kgs Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 2499 onwards
+Date Change fee starts at Rs. 299 onwards
+Refundable
+Select
+Lock Now
+INDIGOUPFRONT
+20,338
+Baggage
+7Kgs Cabin Baggage
+20 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 999 onwards
+Date Change fee starts at Rs. 0 onwards
+Refundable
+Select
+Lock Now
+EMTEXCLUSIVE
+17,277
+Baggage
+7Kgs Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 4299 onwards
+Date Change fee starts at Rs. 3499 onwards
+Refundable
+Select
+Lock Now
+Grand Total
+ 16,978
+*Additional charges may apply
+Book Now
+Flight Detail
+IndiGo
 6E-2331
 
 12:20
@@ -7524,76 +7594,6 @@ Select
 Lock Now
 Grand Total
  17,188
-*Additional charges may apply
-Book Now
-Flight Detail
-IndiGo
-6E-2341
-
-14:50
-
-New Delhi
-06h 00m
-1 stop
-20:50
-
-Navi Mumbai
-(24 km from Mumbai)
- 17,398
-+ More Fare
-BOOK NOW
-Lock Price ₹
-870
-BOOKNOW: Get extra Rs.220 instant discount on this flight
-More Fare Options Available
-✖
-New Delhi - Navi Mumbai IndiGo • Sun-20Sep2026 • Departure at 14:50 - Arrival at 20:50
-SAVER
-17,398
-Baggage
-7Kgs Cabin Baggage
-15 Kgs Check-in Baggage
-Changeability
-Cancellation fee starts at Rs. 4299 onwards
-Date Change fee starts at Rs. 3499 onwards
-Refundable
-Selected
-Lock Now
-FLEXIPLUS
-18,238
-Baggage
-7Kgs Cabin Baggage
-15 Kgs Check-in Baggage
-Changeability
-Cancellation fee starts at Rs. 2499 onwards
-Date Change fee starts at Rs. 299 onwards
-Refundable
-Select
-Lock Now
-INDIGOUPFRONT
-20,758
-Baggage
-7Kgs Cabin Baggage
-20 Kgs Check-in Baggage
-Changeability
-Cancellation fee starts at Rs. 999 onwards
-Date Change fee starts at Rs. 0 onwards
-Refundable
-Select
-Lock Now
-EMTEXCLUSIVE
-17,697
-Baggage
-7Kgs Cabin Baggage
-15 Kgs Check-in Baggage
-Changeability
-Cancellation fee starts at Rs. 4299 onwards
-Date Change fee starts at Rs. 3499 onwards
-Refundable
-Select
-Lock Now
-Grand Total
- 17,398
 *Additional charges may apply
 Book Now
 Flight Detail
@@ -8350,6 +8350,57 @@ Select
 Lock Now
 Grand Total
  22,182
+*Additional charges may apply
+Book Now
+Flight Detail
+Enjoy Free Meals
+Air India
+AI-2653
+
+04:30
+
+New Delhi
+05h 50m
+1 stop
+10:20
+
+Mumbai
+ 20,212
++ More Fare
+BOOK NOW
+Lock Price ₹
+1011
+9 Seats Left
+BOOKNOW: Get extra Rs.420 instant discount on this flight
+More Fare Options Available
+✖
+New Delhi - Mumbai Air India • Sun-20Sep2026 • Departure at 04:30 - Arrival at 10:20
+RETAIL
+20,212
+Baggage
+7KG Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 5250 onwards
+Date Change fee starts at Rs. 3150 onwards
+Add-Ons
+Seat (Free seat)
+Refundable
+Selected
+Lock Now
+EMTEXCLUSIVE
+20,511
+Baggage
+7KG Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 5250 onwards
+Date Change fee starts at Rs. 3150 onwards
+Refundable
+Select
+Lock Now
+Grand Total
+ 20,212
 *Additional charges may apply
 Book Now
 Flight Detail
@@ -9186,6 +9237,57 @@ Book Now
 Flight Detail
 Enjoy Free Meals
 Air India
+AI-427
+
+08:30
+
+New Delhi
+05h 35m
+1 stop
+14:05
+
+Mumbai
+ 32,872
++ More Fare
+BOOK NOW
+Lock Price ₹
+1644
+1 Seats Left
+BOOKNOW: Get extra Rs.420 instant discount on this flight
+More Fare Options Available
+✖
+New Delhi - Mumbai Air India • Sun-20Sep2026 • Departure at 08:30 - Arrival at 14:05
+RETAIL
+32,872
+Baggage
+7KG Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 5250 onwards
+Date Change fee starts at Rs. 3150 onwards
+Add-Ons
+Seat (Free seat)
+Refundable
+Selected
+Lock Now
+EMTEXCLUSIVE
+33,171
+Baggage
+7KG Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 5250 onwards
+Date Change fee starts at Rs. 3150 onwards
+Refundable
+Select
+Lock Now
+Grand Total
+ 32,872
+*Additional charges may apply
+Book Now
+Flight Detail
+Enjoy Free Meals
+Air India
 AI-2907
 
 11:55
@@ -9232,6 +9334,57 @@ Select
 Lock Now
 Grand Total
  36,629
+*Additional charges may apply
+Book Now
+Flight Detail
+Enjoy Free Meals
+Air India
+AI-1739
+
+11:30
+
+New Delhi
+05h 40m
+1 stop
+17:10
+
+Mumbai
+ 36,790
++ More Fare
+BOOK NOW
+Lock Price ₹
+1840
+5 Seats Left
+BOOKNOW: Get extra Rs.420 instant discount on this flight
+More Fare Options Available
+✖
+New Delhi - Mumbai Air India • Sun-20Sep2026 • Departure at 11:30 - Arrival at 17:10
+RETAIL
+36,790
+Baggage
+7KG Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 5250 onwards
+Date Change fee starts at Rs. 3150 onwards
+Add-Ons
+Seat (Free seat)
+Refundable
+Selected
+Lock Now
+EMTEXCLUSIVE
+37,089
+Baggage
+7KG Cabin Baggage
+15 Kgs Check-in Baggage
+Changeability
+Cancellation fee starts at Rs. 5250 onwards
+Date Change fee starts at Rs. 3150 onwards
+Refundable
+Select
+Lock Now
+Grand Total
+ 36,790
 *Additional charges may apply
 Book Now
 Flight Detail

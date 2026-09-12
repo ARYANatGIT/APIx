@@ -17,6 +17,9 @@ import MoSPIMacroDashboard from './components/MoSPIMacroDashboard';
 import ThemeToggle from './components/ThemeToggle';
 import VolumeReaderButton from './components/VolumeReaderButton';
 import FloatingPageReader from './components/FloatingPageReader';
+import SearchNavButton from './components/SearchNavButton';
+import QuickSearchModal from './components/QuickSearchModal';
+import { togglePageReader } from './services/speechReader';
 import {
   Sparkles,
   ArrowRight,
@@ -110,6 +113,22 @@ function App() {
   const [isFlightActive, setIsFlightActive] = useState(true);
   const [isIndexModalOpen, setIsIndexModalOpen] = useState(false);
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  // Global Quick Search Shortcut (Ctrl+K, Cmd+K, or /)
+  useEffect(() => {
+    const handleGlobalKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        setIsSearchOpen(prev => !prev);
+      } else if (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, []);
 
   // Backend Data States
   const [overviewData, setOverviewData] = useState(null);
@@ -280,6 +299,7 @@ function App() {
             activeTab={activeTab}
             onNavigate={handleNavigate}
             onBookClick={handleOpenIndexModal}
+            onSearchClick={() => setIsSearchOpen(true)}
             latestIndex={latestIndexVal}
             changePct={overviewData?.latest_index?.change_pct_d1 ?? 1.68}
             theme={theme}
@@ -300,6 +320,7 @@ function App() {
               <header className="home-simple-topbar bold-home-topbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Logo onClick={isHomeScreen ? handleReplayIntro : () => handleNavigate('home')} />
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <SearchNavButton onClick={() => setIsSearchOpen(true)} size="normal" />
                   <VolumeReaderButton activeTab="home" size="normal" />
                   <ThemeToggle theme={theme} onThemeChange={setTheme} />
                 </div>
@@ -379,6 +400,7 @@ function App() {
               </div>
 
               <div className="mobile-header-right">
+                <SearchNavButton onClick={() => setIsSearchOpen(true)} size="compact" />
                 <VolumeReaderButton activeTab={activeTab} size="compact" />
                 <ThemeToggle theme={theme} onThemeChange={setTheme} size="compact" />
               </div>
@@ -764,6 +786,17 @@ function App() {
       <MapModal
         isOpen={isMapModalOpen}
         onClose={() => setIsMapModalOpen(false)}
+      />
+
+      {/* Quick Search & Command Navigation Modal */}
+      <QuickSearchModal
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        onNavigate={handleNavigate}
+        onSelectRoute={handleSelectRouteFromMap}
+        onOpenIndexModal={handleOpenIndexModal}
+        onToggleSpeech={togglePageReader}
+        routes={routes}
       />
 
       {/* Floating Audio Screen Reader Docked Widget */}

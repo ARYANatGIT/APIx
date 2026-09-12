@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from './Logo';
 import ThemeToggle from './ThemeToggle';
 import VolumeReaderButton from './VolumeReaderButton';
+import SearchNavButton from './SearchNavButton';
 import {
   ArrowLeft,
   LayoutDashboard,
@@ -18,6 +19,7 @@ import {
 
 export default function Navbar({
   onBookClick,
+  onSearchClick,
   activeTab = 'deck',
   onNavigate,
   latestIndex = 138.08,
@@ -84,8 +86,9 @@ export default function Navbar({
             <Logo onClick={handleBackHome} />
           </div>
 
-          {/* Controls: Theme Toggle & Volume Read-Aloud Button */}
+          {/* Controls: Search, Theme Toggle & Volume Read-Aloud Button */}
           <div className="sidebar-controls-row">
+            <SearchNavButton onClick={onSearchClick} size="compact" />
             <ThemeToggle theme={theme} onThemeChange={onThemeChange} size="compact" />
             <VolumeReaderButton activeTab={activeTab} size="compact" />
           </div>

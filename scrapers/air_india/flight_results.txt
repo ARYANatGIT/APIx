@@ -127,9 +127,9 @@ Copyright © 2026 Air India Ltd.
 
 All rights reserved. Use of this website indicates your compliance with our Privacy Notice, Conditions of Carriage, Terms and Conditions.
 
-Hi, I'm AI.g
-How can I help you?
 Set your cookies
 We use cookies to ensure Air India websites function properly, to analyse traffic, and to create better user experiences, including delivering personalised content. By clicking “Accept All,” you agree to our use of cookies. To customise your cookie preferences, click "Manage Cookies" and select the categories you want to accept. For more information about how we use cookies, please view ourCookie Policy.
 Manage Cookies
 Accept All
+Hi, I'm AI.g
+How can I help you?
