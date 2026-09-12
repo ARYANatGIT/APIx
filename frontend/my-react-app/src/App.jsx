@@ -319,10 +319,10 @@ function App() {
             <div className="home-top-section">
               <header className="home-simple-topbar bold-home-topbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Logo onClick={isHomeScreen ? handleReplayIntro : () => handleNavigate('home')} />
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <SearchNavButton onClick={() => setIsSearchOpen(true)} size="normal" />
+                <div className="home-topbar-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <VolumeReaderButton activeTab="home" size="normal" />
                   <ThemeToggle theme={theme} onThemeChange={setTheme} />
+                  <SearchNavButton onClick={() => setIsSearchOpen(true)} size="normal" placeholder="Search" />
                 </div>
               </header>
 
@@ -400,9 +400,9 @@ function App() {
               </div>
 
               <div className="mobile-header-right">
-                <SearchNavButton onClick={() => setIsSearchOpen(true)} size="compact" />
                 <VolumeReaderButton activeTab={activeTab} size="compact" />
                 <ThemeToggle theme={theme} onThemeChange={setTheme} size="compact" />
+                <SearchNavButton onClick={() => setIsSearchOpen(true)} size="compact" placeholder="Search" />
               </div>
             </header>
 

@@ -849,15 +849,15 @@
    ========================================================================== */
 
 .left-sidebar-nav {
-  width: 235px;
-  min-width: 235px;
-  max-width: 235px;
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
   height: 100%;
   background: #0A0A0A;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px 12px 14px 12px;
+  padding: 16px 14px 14px 14px;
   box-shadow: 4px 0 24px rgba(0, 0, 0, 0.6);
   z-index: 30;
   box-sizing: border-box;
@@ -902,17 +902,22 @@
   letter-spacing: 0.1em;
 }
 
+.sidebar-search-bar-wrap {
+  width: 100%;
+  margin-top: 2px;
+}
+
 .sidebar-back-home-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
+  gap: 8px;
+  padding: 9px 12px;
   background: #121212;
   border: 1px solid var(--border);
   border-radius: 0 !important;
   color: var(--muted-fg);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1023,7 +1028,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
   padding: 0;
   margin: 0;
 }
@@ -1036,18 +1041,18 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 7px 10px;
+  gap: 12px;
+  padding: 10px 14px;
   border-radius: 0 !important;
   border: none;
-  border-left: 2px solid transparent;
+  border-left: 3px solid transparent;
   background: transparent;
   cursor: pointer;
   color: #888888;
   font-family: var(--font-sans);
-  font-size: 0.76rem;
+  font-size: 0.84rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.035em;
   text-align: left;
   text-transform: uppercase;
   transition: all 0.15s ease;
@@ -1066,7 +1071,7 @@
 }
 
 .sidebar-nav-btn.active {
-  background: rgba(255, 61, 0, 0.08);
+  background: rgba(255, 61, 0, 0.09);
   color: #FFFFFF;
   font-weight: 700;
   border-left-color: var(--accent);
@@ -1089,11 +1094,11 @@
 }
 
 .active-sharp-indicator {
-  width: 3px;
-  height: 12px;
+  width: 3.5px;
+  height: 18px;
   background: var(--accent);
   position: absolute;
-  right: 6px;
+  right: 8px;
 }
 
 .sidebar-bottom-section {
@@ -1106,19 +1111,19 @@
 
 .sidebar-inspect-btn {
   width: 100%;
-  padding: 8px 12px;
+  padding: 11px 16px;
   background: var(--accent);
   color: #FFFFFF;
   border-radius: 0 !important;
   font-family: var(--font-mono);
   font-weight: 800;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   box-shadow: 0 4px 16px rgba(255, 61, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
@@ -6518,16 +6523,32 @@
   gap: 5px;
 }
 
+.airsetu-theme-toggle-group.sidebar-toggle {
+  width: 100%;
+  display: flex;
+  padding: 3px;
+  gap: 3px;
+  box-sizing: border-box;
+}
+
+.airsetu-theme-toggle-group.sidebar-toggle .theme-mode-btn {
+  flex: 1;
+  justify-content: center;
+  padding: 6px 4px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  gap: 5px;
+}
+
 /* ==========================================================================
    Volume Screen Reader Button & Floating Audio Player (Dark Defaults)
    ========================================================================== */
 .sidebar-controls-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
   width: 100%;
-  margin: 3px 0;
+  margin: 4px 0 2px 0;
 }
 
 .volume-reader-btn {
@@ -6561,6 +6582,17 @@
   padding: 3px 8px;
   font-size: 0.68rem;
   gap: 4px;
+}
+
+.volume-reader-btn.sidebar-volume-btn {
+  width: 100%;
+  height: 100%;
+  padding: 6px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  justify-content: center;
+  gap: 6px;
+  box-sizing: border-box;
 }
 
 /* Active Speaking State */
@@ -6791,6 +6823,114 @@
    Quick Search & Command Navigation Palette
    ========================================================================== */
 
+/* Search Bar Container & Input Styling */
+.search-nav-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 190px;
+  max-width: 225px;
+  height: 36px;
+  padding: 0 12px;
+  background: rgba(18, 18, 20, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  color: #FAFAFA;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.search-nav-bar:hover {
+  background: rgba(28, 28, 32, 0.95);
+  border-color: rgba(255, 61, 0, 0.55);
+  box-shadow: 0 0 14px rgba(255, 61, 0, 0.18);
+}
+
+.search-bar-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.search-bar-icon {
+  color: #FF3D00;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.search-nav-bar:hover .search-bar-icon {
+  transform: scale(1.08);
+}
+
+.search-bar-placeholder {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  opacity: 0.42;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-nav-bar:hover .search-bar-placeholder {
+  opacity: 0.78;
+}
+
+.search-bar-kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.60rem;
+  font-weight: 800;
+  color: #718096;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  padding: 1px 4px;
+  flex-shrink: 0;
+}
+
+.search-nav-bar.compact-search-bar {
+  min-width: auto;
+  max-width: 140px;
+  height: 32px;
+  padding: 0 8px;
+  gap: 6px;
+}
+
+.search-nav-bar.compact-search-bar .search-bar-placeholder {
+  font-size: 0.72rem;
+}
+
+.search-nav-bar.sidebar-search-bar {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  background: #121212;
+  border: 1px solid var(--border);
+  border-radius: 0 !important;
+}
+
+.search-nav-bar.sidebar-search-bar:hover {
+  background: #181818;
+  border-color: rgba(255, 61, 0, 0.5);
+}
+
+/* Fallback search-nav-btn classes */
 .search-nav-btn {
   display: inline-flex;
   align-items: center;
@@ -7200,7 +7340,45 @@
   border: 1px solid #E2E8F0;
 }
 
-/* Quick Search in Light Mode */
+/* Quick Search Bar & Button in Light Mode */
+[data-theme="light"] .search-nav-bar {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  color: #0F172A;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .search-nav-bar:hover {
+  background: #F8FAFC;
+  border-color: #0284C7;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.15);
+}
+
+[data-theme="light"] .search-nav-bar .search-bar-placeholder {
+  color: #0F172A;
+  opacity: 0.45;
+}
+
+[data-theme="light"] .search-nav-bar:hover .search-bar-placeholder {
+  opacity: 0.85;
+}
+
+[data-theme="light"] .search-nav-bar .search-bar-kbd {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: #475569;
+}
+
+[data-theme="light"] .search-nav-bar.sidebar-search-bar {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+}
+
+[data-theme="light"] .search-nav-bar.sidebar-search-bar:hover {
+  background: #F8FAFC;
+  border-color: #0284C7;
+}
+
 [data-theme="light"] .search-nav-btn {
   background: #F1F5F9;
   border-color: #CBD5E1;
@@ -7427,6 +7605,7 @@
 
 [data-theme="light"] .sidebar-nav-btn {
   color: #475569 !important;
+  font-size: 0.84rem !important;
 }
 
 [data-theme="light"] .sidebar-nav-btn:hover {
@@ -7437,7 +7616,19 @@
 [data-theme="light"] .sidebar-nav-btn.active {
   background: #EFF6FF !important;
   color: #0284C7 !important;
-  border-left: 2px solid #0284C7 !important;
+  border-left: 3px solid #0284C7 !important;
+}
+
+[data-theme="light"] .sidebar-back-home-btn {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .sidebar-back-home-btn:hover {
+  background: #F1F5F9 !important;
+  color: #0F172A !important;
+  border-color: #94A3B8 !important;
 }
 
 [data-theme="light"] .sidebar-inspect-btn {

@@ -27,11 +27,12 @@ export default function VolumeReaderButton({ activeTab, size = 'normal', showLab
   };
 
   const isCompact = size === 'compact';
+  const isSidebar = size === 'sidebar';
 
   return (
     <button
       type="button"
-      className={`volume-reader-btn ${isSpeaking ? 'is-speaking' : ''} ${isCompact ? 'compact-volume-btn' : ''}`}
+      className={`volume-reader-btn ${isSpeaking ? 'is-speaking' : ''} ${isCompact ? 'compact-volume-btn' : ''} ${isSidebar ? 'sidebar-volume-btn' : ''}`}
       onClick={handleClick}
       aria-label={isSpeaking ? 'Stop reading page aloud' : 'Read current page aloud'}
       aria-pressed={isSpeaking}
@@ -40,13 +41,13 @@ export default function VolumeReaderButton({ activeTab, size = 'normal', showLab
       <div className="volume-icon-wrapper">
         {isSpeaking ? (
           <VolumeX
-            size={isCompact ? 13 : 15}
+            size={isCompact ? 13 : 14}
             strokeWidth={2.2}
             className="volume-icon speaking-pulse"
           />
         ) : (
           <Volume2
-            size={isCompact ? 13 : 15}
+            size={isCompact ? 13 : 14}
             strokeWidth={1.8}
             className="volume-icon"
           />

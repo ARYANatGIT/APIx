@@ -86,11 +86,15 @@ export default function Navbar({
             <Logo onClick={handleBackHome} />
           </div>
 
-          {/* Controls: Search, Theme Toggle & Volume Read-Aloud Button */}
+          {/* Dedicated Search Bar Input for Left Sidebar */}
+          <div className="sidebar-search-bar-wrap">
+            <SearchNavButton onClick={onSearchClick} size="sidebar" fullWidth placeholder="Search" />
+          </div>
+
+          {/* Controls: Theme Toggle & Volume Read-Aloud Button */}
           <div className="sidebar-controls-row">
-            <SearchNavButton onClick={onSearchClick} size="compact" />
-            <ThemeToggle theme={theme} onThemeChange={onThemeChange} size="compact" />
-            <VolumeReaderButton activeTab={activeTab} size="compact" />
+            <ThemeToggle theme={theme} onThemeChange={onThemeChange} size="sidebar" />
+            <VolumeReaderButton activeTab={activeTab} size="sidebar" />
           </div>
 
           {/* Back to Home Landing Screen Action */}
@@ -100,7 +104,7 @@ export default function Navbar({
             onClick={handleBackHome}
             aria-label="Back to Home Landing Screen"
           >
-            <ArrowLeft size={13} strokeWidth={1.5} />
+            <ArrowLeft size={15} strokeWidth={1.8} />
             <span>RETURN TO POSTER</span>
           </button>
 
@@ -133,7 +137,7 @@ export default function Navbar({
                     onClick={(e) => handleNavClick(e, item)}
                     aria-label={`Go to ${item.label}`}
                   >
-                    <Icon size={16} strokeWidth={1.5} className="sidebar-btn-icon" />
+                    <Icon size={18} strokeWidth={1.65} className="sidebar-btn-icon" />
                     <span className="sidebar-btn-text">{item.label}</span>
                     {isActive && <span className="active-sharp-indicator"></span>}
                   </button>
@@ -151,7 +155,7 @@ export default function Navbar({
             onClick={handleInspect}
             aria-label="Inspect APIx Calculation"
           >
-            <Sparkles size={14} strokeWidth={1.5} />
+            <Sparkles size={16} strokeWidth={1.75} />
             <span>INSPECT APIx ENGINE</span>
           </button>
 
