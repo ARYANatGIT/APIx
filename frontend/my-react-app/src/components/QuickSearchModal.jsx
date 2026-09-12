@@ -18,7 +18,8 @@ import {
   Volume2,
   ArrowRight,
   Calculator,
-  Grid
+  Grid,
+  Activity
 } from 'lucide-react';
 
 export default function QuickSearchModal({
@@ -47,6 +48,15 @@ export default function QuickSearchModal({
         icon: LayoutDashboard,
         targetTab: 'deck',
         keywords: ['deck', 'dashboard', 'macro', 'cpi', 'kpi', 'home', 'laspeyres', 'basket', 'mospi']
+      },
+      {
+        id: 'page-spikes',
+        title: 'Spike Detection & AI Disruption Radar',
+        subtitle: 'Scraper Price Anomalies, Kerala Floods News & Dec 2026 Forecasts',
+        category: 'Pages & Dashboards',
+        icon: Activity,
+        targetTab: 'spikes',
+        keywords: ['spike', 'spikes', 'anomaly', 'chat', 'kerala', 'flood', 'predict', 'forecast', 'ai', 'radar', 'unusual', 'surge', 'news', 'disruption']
       },
       {
         id: 'page-routes',

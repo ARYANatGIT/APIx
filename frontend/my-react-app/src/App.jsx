@@ -14,6 +14,7 @@ import QuotesExplorer from './components/QuotesExplorer';
 import ScraperHealthView from './components/ScraperHealthView';
 import NsoExportView from './components/NsoExportView';
 import MoSPIMacroDashboard from './components/MoSPIMacroDashboard';
+import SpikeDetectionView from './components/SpikeDetectionView';
 import ThemeToggle from './components/ThemeToggle';
 import VolumeReaderButton from './components/VolumeReaderButton';
 import FloatingPageReader from './components/FloatingPageReader';
@@ -637,6 +638,15 @@ function App() {
                   </div>
                 </div>
               </div>
+            )}
+
+            {/* Tab: Spike Detection & AI Disruption Radar */}
+            {activeTab === 'spikes' && (
+              <SpikeDetectionView
+                routes={routes}
+                theme={theme}
+                onNavigate={handleNavigate}
+              />
             )}
 
             {/* Tab 2: DGCA Route Basket & Interactive Indian Map */}

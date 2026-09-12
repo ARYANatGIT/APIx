@@ -2,6 +2,7 @@ from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from typing import Optional, List, Dict, Any
+from pydantic import BaseModel
 from datetime import datetime, timezone
 from contextlib import asynccontextmanager
 import hashlib
@@ -728,3 +729,40 @@ def sync_mongodb_from_baseline():
         "message": "MongoDB Atlas is the primary database. Zero SQLite dependency.",
         "mongo_status": get_mongo_status()
     }
+
+
+# ==============================================================================
+# Spike Detection & Disruption Intelligence Radar Endpoints
+# ==============================================================================
+
+@app.get("/api/v1/intel/spikes")
+@app.get("/api/v1/spikes")
+def get_spikes_feed():
+    """
+    Returns real-time stream of detected scraper price anomalies,
+    transport disruption intelligence (e.g. Kerala floods, Delhi fog),
+    and ML predictive future price surge forecasts (e.g. Dec 2026).
+    """
+    from backend.mongo import get_mongo_db
+    from backend.spike_detector import get_all_spikes_feed
+    db = get_mongo_db()
+    return get_all_spikes_feed(db)
+
+
+class IntelChatRequest(BaseModel):
+    message: str
+    session_id: Optional[str] = None
+
+
+@app.post("/api/v1/intel/chat")
+def chat_with_intel_assistant(payload: IntelChatRequest):
+    """
+    Conversational AI Assistant.
+    Explains methodology terms (Laspeyres formula, CPI weights, advance curves),
+    details news disruptions, and provides on-demand microdata analytics.
+    """
+    from backend.mongo import get_mongo_db
+    from backend.spike_detector import answer_intel_query
+    db = get_mongo_db()
+    return answer_intel_query(payload.message, db)
+
