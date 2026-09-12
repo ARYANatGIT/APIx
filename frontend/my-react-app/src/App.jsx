@@ -17,7 +17,6 @@ import MoSPIMacroDashboard from './components/MoSPIMacroDashboard';
 import SpikeDetectionView from './components/SpikeDetectionView';
 import ThemeToggle from './components/ThemeToggle';
 import VolumeReaderButton from './components/VolumeReaderButton';
-import FloatingPageReader from './components/FloatingPageReader';
 import SearchNavButton from './components/SearchNavButton';
 import QuickSearchModal from './components/QuickSearchModal';
 import { togglePageReader } from './services/speechReader';
@@ -401,9 +400,35 @@ function App() {
               </div>
 
               <div className="mobile-header-right">
-                <VolumeReaderButton activeTab={activeTab} size="compact" />
+                <VolumeReaderButton activeTab={activeTab} size="compact" showFullText={false} />
                 <ThemeToggle theme={theme} onThemeChange={setTheme} size="compact" />
                 <SearchNavButton onClick={() => setIsSearchOpen(true)} size="compact" placeholder="Search" />
+              </div>
+            </header>
+
+            {/* Desktop Unified Header Bar (Visible on screens > 860px) */}
+            <header className="desktop-app-header">
+              <div className="desktop-header-left">
+                <span className="desktop-header-brand">AirSetu</span>
+                <span className="desktop-header-divider font-mono">/</span>
+                <span className="desktop-header-tab-name font-mono">{activeTab.toUpperCase()}</span>
+                <span className="desktop-header-badge font-mono">
+                  {activeTab === 'spikes' ? 'AIR INTEL RADAR' :
+                   activeTab === 'deck' ? 'EXECUTIVE FLIGHT DECK' :
+                   activeTab === 'routes' ? 'DGCA CORRIDOR BASKET' :
+                   activeTab === 'trajectory' ? 'APIx BENCHMARK TRENDS' :
+                   activeTab === 'windows' ? 'ADVANCE BOOKING CURVES' :
+                   activeTab === 'airlines' ? 'AIRLINES & OTAs' :
+                   activeTab === 'quotes' ? 'LIVE FARE MICRODATA' :
+                   activeTab === 'scraper' ? 'CRAWLER HEALTH' :
+                   activeTab === 'export' ? 'OFFICIAL NSO EXPORT' : 'DASHBOARD'}
+                </span>
+              </div>
+
+              <div className="desktop-header-right">
+                <VolumeReaderButton activeTab={activeTab} size="normal" showFullText={true} />
+                <ThemeToggle theme={theme} onThemeChange={setTheme} size="normal" />
+                <SearchNavButton onClick={() => setIsSearchOpen(true)} size="normal" placeholder="Search" />
               </div>
             </header>
 
@@ -808,9 +833,6 @@ function App() {
         onToggleSpeech={togglePageReader}
         routes={routes}
       />
-
-      {/* Floating Audio Screen Reader Docked Widget */}
-      <FloatingPageReader activeTab={activeTab} />
     </div>
   );
 }

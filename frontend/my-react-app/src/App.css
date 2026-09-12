@@ -6554,32 +6554,33 @@
 .volume-reader-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background: rgba(18, 18, 18, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  gap: 7px;
+  padding: 6px 13px;
+  background: rgba(22, 22, 26, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 6px;
-  color: #94A3B8;
+  color: #E2E8F0;
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(8px);
   user-select: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  white-space: nowrap;
 }
 
 .volume-reader-btn:hover {
   color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 61, 0, 0.45);
 }
 
 .volume-reader-btn.compact-volume-btn {
-  padding: 3px 8px;
+  padding: 4px 8px;
   font-size: 0.68rem;
   gap: 4px;
 }
@@ -6597,10 +6598,10 @@
 
 /* Active Speaking State */
 .volume-reader-btn.is-speaking {
-  background: rgba(255, 61, 0, 0.15) !important;
+  background: rgba(255, 61, 0, 0.18) !important;
   border-color: #FF3D00 !important;
   color: #FF3D00 !important;
-  box-shadow: 0 0 14px rgba(255, 61, 0, 0.35) !important;
+  box-shadow: 0 0 14px rgba(255, 61, 0, 0.4) !important;
 }
 
 .volume-icon-wrapper {
@@ -8741,6 +8742,80 @@
   display: none;
 }
 
+/* Desktop Unified Topbar Header (Visible on screens > 860px) */
+.desktop-app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  background: rgba(14, 14, 18, 0.94);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: 52px;
+}
+
+[data-theme="light"] .desktop-app-header {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.desktop-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.desktop-header-brand {
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .desktop-header-brand {
+  color: #0F172A;
+}
+
+.desktop-header-divider {
+  color: #64748B;
+  font-size: 0.8rem;
+}
+
+.desktop-header-tab-name {
+  font-size: 0.74rem;
+  font-weight: 900;
+  color: #FF3D00;
+  letter-spacing: 0.06em;
+}
+
+.desktop-header-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #94A3B8;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+[data-theme="light"] .desktop-header-badge {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #475569;
+}
+
+.desktop-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* Mobile App Sticky Top Header (Hidden on desktop) */
 .mobile-app-header {
   display: none;
@@ -8748,6 +8823,9 @@
 
 /* --- Breakpoint 1: Tablets & Mobile Navigation Drawer (<= 860px) --- */
 @media (max-width: 860px) {
+  .desktop-app-header {
+    display: none !important;
+  }
   /* Allow root and viewport containers to scroll naturally */
   .harmont-page-root {
     height: auto !important;

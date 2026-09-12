@@ -18,7 +18,6 @@ import {
 } from 'lucide-react';
 import IndiaAirfareHeatmap from './IndiaAirfareHeatmap';
 import airsetuLogo from '../assets/airsetu_logo.png';
-import ThemeToggle from './ThemeToggle';
 
 export default function MoSPIMacroDashboard({
   overviewData,
@@ -153,9 +152,6 @@ export default function MoSPIMacroDashboard({
           </div>
 
           <div className="mospi-header-actions-group">
-            {/* Dark Mode & Light Mode Buttons */}
-            <ThemeToggle theme={theme} onThemeChange={onThemeChange} />
-
             <button
               type="button"
               className={`mospi-action-btn sync-btn ${isRefreshing ? 'is-syncing' : ''}`}

@@ -51,13 +51,13 @@ function getOrCreateSessionId() {
 export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavigate }) {
   const [activeFilter, setActiveFilter] = useState('all'); // 'all', 'spikes', 'news', 'predictions'
   const [feedItems, setFeedItems] = useState([]);
-  const [stats, setStats] = useState({ total: 12, spikes: 3, news: 5, predictions: 4 });
+  const [stats, setStats] = useState({ total: 0, spikes: 0, news: 0, predictions: 0 });
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [messages, setMessages] = useState([]);
   const [inputQuery, setInputQuery] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const messagesEndRef = useRef(null);
+  const chatMessagesContainerRef = useRef(null);
   const sessionIdRef = useRef(getOrCreateSessionId());
 
   // Diverse quick suggestion chips
@@ -90,10 +90,10 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
         const data = await res.json();
         setFeedItems(data.feed || []);
         setStats({
-          total: data.total_active_alerts || (data.feed?.length || 12),
-          spikes: data.breakdown?.scraper_spikes_count || 3,
-          news: data.breakdown?.news_disruptions_count || 5,
-          predictions: data.breakdown?.predictive_forecasts_count || 4
+          total: data.total_active_alerts || (data.feed?.length || 0),
+          spikes: data.breakdown?.scraper_spikes_count || 0,
+          news: data.breakdown?.news_disruptions_count || 0,
+          predictions: data.breakdown?.predictive_forecasts_count || 0
         });
       }
     } catch (err) {
@@ -108,10 +108,12 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
     loadFeed();
   }, []);
 
-  // Auto-scroll messages container
+  // Auto-scroll only the inner chat messages container when a user sends or receives messages
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, feedItems, isTyping]);
+    if (messages.length > 0 && chatMessagesContainerRef.current) {
+      chatMessagesContainerRef.current.scrollTop = chatMessagesContainerRef.current.scrollHeight;
+    }
+  }, [messages, isTyping]);
 
   // Handle user submitting a question
   const handleSendMessage = async (textToSend) => {
@@ -509,7 +511,7 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
           </div>
 
           {/* Chat Messages Log */}
-          <div className="chat-messages-container">
+          <div className="chat-messages-container" ref={chatMessagesContainerRef}>
             {/* Initial Welcome & Overview Bubble */}
             <div className="chat-welcome-bubble">
               <div className="welcome-icon">
@@ -639,8 +641,6 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
                 </div>
               </div>
             )}
-
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Quick Suggestion Chips */}

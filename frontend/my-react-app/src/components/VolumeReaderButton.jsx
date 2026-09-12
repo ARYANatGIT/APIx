@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX, Headphones } from 'lucide-react';
 import { togglePageReader, stopPageReader, subscribeSpeechState, getIsSpeaking } from '../services/speechReader';
 
-export default function VolumeReaderButton({ activeTab, size = 'normal', showLabel = true }) {
+export default function VolumeReaderButton({
+  activeTab,
+  size = 'normal',
+  showLabel = true,
+  showFullText = true
+}) {
   const [isSpeaking, setIsSpeaking] = useState(getIsSpeaking());
   const [currentSentence, setCurrentSentence] = useState('');
 
@@ -29,34 +34,43 @@ export default function VolumeReaderButton({ activeTab, size = 'normal', showLab
   const isCompact = size === 'compact';
   const isSidebar = size === 'sidebar';
 
+  let labelText = '';
+  if (showLabel) {
+    if (showFullText && !isCompact && !isSidebar) {
+      labelText = isSpeaking ? 'Reading Page Aloud' : 'Read Page Aloud';
+    } else {
+      labelText = isSpeaking ? 'Stop' : 'Listen';
+    }
+  }
+
   return (
     <button
       type="button"
       className={`volume-reader-btn ${isSpeaking ? 'is-speaking' : ''} ${isCompact ? 'compact-volume-btn' : ''} ${isSidebar ? 'sidebar-volume-btn' : ''}`}
       onClick={handleClick}
-      aria-label={isSpeaking ? 'Stop reading page aloud' : 'Read current page aloud'}
+      aria-label={isSpeaking ? 'Stop reading page aloud' : 'Read full page aloud'}
       aria-pressed={isSpeaking}
-      title={isSpeaking ? 'Click to stop reading page' : 'Listen to current page text aloud'}
+      title={isSpeaking ? 'Click to stop reading page' : 'Read full page text aloud'}
     >
       <div className="volume-icon-wrapper">
         {isSpeaking ? (
           <VolumeX
-            size={isCompact ? 13 : 14}
-            strokeWidth={2.2}
+            size={isCompact ? 13 : 15}
+            strokeWidth={2.4}
             className="volume-icon speaking-pulse"
           />
         ) : (
-          <Volume2
-            size={isCompact ? 13 : 14}
-            strokeWidth={1.8}
+          <Headphones
+            size={isCompact ? 13 : 15}
+            strokeWidth={2}
             className="volume-icon"
           />
         )}
       </div>
 
-      {showLabel && (
+      {showLabel && labelText && (
         <span className="volume-btn-label">
-          {isSpeaking ? 'Stop' : 'Listen'}
+          {labelText}
         </span>
       )}
 
