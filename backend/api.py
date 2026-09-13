@@ -704,6 +704,7 @@ def get_scheduler_telemetry():
     return get_scheduler_status()
 
 
+@app.get("/api/v1/scheduler/trigger")
 @app.post("/api/v1/scheduler/trigger")
 def trigger_crawl_now():
     """Triggers an immediate automated scraping crawl in the background and emits live crawl events."""
@@ -713,6 +714,7 @@ def trigger_crawl_now():
     return trigger_scrape_now()
 
 
+@app.get("/api/v1/scheduler/interval")
 @app.post("/api/v1/scheduler/interval")
 def update_schedule_interval(
     minutes: Optional[int] = Query(None, ge=1, le=10080),
@@ -735,6 +737,7 @@ def get_mongodb_status():
     return get_mongo_status()
 
 
+@app.get("/api/v1/mongo/sync")
 @app.post("/api/v1/mongo/sync")
 def sync_mongodb_from_baseline():
     """Checks and returns MongoDB collection health status."""
