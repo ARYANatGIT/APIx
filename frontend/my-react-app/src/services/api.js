@@ -1,12 +1,13 @@
 // Base API URL resolver (supports Render production deployment, Vite proxy, and local fallback)
 export const getApiBaseUrl = () => {
-  let envUrl = import.meta.env.VITE_API_URL;
+  let envUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL;
   if (envUrl && envUrl.trim() !== '') {
     envUrl = envUrl.trim();
     if (!envUrl.startsWith('http://') && !envUrl.startsWith('https://')) {
       envUrl = `https://${envUrl}`;
     }
-    return envUrl.replace(/\/+$/, '');
+    // Clean trailing /api/v1 or trailing slashes so getApiUrl creates correct URLs
+    return envUrl.replace(/\/api\/v1\/?$/, '').replace(/\/+$/, '');
   }
   return '';
 };

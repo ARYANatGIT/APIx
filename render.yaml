@@ -28,7 +28,6 @@ services:
   - type: web
     name: airsetu-web
     runtime: static
-    region: singapore
     plan: free
     rootDir: frontend/my-react-app
     buildCommand: npm install && npm run build
@@ -42,5 +41,5 @@ services:
         fromService:
           type: web
           name: airsetu-api
-          property: host
+          envVarKey: RENDER_EXTERNAL_URL
 
