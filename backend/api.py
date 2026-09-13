@@ -108,6 +108,7 @@ def health_check():
 
 
 @app.get("/api/v1/database/all")
+@app.get("/api/v1/databases/all")
 @app.get("/api/v1/all")
 def get_all_database_data():
     """
