@@ -1,0 +1,20 @@
+{
+  "portal": "Goibibo",
+  "airline_code": "GIB",
+  "requests": [
+    {
+      "url": "https://www.goibibo.com/flights/air-DEL-BOM-20260920--1-0-0-E-D/",
+      "method": "GET",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://www.goibibo.com/flights/air-DEL-BOM-20260920--1-0-0-E-D/",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:27.211840+00:00"
+    }
+  ]
+}

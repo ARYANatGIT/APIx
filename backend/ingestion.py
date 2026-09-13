@@ -1,10 +1,3 @@
-"""
-Data Ingestion Service for MoSPI Real-time Airfare Price Index (APIx) - SIH26056.
-Provides high-performance batch insertion of normalized scraped flight quotes,
-automatic snapshot SHA-256 hashing for auditability, and crawler health logging.
-Operates directly on MongoDB Atlas with zero SQLite dependency.
-"""
-
 import hashlib
 import json
 import logging

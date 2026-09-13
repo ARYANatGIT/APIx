@@ -68,17 +68,18 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
           </defs>
 
           {/* Airspace grid & radar rings */}
-          <circle cx="320" cy="360" r="300" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="4 4" />
-          <circle cx="320" cy="360" r="200" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="4 4" />
-          <circle cx="320" cy="360" r="100" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="4 4" />
+          <circle cx="320" cy="360" r="300" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="4 4" className="radar-ring-circle" />
+          <circle cx="320" cy="360" r="200" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="4 4" className="radar-ring-circle" />
+          <circle cx="320" cy="360" r="100" fill="none" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="4 4" className="radar-ring-circle" />
 
-          <line x1="320" y1="20" x2="320" y2="700" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
-          <line x1="20" y1="360" x2="620" y2="360" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" />
+          <line x1="320" y1="20" x2="320" y2="700" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" className="radar-axis-line" />
+          <line x1="20" y1="360" x2="620" y2="360" stroke="rgba(255, 255, 255, 0.04)" strokeWidth="1" className="radar-axis-line" />
 
           {/* Official Survey of India (SOI) Geographic Landmass Layer */}
           <g className="india-landmass-layer" filter="url(#mapShadow)">
             <path
               d={INDIA_SVG_PATH}
+              className="india-landmass-path"
               fill="#181a1e"
               stroke="#ff4d00"
               strokeWidth="1.2"
@@ -92,6 +93,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
           <g className="india-states-layer">
             <path
               d={INDIA_STATES_PATH}
+              className="india-states-path"
               fill="none"
               stroke="rgba(248, 113, 113, 0.30)"
               strokeWidth="0.9"
@@ -140,7 +142,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
                   stroke={isSelected || isHovered ? "url(#activeGrad)" : "url(#corridorGrad)"}
                   strokeWidth={strokeWidth}
                   strokeDasharray={isSelected || isHovered ? "none" : "5 4"}
-                  className={`route-arc ${isSelected ? 'selected-arc' : ''}`}
+                  className={`corridor-arc-path route-arc ${isSelected ? 'selected-arc' : ''}`}
                 />
 
                 {/* Animated flight beacon dot */}
@@ -198,6 +200,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
                     width="38"
                     height="18"
                     rx="3"
+                    className="airport-badge-rect"
                     fill="#141619"
                     stroke={isCityHovered ? "#ff4d00" : "#27272a"}
                     strokeWidth="1"
@@ -207,6 +210,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
                     x="19"
                     y="13"
                     textAnchor="middle"
+                    className={`airport-badge-text ${isCityHovered ? 'hovered' : ''}`}
                     fill={isCityHovered ? "#ff4d00" : "#f1f5f9"}
                     fontSize="10"
                     fontWeight="800"
@@ -222,6 +226,7 @@ export default function IndiaRouteMap({ routes = [], onSelectRoute, selectedRout
                   x={badgeDx + 19}
                   y={badgeDy + 28}
                   textAnchor="middle"
+                  className="airport-city-caption"
                   fill="#94a3b8"
                   fontSize="9.5"
                   fontWeight="600"

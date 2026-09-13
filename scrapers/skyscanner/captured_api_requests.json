@@ -1,0 +1,20 @@
+{
+  "portal": "Skyscanner",
+  "airline_code": "SKY",
+  "requests": [
+    {
+      "url": "https://www.skyscanner.co.in/transport/flights/del/bom/260920/",
+      "method": "GET",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://www.skyscanner.co.in/transport/flights/del/bom/260920/",
+      "status": 307,
+      "timestamp": "2026-09-13T18:07:32.371244+00:00"
+    }
+  ]
+}

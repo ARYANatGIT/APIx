@@ -13,12 +13,14 @@ import {
   ChevronRight,
   Flame,
   Snowflake,
-  RefreshCw,
-  Sparkles
+  RefreshCw
 } from 'lucide-react';
 import IndiaAirfareHeatmap from './IndiaAirfareHeatmap';
-import airsetuLogo from '../assets/airsetu_logo.png';
-import ThemeToggle from './ThemeToggle';
+import RouteStressIndexWidget from './RouteStressIndexWidget';
+import AirportSubstitutionWidget from './AirportSubstitutionWidget';
+import AnimatedNumber from './AnimatedNumber';
+import localLogo from '../assets/airsetu_logo.png';
+import { CLOUDINARY_LOGO_URL } from './Logo';
 
 export default function MoSPIMacroDashboard({
   overviewData,
@@ -33,17 +35,18 @@ export default function MoSPIMacroDashboard({
   onThemeChange
 }) {
   const [hoveredRoute, setHoveredRoute] = useState(null);
+  const [deckSectionTab, setDeckSectionTab] = useState('rsi'); // 'rsi' | 'substitution'
 
   // Dynamic MoSPI Macro values computed directly from live database
   const latestIndex = overviewData?.latest_index;
-  const apixVal = latestIndex?.value != null ? Number(latestIndex.value).toFixed(2) : '138.08';
-  const dailyChange = latestIndex?.change_pct_d1 != null ? Number(latestIndex.change_pct_d1).toFixed(2) : '1.68';
-  const weeklyChange = latestIndex?.change_pct_w1 != null ? Number(latestIndex.change_pct_w1).toFixed(2) : '1.12';
-  const monthlyChange = latestIndex?.change_pct_m1 != null ? Number(latestIndex.change_pct_m1).toFixed(2) : '38.08';
+  const apixVal = latestIndex?.value != null ? Number(latestIndex.value).toFixed(2) : '—';
+  const dailyChange = latestIndex?.change_pct_d1 != null ? Number(latestIndex.change_pct_d1).toFixed(2) : '—';
+  const weeklyChange = latestIndex?.change_pct_w1 != null ? Number(latestIndex.change_pct_w1).toFixed(2) : '—';
+  const monthlyChange = latestIndex?.change_pct_m1 != null ? Number(latestIndex.change_pct_m1).toFixed(2) : '—';
 
-  const isRisingDaily = parseFloat(dailyChange) >= 0;
-  const isRisingWeekly = parseFloat(weeklyChange) >= 0;
-  const isRisingMonthly = parseFloat(monthlyChange) >= 0;
+  const isRisingDaily = !isNaN(parseFloat(dailyChange)) && parseFloat(dailyChange) >= 0;
+  const isRisingWeekly = !isNaN(parseFloat(weeklyChange)) && parseFloat(weeklyChange) >= 0;
+  const isRisingMonthly = !isNaN(parseFloat(monthlyChange)) && parseFloat(monthlyChange) >= 0;
 
   // Format time (e.g. "02:15 AM" or current local time)
   const formatTime = (date) => {
@@ -118,24 +121,24 @@ export default function MoSPIMacroDashboard({
         {/* Main Tier: Authoritative Title & Subtitle on Left, Action Buttons on Right */}
         <div className="mospi-banner-main-bar">
           <div className="mospi-banner-title-col">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <div style={{
-                width: '52px',
-                height: '52px',
-                borderRadius: '12px',
-                background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                width: '68px',
+                height: '68px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '4px',
-                boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
                 flexShrink: 0
               }}>
                 <img
-                  src={airsetuLogo}
+                  src={CLOUDINARY_LOGO_URL || localLogo}
                   alt="AirSetu Emblem"
-                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 4px 14px rgba(255, 61, 0, 0.35))'
+                  }}
                 />
               </div>
               <div>
@@ -153,9 +156,6 @@ export default function MoSPIMacroDashboard({
           </div>
 
           <div className="mospi-header-actions-group">
-            {/* Dark Mode & Light Mode Buttons */}
-            <ThemeToggle theme={theme} onThemeChange={onThemeChange} />
-
             <button
               type="button"
               className={`mospi-action-btn sync-btn ${isRefreshing ? 'is-syncing' : ''}`}
@@ -164,15 +164,6 @@ export default function MoSPIMacroDashboard({
             >
               <RefreshCw size={13} className={isRefreshing ? 'spin-pulse' : ''} />
               <span>{isRefreshing ? 'Updating...' : 'Sync Scraped Data'}</span>
-            </button>
-
-            <button
-              type="button"
-              className="mospi-action-btn inspect-btn"
-              onClick={onInspectEngine}
-            >
-              <Sparkles size={13} />
-              <span>Inspect APIx Calculation</span>
             </button>
           </div>
         </div>
@@ -187,11 +178,11 @@ export default function MoSPIMacroDashboard({
             <Activity size={16} className="text-vermillion" />
           </div>
           <div className="mospi-kpi-number-row">
-            <span className="mospi-kpi-big font-mono">{apixVal}</span>
+            <span className="mospi-kpi-big font-mono"><AnimatedNumber value={apixVal} /></span>
           </div>
           <div className="mospi-kpi-sub-row">
             <span className={`mospi-delta-pill ${isRisingMonthly ? 'positive' : 'negative'}`}>
-              <span className="arrow-triangle">{isRisingMonthly ? '▲' : '▼'}</span> {isRisingMonthly ? '+' : ''}{monthlyChange}%
+              <span className="arrow-triangle">{isRisingMonthly ? '▲' : '▼'}</span> <AnimatedNumber value={monthlyChange} prefix={isRisingMonthly ? '+' : ''} suffix="%" />
             </span>
             <span className="mospi-delta-sub">vs Base Period</span>
           </div>
@@ -205,7 +196,7 @@ export default function MoSPIMacroDashboard({
           </div>
           <div className="mospi-kpi-number-row">
             <span className={`mospi-kpi-big font-mono ${isRisingDaily ? 'text-vermillion' : 'text-emerald'}`}>
-              {isRisingDaily ? '+' : ''}{dailyChange}%
+              <AnimatedNumber value={dailyChange} prefix={isRisingDaily ? '+' : ''} suffix="%" />
             </span>
           </div>
           <div className="mospi-kpi-sub-row">
@@ -225,7 +216,7 @@ export default function MoSPIMacroDashboard({
           </div>
           <div className="mospi-kpi-number-row">
             <span className={`mospi-kpi-big font-mono ${isRisingWeekly ? 'text-vermillion' : 'text-emerald'}`}>
-              {isRisingWeekly ? '+' : ''}{weeklyChange}%
+              <AnimatedNumber value={weeklyChange} prefix={isRisingWeekly ? '+' : ''} suffix="%" />
             </span>
           </div>
           <div className="mospi-kpi-sub-row">
@@ -245,7 +236,7 @@ export default function MoSPIMacroDashboard({
           </div>
           <div className="mospi-kpi-number-row">
             <span className={`mospi-kpi-big font-mono ${isRisingMonthly ? 'text-vermillion' : 'text-emerald'}`}>
-              {isRisingMonthly ? '+' : ''}{monthlyChange}%
+              <AnimatedNumber value={monthlyChange} prefix={isRisingMonthly ? '+' : ''} suffix="%" />
             </span>
           </div>
           <div className="mospi-kpi-sub-row">
@@ -255,6 +246,42 @@ export default function MoSPIMacroDashboard({
             </span>
             <span className="mospi-delta-sub">MoM inflation</span>
           </div>
+        </div>
+      </div>
+
+      {/* 2.5. Intelligent Operational Modules: Route Stress Index (RSI) & Airport Substitution Studio */}
+      <div className="deck-modules-wrapper">
+        <div className="deck-modules-tab-bar font-mono">
+          <button
+            type="button"
+            className={`deck-module-tab-btn ${deckSectionTab === 'rsi' ? 'active' : ''}`}
+            onClick={() => setDeckSectionTab('rsi')}
+          >
+            <Activity size={15} />
+            <span>ROUTE STRESS INDEX (RSI)</span>
+            <span className="deck-tab-tag">5-FACTOR DYNAMIC MODEL</span>
+          </button>
+
+          <button
+            type="button"
+            className={`deck-module-tab-btn ${deckSectionTab === 'substitution' ? 'active' : ''}`}
+            onClick={() => setDeckSectionTab('substitution')}
+          >
+            <Compass size={15} />
+            <span>AIRPORT SUBSTITUTION & SIMULATION</span>
+            <span className="deck-tab-tag">CATCHMENT ARBITRAGE</span>
+          </button>
+        </div>
+
+        <div className="deck-module-content">
+          {deckSectionTab === 'rsi' ? (
+            <RouteStressIndexWidget
+              selectedRoute={selectedRoute?.route_code}
+              onSelectRoute={handleRouteClick}
+            />
+          ) : (
+            <AirportSubstitutionWidget />
+          )}
         </div>
       </div>
 
@@ -271,11 +298,11 @@ export default function MoSPIMacroDashboard({
           </div>
 
           <div className="mospi-route-list">
-            {risingRoutes.map((r) => {
+            {risingRoutes.map((r, idx) => {
               const isSelected = selectedRoute?.route_code === r.route_code;
               return (
                 <div
-                  key={r.route_code}
+                  key={r.route_code ? `rising-${r.route_code}-${idx}` : `rising-${idx}`}
                   className={`mospi-route-item ${isSelected ? 'is-selected' : ''}`}
                   onClick={() => handleRouteClick(r.route_code)}
                   title={`Click to inspect corridor ${r.route_code}`}
@@ -285,8 +312,8 @@ export default function MoSPIMacroDashboard({
                     <span className="route-cities-text">{r.origin_city} to {r.dest_city}</span>
                   </div>
                   <div className="route-change-wrap">
-                    <span className="route-fare font-mono">{r.avg_fare}</span>
-                    <span className="route-change-badge positive font-mono">{r.change}</span>
+                    <span className="route-fare font-mono"><AnimatedNumber value={r.avg_fare} /></span>
+                    <span className="route-change-badge positive font-mono"><AnimatedNumber value={r.change} /></span>
                   </div>
                 </div>
               );
@@ -305,11 +332,11 @@ export default function MoSPIMacroDashboard({
           </div>
 
           <div className="mospi-route-list">
-            {fallingRoutes.map((r) => {
+            {fallingRoutes.map((r, idx) => {
               const isSelected = selectedRoute?.route_code === r.route_code;
               return (
                 <div
-                  key={r.route_code}
+                  key={r.route_code ? `falling-${r.route_code}-${idx}` : `falling-${idx}`}
                   className={`mospi-route-item ${isSelected ? 'is-selected' : ''}`}
                   onClick={() => handleRouteClick(r.route_code)}
                   title={`Click to inspect corridor ${r.route_code}`}
@@ -319,8 +346,8 @@ export default function MoSPIMacroDashboard({
                     <span className="route-cities-text">{r.origin_city} to {r.dest_city}</span>
                   </div>
                   <div className="route-change-wrap">
-                    <span className="route-fare font-mono">{r.avg_fare}</span>
-                    <span className="route-change-badge negative font-mono">{r.change}</span>
+                    <span className="route-fare font-mono"><AnimatedNumber value={r.avg_fare} /></span>
+                    <span className="route-change-badge negative font-mono"><AnimatedNumber value={r.change} /></span>
                   </div>
                 </div>
               );
@@ -335,6 +362,7 @@ export default function MoSPIMacroDashboard({
         selectedRoute={selectedRoute}
         onSelectRoute={onSelectRoute}
         overviewData={overviewData}
+        theme={theme}
       />
     </div>
   );

@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { apiService } from '../services/api';
 import ProofOfSourceModal from './ProofOfSourceModal';
+import AnimatedNumber from './AnimatedNumber';
 
 /**
  * Formats duration in minutes into hrs and mins format (e.g. 2h 30m, 1h 06m)
@@ -117,7 +118,17 @@ export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
     const flightNum = (q.flight_number || '').toLowerCase();
     const rCode = (q.route_code || q.route || '').toLowerCase();
     const aName = (q.airline_name || q.airline || '').toLowerCase();
-    return flightNum.includes(term) || rCode.includes(term) || aName.includes(term);
+    const oName = (q.ota_name || '').toLowerCase();
+    const sPlatform = (q.source_platform || '').toLowerCase();
+    const sSource = (q.source || '').toLowerCase();
+    return (
+      flightNum.includes(term) ||
+      rCode.includes(term) ||
+      aName.includes(term) ||
+      oName.includes(term) ||
+      sPlatform.includes(term) ||
+      sSource.includes(term)
+    );
   });
 
   const handleSort = (key) => {
@@ -454,6 +465,8 @@ export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
       'Corridor',
       'Airline Code',
       'Airline Name',
+      'Booking Platform',
+      'Channel',
       'Window',
       'Departure Time',
       'Arrival Time',
@@ -472,6 +485,8 @@ export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
       q.route_code || q.route || '',
       q.airline_code || '',
       q.airline_name || q.airline || '',
+      q.ota_name ? q.ota_name : (q.source_platform || 'Direct Scraper'),
+      q.channel || (q.ota_name ? 'OTA' : 'DIRECT'),
       q.advance_window || '',
       q.departure_time || '',
       q.arrival_time || '',
@@ -550,7 +565,7 @@ export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
           </div>
           <h2 className="section-title">Live Price Quotes Explorer</h2>
           <p className="section-subtitle">
-            Searchable repository of {totalCount.toLocaleString()} individual flight ticket price quotes collected across 10 DGCA corridors and 6 booking horizons (T+0 to T+45).
+            Searchable repository of <AnimatedNumber value={totalCount} /> individual flight ticket price quotes collected across 10 DGCA corridors and 6 booking horizons (T+0 to T+45).
           </p>
         </div>
       </div>
@@ -593,7 +608,7 @@ export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
           onChange={(e) => setSelectedAirline(e.target.value)}
           className="filter-select"
         >
-          <option value="">All Airlines & OTAs</option>
+          <option value="">All Carriers &amp; OTAs</option>
           <option value="6E">IndiGo (6E)</option>
           <option value="AI">Air India (AI)</option>
           <option value="IX">Air India Express (IX)</option>
@@ -601,6 +616,11 @@ export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
           <option value="SG">SpiceJet (SG)</option>
           <option value="MMT">MakeMyTrip (MMT)</option>
           <option value="EMT">EaseMyTrip (EMT)</option>
+          <option value="YTR">Yatra (YTR)</option>
+          <option value="CT">Cleartrip (CT)</option>
+          <option value="IXG">ixigo (IXG)</option>
+          <option value="GIB">Goibibo (GIB)</option>
+          <option value="SKY">Skyscanner (SKY)</option>
         </select>
 
         {/* Advance Window Select */}
@@ -640,14 +660,14 @@ export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
             <>
               <CheckCircle2 size={15} style={{ color: '#10b981' }} />
               <span>
-                <strong>{totalRows.toLocaleString()} QUOTES MATCHED</strong>
+                <strong><AnimatedNumber value={totalRows} /> QUOTES MATCHED</strong>
               </span>
               <span className="pagination-summary-badge">
                 ROWS {totalRows === 0 ? '0' : `${(startIndex + 1).toLocaleString()}–${endIndex.toLocaleString()}`} / {totalRows.toLocaleString()}
               </span>
               {!isUnlimited && (
                 <span style={{ color: 'var(--muted-fg)' }}>
-                  (Showing latest 100 preview across {totalCount.toLocaleString()} stored records)
+                  (Showing latest 100 preview across <AnimatedNumber value={totalCount} /> stored records)
                 </span>
               )}
               {sortConfig.key && (
@@ -775,12 +795,44 @@ export default function QuotesExplorer({ initialQuotes = [], refreshTrigger }) {
                       <span className="route-badge-sm">{q.route_code || q.route}</span>
                     </td>
                     <td>
-                      <span
-                        className="carrier-tag-pill"
-                        style={{ borderColor: q.airline_color || '#E5B54F' }}
-                      >
-                        {q.airline_name || q.airline}
-                      </span>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', alignItems: 'flex-start' }}>
+                        <span
+                          className="carrier-tag-pill"
+                          style={{ borderColor: q.airline_color || '#E5B54F' }}
+                        >
+                          {q.airline_name || q.airline}
+                        </span>
+                        {q.ota_name ? (
+                          <span
+                            className="ota-source-pill"
+                            style={{
+                              fontSize: '0.68rem',
+                              color: q.ota_color || '#0084FF',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '4px',
+                              fontWeight: '600'
+                            }}
+                            title={`Booked via Aggregator / OTA: ${q.ota_name}`}
+                          >
+                            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: q.ota_color || '#0084FF', display: 'inline-block' }} />
+                            via {q.ota_name}
+                          </span>
+                        ) : (
+                          <span
+                            style={{
+                              fontSize: '0.64rem',
+                              color: 'var(--muted-fg)',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '4px'
+                            }}
+                            title="Direct airline official booking channel"
+                          >
+                            Direct Scraper
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td>
                       <span className={`window-badge-sm ${q.advance_window === 'T+1' ? 't1-badge' : ''}`}>

@@ -91,6 +91,12 @@ export default function ProofOfSourceModal({ isOpen, onClose, quote }) {
               <span className="p-val">{quote.airline_name} ({quote.airline_code})</span>
             </div>
             <div className="proof-item bold-proof-cell">
+              <span className="p-label">BOOKING PLATFORM / SOURCE</span>
+              <span className="p-val" style={{ color: quote.ota_color || 'var(--fg)', fontWeight: '600' }}>
+                {quote.ota_name ? `${quote.ota_name} (OTA)` : (quote.source_platform || 'Direct Airline Scraper')}
+              </span>
+            </div>
+            <div className="proof-item bold-proof-cell">
               <span className="p-label">TIMESTAMP (UTC)</span>
               <span className="p-val font-mono">{quote.scraped_at ? new Date(quote.scraped_at).toISOString() : '2026-09-09T12:00:00Z'}</span>
             </div>

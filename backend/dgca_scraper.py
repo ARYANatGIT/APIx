@@ -1,10 +1,3 @@
-"""
-DGCA Dynamic Data Scraper & Synchronizer - MoSPI APIx (SIH26056).
-Dynamically extracts and updates official DGCA domestic passenger traffic,
-airline market shares, and Laspeyres basket weights from official civil aviation sources.
-Ensures zero hardcoding in the economic weighting model.
-"""
-
 import json
 import re
 import sys

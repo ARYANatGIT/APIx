@@ -1,9 +1,3 @@
-"""
-Official DGCA Domestic Passenger Traffic Dataset & Route Basket Definitions.
-Data compiled in accordance with Directorate General of Civil Aviation (DGCA)
-domestic passenger traffic reports to augment MoSPI's Consumer Price Index (CPI).
-"""
-
 AIRLINES_DATA = [
     {
         "code": "6E",
@@ -59,6 +53,46 @@ AIRLINES_DATA = [
         "type": "OTA",
         "base_url": "https://www.easemytrip.com/flights",
         "color_hex": "#0084FF",
+        "market_share_pct": None
+    },
+    {
+        "code": "YTR",
+        "name": "Yatra",
+        "type": "OTA",
+        "base_url": "https://www.yatra.com/flights",
+        "color_hex": "#D32F2F",
+        "market_share_pct": None
+    },
+    {
+        "code": "CT",
+        "name": "Cleartrip",
+        "type": "OTA",
+        "base_url": "https://www.cleartrip.com/flights",
+        "color_hex": "#FF4F17",
+        "market_share_pct": None
+    },
+    {
+        "code": "IXG",
+        "name": "ixigo",
+        "type": "OTA",
+        "base_url": "https://www.ixigo.com/flights",
+        "color_hex": "#FC2779",
+        "market_share_pct": None
+    },
+    {
+        "code": "GIB",
+        "name": "Goibibo",
+        "type": "OTA",
+        "base_url": "https://www.goibibo.com/flights",
+        "color_hex": "#F26722",
+        "market_share_pct": None
+    },
+    {
+        "code": "SKY",
+        "name": "Skyscanner",
+        "type": "OTA",
+        "base_url": "https://www.skyscanner.co.in/flights",
+        "color_hex": "#0770E3",
         "market_share_pct": None
     }
 ]

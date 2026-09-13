@@ -1,11 +1,6 @@
-"""
-MongoDB Connection and High-Performance Aggregation Layer for MoSPI APIx.
-Provides seamless connection to MongoDB with mongomock fallback for zero-downtime resilience.
-Handles automated collection management, indexing, scraper batch ingestion, and analytical queries.
-"""
-
 import os
 import json
+import hashlib
 import logging
 from datetime import datetime, timezone, date, timedelta
 from typing import Dict, List, Any, Optional
@@ -32,7 +27,7 @@ def get_mongo_client():
     mongo_uri = settings.MONGO_URI or "mongodb://localhost:27017"
     try:
         import pymongo
-        client = pymongo.MongoClient(mongo_uri, serverSelectionTimeoutMS=1500)
+        client = pymongo.MongoClient(mongo_uri, serverSelectionTimeoutMS=5000)
         # Ping the server to verify connectivity
         client.admin.command('ping')
         _mongo_client = client
@@ -87,6 +82,8 @@ def _init_mongo_indexes(db):
         db.price_quotes.create_index([("flight_number", 1), ("flight_date", 1), ("advance_window", 1), ("departure_time", 1)])
         db.price_quotes.create_index([("route_code", 1), ("advance_window", 1)])
         db.price_quotes.create_index([("airline_code", 1)])
+        db.price_quotes.create_index([("ota_code", 1)])
+        db.price_quotes.create_index([("source", 1)])
         db.price_quotes.create_index([("total_fare", 1)])
         db.price_quotes.create_index([("scraped_at", -1)])
         db.price_quotes.create_index([("is_outlier", 1)])
@@ -124,6 +121,17 @@ def get_mongo_status() -> Dict[str, Any]:
     }
 
 
+OTA_CATALOG = {
+    "MMT": {"code": "MMT", "name": "MakeMyTrip", "match": "makemytrip", "color": "#EA2330"},
+    "EMT": {"code": "EMT", "name": "EaseMyTrip", "match": "easemytrip", "color": "#0084FF"},
+    "YTR": {"code": "YTR", "name": "Yatra", "match": "yatra", "color": "#D32F2F"},
+    "CT": {"code": "CT", "name": "Cleartrip", "match": "cleartrip", "color": "#FF4F17"},
+    "IXG": {"code": "IXG", "name": "ixigo", "match": "ixigo", "color": "#FC2779"},
+    "GIB": {"code": "GIB", "name": "Goibibo", "match": "goibibo", "color": "#F26722"},
+    "SKY": {"code": "SKY", "name": "Skyscanner", "match": "skyscanner", "color": "#0770E3"},
+}
+
+
 def save_quotes_to_mongo(quotes: List[Dict[str, Any]], scraper_id: Optional[str] = None) -> int:
     """
     Saves a list of flight quotes into MongoDB collection 'price_quotes'.
@@ -146,6 +154,30 @@ def save_quotes_to_mongo(quotes: List[Dict[str, Any]], scraper_id: Optional[str]
             doc["flight_date"] = doc["flight_date"].isoformat()
         if isinstance(doc.get("scraped_at"), (date, datetime)):
             doc["scraped_at"] = doc["scraped_at"].isoformat()
+
+        # Attribute OTA/Platform provenance
+        source_str = str(doc.get("source") or "").lower()
+        scraper_str = str(doc.get("scraper_id") or scraper_id or "").lower()
+        acode = str(doc.get("airline_code") or "").upper()
+        
+        ota_found = None
+        for o_code, o_cfg in OTA_CATALOG.items():
+            if o_cfg["match"] in source_str or o_cfg["match"] in scraper_str or acode == o_code:
+                ota_found = o_cfg
+                break
+        
+        if ota_found:
+            doc["ota_code"] = ota_found["code"]
+            doc["ota_name"] = ota_found["name"]
+            doc["source_platform"] = ota_found["name"]
+            doc["ota_color"] = ota_found["color"]
+            doc["channel"] = "OTA"
+        else:
+            doc["ota_code"] = None
+            doc["ota_name"] = None
+            doc["source_platform"] = doc.get("airline_name") or doc.get("airline") or "Direct Airline"
+            doc["channel"] = "DIRECT"
+
         docs.append(doc)
 
     try:
@@ -197,7 +229,7 @@ def save_master_dataset_to_mongo(master_data: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def seed_mongo_baseline_data() -> Dict[str, Any]:
+def seed_mongo_baseline_data(clear_existing: bool = False) -> Dict[str, Any]:
     """
     Seeds baseline routes and airlines directly into MongoDB collections
     from official DGCA dataset without needing SQLite or SQLAlchemy.
@@ -205,6 +237,10 @@ def seed_mongo_baseline_data() -> Dict[str, Any]:
     from backend.dgca_data import DGCA_ROUTES_DATA, AIRLINES_DATA
     client = get_mongo_client()
     db = client[settings.MONGO_DB_NAME]
+
+    if clear_existing:
+        db.routes.delete_many({})
+        db.airlines.delete_many({})
 
     # 1. Seed Routes
     for idx, r_data in enumerate(DGCA_ROUTES_DATA, start=1):
@@ -264,6 +300,8 @@ def seed_mongo_baseline_data() -> Dict[str, Any]:
     return {
         "status": "success",
         "message": "MongoDB baseline successfully initialized",
+        "routes_seeded": len(DGCA_ROUTES_DATA),
+        "airlines_seeded": len(AIRLINES_DATA),
         "mongo_status": status
     }
 
@@ -486,7 +524,7 @@ def get_mongo_overview() -> Dict[str, Any]:
             "index_growth_pct": live_index.get("change_m1", 0.0),
             "monitored_corridors": total_routes or 10,
             "active_airlines": total_airlines or 5,
-            "monitored_otas": total_otas or 2,
+            "monitored_otas": total_otas or 7,
             "total_price_observations": total_quotes,
             "scraper_resilience_rate": scraper_resilience_rate,
             "outliers_cleaned": outliers_count
@@ -515,7 +553,7 @@ def get_mongo_routes() -> List[Dict[str, Any]]:
     for r in routes:
         code = r.get("route_code")
         stats = fare_stats.get(code, {})
-        avg_fare = round(stats.get("avg_fare", 5400.0), 2)
+        avg_fare = round(stats.get("avg_fare", r.get("base_fare", 5400.0)), 2)
         weight_val = r.get("weight", 0.1)
         results.append({
             "id": r.get("sql_id", 1),
@@ -716,6 +754,66 @@ def get_mongo_advance_windows(route_code: Optional[str] = None) -> List[Dict[str
     return results
 
 
+def build_mongo_quote_query(
+    route_code: Optional[str] = None,
+    origin: Optional[str] = None,
+    destination: Optional[str] = None,
+    airline_code: Optional[str] = None,
+    advance_window: Optional[str] = None,
+    flight_date: Optional[str] = None,
+    is_outlier: Optional[bool] = None,
+) -> Dict[str, Any]:
+    """Constructs a collision-free MongoDB query supporting operating airlines, OTAs, and corridors."""
+    and_clauses: List[Dict[str, Any]] = []
+
+    if route_code and route_code.upper() != "ALL":
+        and_clauses.append({
+            "$or": [
+                {"route": route_code.upper()},
+                {"route_code": route_code.upper()}
+            ]
+        })
+    elif origin and destination:
+        and_clauses.append({"origin": origin.upper(), "destination": destination.upper()})
+    elif origin:
+        and_clauses.append({"origin": origin.upper()})
+    elif destination:
+        and_clauses.append({"destination": destination.upper()})
+
+    if airline_code and airline_code.upper() != "ALL":
+        code_upper = airline_code.upper()
+        if code_upper in OTA_CATALOG:
+            pat = OTA_CATALOG[code_upper]["match"]
+            and_clauses.append({
+                "$or": [
+                    {"ota_code": code_upper},
+                    {"airline_code": code_upper},
+                    {"source": {"$regex": pat, "$options": "i"}},
+                    {"scraper_id": {"$regex": pat, "$options": "i"}}
+                ]
+            })
+        else:
+            and_clauses.append({
+                "$or": [
+                    {"airline_code": code_upper},
+                    {"airline": code_upper}
+                ]
+            })
+
+    if advance_window and advance_window.upper() not in ("ALL", "ALL_WEIGHTED", ""):
+        and_clauses.append({"advance_window": advance_window})
+    if flight_date:
+        and_clauses.append({"flight_date": flight_date})
+    if is_outlier is not None:
+        and_clauses.append({"is_outlier": is_outlier})
+
+    if len(and_clauses) == 1:
+        return and_clauses[0]
+    elif len(and_clauses) > 1:
+        return {"$and": and_clauses}
+    return {}
+
+
 def get_mongo_quotes(
     route_code: Optional[str] = None,
     origin: Optional[str] = None,
@@ -727,31 +825,17 @@ def get_mongo_quotes(
     limit: Optional[int] = None,
     offset: int = 0
 ) -> List[Dict[str, Any]]:
-    """Retrieves flight quotes from MongoDB matching search filters. Supports both route and route_code, airline and airline_code."""
+    """Retrieves flight quotes from MongoDB matching search filters. Supports both operating carriers and OTAs."""
     db = get_mongo_db()
-    query: Dict[str, Any] = {}
-
-    if route_code:
-        query["$or"] = [
-            {"route": route_code.upper()},
-            {"route_code": route_code.upper()}
-        ]
-    elif origin and destination:
-        query["origin"] = origin.upper()
-        query["destination"] = destination.upper()
-    elif origin:
-        query["origin"] = origin.upper()
-    elif destination:
-        query["destination"] = destination.upper()
-
-    if airline_code:
-        query["airline_code"] = airline_code.upper()
-    if advance_window:
-        query["advance_window"] = advance_window
-    if flight_date:
-        query["flight_date"] = flight_date
-    if is_outlier is not None:
-        query["is_outlier"] = is_outlier
+    query = build_mongo_quote_query(
+        route_code=route_code,
+        origin=origin,
+        destination=destination,
+        airline_code=airline_code,
+        advance_window=advance_window,
+        flight_date=flight_date,
+        is_outlier=is_outlier
+    )
 
     AIRLINE_COLORS = {
         "6E": "#0052CC",
@@ -760,7 +844,12 @@ def get_mongo_quotes(
         "QP": "#FF6600",
         "SG": "#ED1C24",
         "MMT": "#EA2330",
-        "EMT": "#0084FF"
+        "EMT": "#0084FF",
+        "YTR": "#D32F2F",
+        "CT": "#FF4F17",
+        "IXG": "#FC2779",
+        "GIB": "#F26722",
+        "SKY": "#0770E3"
     }
 
     cursor = db.price_quotes.find(query).sort("total_fare", 1).skip(offset)
@@ -785,12 +874,43 @@ def get_mongo_quotes(
         doc["airline"] = a_name
         doc["airline_color"] = doc.get("airline_color") or AIRLINE_COLORS.get(a_code, "#1E3A8A")
 
+        # Attribute OTA / Platform provenance
+        o_code = doc.get("ota_code")
+        o_name = doc.get("ota_name")
+        source_str = str(doc.get("source") or "").lower()
+        scraper_str = str(doc.get("scraper_id") or "").lower()
+
+        if not o_code:
+            for code_key, cfg in OTA_CATALOG.items():
+                if cfg["match"] in source_str or cfg["match"] in scraper_str or a_code == code_key:
+                    o_code = cfg["code"]
+                    o_name = cfg["name"]
+                    break
+
+        if o_code and o_code in OTA_CATALOG:
+            doc["ota_code"] = o_code
+            doc["ota_name"] = o_name or OTA_CATALOG[o_code]["name"]
+            doc["ota_color"] = OTA_CATALOG[o_code]["color"]
+            doc["source_platform"] = doc["ota_name"]
+            doc["channel"] = "OTA"
+        else:
+            doc["ota_code"] = None
+            doc["ota_name"] = None
+            doc["ota_color"] = None
+            doc["source_platform"] = a_name
+            doc["channel"] = "DIRECT"
+
         # Standardize numeric fares
         doc["base_fare"] = round(doc.get("base_fare", 0.0), 2)
         doc["taxes_and_fees"] = round(doc.get("taxes_and_fees", 0.0), 2)
         doc["total_fare"] = round(doc.get("total_fare", 0.0), 2)
         doc["cleaned_fare"] = round(doc.get("cleaned_fare", doc["total_fare"]), 2)
         doc["is_outlier"] = bool(doc.get("is_outlier", False))
+
+        # Ensure cryptographic hash
+        if not doc.get("snapshot_hash"):
+            seed = f"{doc.get('flight_number')}_{r_code}_{doc.get('flight_date')}_{doc.get('departure_time')}_{doc.get('total_fare')}_{doc.get('source')}"
+            doc["snapshot_hash"] = hashlib.sha256(seed.encode()).hexdigest()
 
         results.append(doc)
 
@@ -810,29 +930,15 @@ def get_mongo_quotes_paginated(
 ) -> Dict[str, Any]:
     """Retrieves flight quotes and exact matching total_count from MongoDB."""
     db = get_mongo_db()
-    query: Dict[str, Any] = {}
-
-    if route_code and route_code.upper() != "ALL":
-        query["$or"] = [
-            {"route": route_code.upper()},
-            {"route_code": route_code.upper()}
-        ]
-    elif origin and destination:
-        query["origin"] = origin.upper()
-        query["destination"] = destination.upper()
-    elif origin:
-        query["origin"] = origin.upper()
-    elif destination:
-        query["destination"] = destination.upper()
-
-    if airline_code and airline_code.upper() != "ALL":
-        query["airline_code"] = airline_code.upper()
-    if advance_window and advance_window.upper() not in ("ALL", "ALL_WEIGHTED", ""):
-        query["advance_window"] = advance_window
-    if flight_date:
-        query["flight_date"] = flight_date
-    if is_outlier is not None:
-        query["is_outlier"] = is_outlier
+    query = build_mongo_quote_query(
+        route_code=route_code,
+        origin=origin,
+        destination=destination,
+        airline_code=airline_code,
+        advance_window=advance_window,
+        flight_date=flight_date,
+        is_outlier=is_outlier
+    )
 
     total_count = db.price_quotes.count_documents(query)
     quotes = get_mongo_quotes(

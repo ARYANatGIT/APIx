@@ -17,6 +17,7 @@ import {
   Globe
 } from 'lucide-react';
 import { apiService } from '../services/api';
+import AnimatedNumber from './AnimatedNumber';
 
 const DGCA_CORRIDORS = [
   { code: '', label: 'All 10 DGCA Corridors (Weighted Basket)' },
@@ -100,13 +101,13 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
 
   const avgIndustryFare = useMemo(() => {
     const valid = carriers.filter(c => typeof c.average_fare === 'number' && c.average_fare > 0);
-    if (!valid.length) return 7200;
+    if (!valid.length) return null;
     const total = valid.reduce((sum, c) => sum + c.average_fare, 0);
     return Math.round(total / valid.length);
   }, [carriers]);
 
   const dominantCarrier = useMemo(() => {
-    if (!carriers.length) return { share: 60.5, code: '6E', name: 'IndiGo' };
+    if (!carriers.length) return { share: null, code: '—', name: '—' };
     const sorted = [...carriers].sort((a, b) => (b.market_share_pct || b.market_share || 0) - (a.market_share_pct || a.market_share || 0));
     const top = sorted[0];
     return {
@@ -195,7 +196,7 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
           </div>
           <div className="kpi-value val-gold">{carriers.length} Carriers + {otas.length} OTAs</div>
           <div className="kpi-caption">
-            All 5 major scheduled Indian airlines + 2 OTAs
+            All 5 major scheduled Indian airlines + 7 OTAs
           </div>
         </div>
 
@@ -204,7 +205,7 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
             <span className="kpi-label">Carrier Quotes Ingested</span>
             <Database size={16} style={{ color: '#38bdf8' }} />
           </div>
-          <div className="kpi-value font-mono">{totalCarrierQuotes.toLocaleString()}</div>
+          <div className="kpi-value font-mono"><AnimatedNumber value={totalCarrierQuotes} /></div>
           <div className="kpi-caption">
             Live observations across {selectedRoute || 'all 10 corridors'}
           </div>
@@ -215,7 +216,9 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
             <span className="kpi-label">Benchmark Average Fare</span>
             <TrendingUp size={16} style={{ color: '#10b981' }} />
           </div>
-          <div className="kpi-value font-mono">₹{avgIndustryFare.toLocaleString()}</div>
+          <div className="kpi-value font-mono">
+            {avgIndustryFare != null ? <AnimatedNumber value={avgIndustryFare} prefix="₹" /> : '—'}
+          </div>
           <div className="kpi-caption">
             Unweighted cross-carrier average for {selectedRoute || 'All Corridors'}
           </div>
@@ -226,7 +229,11 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
             <span className="kpi-label">Market Dominance</span>
             <Award size={16} style={{ color: '#E5B54F' }} />
           </div>
-          <div className="kpi-value font-mono">{dominantCarrier.share}% ({dominantCarrier.code})</div>
+          <div className="kpi-value font-mono">
+            {dominantCarrier.share != null ? (
+              <><AnimatedNumber value={dominantCarrier.share} suffix="%" /> ({dominantCarrier.code})</>
+            ) : '—'}
+          </div>
           <div className="kpi-caption">
             {dominantCarrier.name} DGCA domestic passenger traffic share
           </div>
@@ -265,7 +272,7 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
               <div className="market-share-block">
                 <div className="share-labels">
                   <span>Domestic Market Share</span>
-                  <strong>{airline.market_share_pct || 0}%</strong>
+                  <strong><AnimatedNumber value={airline.market_share_pct || 0} suffix="%" /></strong>
                 </div>
                 <div className="share-track">
                   <div
@@ -292,13 +299,13 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
                     Live Avg Fare ({selectedRoute || 'Basket'})
                   </span>
                   <span className="font-mono font-bold" style={{ fontSize: '1.05rem', color: hasFare ? 'var(--accent)' : 'var(--muted-fg)' }}>
-                    {hasFare ? `₹${Math.round(airline.average_fare).toLocaleString()}` : '--'}
+                    {hasFare ? <AnimatedNumber value={Math.round(airline.average_fare)} prefix="₹" /> : '--'}
                   </span>
                 </div>
                 {hasFare && airline.min_fare && airline.max_fare && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.68rem', color: 'var(--muted-fg)', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
-                    <span>Min: ₹{Math.round(airline.min_fare).toLocaleString()}</span>
-                    <span>Max: ₹{Math.round(airline.max_fare).toLocaleString()}</span>
+                    <span>Min: <AnimatedNumber value={Math.round(airline.min_fare)} prefix="₹" /></span>
+                    <span>Max: <AnimatedNumber value={Math.round(airline.max_fare)} prefix="₹" /></span>
                   </div>
                 )}
               </div>
@@ -307,7 +314,7 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
               <div className="airline-metrics-row">
                 <div className="air-metric">
                   <Database size={13} />
-                  <span>{quotesCount.toLocaleString()} Quotes Ingested</span>
+                  <span><AnimatedNumber value={quotesCount} /> Quotes Ingested</span>
                 </div>
                 <div className="air-metric live-status">
                   <CheckCircle size={13} style={{ color: '#10b981' }} />
@@ -386,7 +393,7 @@ export default function AirlinesView({ airlines: initialAirlines = [] }) {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ color: 'var(--muted-fg)' }}>Avg Probe Latency:</span>
-                  <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>{ota.avg_latency_ms || 1420}ms</span>
+                  <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>{ota.avg_latency_ms ? `${ota.avg_latency_ms}ms` : '—'}</span>
                 </div>
               </div>
 

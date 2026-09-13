@@ -48,13 +48,13 @@
   --text-8xl: 8rem;      /* 128px */
   --text-9xl: 10rem;     /* 160px */
 
-  /* Tracking System */
-  --tracking-tighter: -0.06em;
-  --tracking-tight: -0.04em;
-  --tracking-normal: -0.01em;
-  --tracking-wide: 0.05em;
-  --tracking-wider: 0.1em;
-  --tracking-widest: 0.2em;
+  /* Tracking System - Generous, legible letter distance */
+  --tracking-tighter: 0.015em;
+  --tracking-tight: 0.035em;
+  --tracking-normal: 0.045em;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.14em;
+  --tracking-widest: 0.22em;
 
   /* Line Heights */
   --leading-none: 1;
@@ -72,6 +72,32 @@
   --ease-fast: cubic-bezier(0.25, 0, 0, 1);
   --duration-micro: 150ms;
   --duration-standard: 200ms;
+}
+
+[data-theme="light"] {
+  /* Colors (Light Canvas) */
+  --bg: #F8FAFC;
+  --fg: #0F172A;
+  --muted: #F1F5F9;
+  --muted-fg: #475569;
+  --accent: #FF3D00;
+  --accent-fg: #FFFFFF;
+  --border: #E2E8F0;
+  --border-hover: #CBD5E1;
+  --input: #FFFFFF;
+  --card: #FFFFFF;
+  --card-fg: #0F172A;
+  --ring: #FF3D00;
+
+  /* SVG Chart Theme Tokens in Light Mode */
+  --chart-grid: #E2E8F0;
+  --chart-axis: #94A3B8;
+  --chart-bg: #FFFFFF;
+  --chart-axis-text: #475569;
+  --chart-stroke-start: #0F172A;
+  --chart-tooltip-bg: #FFFFFF;
+  --chart-tooltip-text: #0F172A;
+  --chart-tooltip-sub: #475569;
 }
 
 *, *::before, *::after {
@@ -93,6 +119,17 @@ html, body, #root {
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 860px) {
+  html, body, #root {
+    height: auto !important;
+    min-height: 100% !important;
+    max-height: none !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Subtle fractal noise grain texture layer (1.8% opacity) */
@@ -194,17 +231,65 @@ a {
   transform: translateY(1px);
 }
 
-/* Sharp, precise scrollbars */
+/* Ergonomic, clearly visible scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.28) rgba(15, 15, 18, 0.6);
+}
+
+[data-theme="light"] * {
+  scrollbar-color: #94A3B8 #F1F5F9;
+}
+
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: rgba(14, 14, 18, 0.7);
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: rgba(255, 255, 255, 0.26);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.2s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #404040;
+  background: rgba(255, 61, 0, 0.75);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #FF5722;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ==========================================================================
+   Page & Display Heading Typography (Generous Letter Spacing / Text Distance)
+   ========================================================================== */
+h1, .h1, .page-title, .main-title, .mospi-main-title, .hud-title, .hero-main-heading {
+  letter-spacing: 0.05em !important;
+}
+
+h2, .h2, .section-title, .deck-page-title, .bold-display-h2 {
+  letter-spacing: 0.045em !important;
+}
+
+h3, .h3, .subgroup-title, .card-main-title {
+  letter-spacing: 0.035em !important;
 }

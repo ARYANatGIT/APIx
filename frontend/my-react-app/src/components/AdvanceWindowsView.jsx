@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react';
 import { apiService } from '../services/api';
+import AnimatedNumber from './AnimatedNumber';
 
 const DGCA_CORRIDORS = [
   { code: '', label: 'All 10 DGCA Corridors (Weighted Basket)' },
@@ -83,7 +84,7 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
 
   const currentWindow = windows.find(w => (w.window || w.advance_window) === selectedWindow) || windows[0];
   const t45Window = windows.find(w => (w.window || w.advance_window) === 'T+45' || (w.window || w.advance_window) === 'T+30') || windows[windows.length - 1];
-  const baselineFare = t45Window ? Math.round(t45Window.average_fare) : 5000;
+  const baselineFare = (t45Window && typeof t45Window.average_fare === 'number') ? Math.round(t45Window.average_fare) : null;
   const baselineLabel = t45Window ? (t45Window.window || t45Window.advance_window) : 'T+45';
 
   // Dynamic calculations across all windows
@@ -231,7 +232,7 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
             <span className="kpi-label">Peak Surge Volatility</span>
             <ArrowUpRight size={16} className="text-accent" />
           </div>
-          <div className="kpi-value val-gold">{peakSurge.toFixed(2)}x</div>
+          <div className="kpi-value val-gold"><AnimatedNumber value={peakSurge} suffix="x" decimals={2} /></div>
           <div className="kpi-caption">
             T+0 Same-Day Distress vs {baselineLabel} Leisure Floor
           </div>
@@ -242,7 +243,9 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
             <span className="kpi-label">{baselineLabel} Baseline Anchor</span>
             <Clock size={16} style={{ color: '#10b981' }} />
           </div>
-          <div className="kpi-value font-mono">₹{baselineFare.toLocaleString()}</div>
+          <div className="kpi-value font-mono">
+            {baselineFare != null ? <AnimatedNumber value={baselineFare} prefix="₹" /> : '—'}
+          </div>
           <div className="kpi-caption">
             Long-horizon non-surge planning floor
           </div>
@@ -253,7 +256,7 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
             <span className="kpi-label">Horizon Database Sample</span>
             <Layers size={16} style={{ color: '#38bdf8' }} />
           </div>
-          <div className="kpi-value font-mono">{totalWindowQuotes.toLocaleString()}</div>
+          <div className="kpi-value font-mono"><AnimatedNumber value={totalWindowQuotes} /></div>
           <div className="kpi-caption">
             Verified price observations across 6 horizons
           </div>
@@ -265,7 +268,7 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
             <AlertTriangle size={16} style={{ color: '#f87171' }} />
           </div>
           <div className="kpi-value font-mono" style={{ color: totalOutliers > 0 ? '#f87171' : 'var(--fg)' }}>
-            {totalOutliers}
+            <AnimatedNumber value={totalOutliers} />
           </div>
           <div className="kpi-caption">
             Statistical spikes isolated by 1.5× IQR filter
@@ -324,8 +327,9 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
                 y1={gy}
                 x2="750"
                 y2={gy}
-                stroke="rgba(255, 255, 255, 0.05)"
+                stroke="var(--chart-grid, rgba(255, 255, 255, 0.05))"
                 strokeDasharray="4 4"
+                className="advance-chart-grid-line"
               />
             ))}
 
@@ -377,7 +381,7 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
                     cx={pt.x}
                     cy={pt.y}
                     r={isSelected ? 5.5 : 4}
-                    fill={isSelected ? '#E5B54F' : '#111827'}
+                    fill={isSelected ? '#E5B54F' : 'var(--card)'}
                     stroke="#E5B54F"
                     strokeWidth="2"
                   />
@@ -387,10 +391,11 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
                     x={pt.x}
                     y="208"
                     textAnchor="middle"
-                    fill={isSelected ? '#E5B54F' : '#94a3b8'}
+                    fill={isSelected ? '#E5B54F' : 'var(--muted-fg)'}
                     fontSize="11"
                     fontFamily="monospace"
                     fontWeight={isSelected ? 'bold' : 'normal'}
+                    className="advance-chart-horizon-label"
                   >
                     {pt.window}
                   </text>
@@ -400,10 +405,11 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
                     x={pt.x}
                     y={pt.y - 10}
                     textAnchor="middle"
-                    fill="#f1f5f9"
+                    fill="var(--fg)"
                     fontSize="10"
                     fontFamily="monospace"
                     fontWeight="bold"
+                    className="advance-chart-price-label"
                   >
                     ₹{Math.round(pt.fare).toLocaleString()}
                   </text>
@@ -419,13 +425,14 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
             position: 'absolute',
             top: '20px',
             right: '24px',
-            background: 'rgba(17, 24, 39, 0.95)',
-            border: '1px solid var(--accent)',
+            background: 'var(--chart-tooltip-bg, #0A0A0A)',
+            color: 'var(--chart-tooltip-text, #FAFAFA)',
+            border: '1px solid var(--border)',
             padding: '8px 14px',
             borderRadius: '4px',
             fontSize: '0.74rem',
             fontFamily: 'var(--font-mono)',
-            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.5)',
+            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
             pointerEvents: 'none'
           }}>
             <div style={{ color: 'var(--accent)', fontWeight: 'bold', marginBottom: '2px' }}>
@@ -472,7 +479,7 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
               </div>
 
               <div className="window-fare-val">
-                ₹{Math.round(w.average_fare || 0).toLocaleString()}
+                <AnimatedNumber value={Math.round(w.average_fare || 0)} prefix="₹" />
                 <span className="fare-sub">avg fare</span>
               </div>
 
@@ -481,15 +488,15 @@ export default function AdvanceWindowsView({ windowsData: initialWindows = [] })
               <div className="window-meta-stats">
                 <div className="meta-stat">
                   <span>Min</span>
-                  <strong>₹{Math.round(w.min_fare || 0).toLocaleString()}</strong>
+                  <strong><AnimatedNumber value={Math.round(w.min_fare || 0)} prefix="₹" /></strong>
                 </div>
                 <div className="meta-stat">
                   <span>Max</span>
-                  <strong>₹{Math.round(w.max_fare || 0).toLocaleString()}</strong>
+                  <strong><AnimatedNumber value={Math.round(w.max_fare || 0)} prefix="₹" /></strong>
                 </div>
                 <div className="meta-stat">
                   <span>Quotes</span>
-                  <strong>{quoteCnt.toLocaleString()}</strong>
+                  <strong><AnimatedNumber value={quoteCnt} /></strong>
                 </div>
               </div>
             </div>
