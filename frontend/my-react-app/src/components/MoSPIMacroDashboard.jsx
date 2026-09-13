@@ -13,8 +13,7 @@ import {
   ChevronRight,
   Flame,
   Snowflake,
-  RefreshCw,
-  Sparkles
+  RefreshCw
 } from 'lucide-react';
 import IndiaAirfareHeatmap from './IndiaAirfareHeatmap';
 import RouteStressIndexWidget from './RouteStressIndexWidget';
@@ -163,15 +162,6 @@ export default function MoSPIMacroDashboard({
             >
               <RefreshCw size={13} className={isRefreshing ? 'spin-pulse' : ''} />
               <span>{isRefreshing ? 'Updating...' : 'Sync Scraped Data'}</span>
-            </button>
-
-            <button
-              type="button"
-              className="mospi-action-btn inspect-btn"
-              onClick={onInspectEngine}
-            >
-              <Sparkles size={13} />
-              <span>Inspect APIx Calculation</span>
             </button>
           </div>
         </div>

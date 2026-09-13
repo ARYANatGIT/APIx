@@ -19,7 +19,9 @@ import {
   HelpCircle,
   ShieldCheck,
   Info,
-  Layers
+  Layers,
+  Mail,
+  Check
 } from 'lucide-react';
 
 function renderFormattedLine(text) {
@@ -58,6 +60,23 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
   const [isTyping, setIsTyping] = useState(false);
   const chatMessagesContainerRef = useRef(null);
   const sessionIdRef = useRef(getOrCreateSessionId());
+  const [testEmailSending, setTestEmailSending] = useState(false);
+  const [testEmailSuccess, setTestEmailSuccess] = useState(false);
+
+  const handleSendTestEmail = async () => {
+    try {
+      setTestEmailSending(true);
+      const res = await fetch('http://127.0.0.1:8000/api/v1/intel/send-test-email', { method: 'POST' });
+      if (res.ok) {
+        setTestEmailSuccess(true);
+        setTimeout(() => setTestEmailSuccess(false), 4500);
+      }
+    } catch (err) {
+      console.warn("Failed to send test email to RBI:", err);
+    } finally {
+      setTestEmailSending(false);
+    }
+  };
 
   // Diverse quick suggestion chips
   const suggestionPills = [
@@ -188,10 +207,64 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
       {/* 1. Header Telemetry HUD */}
       <div className="spike-hud-banner">
         <div className="hud-left-meta">
-          <div className="hud-live-pill">
-            <span className="hud-pulse-dot" />
-            <span className="hud-live-text font-mono">LIVE AI RADAR ACTIVE</span>
+          <div className="hud-pills-row" style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '8px' }}>
+            <div className="hud-live-pill">
+              <span className="hud-pulse-dot" />
+              <span className="hud-live-text font-mono">LIVE AI RADAR ACTIVE</span>
+            </div>
+
+            <div
+              className="hud-live-pill rbi-pill"
+              style={{
+                background: 'rgba(239, 68, 68, 0.12)',
+                borderColor: 'rgba(239, 68, 68, 0.35)',
+                color: '#FCA5A5',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}
+              title="Real-time transport/weather disruptions & scraper spikes automatically dispatched to RBI"
+            >
+              <Mail size={12} style={{ color: '#F87171' }} />
+              <span className="hud-live-text font-mono" style={{ color: '#F87171' }}>
+                RBI ALERT STREAM: ACTIVE &bull; anonymous.guy.26072006@gmail.com
+              </span>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleSendTestEmail}
+              disabled={testEmailSending}
+              style={{
+                background: testEmailSuccess ? 'rgba(34, 197, 94, 0.18)' : 'rgba(255, 255, 255, 0.06)',
+                border: `1px solid ${testEmailSuccess ? '#22C55E' : 'rgba(255, 255, 255, 0.15)'}`,
+                color: testEmailSuccess ? '#4ADE80' : '#E2E8F0',
+                borderRadius: '6px',
+                padding: '3px 10px',
+                fontSize: '11px',
+                cursor: testEmailSending ? 'not-allowed' : 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                fontFamily: 'monospace',
+                transition: 'all 0.2s ease'
+              }}
+              title="Click to trigger a test RBI alert dispatch to anonymous.guy.26072006@gmail.com"
+            >
+              {testEmailSuccess ? (
+                <>
+                  <Check size={12} style={{ color: '#4ADE80' }} />
+                  <span>DISPATCHED TO RBI!</span>
+                </>
+              ) : (
+                <>
+                  <Mail size={12} />
+                  <span>{testEmailSending ? 'Sending...' : 'Test RBI Alert'}</span>
+                </>
+              )}
+            </button>
           </div>
+
           <h1 className="hud-title">AIR INTEL & DISRUPTION RADAR</h1>
           <p className="hud-subtitle">
             Autonomous multi-source intelligence: real-time news disruptions, live scraper anomaly spikes, machine learning price surge forecasts, and interactive AI Q&amp;A.
@@ -318,6 +391,11 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
                       </span>
                     </div>
 
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: '#F87171', background: 'rgba(239, 68, 68, 0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(239, 68, 68, 0.22)', marginBottom: '8px', width: 'fit-content' }}>
+                      <Mail size={11} />
+                      <span className="font-mono">Dispatched to RBI: anonymous.guy.26072006@gmail.com</span>
+                    </div>
+
                     <h3 className="card-main-title">
                       {item.title} — {item.airline} ({item.route_name || item.route})
                     </h3>
@@ -391,6 +469,11 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
                         <Clock size={12} />
                         {item.detected_at}
                       </span>
+                    </div>
+
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: '#38BDF8', background: 'rgba(56, 189, 248, 0.08)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(56, 189, 248, 0.22)', marginBottom: '8px', width: 'fit-content' }}>
+                      <Mail size={11} />
+                      <span className="font-mono">Dispatched to RBI: anonymous.guy.26072006@gmail.com</span>
                     </div>
 
                     <h3 className="card-main-title">{item.headline}</h3>

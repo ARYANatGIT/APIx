@@ -790,6 +790,56 @@ def chat_with_intel_assistant(payload: IntelChatRequest):
     return answer_intel_query(payload.message, db, payload.session_id)
 
 
+@app.post("/api/v1/intel/send-test-email")
+def trigger_test_email():
+    """
+    Manually triggers an immediate RBI Alert dispatch to anonymous.guy.26072006@gmail.com
+    for testing and verification purposes.
+    """
+    import time
+    from backend.mongo import get_mongo_db
+    from backend.email_notifier import send_rbi_alert_email
+    db = get_mongo_db()
+    sample_alert = {
+        "id": f"test-rbi-{int(time.time())}",
+        "type": "SCRAPER_SPIKE",
+        "severity": "CRITICAL",
+        "airline": "Air India",
+        "route": "DEL-BOM",
+        "route_name": "Delhi → Mumbai",
+        "flight_number": "AI 887",
+        "actual_price": 14250.0,
+        "expected_price": 6420.0,
+        "surge_pct": 121.9,
+        "advance_window": "T+1",
+        "scraper_source": "Direct Scraper Microdata"
+    }
+    res = send_rbi_alert_email(sample_alert, db=db)
+    return {
+        "status": "SUCCESS",
+        "recipient": "anonymous.guy.26072006@gmail.com",
+        "result": res
+    }
+
+
+@app.get("/api/v1/intel/email-status")
+def get_intel_email_status():
+    """Returns the latest audit log records for emails sent to anonymous.guy.26072006@gmail.com."""
+    from backend.mongo import get_mongo_db
+    db = get_mongo_db()
+    logs = []
+    if db is not None:
+        try:
+            logs = list(db.email_audit_logs.find({}, {"_id": 0}).sort("dispatched_at", -1).limit(10))
+        except Exception:
+            pass
+    return {
+        "target_recipient": "anonymous.guy.26072006@gmail.com",
+        "total_dispatched": len(logs),
+        "recent_dispatches": logs
+    }
+
+
 # ==============================================================================
 # Route Stress Index (RSI) & Airport Substitution Endpoints
 # ==============================================================================

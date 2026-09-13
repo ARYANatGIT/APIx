@@ -9,7 +9,6 @@ import {
   FileSearch,
   Cpu,
   Download,
-  Sparkles,
   Activity,
   X
 } from 'lucide-react';
@@ -46,11 +45,6 @@ export default function Navbar({
 
   const handleBackHome = () => {
     if (onNavigate) onNavigate('home');
-    if (onCloseMobile) onCloseMobile();
-  };
-
-  const handleInspect = () => {
-    if (onBookClick) onBookClick();
     if (onCloseMobile) onCloseMobile();
   };
 
@@ -112,16 +106,6 @@ export default function Navbar({
 
         {/* Sidebar Footer Action */}
         <div className="sidebar-bottom-section">
-          <button
-            type="button"
-            className="sidebar-inspect-btn"
-            onClick={handleInspect}
-            aria-label="Inspect APIx Calculation"
-          >
-            <Sparkles size={16} strokeWidth={1.75} />
-            <span>INSPECT APIx ENGINE</span>
-          </button>
-
           <div className="sidebar-footer-note">
             <span>AirSetu • MoSPI CPI</span>
             <span className="sidebar-ver-tag">REV 2026.09</span>
