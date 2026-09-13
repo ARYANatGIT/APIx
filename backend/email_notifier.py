@@ -15,7 +15,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime, timezone, timedelta
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 
 # Designated recipient at RBI
 RBI_OFFICIAL_EMAIL = "anonymous.guy.26072006@gmail.com"
@@ -391,3 +391,91 @@ def dispatch_new_intel_emails(alerts: list[Dict[str, Any]], db=None) -> int:
             emailed_count += 1
 
     return emailed_count
+
+
+def configure_smtp(user: str, password: str, host: str = "smtp.gmail.com", port: int = 587, sender: str = None):
+    """Dynamically updates active SMTP configuration at runtime."""
+    global SMTP_USER, SMTP_PASSWORD, SMTP_HOST, SMTP_PORT, SENDER_EMAIL
+    SMTP_USER = user.strip()
+    SMTP_PASSWORD = password.strip()
+    SMTP_HOST = host.strip() or "smtp.gmail.com"
+    SMTP_PORT = int(port)
+    SENDER_EMAIL = sender.strip() if sender else (user.strip() if "@" in user else "alerts@airsetu.mospi.gov.in")
+    return get_smtp_status()
+
+
+def get_smtp_status() -> Dict[str, Any]:
+    """Returns current active SMTP configuration state."""
+    has_creds = bool(SMTP_USER and SMTP_PASSWORD)
+    masked_user = (SMTP_USER[:3] + "***" + SMTP_USER[SMTP_USER.find("@"):]) if "@" in SMTP_USER else (SMTP_USER[:2] + "***" if SMTP_USER else "")
+    return {
+        "is_configured": has_creds,
+        "mode": "LIVE_SMTP_TLS" if has_creds else "MOCKED_LOG_AND_STORE",
+        "smtp_host": SMTP_HOST,
+        "smtp_port": SMTP_PORT,
+        "smtp_user": masked_user,
+        "sender_email": SENDER_EMAIL,
+        "recipient": RBI_OFFICIAL_EMAIL,
+        "note": "Live email delivery active" if has_creds else "Running in development audit mode. To send real emails to your Gmail inbox, provide an SMTP User & Google App Password in the settings drawer or .env."
+    }
+
+
+def get_email_audit_logs(limit: int = 30, db=None) -> List[Dict[str, Any]]:
+    """Retrieves list of recently recorded email dispatches."""
+    if db is None:
+        try:
+            from backend.mongo import get_mongo_db
+            db = get_mongo_db()
+        except Exception:
+            pass
+
+    logs = []
+    if db is not None:
+        try:
+            logs = list(db.email_audit_logs.find({}, {"_id": 0}).sort("dispatched_at", -1).limit(limit))
+        except Exception as e:
+            print(f"[AirIntel Email] Audit fetch error: {e}")
+    return logs
+
+
+def get_alert_email_preview(alert_id: str, db=None) -> Dict[str, Any]:
+    """Generates the full HTML and text email preview for a given alert ID."""
+    if db is None:
+        try:
+            from backend.mongo import get_mongo_db
+            db = get_mongo_db()
+        except Exception:
+            pass
+
+    alert = None
+    if db is not None:
+        try:
+            alert = db.intel_alerts.find_one({"id": alert_id}, {"_id": 0})
+        except Exception:
+            pass
+
+    if not alert:
+        # Generate sample fallback alert
+        alert = {
+            "id": alert_id,
+            "type": "SCRAPER_SPIKE",
+            "airline": "Air India",
+            "route": "DEL-BOM",
+            "route_name": "Delhi → Mumbai",
+            "flight_number": "AI 887",
+            "actual_price": 14250.0,
+            "expected_price": 6420.0,
+            "surge_pct": 121.9,
+            "advance_window": "T+1",
+            "scraper_source": "AirSetu Direct Scraper Microdata"
+        }
+
+    subject, text_body, html_body = format_rbi_alert_email(alert)
+    return {
+        "alert_id": alert_id,
+        "subject": subject,
+        "recipient": RBI_OFFICIAL_EMAIL,
+        "text_body": text_body,
+        "html_body": html_body
+    }
+

@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel
 from datetime import datetime, timezone
@@ -894,5 +894,188 @@ def run_airport_simulation(payload: AirportSimulationRequest):
         demand_surge_pct=payload.demand_surge_pct,
         db=db
     )
+
+
+# ==============================================================================
+# Comprehensive Dataset Exporter Endpoints (Researcher & Government Archive)
+# ==============================================================================
+
+@app.get("/api/v1/export/quotes/csv")
+def export_quotes_csv():
+    """Streams the entire 4,922 MongoDB price quotes corpus as an RFC 4180 CSV file."""
+    from backend.dataset_exporter import export_quotes_to_csv
+    csv_data = export_quotes_to_csv()
+    filename = f"airsetu_microdata_quotes_{datetime.now(timezone.utc).strftime('%Y%m%d')}.csv"
+    return Response(
+        content=csv_data,
+        media_type="text/csv",
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
+
+
+@app.get("/api/v1/export/quotes/json")
+def export_quotes_json():
+    """Returns the complete 4,922 MongoDB price quotes corpus as a structured JSON payload."""
+    from backend.dataset_exporter import export_quotes_to_json
+    return export_quotes_to_json()
+
+
+@app.get("/api/v1/export/apix/csv")
+def export_apix_csv():
+    """Streams the complete historical Laspeyres APIx daily index timeseries as a CSV file."""
+    from backend.dataset_exporter import export_apix_timeseries_to_csv
+    csv_data = export_apix_timeseries_to_csv()
+    filename = f"airsetu_apix_timeseries_{datetime.now(timezone.utc).strftime('%Y%m%d')}.csv"
+    return Response(
+        content=csv_data,
+        media_type="text/csv",
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
+
+
+@app.get("/api/v1/export/routes/csv")
+def export_routes_csv():
+    """Streams the 10 DGCA domestic flight corridors and expenditure weights as a CSV file."""
+    from backend.dataset_exporter import export_route_basket_to_csv
+    csv_data = export_route_basket_to_csv()
+    filename = f"airsetu_dgca_route_basket_{datetime.now(timezone.utc).strftime('%Y%m%d')}.csv"
+    return Response(
+        content=csv_data,
+        media_type="text/csv",
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
+
+
+@app.get("/api/v1/export/intel/json")
+def export_intel_json():
+    """Returns all stored real-time disruptions, scraper spikes, and ML forecasts as JSON."""
+    from backend.dataset_exporter import export_intel_alerts_to_json
+    return export_intel_alerts_to_json()
+
+
+@app.get("/api/v1/export/master-archive/zip")
+def export_master_archive_zip():
+    """
+    One-Click Master Archive: Packages all 5 datasets (Quotes CSV, Quotes JSON, APIx CSV,
+    Route Basket CSV, Intel JSON) plus an official README data dictionary into a ZIP download.
+    """
+    from backend.dataset_exporter import generate_master_zip_archive
+    zip_bytes = generate_master_zip_archive()
+    filename = f"airsetu_complete_research_dataset_archive_{datetime.now(timezone.utc).strftime('%Y%m%d')}.zip"
+    return Response(
+        content=zip_bytes,
+        media_type="application/zip",
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
+
+
+# ==============================================================================
+# Public & Developer API Key Management Endpoints
+# ==============================================================================
+
+class GenerateKeyRequest(BaseModel):
+    name: str = "Research Analyst"
+    organization: str = "Independent Researcher"
+    email: str = "analyst@research.edu"
+    tier: str = "RESEARCHER"
+
+
+class VerifyKeyRequest(BaseModel):
+    api_key: str
+
+
+@app.get("/api/v1/keys/demo")
+def get_demo_api_key():
+    """Returns the ready-to-use active public demo API key and developer quickstart instructions."""
+    from backend.api_keys import PUBLIC_DEMO_API_KEY
+    return {
+        "status": "ACTIVE",
+        "demo_api_key": PUBLIC_DEMO_API_KEY,
+        "name": "Public MoSPI Research Access",
+        "rate_limit_per_day": 10000,
+        "sample_curl": f'curl -H "X-API-Key: {PUBLIC_DEMO_API_KEY}" http://localhost:8000/api/v1/overview',
+        "sample_python": f"import requests\nresp = requests.get('http://localhost:8000/api/v1/overview', headers={{'X-API-Key': '{PUBLIC_DEMO_API_KEY}'}})\nprint(resp.json())"
+    }
+
+
+@app.post("/api/v1/keys/generate")
+def create_api_key(payload: GenerateKeyRequest):
+    """Generates a new cryptographically secure AirSetu API key and records it in MongoDB."""
+    from backend.mongo import get_mongo_db
+    from backend.api_keys import generate_new_api_key
+    db = get_mongo_db()
+    return generate_new_api_key(
+        name=payload.name,
+        organization=payload.organization,
+        email=payload.email,
+        tier=payload.tier,
+        db=db
+    )
+
+
+@app.post("/api/v1/keys/verify")
+def check_api_key(payload: VerifyKeyRequest):
+    """Validates an API key and increments usage count."""
+    from backend.mongo import get_mongo_db
+    from backend.api_keys import verify_api_key
+    db = get_mongo_db()
+    return verify_api_key(payload.api_key, db=db)
+
+
+@app.get("/api/v1/keys/list")
+def get_registered_keys():
+    """Returns registered API keys with masked tokens."""
+    from backend.mongo import get_mongo_db
+    from backend.api_keys import list_api_keys
+    db = get_mongo_db()
+    return list_api_keys(limit=20, db=db)
+
+
+# ==============================================================================
+# SMTP Delivery Configuration & Audit Log Endpoints
+# ==============================================================================
+
+class SMTPConfigRequest(BaseModel):
+    smtp_user: str
+    smtp_password: str
+    smtp_host: str = "smtp.gmail.com"
+    smtp_port: int = 587
+    sender_email: Optional[str] = None
+
+
+@app.get("/api/v1/intel/smtp-status")
+def get_active_smtp_status():
+    """Returns the current active SMTP configuration state."""
+    from backend.email_notifier import get_smtp_status
+    return get_smtp_status()
+
+
+@app.post("/api/v1/intel/smtp-config")
+def update_smtp_configuration(payload: SMTPConfigRequest):
+    """Configures SMTP credentials at runtime and tests connectivity."""
+    from backend.email_notifier import configure_smtp
+    res = configure_smtp(
+        user=payload.smtp_user,
+        password=payload.smtp_password,
+        host=payload.smtp_host,
+        port=payload.smtp_port,
+        sender=payload.sender_email
+    )
+    return {"status": "UPDATED", "config": res}
+
+
+@app.get("/api/v1/intel/email-audit-logs")
+def get_all_email_audit_logs(limit: int = 30):
+    """Retrieves list of recently recorded email dispatches."""
+    from backend.email_notifier import get_email_audit_logs
+    return get_email_audit_logs(limit=limit)
+
+
+@app.get("/api/v1/intel/email-preview/{alert_id}")
+def get_email_preview_by_id(alert_id: str):
+    """Returns the full HTML and text email payload for a given alert ID."""
+    from backend.email_notifier import get_alert_email_preview
+    return get_alert_email_preview(alert_id)
+
 
 

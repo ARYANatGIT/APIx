@@ -34,7 +34,7 @@ export default function Navbar({
     { id: 'airlines', label: 'AIRLINES & OTAs', icon: Plane },
     { id: 'quotes', label: 'LIVE QUOTES', icon: FileSearch },
     { id: 'scraper', label: 'CRAWLER HEALTH', icon: Cpu },
-    { id: 'export', label: 'NSO EXPORT', icon: Download }
+    { id: 'export', label: 'DATASETS & API', icon: Download }
   ];
 
   const handleNavClick = (e, item) => {

@@ -21,7 +21,11 @@ import {
   Info,
   Layers,
   Mail,
-  Check
+  Check,
+  Settings,
+  Eye,
+  Download,
+  X
 } from 'lucide-react';
 
 function renderFormattedLine(text) {
@@ -75,6 +79,66 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
       console.warn("Failed to send test email to RBI:", err);
     } finally {
       setTestEmailSending(false);
+    }
+  };
+
+  const [showSmtpModal, setShowSmtpModal] = useState(false);
+  const [smtpStatus, setSmtpStatus] = useState(null);
+  const [smtpUser, setSmtpUser] = useState('');
+  const [smtpPass, setSmtpPass] = useState('');
+  const [smtpHost, setSmtpHost] = useState('smtp.gmail.com');
+  const [smtpPort, setSmtpPort] = useState('587');
+  const [smtpSaving, setSmtpSaving] = useState(false);
+  const [smtpSaveMsg, setSmtpSaveMsg] = useState(null);
+  const [auditLogs, setAuditLogs] = useState([]);
+  const [selectedEmailPreview, setSelectedEmailPreview] = useState(null);
+
+  const loadSmtpStatus = async () => {
+    try {
+      const res = await fetch('http://localhost:8000/api/v1/intel/smtp-status');
+      if (res.ok) setSmtpStatus(await res.json());
+      const res2 = await fetch('http://localhost:8000/api/v1/intel/email-audit-logs?limit=15');
+      if (res2.ok) setAuditLogs(await res2.json());
+    } catch (e) {
+      console.warn("SMTP status fetch error:", e);
+    }
+  };
+
+  const handleSaveSmtp = async (e) => {
+    e.preventDefault();
+    setSmtpSaving(true);
+    setSmtpSaveMsg(null);
+    try {
+      const res = await fetch('http://localhost:8000/api/v1/intel/smtp-config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          smtp_user: smtpUser,
+          smtp_password: smtpPass,
+          smtp_host: smtpHost,
+          smtp_port: parseInt(smtpPort) || 587
+        })
+      });
+      if (res.ok) {
+        setSmtpSaveMsg("SMTP settings updated live! Triggering verification test email...");
+        await handleSendTestEmail();
+        await loadSmtpStatus();
+      }
+    } catch (err) {
+      setSmtpSaveMsg("Failed to update SMTP settings");
+    } finally {
+      setSmtpSaving(false);
+    }
+  };
+
+  const handleOpenEmailPreview = async (alertId) => {
+    try {
+      const res = await fetch(`http://localhost:8000/api/v1/intel/email-preview/${alertId}`);
+      if (res.ok) {
+        setSelectedEmailPreview(await res.json());
+      }
+    } catch (e) {
+      console.warn("Preview error:", e);
     }
   };
 
@@ -262,6 +326,32 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
                   <span>{testEmailSending ? 'Sending...' : 'Test RBI Alert'}</span>
                 </>
               )}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setShowSmtpModal(true);
+                loadSmtpStatus();
+              }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.06)',
+                border: '1px solid rgba(255, 255, 255, 0.16)',
+                color: '#E2E8F0',
+                borderRadius: '6px',
+                padding: '3px 10px',
+                fontSize: '11px',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                fontFamily: 'monospace',
+                transition: 'all 0.2s ease'
+              }}
+              title="Configure live SMTP credentials or inspect all generated email dispatches"
+            >
+              <Settings size={12} />
+              <span>Email Delivery &amp; Logs</span>
             </button>
           </div>
 
@@ -764,6 +854,295 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
           </form>
         </div>
       </div>
+
+      {/* 4. SMTP Configuration & Email Audit Inspector Modal */}
+      {showSmtpModal && (
+        <div style={{
+          position: 'fixed',
+          inset: 0,
+          background: 'rgba(0,0,0,0.82)',
+          backdropFilter: 'blur(6px)',
+          zIndex: 9999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px'
+        }}>
+          <div style={{
+            background: '#121218',
+            border: '1px solid rgba(255,255,255,0.12)',
+            borderRadius: '10px',
+            width: '100%',
+            maxWidth: '840px',
+            maxHeight: '90vh',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.6)'
+          }}>
+            {/* Modal Header */}
+            <div style={{
+              padding: '18px 24px',
+              borderBottom: '1px solid rgba(255,255,255,0.08)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              background: '#181822'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <Mail size={20} style={{ color: '#FF7043' }} />
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#FFFFFF', margin: 0 }}>
+                    RBI Email Delivery &amp; Live SMTP Setup
+                  </h3>
+                  <span style={{ fontSize: '12px', color: '#94A3B8' }}>
+                    Target Recipient: <strong style={{ color: '#FAFAFA' }}>anonymous.guy.26072006@gmail.com</strong>
+                  </span>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowSmtpModal(false)}
+                style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  border: 'none',
+                  color: '#94A3B8',
+                  padding: '6px',
+                  borderRadius: '4px',
+                  cursor: 'pointer'
+                }}
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div style={{ padding: '24px', overflowY: 'auto', flex: 1 }}>
+              {/* Notice Banner */}
+              <div style={{
+                background: smtpStatus?.is_configured ? 'rgba(52,211,153,0.1)' : 'rgba(245,158,11,0.1)',
+                border: `1px solid ${smtpStatus?.is_configured ? 'rgba(52,211,153,0.3)' : 'rgba(245,158,11,0.3)'}`,
+                borderRadius: '6px',
+                padding: '14px 18px',
+                marginBottom: '20px'
+              }}>
+                <div style={{ fontSize: '13px', fontWeight: 700, color: smtpStatus?.is_configured ? '#34D399' : '#FBBF24', marginBottom: '4px' }}>
+                  {smtpStatus?.is_configured ? '✓ LIVE SMTP ACTIVE' : 'ℹ️ RUNNING IN VERIFIED LOCAL AUDIT MODE'}
+                </div>
+                <div style={{ fontSize: '12.5px', color: '#E2E8F0', lineHeight: 1.5 }}>
+                  {smtpStatus?.is_configured ? (
+                    <span>All newly detected spikes and weather news are being transmitted live via {smtpStatus.smtp_host}:{smtpStatus.smtp_port}.</span>
+                  ) : (
+                    <span>
+                      Google Mail requires authenticated sender credentials to route incoming mail to <strong>anonymous.guy.26072006@gmail.com</strong>.
+                      All alerts are currently formatted, verified, and saved to MongoDB <code style={{ color: '#FF7043' }}>email_audit_logs</code>.
+                      To deliver real emails to your Gmail inbox, provide your Gmail address and 16-character Google App Password below.
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* SMTP Credentials Form */}
+              <form onSubmit={handleSaveSmtp} style={{
+                background: '#181822',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '8px',
+                padding: '18px',
+                marginBottom: '24px'
+              }}>
+                <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#FFFFFF', margin: '0 0 12px 0' }}>
+                  Configure Live Sender Credentials
+                </h4>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginBottom: '14px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#94A3B8', marginBottom: '4px' }}>
+                      SENDER GMAIL / SMTP EMAIL
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="your.email@gmail.com"
+                      value={smtpUser}
+                      onChange={(e) => setSmtpUser(e.target.value)}
+                      style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: '#FFFFFF', fontSize: '12.5px', boxSizing: 'border-box' }}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#94A3B8', marginBottom: '4px' }}>
+                      GOOGLE APP PASSWORD (16-CHAR)
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="e.g. abcd efgh ijkl mnop"
+                      value={smtpPass}
+                      onChange={(e) => setSmtpPass(e.target.value)}
+                      style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: '#FFFFFF', fontSize: '12.5px', boxSizing: 'border-box' }}
+                    />
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+                  <span style={{ fontSize: '11px', color: '#94A3B8' }}>
+                    Tip: Generate an App Password at <a href="https://myaccount.google.com/apppasswords" target="_blank" rel="noopener noreferrer" style={{ color: '#38BDF8' }}>myaccount.google.com/apppasswords</a>.
+                  </span>
+                  <button
+                    type="submit"
+                    disabled={smtpSaving || !smtpUser.trim() || !smtpPass.trim()}
+                    style={{
+                      background: '#FF3D00',
+                      border: 'none',
+                      color: '#FFFFFF',
+                      fontWeight: 700,
+                      fontSize: '12.5px',
+                      padding: '8px 18px',
+                      borderRadius: '4px',
+                      cursor: (smtpSaving || !smtpUser.trim() || !smtpPass.trim()) ? 'not-allowed' : 'pointer'
+                    }}
+                  >
+                    {smtpSaving ? 'Testing Connection...' : 'Save & Send Test Email'}
+                  </button>
+                </div>
+
+                {smtpSaveMsg && (
+                  <div style={{ marginTop: '10px', fontSize: '12px', color: '#4ADE80' }}>
+                    {smtpSaveMsg}
+                  </div>
+                )}
+              </form>
+
+              {/* Recent Dispatched Emails Log */}
+              <div>
+                <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#FFFFFF', margin: '0 0 10px 0' }}>
+                  Recently Dispatched Email Alerts (MongoDB Audit Logs)
+                </h4>
+                <div style={{ maxHeight: '220px', overflowY: 'auto', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '6px' }}>
+                  {auditLogs.length === 0 ? (
+                    <div style={{ padding: '16px', color: '#94A3B8', textAlign: 'center', fontSize: '12.5px' }}>
+                      No audit logs recorded yet. Click &quot;Test RBI Alert&quot; to generate an immediate dispatch.
+                    </div>
+                  ) : (
+                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '12px', textAlign: 'left' }}>
+                      <thead>
+                        <tr style={{ background: '#181822', color: '#94A3B8', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                          <th style={{ padding: '8px 10px' }}>TIMESTAMP</th>
+                          <th style={{ padding: '8px 10px' }}>ALERT TYPE</th>
+                          <th style={{ padding: '8px 10px' }}>SUBJECT</th>
+                          <th style={{ padding: '8px 10px' }}>STATUS</th>
+                          <th style={{ padding: '8px 10px' }}>INSPECT</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {auditLogs.map((log, idx) => (
+                          <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                            <td style={{ padding: '8px 10px', color: '#94A3B8', fontFamily: 'monospace' }}>
+                              {new Date(log.dispatched_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+                            </td>
+                            <td style={{ padding: '8px 10px' }}>
+                              <span style={{
+                                fontSize: '10px',
+                                fontWeight: 700,
+                                padding: '2px 6px',
+                                borderRadius: '3px',
+                                background: log.alert_type === 'SCRAPER_SPIKE' ? 'rgba(255,61,0,0.15)' : 'rgba(56,189,248,0.15)',
+                                color: log.alert_type === 'SCRAPER_SPIKE' ? '#FF7043' : '#38BDF8'
+                              }}>
+                                {log.alert_type}
+                              </span>
+                            </td>
+                            <td style={{ padding: '8px 10px', color: '#E2E8F0', maxWidth: '300px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                              {log.subject}
+                            </td>
+                            <td style={{ padding: '8px 10px' }}>
+                              <span style={{ color: log.status === 'SENT' ? '#34D399' : '#FBBF24', fontWeight: 700 }}>
+                                {log.status}
+                              </span>
+                            </td>
+                            <td style={{ padding: '8px 10px' }}>
+                              <button
+                                type="button"
+                                onClick={() => handleOpenEmailPreview(log.alert_id)}
+                                style={{
+                                  background: 'rgba(255,255,255,0.08)',
+                                  border: 'none',
+                                  color: '#38BDF8',
+                                  padding: '4px 8px',
+                                  borderRadius: '3px',
+                                  cursor: 'pointer',
+                                  fontSize: '11px',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '4px'
+                                }}
+                              >
+                                <Eye size={12} />
+                                <span>View</span>
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+                </div>
+              </div>
+
+              {/* Selected Email Preview Drawer */}
+              {selectedEmailPreview && (
+                <div style={{
+                  marginTop: '20px',
+                  background: '#101016',
+                  border: '1px solid rgba(56,189,248,0.3)',
+                  borderRadius: '8px',
+                  padding: '16px'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                    <h5 style={{ fontSize: '13px', fontWeight: 800, color: '#38BDF8', margin: 0 }}>
+                      Rendered Email Preview: {selectedEmailPreview.subject}
+                    </h5>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const blob = new Blob([selectedEmailPreview.html_body], { type: 'text/html' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `rbi_alert_${selectedEmailPreview.alert_id}.html`;
+                        a.click();
+                      }}
+                      style={{
+                        background: 'rgba(56,189,248,0.15)',
+                        border: '1px solid rgba(56,189,248,0.3)',
+                        color: '#38BDF8',
+                        padding: '4px 10px',
+                        borderRadius: '4px',
+                        fontSize: '11px',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px'
+                      }}
+                    >
+                      <Download size={12} />
+                      <span>Download .HTML</span>
+                    </button>
+                  </div>
+                  <div
+                    style={{
+                      background: '#0A0A0E',
+                      borderRadius: '4px',
+                      padding: '12px',
+                      maxHeight: '260px',
+                      overflowY: 'auto',
+                      border: '1px solid rgba(255,255,255,0.06)'
+                    }}
+                    dangerouslySetInnerHTML={{ __html: selectedEmailPreview.html_body }}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
