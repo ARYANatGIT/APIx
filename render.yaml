@@ -1,0 +1,46 @@
+services:
+  - type: web
+    name: airsetu-api
+    runtime: python
+    region: singapore
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: uvicorn backend.api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: MONGO_URI
+        value: mongodb+srv://shresthengineer:tiimEkHomTAAjeSJ@clusterz1.nlqtygt.mongodb.net/test
+      - key: MONGO_DB_NAME
+        value: apix_mospi
+      - key: USE_MONGODB
+        value: "true"
+      - key: SCHEDULER_INTERVAL_MINUTES
+        value: "30"
+      - key: EMAILJS_SERVICE_ID
+        value: service_t1gbi6z
+      - key: EMAILJS_TEMPLATE_ID
+        value: template_wcf66pa
+      - key: EMAILJS_PUBLIC_KEY
+        value: ocBlC3UfAIh3kCdjX
+
+  - type: web
+    name: airsetu-web
+    runtime: static
+    region: singapore
+    plan: free
+    rootDir: frontend/my-react-app
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: airsetu-api
+          property: host
+

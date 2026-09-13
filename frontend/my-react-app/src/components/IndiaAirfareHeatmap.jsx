@@ -2,8 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Compass, Flame, Info, Calendar, Filter, Sparkles, Loader2 } from 'lucide-react';
 import { apiService } from '../services/api';
 
-// GitHub-style contribution color palette
-const HEAT_COLORS = {
+// GitHub-style contribution color palette (Dark & Light modes)
+const DARK_HEAT_COLORS = {
   0: '#161b22', // baseline / inactive
   1: '#0e4429', // low intensity
   2: '#006d32', // medium intensity
@@ -11,13 +11,24 @@ const HEAT_COLORS = {
   4: '#39d353'  // peak intensity
 };
 
+const LIGHT_HEAT_COLORS = {
+  0: '#E2E8F0', // baseline / inactive
+  1: '#BBF7D0', // low intensity
+  2: '#4ADE80', // medium intensity
+  3: '#16A34A', // high intensity
+  4: '#15803D'  // peak intensity
+};
+
 export default function IndiaAirfareHeatmap({
   routes = [],
   selectedRoute,
   onSelectRoute,
   indexSeries = [],
-  overviewData
+  overviewData,
+  theme = 'dark'
 }) {
+  const isLight = theme === 'light';
+  const heatColors = isLight ? LIGHT_HEAT_COLORS : DARK_HEAT_COLORS;
   const [activeTab, setActiveTab] = useState('corridors'); // 'corridors' | 'calendar'
   const [hoveredCell, setHoveredCell] = useState(null);
   const [dynamicHeatmap, setDynamicHeatmap] = useState(null);
@@ -87,12 +98,12 @@ export default function IndiaAirfareHeatmap({
         ...w,
         days: w.days.map(d => ({
           ...d,
-          color: HEAT_COLORS[d.level] || HEAT_COLORS[0]
+          color: heatColors[d.level] || heatColors[0]
         }))
       }));
     }
     return [];
-  }, [dynamicHeatmap]);
+  }, [dynamicHeatmap, heatColors]);
 
   const handleSelectRoute = (route) => {
     if (!onSelectRoute) return;
@@ -154,14 +165,19 @@ export default function IndiaAirfareHeatmap({
                 const routeCells = route.cells || [];
                 return (
                   <div
-                    key={route.route_code}
+                    key={route.route_code ? `corridor-${route.route_code}-${rIdx}` : `corridor-${rIdx}`}
                     className={`matrix-route-row ${isSelected ? 'is-selected-row' : ''}`}
                     onClick={() => handleSelectRoute(route)}
                   >
                     {/* Left Corridor Name Label */}
-                    <div className="matrix-route-label" title={`${route.origin_city} to ${route.destination_city}`}>
+                    <div className="matrix-route-label" title={`${route.origin_city} to ${route.destination_city} • Avg: ₹${Math.round(route.average_fare || 0).toLocaleString()}`}>
                       <span className="route-code-pill font-mono">{route.route_code}</span>
                       <span className="route-cities-short">{route.origin_city} ➔ {route.destination_city}</span>
+                      {route.average_fare != null && (
+                        <span className="route-avg-fare-tag font-mono" style={{ marginLeft: 'auto', marginRight: '6px', fontSize: '11px', color: '#10B981', fontWeight: 600, background: 'rgba(16, 185, 129, 0.1)', padding: '1px 6px', borderRadius: '4px' }}>
+                          ₹{Math.round(route.average_fare).toLocaleString()}
+                        </span>
+                      )}
                     </div>
 
                     {/* Heat Cells Grid */}
@@ -173,7 +189,7 @@ export default function IndiaAirfareHeatmap({
                           pctChange: '0.0%',
                           quotes: 0
                         };
-                        const cellColor = HEAT_COLORS[cellData.level] || HEAT_COLORS[0];
+                        const cellColor = heatColors[cellData.level] || heatColors[0];
                         return (
                           <div
                             key={`${route.route_code}-${day.dateStr}`}
@@ -274,11 +290,11 @@ export default function IndiaAirfareHeatmap({
         <div className="github-legend-group">
           <span className="legend-label">Less</span>
           <div className="legend-squares">
-            <span className="legend-cell" style={{ backgroundColor: HEAT_COLORS[0] }} title="Level 0: Baseline" />
-            <span className="legend-cell" style={{ backgroundColor: HEAT_COLORS[1] }} title="Level 1: Low" />
-            <span className="legend-cell" style={{ backgroundColor: HEAT_COLORS[2] }} title="Level 2: Normal" />
-            <span className="legend-cell" style={{ backgroundColor: HEAT_COLORS[3] }} title="Level 3: High" />
-            <span className="legend-cell" style={{ backgroundColor: HEAT_COLORS[4] }} title="Level 4: Surge" />
+            <span className="legend-cell" style={{ backgroundColor: heatColors[0] }} title="Level 0: Baseline" />
+            <span className="legend-cell" style={{ backgroundColor: heatColors[1] }} title="Level 1: Low" />
+            <span className="legend-cell" style={{ backgroundColor: heatColors[2] }} title="Level 2: Normal" />
+            <span className="legend-cell" style={{ backgroundColor: heatColors[3] }} title="Level 3: High" />
+            <span className="legend-cell" style={{ backgroundColor: heatColors[4] }} title="Level 4: Surge" />
           </div>
           <span className="legend-label">More</span>
         </div>

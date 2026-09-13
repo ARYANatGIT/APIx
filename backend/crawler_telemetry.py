@@ -10,11 +10,16 @@ from backend.mongo import get_mongo_db, save_audit_log_to_mongo
 logger = logging.getLogger("apix.crawler_telemetry")
 
 AIRLINE_CATALOG = {
-    "6E": {"name": "IndiGo", "color": "#0052CC", "weight": 0.40},
-    "AI": {"name": "Air India", "color": "#D91438", "weight": 0.25},
-    "QP": {"name": "Akasa Air", "color": "#FF6600", "weight": 0.12},
-    "EMT": {"name": "EaseMyTrip", "color": "#0084FF", "weight": 0.13},
-    "MMT": {"name": "MakeMyTrip", "color": "#E53935", "weight": 0.10},
+    "6E": {"name": "IndiGo", "color": "#0052CC", "weight": 0.26},
+    "AI": {"name": "Air India", "color": "#D91438", "weight": 0.18},
+    "QP": {"name": "Akasa Air", "color": "#FF6600", "weight": 0.08},
+    "EMT": {"name": "EaseMyTrip", "color": "#0084FF", "weight": 0.08},
+    "MMT": {"name": "MakeMyTrip", "color": "#E53935", "weight": 0.08},
+    "YTR": {"name": "Yatra", "color": "#D32F2F", "weight": 0.07},
+    "CT": {"name": "Cleartrip", "color": "#FF4F17", "weight": 0.07},
+    "IXG": {"name": "ixigo", "color": "#FC2779", "weight": 0.06},
+    "GIB": {"name": "Goibibo", "color": "#F26722", "weight": 0.06},
+    "SKY": {"name": "Skyscanner", "color": "#0770E3", "weight": 0.06},
 }
 
 CORRIDORS = [
@@ -97,7 +102,8 @@ def generate_single_crawler_event(
         "user_agent": ua,
         "timestamp": event_time.isoformat(),
         "created_at": event_time.isoformat(),
-        "error_message": None if http_code == 200 else "Cloudflare anti-scraping challenge mitigated via residential proxy"
+        "error_message": None if http_code == 200 else "Cloudflare anti-scraping challenge mitigated via residential proxy",
+        "data_source": "simulated_telemetry"
     }
 
 
@@ -265,7 +271,8 @@ def get_live_crawler_logs(
             "user_agent": l.get("user_agent") or "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0",
             "timestamp": dt.isoformat() if dt else now.isoformat(),
             "time_ago": relative_str,
-            "is_live": True
+            "is_live": True,
+            "data_source": "simulated_telemetry"
         })
 
     return results

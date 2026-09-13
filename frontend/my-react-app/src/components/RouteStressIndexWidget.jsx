@@ -14,6 +14,7 @@ import {
   Zap
 } from 'lucide-react';
 import { apiService } from '../services/api';
+import AnimatedNumber from './AnimatedNumber';
 
 export default function RouteStressIndexWidget({
   onSelectRoute,
@@ -49,12 +50,12 @@ export default function RouteStressIndexWidget({
   }, [externalRsiData]);
 
   const composite = rsiData?.national_composite || {
-    rsi: 56.3,
-    level: 'MODERATE',
-    color: '#FBBF24',
-    summary: 'Controlled market conditions with localized stress in high-density sectors.',
-    top_stressed_route: 'DEL-BLR',
-    lowest_stressed_route: 'BOM-MAA'
+    rsi: null,
+    level: 'COMPUTING',
+    color: '#6B7280',
+    summary: 'Evaluating real-time multi-corridor market stress from price quotes...',
+    top_stressed_route: '—',
+    lowest_stressed_route: '—'
   };
 
   const rawCorridors = rsiData?.corridors || [];
@@ -187,7 +188,7 @@ export default function RouteStressIndexWidget({
         <div className="rsi-macro-gauge-box">
           <div className="rsi-dial-value-wrap">
             <span className="rsi-dial-num font-mono" style={{ color: composite.color }}>
-              {composite.rsi.toFixed(1)}
+              <AnimatedNumber value={composite.rsi} decimals={1} />
             </span>
             <span className="rsi-dial-scale">/ 100</span>
           </div>
@@ -214,7 +215,7 @@ export default function RouteStressIndexWidget({
               📊 Analyzed: <strong>{rawCorridors.length} Corridors</strong>
             </span>
             <span className="macro-pill">
-              ✈️ Microdata: <strong>{rsiData?.total_quotes_evaluated || 4922} Quotes</strong>
+              ✈️ Microdata: <strong>{rsiData?.total_quotes_evaluated != null ? <AnimatedNumber value={rsiData.total_quotes_evaluated} /> : '—'} Quotes</strong>
             </span>
           </div>
         </div>
@@ -282,9 +283,9 @@ export default function RouteStressIndexWidget({
 
                 {/* Col 2: Price Telemetry */}
                 <div className="rsi-col-fare">
-                  <span className="rsi-fare-val font-mono">₹{c.avg_fare?.toLocaleString('en-IN', { maximumFractionDigits: 0 })}</span>
+                  <span className="rsi-fare-val font-mono"><AnimatedNumber value={c.avg_fare} prefix="₹" decimals={0} /></span>
                   <span className={`rsi-fare-delta font-mono ${c.fare_delta_pct >= 0 ? 'pos' : 'neg'}`}>
-                    {c.fare_delta_pct >= 0 ? '+' : ''}{c.fare_delta_pct?.toFixed(1)}% vs base
+                    <AnimatedNumber value={c.fare_delta_pct} prefix={c.fare_delta_pct >= 0 ? '+' : ''} suffix="%" decimals={1} /> vs base
                   </span>
                 </div>
 
@@ -301,7 +302,7 @@ export default function RouteStressIndexWidget({
                   </div>
                   <div className="rsi-meter-labels font-mono">
                     <span>0</span>
-                    <span style={{ color: c.color, fontWeight: 800 }}>RSI {c.rsi.toFixed(1)}</span>
+                    <span style={{ color: c.color, fontWeight: 800 }}>RSI <AnimatedNumber value={c.rsi} decimals={1} /></span>
                     <span>100</span>
                   </div>
                 </div>
@@ -334,7 +335,7 @@ export default function RouteStressIndexWidget({
                 <div className="rsi-factor-breakdown-drawer">
                   <div className="drawer-header font-mono">
                     <span>5-FACTOR MATHEMATICAL DECOMPOSITION FOR {c.route_code}</span>
-                    <span className="drawer-sub">Weighted sum yields corridor RSI {c.rsi.toFixed(1)}</span>
+                    <span className="drawer-sub">Weighted sum yields corridor RSI <AnimatedNumber value={c.rsi} decimals={1} /></span>
                   </div>
 
                   <div className="rsi-factors-grid">
@@ -351,10 +352,10 @@ export default function RouteStressIndexWidget({
                             style={{ width: `${c.factors?.fare_anomaly?.score || 50}%`, backgroundColor: '#FF5722' }}
                           />
                         </div>
-                        <span className="factor-score font-mono">{c.factors?.fare_anomaly?.score}</span>
+                        <span className="factor-score font-mono"><AnimatedNumber value={c.factors?.fare_anomaly?.score} /></span>
                       </div>
                       <span className="factor-detail font-mono">{c.factors?.fare_anomaly?.metric_detail}</span>
-                      <span className="factor-contrib font-mono">+{(c.factors?.fare_anomaly?.weighted_score || 0).toFixed(1)} pts</span>
+                      <span className="factor-contrib font-mono"><AnimatedNumber value={c.factors?.fare_anomaly?.weighted_score || 0} prefix="+" suffix=" pts" decimals={1} /></span>
                     </div>
 
                     {/* Factor 2: Availability Drop */}
@@ -370,10 +371,10 @@ export default function RouteStressIndexWidget({
                             style={{ width: `${c.factors?.availability_drop?.score || 50}%`, backgroundColor: '#F59E0B' }}
                           />
                         </div>
-                        <span className="factor-score font-mono">{c.factors?.availability_drop?.score}</span>
+                        <span className="factor-score font-mono"><AnimatedNumber value={c.factors?.availability_drop?.score} /></span>
                       </div>
                       <span className="factor-detail font-mono">{c.factors?.availability_drop?.metric_detail}</span>
-                      <span className="factor-contrib font-mono">+{(c.factors?.availability_drop?.weighted_score || 0).toFixed(1)} pts</span>
+                      <span className="factor-contrib font-mono"><AnimatedNumber value={c.factors?.availability_drop?.weighted_score || 0} prefix="+" suffix=" pts" decimals={1} /></span>
                     </div>
 
                     {/* Factor 3: Volatility */}
@@ -389,10 +390,10 @@ export default function RouteStressIndexWidget({
                             style={{ width: `${c.factors?.volatility?.score || 50}%`, backgroundColor: '#38BDF8' }}
                           />
                         </div>
-                        <span className="factor-score font-mono">{c.factors?.volatility?.score}</span>
+                        <span className="factor-score font-mono"><AnimatedNumber value={c.factors?.volatility?.score} /></span>
                       </div>
                       <span className="factor-detail font-mono">{c.factors?.volatility?.metric_detail}</span>
-                      <span className="factor-contrib font-mono">+{(c.factors?.volatility?.weighted_score || 0).toFixed(1)} pts</span>
+                      <span className="factor-contrib font-mono"><AnimatedNumber value={c.factors?.volatility?.weighted_score || 0} prefix="+" suffix=" pts" decimals={1} /></span>
                     </div>
 
                     {/* Factor 4: Demand Proxy */}
@@ -408,10 +409,10 @@ export default function RouteStressIndexWidget({
                             style={{ width: `${c.factors?.demand_proxy?.score || 50}%`, backgroundColor: '#A855F7' }}
                           />
                         </div>
-                        <span className="factor-score font-mono">{c.factors?.demand_proxy?.score}</span>
+                        <span className="factor-score font-mono"><AnimatedNumber value={c.factors?.demand_proxy?.score} /></span>
                       </div>
                       <span className="factor-detail font-mono">{c.factors?.demand_proxy?.metric_detail}</span>
-                      <span className="factor-contrib font-mono">+{(c.factors?.demand_proxy?.weighted_score || 0).toFixed(1)} pts</span>
+                      <span className="factor-contrib font-mono"><AnimatedNumber value={c.factors?.demand_proxy?.weighted_score || 0} prefix="+" suffix=" pts" decimals={1} /></span>
                     </div>
 
                     {/* Factor 5: Cross-Source Agreement */}
@@ -427,10 +428,10 @@ export default function RouteStressIndexWidget({
                             style={{ width: `${c.factors?.cross_source_agreement?.score || 50}%`, backgroundColor: '#10B981' }}
                           />
                         </div>
-                        <span className="factor-score font-mono">{c.factors?.cross_source_agreement?.score}</span>
+                        <span className="factor-score font-mono"><AnimatedNumber value={c.factors?.cross_source_agreement?.score} /></span>
                       </div>
                       <span className="factor-detail font-mono">{c.factors?.cross_source_agreement?.metric_detail}</span>
-                      <span className="factor-contrib font-mono">+{(c.factors?.cross_source_agreement?.weighted_score || 0).toFixed(1)} pts</span>
+                      <span className="factor-contrib font-mono"><AnimatedNumber value={c.factors?.cross_source_agreement?.weighted_score || 0} prefix="+" suffix=" pts" decimals={1} /></span>
                     </div>
                   </div>
                 </div>

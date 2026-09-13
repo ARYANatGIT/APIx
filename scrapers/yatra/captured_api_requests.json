@@ -1,0 +1,65 @@
+{
+  "portal": "Yatra",
+  "airline_code": "YTR",
+  "requests": [
+    {
+      "url": "https://flight.yatra.com/air-search-ui/dom2/trigger?type=O&viewName=normal&flexi=0&noOfSegments=1&origin=DEL&originCountry=IN&destination=BOM&destinationCountry=IN&flight_depart_date=20/09/2026&ADT=1&CHD=0&INF=0&class=Economy&source=fresco-flights",
+      "method": "GET",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://flight.yatra.com/air-search-ui/dom2/trigger?type=O&viewName=normal&flexi=0&noOfSegments=1&origin=DEL&originCount",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:09.274977+00:00"
+    },
+    {
+      "url": "https://flight.yatra.com/vJJX/ZkFs/QK/3gyw/LFgA/ch/aBh7/c1/5KDHpdDClY",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:09.410411+00:00"
+    },
+    {
+      "url": "https://flight.yatra.com/vJJX/ZkFs/QK/3gyw/LFgA/ch/aBh7/KS/wOfCkdHDkt",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:09.427511+00:00"
+    },
+    {
+      "url": "https://flight.yatra.com/vJJX/ZkFs/QK/3gyw/LFgA/ch/aBh7/Uh/sUDAU-NxEAAQ",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:09.676988+00:00"
+    },
+    {
+      "url": "https://flight.yatra.com/vJJX/ZkFs/QK/3gyw/LFgA/ch/aBh7/GF/1GCHphEE9Y",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:09.709229+00:00"
+    },
+    {
+      "url": "https://flight.yatra.com/vJJX/ZkFs/QK/3gyw/LFgA/ch/aBh7/RR/p6LRcEQHdX",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:09.717600+00:00"
+    },
+    {
+      "url": "https://flight.yatra.com/vJJX/ZkFs/QK/3gyw/LFgA/ch/aBh7/cz/QiESoJCHkr",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:09.730868+00:00"
+    },
+    {
+      "url": "https://flight.yatra.com/_sec/verify?provider=crypto",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:10.033037+00:00"
+    },
+    {
+      "url": "https://flight.yatra.com/_sec/verify?provider=crypto",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:11.126688+00:00"
+    },
+    {
+      "url": "https://flight.yatra.com/_sec/verify?provider=crypto",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:11.651227+00:00"
+    }
+  ]
+}

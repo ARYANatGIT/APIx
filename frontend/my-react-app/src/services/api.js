@@ -1,42 +1,49 @@
-/**
- * MoSPI Real-time Airfare Price Index (APIx) - Frontend API Service
- * High-frequency dynamic communication with the FastAPI backend (/api/v1).
- * Zero hardcoded fallback arrays — 100% dynamic data from MongoDB Atlas.
- */
+// Base API URL resolver (supports Render production deployment, Vite proxy, and local fallback)
+export const getApiBaseUrl = () => {
+  let envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl && envUrl.trim() !== '') {
+    envUrl = envUrl.trim();
+    if (!envUrl.startsWith('http://') && !envUrl.startsWith('https://')) {
+      envUrl = `https://${envUrl}`;
+    }
+    return envUrl.replace(/\/+$/, '');
+  }
+  return '';
+};
 
-const BACKEND_PRIMARY = '/api/v1';
+export const API_BASE_URL = getApiBaseUrl();
+
+export const getApiUrl = (endpoint = '') => {
+  const clean = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  if (clean.startsWith('/api/v1')) {
+    return API_BASE_URL ? `${API_BASE_URL}${clean}` : clean;
+  }
+  return API_BASE_URL ? `${API_BASE_URL}/api/v1${clean}` : `/api/v1${clean}`;
+};
+
+const BACKEND_PRIMARY = API_BASE_URL ? `${API_BASE_URL}/api/v1` : '/api/v1';
 const BACKEND_CORS_1 = 'http://127.0.0.1:8000/api/v1';
 const BACKEND_CORS_2 = 'http://localhost:8000/api/v1';
 
 async function fetchFromBackend(endpoint, defaultVal = null) {
-  // 1. Attempt relative path via Vite dev server / production proxy
-  try {
-    const res = await fetch(`${BACKEND_PRIMARY}${endpoint}`);
-    if (res.ok) {
-      return await res.json();
-    }
-  } catch {
-    // Continue to direct cross-origin endpoints
-  }
+  const candidates = [
+    `${BACKEND_PRIMARY}${endpoint}`,
+    `/api/v1${endpoint}`,
+    `${BACKEND_CORS_1}${endpoint}`,
+    `${BACKEND_CORS_2}${endpoint}`
+  ];
 
-  // 2. Attempt direct cross-origin connection via 127.0.0.1:8000
-  try {
-    const res = await fetch(`${BACKEND_CORS_1}${endpoint}`);
-    if (res.ok) {
-      return await res.json();
-    }
-  } catch {
-    // Continue to localhost:8000
-  }
+  const uniqueCandidates = [...new Set(candidates)];
 
-  // 3. Attempt direct cross-origin connection via localhost:8000
-  try {
-    const res = await fetch(`${BACKEND_CORS_2}${endpoint}`);
-    if (res.ok) {
-      return await res.json();
+  for (const url of uniqueCandidates) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) {
+        return await res.json();
+      }
+    } catch {
+      // Continue to next fallback
     }
-  } catch {
-    // All connection attempts failed
   }
 
   return defaultVal;
@@ -197,17 +204,21 @@ export const apiService = {
 
   // 22. Set Scheduler Crawl Interval
   async setSchedulerInterval(intervalMinutes) {
-    try {
-      const res = await fetch(`${BACKEND_CORS_1}/scheduler/interval?interval_minutes=${intervalMinutes}`, { method: 'POST' });
-      return await res.json();
-    } catch {
+    const candidates = [
+      `${BACKEND_PRIMARY}/scheduler/interval?interval_minutes=${intervalMinutes}`,
+      `/api/v1/scheduler/interval?interval_minutes=${intervalMinutes}`,
+      `${BACKEND_CORS_1}/scheduler/interval?interval_minutes=${intervalMinutes}`,
+      `${BACKEND_CORS_2}/scheduler/interval?interval_minutes=${intervalMinutes}`
+    ];
+    for (const url of [...new Set(candidates)]) {
       try {
-        const res2 = await fetch(`${BACKEND_PRIMARY}/scheduler/interval?interval_minutes=${intervalMinutes}`, { method: 'POST' });
-        return await res2.json();
-      } catch (e) {
-        return { status: "error", message: e.message };
+        const res = await fetch(url, { method: 'POST' });
+        if (res.ok) return await res.json();
+      } catch {
+        // try next endpoint
       }
     }
+    return { status: "error", message: "Failed to connect to scheduler API" };
   },
 
   // 23. Route Stress Index (RSI) - Dynamic multi-factor stress computation
@@ -231,11 +242,12 @@ export const apiService = {
 
     const endpoints = [
       `${BACKEND_PRIMARY}/airport-simulation`,
+      `/api/v1/airport-simulation`,
       `${BACKEND_CORS_1}/airport-simulation`,
       `${BACKEND_CORS_2}/airport-simulation`
     ];
 
-    for (const url of endpoints) {
+    for (const url of [...new Set(endpoints)]) {
       try {
         const res = await fetch(url, {
           method: 'POST',

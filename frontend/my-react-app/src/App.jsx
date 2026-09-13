@@ -15,10 +15,12 @@ import ScraperHealthView from './components/ScraperHealthView';
 import NsoExportView from './components/NsoExportView';
 import MoSPIMacroDashboard from './components/MoSPIMacroDashboard';
 import SpikeDetectionView from './components/SpikeDetectionView';
+import Airport3DDigitalTwin from './components/Airport3DDigitalTwin';
 import ThemeToggle from './components/ThemeToggle';
 import VolumeReaderButton from './components/VolumeReaderButton';
 import SearchNavButton from './components/SearchNavButton';
 import QuickSearchModal from './components/QuickSearchModal';
+import AirIntelFloatingChat from './components/AirIntelFloatingChat';
 import { togglePageReader } from './services/speechReader';
 import {
   Sparkles,
@@ -37,8 +39,10 @@ import {
 
 import { apiService } from './services/api';
 import AnimatedBorderFrame from './components/AnimatedBorderFrame';
+import ErrorBoundary from './components/ErrorBoundary';
 import planeBg from './assets/plane-hero.jpg';
 import './App.css';
+
 
 function App() {
   // Navigation State: Always land at poster page ('home') whenever website is opened
@@ -103,14 +107,14 @@ function App() {
     code: 'DEL ✈ BOM',
     route_code: 'DEL-BOM',
     name: 'Delhi (DEL) → Mumbai (BOM)',
-    trafficWeight: '22.35% DGCA Basket',
-    avgFare: '₹6,840',
+    trafficWeight: '— DGCA Basket',
+    avgFare: '—',
     distance: 1148,
-    pax: '7,420,000'
+    pax: '—'
   });
   const [advanceWindow, setAdvanceWindow] = useState('T+7 Days');
   const [indexFrequency, setIndexFrequency] = useState('Daily Real-time');
-  const [dataSource, setDataSource] = useState('5 Airlines + 2 OTAs');
+  const [dataSource, setDataSource] = useState('5 Airlines + 7 OTAs');
 
   // Motion & Modal state
   const [isFlightActive, setIsFlightActive] = useState(true);
@@ -186,10 +190,10 @@ function App() {
         code: `${active.origin_code} ✈ ${active.destination_code}`,
         route_code: active.route_code,
         name: `${active.origin_city} (${active.origin_code}) → ${active.destination_city} (${active.destination_code})`,
-        trafficWeight: active.weight_pct_str ? `${active.weight_pct_str} DGCA Basket` : `${((active.weight || 0.1) * 100).toFixed(2)}% DGCA Basket`,
-        avgFare: `₹${Math.round(active.average_fare || 6675).toLocaleString()}`,
+        trafficWeight: active.weight_pct_str ? `${active.weight_pct_str} DGCA Basket` : (active.weight != null ? `${(active.weight * 100).toFixed(2)}% DGCA Basket` : '— DGCA Basket'),
+        avgFare: active.average_fare != null ? `₹${Math.round(active.average_fare).toLocaleString()}` : '—',
         distance: active.distance_km,
-        pax: (active.annual_passengers || 7420000).toLocaleString()
+        pax: active.annual_passengers != null ? active.annual_passengers.toLocaleString() : '—'
       });
     }
   }, [routes]);
@@ -203,10 +207,10 @@ function App() {
       code: `${routeObj.origin_code} ✈ ${routeObj.destination_code}`,
       route_code: routeObj.route_code,
       name: `${routeObj.origin_city} (${routeObj.origin_code}) → ${routeObj.destination_city} (${routeObj.destination_code})`,
-      trafficWeight: routeObj.weight_pct_str ? `${routeObj.weight_pct_str} DGCA Basket` : `${((routeObj.weight || 0.1) * 100).toFixed(2)}% DGCA Basket`,
-      avgFare: `₹${Math.round(routeObj.average_fare || 6500).toLocaleString()}`,
+      trafficWeight: routeObj.weight_pct_str ? `${routeObj.weight_pct_str} DGCA Basket` : (routeObj.weight != null ? `${(routeObj.weight * 100).toFixed(2)}% DGCA Basket` : '— DGCA Basket'),
+      avgFare: routeObj.average_fare != null ? `₹${Math.round(routeObj.average_fare).toLocaleString()}` : '—',
       distance: routeObj.distance_km,
-      pax: (routeObj.annual_passengers || 0).toLocaleString()
+      pax: routeObj.annual_passengers != null ? routeObj.annual_passengers.toLocaleString() : '—'
     });
   };
 
@@ -244,7 +248,7 @@ function App() {
     setIntroKey(prev => prev + 1);
   };
 
-  const latestIndexVal = overviewData?.latest_index?.value != null ? overviewData.latest_index.value : 138.08;
+  const latestIndexVal = overviewData?.latest_index?.value != null ? overviewData.latest_index.value : '—';
   const isHomeScreen = activeTab === 'home';
   const isDeckScreen = activeTab === 'deck';
 
@@ -304,7 +308,7 @@ function App() {
             onBookClick={handleOpenIndexModal}
             onSearchClick={() => setIsSearchOpen(true)}
             latestIndex={latestIndexVal}
-            changePct={overviewData?.latest_index?.change_pct_d1 ?? 1.68}
+            changePct={overviewData?.latest_index?.change_pct_d1 ?? null}
             theme={theme}
             onThemeChange={setTheme}
             isMobileOpen={mobileMenuOpen}
@@ -345,14 +349,14 @@ function App() {
               <div className="poster-stat-cell">
                 <span className="stat-label">ANNUAL PASSENGERS</span>
                 <span className="stat-num font-mono">
-                  {overviewData?.basket_stats?.tracked_annual_passengers ? `${(overviewData.basket_stats.tracked_annual_passengers / 1e6).toFixed(1)}M` : '33.2M'}
+                  {overviewData?.basket_stats?.tracked_annual_passengers ? `${(overviewData.basket_stats.tracked_annual_passengers / 1e6).toFixed(1)}M` : '—'}
                 </span>
                 <span className="stat-sub">Tracked Basket Volume</span>
               </div>
               <div className="poster-stat-cell">
                 <span className="stat-label">ACTIVE QUOTES</span>
                 <span className="stat-num font-mono">
-                  {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : (overviewData?.heatmap_stats?.total_quotes_tracked ? overviewData.heatmap_stats.total_quotes_tracked.toLocaleString() : '36,449')}
+                  {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : (overviewData?.heatmap_stats?.total_quotes_tracked ? overviewData.heatmap_stats.total_quotes_tracked.toLocaleString() : '—')}
                 </span>
                 <span className="stat-sub">Scraped Price Corpus</span>
               </div>
@@ -439,18 +443,20 @@ function App() {
             {activeTab === 'deck' && (
               <div className="deck-white-dashboard">
                 {/* Official MoSPI / NSO Macro Architecture Header & Wireframe */}
-                <MoSPIMacroDashboard
-                  overviewData={overviewData}
-                  routes={routes}
-                  selectedRoute={selectedRoute}
-                  onSelectRoute={handleSelectRouteFromMap}
-                  lastRefreshed={lastRefreshed}
-                  isRefreshing={isRefreshing}
-                  onRefreshData={refreshAllData}
-                  onInspectEngine={handleOpenIndexModal}
-                  theme={theme}
-                  onThemeChange={setTheme}
-                />
+                <ErrorBoundary title="MoSPI Flight Deck Dashboard" onReset={refreshAllData}>
+                  <MoSPIMacroDashboard
+                    overviewData={overviewData}
+                    routes={routes}
+                    selectedRoute={selectedRoute}
+                    onSelectRoute={handleSelectRouteFromMap}
+                    lastRefreshed={lastRefreshed}
+                    isRefreshing={isRefreshing}
+                    onRefreshData={refreshAllData}
+                    onInspectEngine={handleOpenIndexModal}
+                    theme={theme}
+                    onThemeChange={setTheme}
+                  />
+                </ErrorBoundary>
 
                 {/* Section Divider: Extended Basket Telemetry & Operational Controls */}
                 <div className="deck-telemetry-divider">
@@ -471,12 +477,12 @@ function App() {
                     </div>
                     <div className="kpi-value-row">
                       <span className="kpi-text-val">{selectedRoute.code}</span>
-                      <span className="kpi-pill-badge neutral">{selectedRoute.trafficWeight || '22.35% Basket'}</span>
+                      <span className="kpi-pill-badge neutral">{selectedRoute.trafficWeight || '— Basket'}</span>
                     </div>
                     <div className="kpi-footer-text">
-                      <span>Avg Fare: {selectedRoute.avgFare || '₹6,840'}</span>
+                      <span>Avg Fare: {selectedRoute.avgFare || '—'}</span>
                       <span className="kpi-bullet">•</span>
-                      <span>{selectedRoute.pax || '7.42M'} annual pax</span>
+                      <span>{selectedRoute.pax || '—'} annual pax</span>
                     </div>
                   </div>
 
@@ -505,13 +511,13 @@ function App() {
                     </div>
                     <div className="kpi-value-row">
                       <span className="kpi-number">
-                        {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : '14,860'}
+                        {overviewData?.quotes_stats?.total_stored_quotes ? overviewData.quotes_stats.total_stored_quotes.toLocaleString() : '—'}
                       </span>
                       <span className="kpi-pill-badge green">Live MongoDB</span>
                     </div>
                     <div className="kpi-footer-text">
                       <span>
-                        {overviewData?.airline_stats ? `${overviewData.airline_stats.carriers_count} Airlines + ${overviewData.airline_stats.otas_count} OTAs` : '5 Airlines + 2 OTAs'}
+                        {overviewData?.airline_stats ? `${overviewData.airline_stats.carriers_count} Airlines + ${overviewData.airline_stats.otas_count} OTAs` : '5 Airlines + 7 OTAs'}
                       </span>
                       <span className="kpi-bullet">•</span>
                       <span>Real-time Ingestion</span>
@@ -581,7 +587,7 @@ function App() {
                               </td>
                               <td>{r.origin_city} ➔ {r.destination_city}</td>
                               <td className="font-semibold text-gold">{(r.weight * 100).toFixed(2)}%</td>
-                              <td className="font-mono">₹{Math.round(r.average_fare || 6500).toLocaleString()}</td>
+                              <td className="font-mono">{r.average_fare != null ? `₹${Math.round(r.average_fare).toLocaleString()}` : '—'}</td>
                               <td>
                                 <button
                                   type="button"
@@ -645,15 +651,16 @@ function App() {
                     <div className="advance-horizons-mini-list">
                       {windowsData.slice(0, 5).map((win, idx) => {
                         const colorClass = idx === 0 ? 'fill-red' : idx === 1 ? 'fill-gold' : idx === 2 ? 'fill-blue' : 'fill-emerald';
-                        const maxVal = Math.max(...windowsData.map(w => w.average_fare || 10000), 12000);
-                        const pct = Math.min(100, Math.max(20, Math.round(((win.average_fare || 6000) / maxVal) * 100)));
+                        const validFares = windowsData.map(w => w.average_fare).filter(f => f != null);
+                        const maxVal = validFares.length > 0 ? Math.max(...validFares) : 1;
+                        const pct = win.average_fare != null ? Math.min(100, Math.max(0, Math.round((win.average_fare / maxVal) * 100))) : 0;
                         const multiplierText = win.surge_multiplier ? ` • ${win.surge_multiplier}x` : '';
                         return (
                           <div className="horizon-item" key={win.advance_window ? `${win.advance_window}-${idx}` : idx}>
                             <div className="horizon-labels">
                               <span className="h-name">{win.label || win.advance_window}</span>
                               <span className="h-val font-mono">
-                                ₹{Math.round(win.average_fare || 6500).toLocaleString()}{multiplierText} • {win.quote_count || 0} quotes
+                                {win.average_fare != null ? `₹${Math.round(win.average_fare).toLocaleString()}` : '—'}{multiplierText} • {win.quote_count || 0} quotes
                               </span>
                             </div>
                             <div className="horizon-bar-track">
@@ -675,6 +682,15 @@ function App() {
                 theme={theme}
                 onNavigate={handleNavigate}
               />
+            )}
+
+            {/* Tab: Live Flight Map & Radar Hub (Major 20 DGCA Airports) */}
+            {activeTab === 'airports3d' && (
+              <div className="analytics-scroll-container">
+                <div className="analytics-inner-wrap" style={{ maxWidth: '1440px' }}>
+                  <Airport3DDigitalTwin theme={theme} />
+                </div>
+              </div>
             )}
 
             {/* Tab 2: DGCA Route Basket & Interactive Indian Map */}
@@ -724,7 +740,7 @@ function App() {
                               <td className="font-mono">{(r.annual_passengers || 0).toLocaleString()}</td>
                               <td className="font-mono">{((r.passenger_share || 0) * 100).toFixed(2)}%</td>
                               <td className="font-bold val-gold">{r.weight_pct_str || `${((r.weight || 0) * 100).toFixed(2)}%`}</td>
-                              <td className="font-mono">₹{Math.round(r.average_fare || 6200).toLocaleString()}</td>
+                              <td className="font-mono">{r.average_fare != null ? `₹${Math.round(r.average_fare).toLocaleString()}` : '—'}</td>
                               <td>
                                 <button
                                   className="btn-select-route-sm"
@@ -789,6 +805,7 @@ function App() {
                   <ScraperHealthView
                     logs={scraperLogs}
                     scraperStats={overviewData?.scraper_health || {}}
+                    theme={theme}
                   />
                 </div>
               </div>
@@ -802,6 +819,7 @@ function App() {
                     routes={routes}
                     indexSeries={indexSeries}
                     overviewData={overviewData}
+                    theme={theme}
                   />
                 </div>
               </div>
@@ -836,6 +854,9 @@ function App() {
         onToggleSpeech={togglePageReader}
         routes={routes}
       />
+
+      {/* Global AirSetu Intelligence Q&A Floating Assistant */}
+      <AirIntelFloatingChat theme={theme} onNavigate={handleNavigate} />
     </div>
   );
 }

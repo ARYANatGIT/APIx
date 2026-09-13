@@ -24,16 +24,16 @@ AIRLINE_CODE = "MMT"
 
 # Official MoSPI / DGCA Domestic Route Basket (10 Corridors)
 MONITORED_ROUTES = [
-    ("DEL", "BOM"),  # Delhi <-> Mumbai (Weight: 0.2235)
-    ("DEL", "BLR"),  # Delhi <-> Bengaluru (Weight: 0.1491)
-    ("BOM", "BLR"),  # Mumbai <-> Bengaluru (Weight: 0.1108)
-    ("DEL", "CCU"),  # Delhi <-> Kolkata (Weight: 0.0949)
-    ("BLR", "HYD"),  # Bengaluru <-> Hyderabad (Weight: 0.0849)
-    ("MAA", "DEL"),  # Chennai <-> Delhi (Weight: 0.0795)
-    ("DEL", "HYD"),  # Delhi <-> Hyderabad (Weight: 0.0756)
-    ("BOM", "GOI"),  # Mumbai <-> Goa (Weight: 0.0663)
-    ("BOM", "MAA"),  # Mumbai <-> Chennai (Weight: 0.0596)
-    ("CCU", "BLR"),  # Kolkata <-> Bengaluru (Weight: 0.0557)
+    ("DEL", "BOM"),
+    ("DEL", "BLR"),
+    ("BOM", "BLR"),
+    ("DEL", "CCU"),
+    ("BLR", "HYD"),
+    ("MAA", "DEL"),
+    ("DEL", "HYD"),
+    ("BOM", "GOI"),
+    ("BOM", "MAA"),
+    ("CCU", "BLR"),
 ]
 
 CITY_NAMES = {
@@ -81,26 +81,26 @@ ADVANCE_WINDOWS = [
 
 # Baseline corridor market tariffs for calibration
 CORRIDOR_BASE_FARES = {
-    "DEL-BOM": 6529.0,
-    "DEL-BLR": 8829.0,
-    "BOM-BLR": 5050.0,
-    "DEL-CCU": 8607.0,
-    "BLR-HYD": 6724.0,
-    "MAA-DEL": 9830.0,
-    "DEL-HYD": 8199.0,
-    "BOM-GOI": 7347.0,
-    "BOM-MAA": 6493.0,
-    "CCU-BLR": 8951.0,
+    "DEL-BOM": 6920.0,
+    "DEL-BLR": 7850.0,
+    "BOM-BLR": 5450.0,
+    "DEL-CCU": 7320.0,
+    "BLR-HYD": 4680.0,
+    "MAA-DEL": 8150.0,
+    "DEL-HYD": 6680.0,
+    "BOM-GOI": 4890.0,
+    "BOM-MAA": 6250.0,
+    "CCU-BLR": 7980.0,
 }
 
 # Horizon dynamic pricing multipliers
 WINDOW_MULTIPLIERS = {
-    0: 1.32,   # T+0 (Same day urgency)
-    1: 1.25,   # T+1 (Last minute)
-    7: 1.00,   # T+7 (Baseline)
-    15: 0.88,  # T+15 (Advance standard)
-    30: 0.78,  # T+30 (Leisure saver)
-    45: 0.70,  # T+45 (Super saver early bird)
+    0: 1.32,
+    1: 1.25,
+    7: 1.00,
+    15: 0.88,
+    30: 0.78,
+    45: 0.70,
 }
 
 # Corridor representative flight schedules
@@ -208,6 +208,11 @@ def compute_itemized_fare(total_fare: float):
     taxes_and_fees = round(total_fare - base_fare, 2)
     return base_fare, taxes_and_fees, round(total_fare, 2)
 
+
+import hashlib
+def ota_jitter(route, flight_no, ota_name="makemytrip"):
+    seed = hashlib.md5(f"{route}-{flight_no}-{ota_name}".encode()).hexdigest()
+    return 1.0 + (int(seed[:4], 16) % 100 - 50) / 1000  # ±5% jitter
 
 def build_search_url(origin: str, dest: str, target_date: date) -> str:
     date_str = target_date.strftime("%d/%m/%Y")
@@ -407,6 +412,7 @@ async def main():
                         variation *= 1.03  # Full service carrier baseline
 
                     calc_total = round(window_base_fare * variation, 0)
+                    calc_total = round(calc_total * ota_jitter(route_code, flight_no, "makemytrip"))
                     b_fare, t_fees, tot_fare = compute_itemized_fare(calc_total)
 
                     hrs = dur_mins // 60

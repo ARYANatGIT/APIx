@@ -1,0 +1,2296 @@
+{
+  "airline": "IndiGo",
+  "airline_code": "6E",
+  "run_date": "2026-09-14",
+  "monitored_routes": [
+    "DEL-BOM",
+    "DEL-BLR",
+    "BOM-BLR",
+    "DEL-CCU",
+    "BLR-HYD",
+    "MAA-DEL",
+    "DEL-HYD",
+    "BOM-GOI",
+    "BOM-MAA",
+    "CCU-BLR"
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/",
+      "headers": {
+        "accept-language": "en-IN",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/fonts/Poppins/Poppins-Medium.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/icons/indigo-icons.ttf?r65s0x",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/fonts/Poppins/Poppins-Regular.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/fonts/BauhausStd/BauhausStd-Medium.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/fonts/Poppins/Poppins-SemiBold.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/skyplus6e/in/en.theme.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/akam/13/9803ed6",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/login/remoteEntry.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/login-sso/remoteEntry.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/booking/remoteEntry.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-dependencies.min.351fd5d262532db6b9c75eb33b7eb3c6.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/clientlibs/granite/jquery/granite/csrf.min.56934e461ff6c436f962a5990541a527.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site.min.76550a7fa25e6229d27d86a64b2f39ee.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/core/wcm/components/commons/site/clientlibs/container.min.c8339545b501e3db3abc37c9a4cc2d6e.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/core/wcm/components/tabs/v1/tabs/clientlibs/site.min.67cdbe6035f1318e1239dc5ccbcb426c.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/web-assets/6eskai-embed.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLriYhOYNG/FmpeAQ/dFMg/PEBrKFA",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLri/WntmAQ/FioK/Zm0wNxQd?v=df2b1a1f-3202-c9bc-df4f-ace82205312c",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/libs/granite/csrf/token.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/8709/8709.9a990b03015ec1b9.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/fonts/Poppins/Poppins-Light.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-dependencies.min.1b08d5b364d011da0f58c97aaff9e25f.css",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLriYhOYNG/FmpeAQ/dFMg/PEBrKFA",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "accept-language": "en-IN",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "csrf-token": "undefined",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "content-type": "text/plain;charset=UTF-8"
+      },
+      "post_data": "{\"sensor_data\":\"3;0;1;2048;3618884;8Eust0/NCSznCKluNp029dKnJUFxgy1hhD8ObNgyU/w=;46,0,0,1,4,0;m)-s\\\"H.\\\"G\\\"R\\\"L\\\"0`V\\\"s\\\"f,N<jkAI*#X>X0\\\"jK_\\\"(+<\\\"m#o*W\\\"t8Q9\\\"b\\\"LZd%f\\\"uh#\\\"V]|\\\"tQd\\\"dUq\\\"^KEn1DE\\\"+pX\\\"#%njWNtEF`/ap=]`\\\"i5>\\\"zj>LxpJK4{|r-|soW\\\"KQm\\\"UP2]X\\\"%JR\\\"2-k1H_KaWGYG`ajzN14\\\"U\\\"d]e\\\"f&*ed\\\"xz\\\"wr)s\\\"9)D1\\\"(8y\\\"?#\\\"/\\\"V2f]<E08tA@P:wH6T(,_nJae!xR6Ymg-p%`S\\\"48>\\\"f?\\\"C\\\"#ZK/1al|\\\",L=\\\"j\\\"\\\";\\\"g|4\\\"C~@SA%\\\"\\\".\\\"2^>\\\"{5%\\\"Lf$\\\"`D9b{\\\"n&=\\\"aCb)X+o+,#O _Zl\\\"%;\\\"Tuxotai)&o5>Lo^oi3\\\"m/A;\\\"q\\\"\\\"o\\\"1"
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/web-assets/r10-chat.indigo.js?v=43cd191",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/8963/8963.f06ee6a806a392da.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/5699/5699.56e2cd09a966a7fe.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/6847/6847.b349f0e7d7147a2c.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/6333/6333.91afd81fa26752fe.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/6835/6835.e5a2520b6ac718ac.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/8615/8615.4edd731e4da0ca10.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/2257/2257.1b3333d8fa0599a7.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/1205/1205.956464bf99c3b324.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/163/163.f0f6c09956b1e3a0.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/5563/5563.d3e2bfe2463fbd49.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/8419/8419.f05a9e185c0448ed.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/4546/4546.d05ba52e4ece0015.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/login-sso/41.0dfc6cee607ecf30fb4b.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/login-sso/vendors.d14060ab7878ca648487.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/login-sso/144.9de32f0c691cf2a9e5a9.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/web-assets/r10-chat.indigo.6e15f9a9.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.goindigo.in/akam/13/pixel_9803ed6",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "accept-language": "en-IN",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "csrf-token": "undefined",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "post_data": "ap=true&bt=%7B%22charging%22%3Atrue%2C%22chargingTime%22%3A0%2C%22dischargingTime%22%3A%22Infinity%22%2C%22level%22%3A1%2C%22onchargingchange%22%3Anull%2C%22onchargingtimechange%22%3Anull%2C%22ondischargingtimechange%22%3Anull%2C%22onlevelchange%22%3Anull%7D&fonts=null&fh=null&timing=%7B%221%22%3A88%2C%222%22%3A386%2C%223%22%3A613%2C%22profile%22%3A%7B%22bp%22%3A1%2C%22sr%22%3A0%2C%22dp%22%3A1%2C%22lt%22%3A0%2C%22ps%22%3A0%2C%22cv%22%3A76%2C%22fp%22%3A0%2C%22sp%22%3A2%2C%22br%22%3A0%2C%22ieps%22"
+    },
+    {
+      "method": "HEAD",
+      "url": "https://www.goindigo.in/",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/5510/5510.23f69d8aa6c7ac5e.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/login/vendors.cd24074e8e50fda78250.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/login-sso/75.e20802c37c360240ad4b.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/login/734.daeea0add997ac64a7ea.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/7408/7408.e9b4a44b41b17cc4.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/2141/2141.e49cbc723210890c.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/login-sso/159.5b6a7654bd0156caa117.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/booking/vendors9ba3e6e4fc6cd245bc9d.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/booking/4618a2b05dd8badb82984ad.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://app-prod-skyplus6e.goindigo.in/booking/3521712cffc765b04cfbf05.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/r10next/web/fare-radar?origin=DEL",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept": "application/json",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://6ewai.goindigo.in/sse/api/auth/guest",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/web-assets/r10-chat.indigo.asset.skai-launcher-logo.c305c8bf.gif",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://api-prod-skyplus.goindigo.in/login/v2/token/validate",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "accept-language": "en-IN",
+        "user_key": "a7696c55cadeb1d26ec1eebfd954ff37",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "access-control-allow-origin": "*",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "content-type": "application/json"
+      },
+      "post_data": "{\"ciamToken\":null,\"policyName\":null,\"applicationName\":\"dotREZ\"}"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/api/s6common/in/en/v1/generic-data.json;locale=en;variation=;.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "access-control-allow-origin": "*",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://c.go-mpulse.net/api/config.json?key=BEZ6B-JYQYU-7BQYU-KS7TK-7PGGC&d=www.goindigo.in&t=5964464&v=1.815.70&sl=0&si=c7007895-8baa-4fed-a6f6-b513a908ce0b-tlbqug&plugins=AK,ConfigOverride,Continuity,PageParams,RT,PaintTiming,NavigationTiming,ResourceTiming,Memory,Errors,Akamai,EventTiming,BFCache,LOGN&acao=&ak.ai=600879",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.google.com/ccm/collect?rcb=3&frm=0&apvc=1&ae=g&auid=994316304.1789339051&dt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&en=page_view&dl=https%3A%2F%2Fwww.goindigo.in%2F&scrsrc=www.googletagmanager.com&rnd=1540033116.1789339051&navt=n&npa=0&ep.ads_data_redaction=0&gtm=45He6992v9102713044za200zd9102713044xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938468~118012008~118897920~118897930~120385422~120469145~120469153&tft=1789339051058&tfd=2629&fmt=8",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://smetrics.goindigo.in/ee/ind1/v1/interact?configId=3e48ac61-38db-47f6-899c-f901ee624984&requestId=ef90e328-732c-4d6f-956f-3b187e556d9d",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "content-type": "text/plain; charset=UTF-8",
+        "sec-ch-ua-mobile": "?0",
+        "accept-language": "en-IN"
+      },
+      "post_data": "{\"events\":[{\"xdm\":{\"eventType\":\"web.webpagedetails.pageViews\",\"web\":{\"webPageDetails\":{\"URL\":\"https://www.goindigo.in/\",\"siteSection\":\"Homepage\",\"pageViews\":{\"value\":1},\"name\":\"Homepage\",\"server\":\"www.goindigo.in\"}},\"device\":{\"screenHeight\":950,\"screenWidth\":1440,\"screenOrientation\":\"landscape\"},\"environment\":{\"type\":\"browser\",\"browserDetails\":{\"viewportWidth\":1440,\"viewportHeight\":950}},\"placeContext\":{\"localTimezoneOffset\":-330,\"localTime\":\"2026-09-14T04:07:31.226+05:30\"},\"timestamp\":\"2026-09-"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/dam/marketplace/in/en/assets/Cabs/V1%20WEB%202.0.cabs.jpg?ui-ux=newui",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/dam/marketplace/in/en/assets/hotels/HOTELS-INDIGO_WEB_ASSETS_V1-WEB.jpg?ui-ux=newui",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/sse/api/sse?backlog=0",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept": "text/event-stream",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/api/s6web/in/en/v1/login-main.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/api/s6web/in/en/v1/login-sso.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/api/s6web/in/en/v1/bw-main.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/api/s6web/in/en/v1/bw-additional.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/api/s6web/in/en/v1/offers.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/v1/setting/indigowidgets?roleName=Anonymous&roleCode=wwwa",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "accept-language": "en-IN",
+        "user_key": "15faf8ddf1e8354e90e54fa098e8b1a8",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "content-type": "application/json"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://api-prod-skyplus.goindigo.in/loyalty/api/v1/nominee?FFN=",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user_key": "a7696c55cadeb1d26ec1eebfd954ff37",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0",
+        "authkey": "705285E5-559C-443C-AEE8-A04B44008EBF",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-EQPFBHWC24&gtm=45je6992v9103441808z89102713044za20gzb9102713044zd9102713044xf1&_p=1789339048644&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&_eu=AAAAAGA&cid=512638926.1789339053&frm=0&pscdl=denied&rcb=4&sr=1440x950&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-in&gaf=2&_s=1&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153~120912439&sid=1789339052&sct=1&seg=0&dl=https%3A%2F%2Fwww.goindigo.in%2F&dt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&en=page_view&_fv=1&_nsi=1&_ss=1&ep.hostname=www.goindigo.in&tfd=4429",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://www.goindigo.in/e4867b81-98c5-4c12-80cb-0229f4984cbf",
+      "headers": {
+        "accept": "*/*",
+        "accept-language": "en-IN",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLriYhOYNG/FmpeAQ/dFMg/PEBrKFA",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "accept-language": "en-IN",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "csrf-token": "undefined",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "content-type": "text/plain;charset=UTF-8"
+      },
+      "post_data": "{\"sensor_data\":\"3;0;1;0;3618884;8Eust0/NCSznCKluNp029dKnJUFxgy1hhD8ObNgyU/w=;29,66,0,1,7,2467;Ejmk%e\\\"$=;K\\\"ZFI^R%suU*4\\\"HH!\\\",\\\"S\\\"E%q\\\"6L<\\\"a\\\"1Dh1?;nv4I1\\\"S\\\"^QKO!2f\\\"@pl\\\"(XA\\\"ray\\\"#u*\\\"J\\\"X*9V/tl=Q`FE)\\\"g\\\"-3k@B/A\\\"?\\\"_Wq\\\"f\\\"Oxo\\\"K{gx\\\"gZjJ\\\"Ev$,o;G0\\\"Uc|\\\"w9*/pNNq;\\\"Z?Y\\\"1\\\"^)|U51U-\\\"`iJ\\\"1\\\")W m%l@%>uVH@(5^QwgjOi tfQWa5$;`B}>D9#!H[=0omv (?M4XIVq9,e)3Ai`#g}C2Buk&KVd!,Ib?>y@cA,L>**7L}7~Bx2?[wcq2|kTxe;F\\\"vF<\\\"*#=\\\"@\\\"@W5VBf\\\"r\\\"J+)%\\\"+=L\\\"T-9z~\\\")\\\"Bq:Y*;#GuSBf@\\\"s\\\"=X`8\\\"j\\\"4nkwgPV!,d#,&?F"
+    },
+    {
+      "method": "POST",
+      "url": "https://pagead2.googlesyndication.com/ccm/collect?rcb=9&frm=0&apvc=0&ae=g&tid=AW-1066707734&dl=https%3A%2F%2Fwww.goindigo.in%2F&scrsrc=www.googletagmanager.com&rnd=1540033116.1789339051&navt=n&npa=1&_tu=CA&gtm=45be6992v9119619104z89102713044za20gzb9102713044zd9102713044xea&gcs=G100&gcd=13p3p3p3p5l1&dma_cps=-&dma=0&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120420414~120469145~120469153&tft=1789339053776&tfd=5347&tids=AW-1066707734&fmt=8",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://ade.googlesyndication.com/ddm/activity/src=15746037;type=pagev0;cat=indig0;rcb=2;ord=6929418644045;npa=1;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=denied;frm=0;user_data_mode=a;_tu=KFA;gtm=45fe6992v9230113862z89102713044za20gzb9102713044zd9102713044xea;gcs=G100;gcd=13p3p3p3p5l1;dma_cps=-;dma=0;dc_fmt=8;tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~120474864;epver=2;~oref=https%3A%2F%2Fwww.goindigo.in%2F?",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-S5JYSJ2DR9&gtm=45je6992v9188843716z89102713044za20gzb9102713044zd9102713044&_p=1789339048644&gcs=G100&gcd=13p3p3p3p5l1&npa=1&dma_cps=-&dma=0&ecid=1502731313&_eu=IAAAAGAC&cid=512638926.1789339053&frm=0&pscdl=denied&rcb=6&sr=1440x950&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-in&gaf=2&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789339054&sct=1&seg=0&dl=https%3A%2F%2Fwww.goindigo.in%2F&dt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&en=view_promotion&_fv=1&_ss=1&pr1=cnEnd%20of%20the%20Year~cs1~piPromotion_id_stretchTile~pnPromotion_name_stretchTile~lp9&pr2=cnEnd%20of%20the%20Year~cs1~pipromotion%20id%202~pnpromotion%20name%202~lp9&pr3=cnEnd%20of%20the%20Year~cs1~pipromotion-id-hotels-indigo~pnpromotion-name-hotels-indigo~lp9&pr4=cnEnd%20of%20the%20Year~cs1~pipromotion_id_ibc~pnpromotion_name_ibc~lp9&ep.page_name=Homepage&ep.user_type=Anonymous&ep.line_of_business=Flights&ep.user_ID=&ep.projectName=UX-Revamp&up.user_type=Anonymous&up.memberID=&tfd=5686",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://ade.googlesyndication.com/ddm/activity/src=15746037;dc_pre=CIub7LXP7JYDFSrYcwEd0pgSZw;type=pagev0;cat=indig0;rcb=2;ord=6929418644045;npa=1;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=denied;frm=0;user_data_mode=a;_tu=KFA;gtm=45fe6992v9230113862z89102713044za20gzb9102713044zd9102713044xea;gcs=G100;gcd=13p3p3p3p5l1;dma_cps=-;dma=0;dc_fmt=8;tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~120474864;epver=2;~oref=https%3A%2F%2Fwww.goindigo.in%2F?",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/web-assets/r10-chat.indigo.ui.4ca59eb9.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLriYhOYNG/FmpeAQ/dFMg/PEBrKFA",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "accept-language": "en-IN",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "csrf-token": "undefined",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "content-type": "text/plain;charset=UTF-8"
+      },
+      "post_data": "{\"sensor_data\":\"3;0;1;0;3618884;8Eust0/NCSznCKluNp029dKnJUFxgy1hhD8ObNgyU/w=;12,66,0,1,1,2467;Ejmk%e\\\"$=;K\\\"ZFI^R%suU*4\\\"HH!\\\",\\\"S\\\"E%q\\\"6L<\\\"a\\\"1Dh1?;nv4I1\\\"S\\\"^QKO!2f\\\"@pl\\\"(XA\\\"ray\\\"#u*\\\"J\\\"X*9V/tl=Q`FE)\\\"g\\\"-3k@B/A\\\"?\\\"_Wq\\\"f\\\"Oxo\\\"K{gx\\\"gZjJ\\\"Ev$,o;G0\\\"Uc|\\\"w9*/pNNq;\\\"Z?Y\\\"1\\\"^)|U51U-\\\"`iJ\\\"1\\\")W m%l@%>uVH@(5^QwgjOi tfQWa5$;`B}>D9#!H[=0omv (?M4XIVq9,e)3Ai`#g}C2Buk&KVd!,Ib?>y@cA,L>**7L}7~Bx2?[wcq2|kTxe;F\\\"vF<\\\"*#=\\\"@\\\"@W5VBf\\\"r\\\"J+)%\\\"+=L\\\"T-9z~\\\")\\\"Bq:Y*;#GuSBf@\\\"s\\\"=X`8\\\"j\\\"@;|Nh+UG,>5|&Q?"
+    },
+    {
+      "method": "POST",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLri/WntmAQ/FioK/Zm0wNxQd",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "accept-language": "en-IN",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "csrf-token": "undefined",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "content-type": "application/json"
+      },
+      "post_data": "{\"body\":\"\\\"3\\\"{\\\"k\\\"c\\\"-9f\\\"_D[JRG^C.uRZvB\\\"Y\\\"C\\\"\\\")SU o~V<KcIqjf{jy!//&b:RkO(\\\"q3:\\\"]$.QMaJ3B_G|%v.-E\\\"F0\\\"D\\\"\\\"JC-6?o\\\"Hs9T!\\\"oY\\\":\\\"\\\"u- 62]n)~\\\"N,\\\"=\\\"s.Af)^wh|@Ws[Ob\\\"iO\\\"}\\\"@k$?9P8,JqjU|\\\"X\\\"EY\\\":\\\"\\\".\\\"a{E\\\"]\\\"Bl&F]UNf>3`?nk,HyC-XgbFt\\\"0<u9=!>\\\"ab3\\\"R\\\"GI_gcD7Z{)2+V3qHe.\\\"A(H\\\"@?k\\\"q\\\"+fIhSn&<O#l:pUM~m7t@Cod>\\\"\"}"
+    },
+    {
+      "method": "POST",
+      "url": "https://analytics.google.com/g/collect?v=2&tid=G-EQPFBHWC24&gtm=45je6992v9103441808za20gzb9102713044zd9102713044xf1&_p=1789339048644&_gaz=1&gcs=G111&gcu=1&gcd=13r3r3r3r5l1&npa=0&dma=0&_eu=AAAAAGQ&cid=512638926.1789339053&frm=0&gcut=3&pscdl=noapi&rcb=4&sr=1440x950&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-in&gaf=2&_s=2&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153~120912439&sid=1789339052&sct=1&seg=0&dl=https%3A%2F%2Fwww.goindigo.in%2F&dt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&en=user_engagement&ep.hostname=www.goindigo.in&ep.ga_temp_client_id=512638926.1789339053&_et=1624&tfd=6059",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://analytics.google.com/g/collect?v=2&tid=G-S5JYSJ2DR9&gtm=45je6992v9188843716za20gzb9102713044zd9102713044&_p=1789339048644&_gaz=1&gcs=G111&gcu=1&gcd=13r3r3r3r5l1&npa=0&dma=0&ecid=1502731313&_eu=AAAAAGQC&cid=512638926.1789339053&frm=0&gcut=3&pscdl=noapi&rcb=6&sr=1440x950&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-in&gaf=2&_s=2&tag_exp=115616986~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789339054&sct=1&seg=0&dl=https%3A%2F%2Fwww.goindigo.in%2F&dt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&en=user_engagement&ep.ga_temp_client_id=512638926.1789339053&ep.ga_temp_ecid=1502731313&_et=390&tfd=6083",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://ad.doubleclick.net/activity;src=15746037;type=pagev0;cat=indig0;rcb=2;ord=7735429741093;npa=0;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;user_data_mode=a;_tu=AFA;gcu=1;auiddc=994316304.1789339051;gtm=45fe6992v9230113862z89102713044za20gzb9102713044zd9102713044xea;gcs=G111;gcd=13r3r3r3r5l1;dma=0;dc_fmt=3;tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~120474864;epver=2;em=tv.1;dc_random=1789339054_Mt4LDnP2xK1q2W8gRIjlOoVbPEkYJ7qsYA;~oref=https%3A%2F%2Fwww.goindigo.in%2F?",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://15746037.fls.doubleclick.net/activityi;src=15746037;type=pagev0;cat=indig0;rcb=2;ord=7735429741093;npa=0;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;user_data_mode=a;_tu=AFA;gcu=1;auiddc=994316304.1789339051;gtm=45fe6992v9230113862z89102713044za20gzb9102713044zd9102713044xea;gcs=G111;gcd=13r3r3r3r5l1;dma=0;dc_fmt=2;tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~120474864;epver=2;em=tv.1;dc_random=1789339054_Mt4LDnP2xK1q2W8gRIjlOoVbPEkYJ7qsYA;_dc_test=1;~oref=https%3A%2F%2Fwww.goindigo.in%2F?",
+      "headers": {
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://t.co/1/i/adsct?bci=4&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=3&event=%7B%7D&event_id=5a9e6b3c-524a-4ffd-bb0d-60edcccd8371&integration=gtm&p_id=Twitter&p_user_id=0&pl_id=64e7cce6-e31b-4fb1-a05f-fe0376c16944&pt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2F&tw_iframe_status=0&tw_pid_src=1&tw_session_count=1&tw_session_id=1789339054686-466689388&tw_session_start=1&twpid=tw.1789339054686.708534780644047308&txn_id=odfrg&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://analytics.twitter.com/1/i/adsct?bci=4&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=3&event=%7B%7D&event_id=5a9e6b3c-524a-4ffd-bb0d-60edcccd8371&integration=gtm&p_id=Twitter&p_user_id=0&pl_id=64e7cce6-e31b-4fb1-a05f-fe0376c16944&pt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2F&tw_iframe_status=0&tw_pid_src=1&tw_session_count=1&tw_session_id=1789339054686-466689388&tw_session_start=1&twpid=tw.1789339054686.708534780644047308&txn_id=odfrg&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://t.co/1/i/adsct?bci=4&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=3&event=%7B%7D&event_id=f15ccef6-7544-4a1e-a2bf-f4a24bebde4a&integration=gtm&p_id=Twitter&p_user_id=0&pl_id=64e7cce6-e31b-4fb1-a05f-fe0376c16944&pt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2F&tw_iframe_status=0&tw_pid_src=1&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=rcfo8&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://analytics.twitter.com/1/i/adsct?bci=4&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=3&event=%7B%7D&event_id=f15ccef6-7544-4a1e-a2bf-f4a24bebde4a&integration=gtm&p_id=Twitter&p_user_id=0&pl_id=64e7cce6-e31b-4fb1-a05f-fe0376c16944&pt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2F&tw_iframe_status=0&tw_pid_src=1&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=rcfo8&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://t.co/1/i/adsct?bci=4&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=3&event=%7B%7D&event_id=f870a66d-f940-4238-a2c9-a67c4c7ba058&integration=gtm&p_id=Twitter&p_user_id=0&pl_id=64e7cce6-e31b-4fb1-a05f-fe0376c16944&pt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2F&tw_iframe_status=0&tw_pid_src=1&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=odfrg&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://analytics.twitter.com/1/i/adsct?bci=4&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=3&event=%7B%7D&event_id=f870a66d-f940-4238-a2c9-a67c4c7ba058&integration=gtm&p_id=Twitter&p_user_id=0&pl_id=64e7cce6-e31b-4fb1-a05f-fe0376c16944&pt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2F&tw_iframe_status=0&tw_pid_src=1&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=odfrg&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://t.co/1/i/adsct?bci=4&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=3&event=%7B%7D&event_id=9df94eae-7bff-4279-b536-0905309bade4&integration=gtm&p_id=Twitter&p_user_id=0&pl_id=64e7cce6-e31b-4fb1-a05f-fe0376c16944&pt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2F&tw_iframe_status=0&tw_pid_src=1&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=rcfo8&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://analytics.twitter.com/1/i/adsct?bci=4&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=3&event=%7B%7D&event_id=9df94eae-7bff-4279-b536-0905309bade4&integration=gtm&p_id=Twitter&p_user_id=0&pl_id=64e7cce6-e31b-4fb1-a05f-fe0376c16944&pt=Book%20Domestic%20and%20International%20Flights%20at%20Lowest%20Airfare&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2F&tw_iframe_status=0&tw_pid_src=1&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=rcfo8&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=9392146&time=1789339054725&li_adsId=5416043e-4d78-4fbf-bbd5-62f521e84edf&url=https%3A%2F%2Fwww.goindigo.in%2F&tm=gtmv2",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://connect.facebook.net/signals/config/435359453535545?v=2.9.398&r=stable&domain=www.goindigo.in&hme=457e068698591ac437afb4b2e5fbe0266b08712615b8792436a91385ebda0da3&ex_m=115%2C227%2C166%2C26%2C80%2C81%2C158%2C76%2C75%2C11%2C176%2C100%2C20%2C150%2C138%2C45%2C83%2C88%2C146%2C171%2C178%2C31%2C17%2C30%2C18%2C32%2C33%2C34%2C36%2C54%2C159%2C85%2C123%2C22%2C24%2C50%2C46%2C48%2C47%2C93%2C102%2C106%2C121%2C157%2C160%2C52%2C122%2C28%2C25%2C130%2C77%2C42%2C162%2C161%2C163%2C154%2C152%2C29%2C41%2C65%2C120%2C173%2C78%2C21%2C125%2C91%2C74%2C23%2C95%2C96%2C127%2C94%2C148%2C147%2C151%2C107%2C172%2C175%2C40%2C55%2C124%2C53%2C8%2C4%2C5%2C7%2C6%2C3%2C101%2C112%2C180%2C179%2C194%2C241%2C82%2C255%2C254%2C253%2C14%2C27%2C39%2C61%2C114%2C67%2C10%2C71%2C108%2C109%2C110%2C116%2C141%2C37%2C35%2C143%2C144%2C145%2C140%2C139%2C167%2C84%2C170%2C168%2C169%2C56%2C66%2C134%2C19%2C174%2C51%2C305%2C306%2C307%2C304%2C320%2C344%2C234%2C223%2C68%2C224%2C222%2C347%2C338%2C58%2C235%2C118%2C142%2C90%2C132%2C60%2C131%2C137%2C136%2C64%2C72%2C70%2C164%2C86%2C87%2C126%2C43%2C38%2C59%2C62%2C111%2C177%2C1%2C135%2C16%2C133%2C12%2C2%2C63%2C103%2C15%2C73%2C69%2C129%2C99%2C98%2C182%2C183%2C104%2C105%2C9%2C113%2C181%2C57%2C155%2C97%2C89%2C79%2C128%2C117%2C49%2C156%2C0%2C92%2C149%2C153%2C165%2C44%2C119%2C13%2C184",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://15746037.fls.doubleclick.net/activityi;dc_pre=CMTMmrbP7JYDFerpcwEdwRADHw;src=15746037;type=pagev0;cat=indig0;rcb=2;ord=7735429741093;npa=0;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;user_data_mode=a;_tu=AFA;gcu=1;auiddc=994316304.1789339051;gtm=45fe6992v9230113862z89102713044za20gzb9102713044zd9102713044xea;gcs=G111;gcd=13r3r3r3r5l1;dma=0;dc_fmt=2;tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~120474864;epver=2;em=tv.1;dc_random=1789339054_Mt4LDnP2xK1q2W8gRIjlOoVbPEkYJ7qsYA;_dc_test=1;~oref=https%3A%2F%2Fwww.goindigo.in%2F?",
+      "headers": {
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://tr.outbrain.com/log?obApiVersion=1.1&obtpVersion=1917d4f0b915_2026-09-07&clickId=&eventName=PAGE_VIEW&msg=%7B%22error%22%3A%22LOAD%22%2C%20%22obApiVersion%22%3A%201.1%2C%20%22obtpVersion%22%3A%201917d4f0b915_2026-09-07%2C%20%22marketerID%22%3A%2000373773b1cf1bf18fb7873afacc36ee22%2C%20%22referrer%22%3A%20https%3A%2F%2Fwww.goindigo.in%2F%2C%20%22pRef%22%3A%20%2C%20%22extra%22%3A%20%7B%22name%22%3A%22TypeError%22%2C%22line%22%3A%22undefined%22%2C%22script%22%3A%22undefined%22%2C%22stack%22%3A%22TypeError%3A%20Failed%20to%20fetch%0A%20%20%20%20at%20e.fire%20(https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A53823)%0A%20%20%20%20at%20e.firePixel%20(https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A52886)%0A%20%20%20%20at%20https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A52361%0A%20%20%20%20at%20o%20(https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A52438)%0A%20%20%20%20at%20e.drainQueue%20(https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A52467)%0A%20%20%20%20at%20e.%3Canonymous%3E%20(https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A54515)%0A%20%20%20%20at%20s%20(https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A50332)%0A%20%20%20%20at%20e.checkHasConsent%20(https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A50632)%0A%20%20%20%20at%20e.unifiedDispatch%20(https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A54340)%0A%20%20%20%20at%20e.dispatch%20(https%3A%2F%2Famplify.outbrain.com%2Fcp%2Fobtp.js%3A1%3A54167)%22%2C%22message%22%3A%22Failed%20to%20fetch%22%7D%7D",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=9392146&time=1789339054967&li_adsId=5416043e-4d78-4fbf-bbd5-62f521e84edf&url=https%3A%2F%2Fwww.goindigo.in%2F&tm=gtmv2",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://px.ads.linkedin.com/insight_tag_errors.gif?v=2&pid=9392146&error=version%3A%20308%20%7C%20WebsiteActions-308-TypeError%3A%20Failed%20to%20fetch%3B%20ErrorData%3A%20%7B%22domain%22%3A%22goindigo.in%22%2C%22requestFetcher%22%3A%22fetch-keepalive%22%2C%22body%22%3A%22H4sIAAAAAAAACk2P3WrCQBBGXyXM9aaaX5O9s7RKwItSgzellDE7xsHNbpodkVJ892KF0svDB4fzfcPIJoB%2Bq7M6TfLyXUHoJh5lR1Ng70Bn80qB8ECgk0VVZ1k9L%2FKyrBUYPyA70NB7doZ7%2F8AOFJwnCxqOImPQs9m%2FbQYKRuypZbEEGh69P0VPfqAg3EXoTNQ4ocmhsHdoo5Xl%2FighQok2%2FkJBoiVPB5wIFFxoH1hoy71D%2B0qfZwrSGNBQpVVuOjQx4byMiyRN4i4rKKY0WdSHIkkw24MCDu2ELlgUMqAPaAMpsLzCuwVusGZ0coeBQwf6G8aw3woKgY7z682yYXci07jlOP5pjjSAdmdrFYTfvvZrvP19Wa6fP3bNtmnh%2BgNftpwyeAEAAA%3D%3D%22%7D&href=https%3A%2F%2Fwww.goindigo.in%2F",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=9392146&time=1789339054725&li_adsId=5416043e-4d78-4fbf-bbd5-62f521e84edf&url=https%3A%2F%2Fwww.goindigo.in%2F&tm=gtmv2&cookiesTest=true",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://gumi.criteo.com/syncframe?topUrl=www.goindigo.in&origin=onetag",
+      "headers": {
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://tr.snapchat.com/p?pid=12dceb54-ec1a-4418-98fb-f8de118f9014&ev=VIEW_CONTENT&intg=gtm&pids=12dceb54-ec1a-4418-98fb-f8de118f9014&u_c1=eebe3738-837a-41d5-a312-bb59ff98419f&cdid=%40-0f198a2b-882b-421a-835a-4d2f1efae4c3&u_sclid=a287d071-0294-4457-b229-45bd2b47a613&u_scsid=5700a324-1694-4a04-aa0d-8538b0022a9d&gat=G-EQPFBHWC24%2CGTM-K5CJXLR&gac=18286d04&bg=false&bt=1d53c387&d_a=x86&d_bvs=%5B%2C%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22152.0.7977.84%22%7D%7B%22brand%22%3A%22Not%3FA_Brand%22%2C%22version%22%3A%2224.0.0.0%22%7D%7B%22brand%22%3A%22Google%20Chrome%22%2C%22version%22%3A%22152.0.7977.84%22%7D%5D&d_os=10.0&d_ot=Windows&df=true&huah=true&m_dcl=1428&m_fcps=516&m_pi=1081&m_pl=0&m_pv=2&m_rd=6762&m_sh=950&m_sl=6679&m_sw=1440&pl=https%3A%2F%2Fwww.goindigo.in%2F&trackId=55ce4093-884d-4de6-8e3f-13ecc5e116dc&ts=1789339055191&v=3.60.0-2608111919",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://tr.snapchat.com/p?pid=12dceb54-ec1a-4418-98fb-f8de118f9014&ev=VIEW_CONTENT&intg=gtm&pids=12dceb54-ec1a-4418-98fb-f8de118f9014&u_c1=eebe3738-837a-41d5-a312-bb59ff98419f&cdid=%40-3cfb82b7-69d3-43e9-bbde-5a756dd2c3fb&u_sclid=a287d071-0294-4457-b229-45bd2b47a613&u_scsid=5700a324-1694-4a04-aa0d-8538b0022a9d&gat=G-EQPFBHWC24%2CGTM-K5CJXLR&gac=18286d04&bg=false&bt=1d53c387&d_a=x86&d_bvs=%5B%2C%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22152.0.7977.84%22%7D%7B%22brand%22%3A%22Not%3FA_Brand%22%2C%22version%22%3A%2224.0.0.0%22%7D%7B%22brand%22%3A%22Google%20Chrome%22%2C%22version%22%3A%22152.0.7977.84%22%7D%5D&d_os=10.0&d_ot=Windows&df=true&huah=true&m_dcl=1428&m_fcps=516&m_pi=1081&m_pl=0&m_pv=2&m_rd=6767&m_sh=950&m_sl=6679&m_sw=1440&pl=https%3A%2F%2Fwww.goindigo.in%2F&trackId=f1c938bb-02ba-4c10-bd65-2905d41d2e9d&ts=1789339055196&v=3.60.0-2608111919",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://adservice.google.com/ddm/fls/z/dc_pre=CMTMmrbP7JYDFerpcwEdwRADHw;src=15746037;type=pagev0;cat=indig0;rcb=2;ord=7735429741093;npa=0;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;user_data_mode=a;_tu=AFA;gcu=1;auiddc=*;gtm=45fe6992v9230113862z89102713044za20gzb9102713044zd9102713044xea;gcs=G111;gcd=13r3r3r3r5l1;dma=0;dc_fmt=2;tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~120474864;epver=2;em=tv.*;dc_random=1789339054_Mt4LDnP2xK1q2W8gRIjlOoVbPEkYJ7qsYA;_dc_test=1;~oref=https%3A%2F%2Fwww.goindigo.in%2F",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://15746037.fls.doubleclick.net/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.linkedin.com/px/li_sync?redirect=https%3A%2F%2Fpx.ads.linkedin.com%2Fcollect%3Fv%3D2%26fmt%3Djs%26pid%3D9392146%26time%3D1789339054725%26li_adsId%3D5416043e-4d78-4fbf-bbd5-62f521e84edf%26url%3Dhttps%253A%252F%252Fwww.goindigo.in%252F%26tm%3Dgtmv2%26cookiesTest%3Dtrue%26liSync%3Dtrue",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://gumi.criteo.com/sid/json?origin=onetag&domain=goindigo.in&sn=ChromeSyncframe&so=undefined&topUrl=www.goindigo.in",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://gumi.criteo.com/syncframe?topUrl=www.goindigo.in&origin=onetag",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/r10next/web/fare-radar?origin=BLR",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://ad.doubleclick.net/activity;dc_pre=CJ7JjLbP7JYDFVbvcwEd1acPaw;src=15746037;type=pagev0;cat=indig0;rcb=2;ord=7735429741093;npa=0;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;user_data_mode=a;_tu=AFA;gcu=1;auiddc=994316304.1789339051;gtm=45fe6992v9230113862z89102713044za20gzb9102713044zd9102713044xea;gcs=G111;gcd=13r3r3r3r5l1;dma=0;dc_fmt=3;tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~120474864;epver=2;em=tv.1;dc_random=1789339054_Mt4LDnP2xK1q2W8gRIjlOoVbPEkYJ7qsYA;~oref=https%3A%2F%2Fwww.goindigo.in%2F?",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=9392146&time=1789339054967&li_adsId=5416043e-4d78-4fbf-bbd5-62f521e84edf&url=https%3A%2F%2Fwww.goindigo.in%2F&tm=gtmv2&cookiesTest=true",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=9392146&time=1789339054725&li_adsId=5416043e-4d78-4fbf-bbd5-62f521e84edf&url=https%3A%2F%2Fwww.goindigo.in%2F&tm=gtmv2&cookiesTest=true&liSync=true",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.google.com/gmp/conversion/_dc_unique_id=3501356524489752165;_dc_ptd=ChEI8JOZ1QYQpNCQnqGinODFARIfAN8_IN6Ol0We71WGopbOtdjjiHeKMxFFJiBj1y-1bQ;_dc_time=1789339055;cid=CAQS4gEAQM4h3HvWhMoNxvJqntk07QSX94TgReqVEO8qkKCNhbzkUSeALLZ0QAP-LVl3ZZpSuTv1mmBT8n-o_dxMawzIMtghNb2b2mIZzqWZQWG-KH_qBwJrMG0u2IfydswtQ0qOHO9LYpwAVlgaeMfvG_3pmchjMaAJq44UVp2L191hTMG_frrlxHYxLIsBPpwBh8I_qM5_0zg4wpIae4dTaHlZb3PcCEwwm-znNlhJ3ISNPmdddknJhNk5FPFCeYNzLJcAlUASom60XRszLYyAuZmTRYsyiWk1o5DmVwu03_ZwNAP2;eps=AHas8cBhVoAfVo62jiJS5S1zC5qWK8MHTfJ4Nc3N-SON2H43VAP1Jk55zhPrhRzRuH5xqjg3AMILQSNNl8-8WVZagSuz3TN-v59uomc92c1hFN-oUA;dc_pre=CJ7JjLbP7JYDFVbvcwEd1acPaw;src=15746037;type=pagev0;cat=indig0;rcb=2;ord=7735429741093;npa=0;uaa=x86;uab=64;uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84;uamb=0;uam=;uap=Windows;uapv=10.0;uaw=0;pscdl=noapi;frm=0;user_data_mode=a;_tu=AFA;gcu=1;auiddc=994316304.1789339051;gtm=45fe6992v9230113862z89102713044za20gzb9102713044zd9102713044xea;gcs=G111;gcd=13r3r3r3r5l1;dma=0;dc_fmt=3;tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153~120474864;epver=2;em=tv.1;dc_random=1789339054_Mt4LDnP2xK1q2W8gRIjlOoVbPEkYJ7qsYA;~oref=https%3A%2F%2Fwww.goindigo.in%2F?",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/r10next/web/fare-radar?origin=BOM",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/r10next/web/fare-radar?origin=CCU",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/r10next/web/fare-radar?origin=DEL",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://px4.ads.linkedin.com/collect?v=2&fmt=js&pid=9392146&time=1789339054967&li_adsId=5416043e-4d78-4fbf-bbd5-62f521e84edf&url=https%3A%2F%2Fwww.goindigo.in%2F&tm=gtmv2&cookiesTest=true&e_ipv6=AQIpzSWSvV6iZAAAAaCc6zkn4G_MUGAwn8VxiiR75bYvieKxMW5VQqZpgsucIvYWj73hYkFcpfZkx2-UubBxSVPlYMuZEd05",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://px4.ads.linkedin.com/collect?v=2&fmt=js&pid=9392146&time=1789339054725&li_adsId=5416043e-4d78-4fbf-bbd5-62f521e84edf&url=https%3A%2F%2Fwww.goindigo.in%2F&tm=gtmv2&cookiesTest=true&liSync=true&e_ipv6=AQLFSRfV9f9dTwAAAaCc6zlDvFqfRj9n6rWpj9-FJfpaCVldHfpi-QkSPU02p__TurUYZ8Tx6MCXnUEggRB6ILiQ06CJx10H",
+      "headers": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept-language": "en-IN",
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://6ewai.goindigo.in/r10next/web/fare-radar?origin=MAA",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://sslwidget.criteo.com/event?a=58926&v=5.49.0&p0=e%3Dce%26m%3D%255B%255D&p1=e%3Dexd%26site_type%3Dd&p2=e%3Dvh&p3=e%3Dvh&p4=e%3Ddis&bundle=DjzQKl9hcDhIZ2NnVEMwbktUVzZoZzY3bm1MbHhuMFJ6MTEzTFM1U3J0em9oM1ZrTWRFTmM3NXc4cWE0aFpJcTJ5NE9TTFdrVGRWYXVrREtITTJUSDlmeTk0emEySGNQZSUyQnolMkZmTEJhNllVV1hZcGM2dnhUQXBiZlpBRmQ5T1Y2M0l3ekNHM3UzMzhvaCUyQjB5NVlCM2lOTnl0b1ElM0QlM0Q&sc=%7B%22fbp%22%3A%22fb.1.1789339055418.798556815627042362%22%7D&tld=goindigo.in&fu=https%253A%252F%252Fwww.goindigo.in%252F&ceid=125afc93-6b9b-4cfe-8db3-576a562186bf",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/information/flight-schedule.html",
+      "headers": {
+        "accept-language": "en-IN",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/fonts/Poppins/Poppins-Medium.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/icons/indigo-icons.ttf?r65s0x",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/fonts/Poppins/Poppins-Regular.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/fonts/BauhausStd/BauhausStd-Medium.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/skyplus6ev2/clientlibs/clientlib-site/resources/fonts/Poppins/Poppins-SemiBold.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc/designs/indigo-reservation-v2/clientlibs-react/images/Session-Timed-Out.gif",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/clientlibs/granite/jquery.min.3e24d4d067ac58228b5004abb50344ef.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/clientlibs/granite/utils.min.3b86602c4e1e0b41d9673f674a75cd4b.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc/designs/indigo/clientlib-user.min.6641ce6163c7de041d707de394edcdfd.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc/designs/indigo/clientlib-handlebars.min.f8846f14e937133105c04eeb26f4981d.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc/designs/indigo/clientlib-all.min.d23328643aad4c4660a4e1ce22940f6e.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc/designs/indigo/clientlib-api.min.6da94abc87824988aba14815fa20d0c6.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc/designs/indigo/clientlib-encrypt.min.9f2901a9894ed9ddc8a8f41e017867ee.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/indigo/components/content/landingpagebanner/clientlib.min.6317a6dc48a408bd57958fd5a4f010cb.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/indigo/components/content/flightschedule/clientlib.min.ca0713f87a6ef8a091edf0cc1dd27e8e.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/indigo/clientlibs/clientlib-vue.min.292d3ef631aeb1ebe16eb5601b15df14.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc.clientlibs/indigo/components/loyalty/loyaltySlidepanes/clientlib.min.bce311f679061b7c35ebfcf0612feb73.js",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLriYhOYNG/FmpeAQ/dFMg/PEBrKFA",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLri/WntmAQ/FioK/Zm0wNxQd?v=df2b1a1f-3202-c9bc-df4f-ace82205312c",
+      "headers": {
+        "referer": "https://www.goindigo.in/information/flight-schedule.html"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://indigoaviation.tt.omtrdc.net/m2/indigoaviation/mbox/json?mbox=target-global-mbox&mboxSession=11550999372759880212303303396199622229-pUgkaC&mboxPC=&mboxPage=4f7787eab77742b0a310a13300be4484&mboxRid=ba36035416c5491e8903020b8db0dcd1&mboxVersion=1.8.2&mboxCount=1&mboxTime=1789358856641&mboxHost=www.goindigo.in&mboxURL=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&mboxReferrer=&browserHeight=950&browserWidth=1440&browserTimeOffset=330&screenHeight=950&screenWidth=1440&colorDepth=24&devicePixelRatio=1&screenOrientation=landscape&webGLRenderer=ANGLE%20(Intel%2C%20Intel(R)%20Arc(TM)%20Graphics%20(0x00007D55)%20Direct3D11%20vs_5_0%20ps_5_0%2C%20D3D11)&aemLoginType=&mboxMCSDID=4FA1ECA2E0F4BF66-4BBBA2064BB3084E&vst.trk=indigoaviation.sc.omtrdc.net&vst.trks=indigoaviation.sc.omtrdc.net&mboxMCGVID=11550999372759880212303303396199622229",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc/designs/indigo/clientlib-global/fonts/icomoon-67.ttf",
+      "headers": {
+        "origin": "https://www.goindigo.in",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/etc/designs/indigo/clientlib-all.min.90c7a9b7f6edd852d3503e1228136177.css",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/libs/cq/i18n/dict.en.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1066707734/?random=1789339057601&cv=11&fst=1789339057601&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be6992v9119619104za200zd9119619104xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&u_w=1440&u_h=950&url=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&rcb=15&frm=0&tiba=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=994316304.1789339051&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&data=event%3Dgtag.config&ept=9&rfmt=3&fmt=4",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.google.com/rmkt/collect/1066707734/?random=1789339057601&cv=11&fst=1789339057601&fmt=8&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be6992v9119619104za200zd9119619104xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&u_w=1440&u_h=950&url=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&rcb=15&frm=0&tiba=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=994316304.1789339051&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&data=event%3Dgtag.config&ept=68&gcp=5",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.google.com/ccm/collect?rcb=15&frm=0&apvc=1&auid=994316304.1789339051&dt=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&tid=AW-1066707734&en=page_view&dl=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&scrsrc=www.googletagmanager.com&rnd=1200292861.1789339058&navt=n&npa=0&gtm=45be6992v9119619104za200zd9119619104xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&tft=1789339057678&tfd=1401&tids=AW-1066707734&fmt=8",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://c.go-mpulse.net/api/config.json?key=BEZ6B-JYQYU-7BQYU-KS7TK-7PGGC&d=www.goindigo.in&t=5964464&v=1.815.70&sl=1&si=83eb8b4b-2b1c-4d41-977a-68e8c441d807-tlbqug&bcn=%2F%2F684d0d42.akstat.io%2F&plugins=AK,ConfigOverride,Continuity,PageParams,RT,PaintTiming,NavigationTiming,ResourceTiming,Memory,Errors,Akamai,EventTiming,BFCache,LOGN&acao=&ak.ai=600879",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://indigoaviation.tt.omtrdc.net/m2/indigoaviation/mbox/json?mbox=mboxPageName&mboxSession=11550999372759880212303303396199622229-pUgkaC&mboxPC=11550999372759880212303303396199622229-pUgkaC.41_0&mboxPage=4f7787eab77742b0a310a13300be4484&mboxRid=27bf6ad97815433d806e0bdca1364b4b&mboxVersion=1.8.2&mboxCount=2&mboxTime=1789358857752&mboxHost=www.goindigo.in&mboxURL=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&mboxReferrer=&browserHeight=950&browserWidth=1440&browserTimeOffset=330&screenHeight=950&screenWidth=1440&colorDepth=24&devicePixelRatio=1&screenOrientation=landscape&webGLRenderer=ANGLE%20(Intel%2C%20Intel(R)%20Arc(TM)%20Graphics%20(0x00007D55)%20Direct3D11%20vs_5_0%20ps_5_0%2C%20D3D11)&profile.pagename=flight-schedule&mboxMCSDID=4FA1ECA2E0F4BF66-4BBBA2064BB3084E&vst.trk=indigoaviation.sc.omtrdc.net&vst.trks=indigoaviation.sc.omtrdc.net&mboxMCGVID=11550999372759880212303303396199622229&mboxAAMB=j8Odv6LonN4r3an7LhD3WZrU1bUpAkFkkiY1ncBR96t2PTI&mboxMCGLH=12",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.google.com/ccm/collect?rcb=2&frm=0&apvc=0&ae=g&auid=994316304.1789339051&dt=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&en=page_view&dl=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&scrsrc=www.googletagmanager.com&rnd=1200292861.1789339058&navt=n&npa=0&ep.ads_data_redaction=0&gtm=45He6992h1v866831358za200zd866831358xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=115938465~115938468~118897920~118897930~120385423~120469145~120469153&tft=1789339057992&tfd=1714&fmt=8",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://book.goindigo.in/Application/Blank",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept": "*/*",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc/indigo/airports.markets.en.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "accept-language": "en-IN",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "x-requested-with": "XMLHttpRequest",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept": "*/*"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://connect.facebook.net/signals/config/435359453535545?v=2.9.398&r=stable&domain=www.goindigo.in&hme=457e068698591ac437afb4b2e5fbe0266b08712615b8792436a91385ebda0da3&ex_m=115%2C227%2C166%2C26%2C80%2C81%2C158%2C76%2C75%2C11%2C176%2C100%2C20%2C150%2C138%2C45%2C83%2C88%2C146%2C171%2C178%2C31%2C17%2C30%2C18%2C32%2C33%2C34%2C36%2C54%2C159%2C85%2C123%2C22%2C24%2C50%2C46%2C48%2C47%2C93%2C102%2C106%2C121%2C157%2C160%2C52%2C122%2C28%2C25%2C130%2C77%2C42%2C162%2C161%2C163%2C154%2C152%2C29%2C41%2C65%2C120%2C173%2C78%2C21%2C125%2C91%2C74%2C23%2C95%2C96%2C127%2C94%2C148%2C147%2C151%2C107%2C172%2C175%2C40%2C55%2C124%2C53%2C8%2C4%2C5%2C7%2C6%2C3%2C101%2C112%2C180%2C179%2C194%2C241%2C82%2C255%2C254%2C253%2C14%2C27%2C39%2C61%2C114%2C67%2C10%2C71%2C108%2C109%2C110%2C116%2C141%2C37%2C35%2C143%2C144%2C145%2C140%2C139%2C167%2C84%2C170%2C168%2C169%2C56%2C66%2C134%2C19%2C174%2C51%2C305%2C306%2C307%2C304%2C320%2C344%2C234%2C223%2C68%2C224%2C222%2C347%2C338%2C58%2C235%2C118%2C142%2C90%2C132%2C60%2C131%2C137%2C136%2C64%2C72%2C70%2C164%2C86%2C87%2C126%2C43%2C38%2C59%2C62%2C111%2C177%2C1%2C135%2C16%2C133%2C12%2C2%2C63%2C103%2C15%2C73%2C69%2C129%2C99%2C98%2C182%2C183%2C104%2C105%2C9%2C113%2C181%2C57%2C155%2C97%2C89%2C79%2C128%2C117%2C49%2C156%2C0%2C92%2C149%2C153%2C165%2C44%2C119%2C13%2C184",
+      "headers": {
+        "referer": "https://www.goindigo.in/"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLriYhOYNG/FmpeAQ/dFMg/PEBrKFA",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "content-type": "text/plain;charset=UTF-8",
+        "sec-ch-ua-mobile": "?0",
+        "accept-language": "en-IN"
+      },
+      "post_data": "{\"sensor_data\":\"3;0;1;0;3618884;8Eust0/NCSznCKluNp029dKnJUFxgy1hhD8ObNgyU/w=;41,0,0,1,4,0;m)-s\\\"H.\\\"G\\\"R\\\"L\\\"0`V\\\"s\\\"f,O=nfFI(,[>_-\\\"jK_\\\"(+<\\\"m#o*W\\\"t8Q9\\\"b\\\"LZd%f\\\"uh#\\\"V]|\\\"tQd\\\"dUq\\\"^KEn1DE\\\"+pX\\\"#%njWNtEFe.`k=]`\\\"i5>\\\"zj>LxpJK4{|r-|soW\\\"KQm\\\"UP2]X\\\"%JR\\\"2-k1H_KaWGYG`ajzN14z:ucj[zB`yIukp!gGk6],1}4A[R6Wk=)\\\"~\\\"41I\\\"=qt^e\\\"}z\\\"&2RG\\\"ok~ \\\"ryr\\\"D1\\\"@\\\"l[2$zvrv].=Y:/MGnUH+B!IImhS3Nvp107##\\\"nqt\\\"Z4\\\"<\\\"1dL4Vq8<\\\"f1%\\\"N\\\"\\\",\\\"k(=\\\"aBb!w`\\\"\\\"|\\\"&_G\\\"+N6\\\"r*N\\\"@1{Zt\\\"k7N\\\"v]{N(LCXb^;hO`a\\\"/G\\\"n9@GG="
+    },
+    {
+      "method": "GET",
+      "url": "https://smetrics.goindigo.in/b/ss/indigoaviationprodenvnew/1/JS-2.22.0-LDQM/s93749359557055?AQB=1&ndh=1&pf=1&t=14%2F8%2F2026%204%3A7%3A39%201%20-330&sdid=4FA1ECA2E0F4BF66-4BBBA2064BB3084E&mid=11550999372759880212303303396199622229&aamlh=12&ce=UTF-8&cdp=2&pageName=flight-schedule&g=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&ch=information%3Aflight-schedule&server=https%3A%2F%2Fwww.goindigo.in&aamb=j8Odv6LonN4r3an7LhD3WZrU1bUpAkFkkiY1ncBR96t2PTI&c1=home%3Ainformation%3Aflight%20schedule&v4=Anonymous&v11=en&c12=D%3Dv4&c14=D%3Dv11&v21=New%7CNew%7CNew%7CNew%7CNew%7CNew&v24=year%3D2026%20%7C%20month%3DSeptember%20%7C%20date%3D14%20%7C%20day%3DMonday%20%7C%20time%3D4%3A07%20AM&v27=D%3Dmid&c55=flight-schedule&v65=www.goindigo.in%2Finformation%2Fflight-schedule.html&c75=bau%20instance&v200=RLbfe36a3e8958463fb0b27f7348245c18%2CRL42b46bdb85b64cd7ab0b49732be1158b%2CRLca5e3e9c17d94d77ac3eb7f69f2f9b84%2CRL0c8bc95ae7ee47378a852ee67705ca00%2CRLeca86fb299ad450f9c606995a610ac9b%2CRL23c80b6e83964fddab791d3958d10325&s=1440x950&c=24&j=1.6&v=N&k=Y&bw=1440&bh=950&mcorgid=1F5DBA8656051D5A7F000101%40AdobeOrg&AQE=1",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://t.co/i/adsct?bci=3&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=2&event_id=427ccc5c-b1fa-4ead-abd3-4729dca97056&events=%5B%5B%22purchase%22%2C%7B%7D%5D%5D&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=5b7c271c-cb75-4339-8d29-f9dd7a9e4b3d&pt=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&tw_iframe_status=0&tw_order_quantity=0&tw_pid_src=2&tw_sale_amount=0&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=odfrg&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://analytics.twitter.com/i/adsct?bci=3&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=2&event_id=427ccc5c-b1fa-4ead-abd3-4729dca97056&events=%5B%5B%22purchase%22%2C%7B%7D%5D%5D&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=5b7c271c-cb75-4339-8d29-f9dd7a9e4b3d&pt=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&tw_iframe_status=0&tw_order_quantity=0&tw_pid_src=2&tw_sale_amount=0&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=odfrg&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://bat.bing.com/action/0?ti=25005294&Ver=2&mid=dd2a924f-188e-4844-b902-04dabe6d4be5&bo=1&sid=b9c90c60afc311f1850acd12bb1e4703&vid=b9c97310afc311f197891f6e3950fbd4&vids=1&msclkid=N&uach=pv%3D10.0&pi=918639831&lg=en-IN&sw=1440&sh=950&sc=24&tl=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&kw=Flight%20Schedule,%20Flight%20Info,%20Domestic%20Flights%20Schedule,%20International%20Flight%20Schedule,&p=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&r=&lt=3260&evt=pageLoad&sv=2&cdb=AQAQ&rn=442758",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/etc/indigo/flightschedule/en/origins.fetchmarkets.en.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "accept-language": "en-IN",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "x-requested-with": "XMLHttpRequest",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept": "*/*"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/indigo/in/en/information/flight-schedule/_jcr_content/contentpar/flightschedule.getscheduledata.en.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "accept-language": "en-IN",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "sec-ch-ua-mobile": "?0",
+        "x-requested-with": "XMLHttpRequest",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "accept": "*/*"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.google.com/pagead/1p-user-list/1066707734/?random=1789339057601&cv=11&fst=1789336800000&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be6992v9119619104za200zd9119619104xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&u_w=1440&u_h=950&url=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&rcb=15&frm=0&tiba=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=994316304.1789339051&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&data=event%3Dgtag.config&ept=9&rfmt=3&fmt=3&is_vtc=1&cid=CAQS-gEAQM4h3JJ2h2zw05n0dn5Fw6Mw-X8dkU6FobZ_3Om0VDn-NOZ9VBt8g9ZHfdYnCeTFuB9Swx68TBIFuWqZAgzJQsrp-cf5tPiSjgiSgkdKH4ITweXwykbUwwaoUMha7wQevwgM5HeOXi72OD6hVIrMQZOXUFRTcWvpRf5Nhmi4M8vPKMbNtgAx1ggmgxy0zhDaCho0ykzDYtaVRvkCBv7pSHZ4K9-WTGi51y-NB6r0Um08MnwNUIQhLj9Mx7I0lxqKTolssJiGfbC8GokW8AfkWc8hw1wNgai58WUVsGlKnEj21Uh1jXnssa5fsm8kT41yR8jl4GTOA7fh&random=1405821620&rmt_tld=0&ipr=y",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.google.co.in/pagead/1p-user-list/1066707734/?random=1789339057601&cv=11&fst=1789336800000&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be6992v9119619104za200zd9119619104xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616985~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&u_w=1440&u_h=950&url=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&rcb=15&frm=0&tiba=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=994316304.1789339051&uaa=x86&uab=64&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&uamb=0&uam=&uap=Windows&uapv=10.0&uaw=0&data=event%3Dgtag.config&ept=9&rfmt=3&fmt=3&is_vtc=1&cid=CAQS-gEAQM4h3JJ2h2zw05n0dn5Fw6Mw-X8dkU6FobZ_3Om0VDn-NOZ9VBt8g9ZHfdYnCeTFuB9Swx68TBIFuWqZAgzJQsrp-cf5tPiSjgiSgkdKH4ITweXwykbUwwaoUMha7wQevwgM5HeOXi72OD6hVIrMQZOXUFRTcWvpRf5Nhmi4M8vPKMbNtgAx1ggmgxy0zhDaCho0ykzDYtaVRvkCBv7pSHZ4K9-WTGi51y-NB6r0Um08MnwNUIQhLj9Mx7I0lxqKTolssJiGfbC8GokW8AfkWc8hw1wNgai58WUVsGlKnEj21Uh1jXnssa5fsm8kT41yR8jl4GTOA7fh&random=1405821620&rmt_tld=1&ipr=y",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1066707734/?random=1789339059716&cv=9&fst=1789339059716&num=1&guid=ON&resp=GooglemKTybQhCsO&eid=466465925&u_h=950&u_w=1440&ig=1&frm=0&url=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&tiba=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&hn=www.googleadservices.com&uaa=x86&uab=64&uam=&uap=Windows&uapv=10.0&uaw=0&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&async=1&rfmt=3&fmt=4",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://ind-aly-1.firsthive.com/piwik.php?action_name=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&idsite=2&rec=1&r=772695&h=4&m=7&s=39&url=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&_id=1ebd9231f1cc6a8d&_idn=0&send_image=0&_refts=0&pdf=1&qt=0&realp=0&wma=0&fla=0&java=0&ag=0&cookie=1&res=1440x950&pv_id=Fn0f9F&pf_net=0&pf_srv=60&pf_tfr=10&pf_dm1=2811&uadata=%7B%22fullVersionList%22%3A%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22152.0.7977.84%22%7D%2C%7B%22brand%22%3A%22Not%3FA_Brand%22%2C%22version%22%3A%2224.0.0.0%22%7D%2C%7B%22brand%22%3A%22Google%20Chrome%22%2C%22version%22%3A%22152.0.7977.84%22%7D%5D%2C%22mobile%22%3Afalse%2C%22model%22%3A%22%22%2C%22platform%22%3A%22Windows%22%2C%22platformVersion%22%3A%2210.0%22%7D",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "content-type": "application/x-www-form-urlencoded; charset=utf-8",
+        "sec-ch-ua-mobile": "?0",
+        "accept-language": "en-IN"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.google.com/pagead/1p-user-list/1066707734/?random=1789339059716&cv=9&fst=1789336800000&num=1&guid=ON&resp=GooglemKTybQhCsO&eid=466465925&u_h=950&u_w=1440&ig=1&frm=0&url=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&tiba=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&hn=www.googleadservices.com&uaa=x86&uab=64&uam=&uap=Windows&uapv=10.0&uaw=0&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&async=1&rfmt=3&fmt=3&is_vtc=1&cid=CAQS-gEAQM4h3D650cMuavOCT7mC7w-d7a1xlyNvgxXrJ5KPymEkv_vagx-HGQGsES5pj9Rndx1hSDpxY9DRVzfR_GVtaLNCuYKulUwZ-nD090bCrP-q5Yz3A15r6gJqmSB0db5m1nIGCrJgrnlY6Yk0JP4UBo-JoFu-TJg1OHbd-dfhjNBFr56SpdsfnKaIRW3uPM-Vu-8lxSYZJxYVKpO9-zOEeih29lHAApmeroBE_nAaGiG679XlBMz4rL0raPmf4UlW50_EtVivX6iQRwB8DfFPs9mcQ2FXybhhRRcupAwmC_4KSrPiaNM5DG68vjG1DCaqqcHQSNOkFmXv&random=2081893075&resp=GooglemKTybQhCsO&rmt_tld=0&ipr=y",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.google.co.in/pagead/1p-user-list/1066707734/?random=1789339059716&cv=9&fst=1789336800000&num=1&guid=ON&resp=GooglemKTybQhCsO&eid=466465925&u_h=950&u_w=1440&ig=1&frm=0&url=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&tiba=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&hn=www.googleadservices.com&uaa=x86&uab=64&uam=&uap=Windows&uapv=10.0&uaw=0&uafvl=Chromium%3B152.0.7977.84%7CNot%253FA_Brand%3B24.0.0.0%7CGoogle%2520Chrome%3B152.0.7977.84&async=1&rfmt=3&fmt=3&is_vtc=1&cid=CAQS-gEAQM4h3D650cMuavOCT7mC7w-d7a1xlyNvgxXrJ5KPymEkv_vagx-HGQGsES5pj9Rndx1hSDpxY9DRVzfR_GVtaLNCuYKulUwZ-nD090bCrP-q5Yz3A15r6gJqmSB0db5m1nIGCrJgrnlY6Yk0JP4UBo-JoFu-TJg1OHbd-dfhjNBFr56SpdsfnKaIRW3uPM-Vu-8lxSYZJxYVKpO9-zOEeih29lHAApmeroBE_nAaGiG679XlBMz4rL0raPmf4UlW50_EtVivX6iQRwB8DfFPs9mcQ2FXybhhRRcupAwmC_4KSrPiaNM5DG68vjG1DCaqqcHQSNOkFmXv&random=2081893075&resp=GooglemKTybQhCsO&rmt_tld=1&ipr=y",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.facebook.com/x/oauth/status?client_id=259083811108915&input_token&origin=1&redirect_uri=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&sdk=joey&wants_cookie_data=false",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://tr.snapchat.com/p?pid=ed6d77d8-45ec-4074-a537-a3692e175703&ev=PAGE_VIEW&intg=gtm&pids=ed6d77d8-45ec-4074-a537-a3692e175703&u_c1=eebe3738-837a-41d5-a312-bb59ff98419f&cdid=%40-59c2b4c1-a5b8-40ce-b90e-4c7b5b1b1c56&u_sclid=a287d071-0294-4457-b229-45bd2b47a613&u_scsid=5700a324-1694-4a04-aa0d-8538b0022a9d&gat=GTM-W8WCQH2%2CAW-1066707734&gac=18286d04&bg=false&bt=1d53c387&d_a=x86&d_bvs=%5B%2C%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22152.0.7977.84%22%7D%7B%22brand%22%3A%22Not%3FA_Brand%22%2C%22version%22%3A%2224.0.0.0%22%7D%7B%22brand%22%3A%22Google%20Chrome%22%2C%22version%22%3A%22152.0.7977.84%22%7D%5D&d_os=10.0&d_ot=Windows&df=true&huah=true&m_dcl=0&m_fcps=1136&m_pi=0&m_pl=0&m_pv=2&m_rd=3836&m_sh=950&m_sl=1741&m_sw=1440&pl=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&trackId=1ac8e23a-a66f-4e4f-9ab2-089288d6c1b3&ts=1789339060114&v=3.60.0-2608111919",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://t.co/i/adsct?bci=3&cv=100%261&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=2&event_id=7f2744e6-b0ba-4408-b9d5-59dbf7436810&events=%5B%5B%22pageview%22%2C%7B%7D%5D%5D&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=5b7c271c-cb75-4339-8d29-f9dd7a9e4b3d&pt=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&tw_iframe_status=0&tw_order_quantity=0&tw_pid_src=2&tw_sale_amount=0&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=nw00k&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://analytics.twitter.com/i/adsct?bci=3&cv=100%261&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=2&event_id=7f2744e6-b0ba-4408-b9d5-59dbf7436810&events=%5B%5B%22pageview%22%2C%7B%7D%5D%5D&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=5b7c271c-cb75-4339-8d29-f9dd7a9e4b3d&pt=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&tw_iframe_status=0&tw_order_quantity=0&tw_pid_src=2&tw_sale_amount=0&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=nw00k&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://t.co/i/adsct?bci=3&cv=100%261&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=1&event_id=dcd04319-4f82-4a39-a946-d64c50aa5504&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=5b7c271c-cb75-4339-8d29-f9dd7a9e4b3d&pt=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&tw_iframe_status=0&tw_order_quantity=0&tw_pid_src=2&tw_sale_amount=0&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=nz14x&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://analytics.twitter.com/i/adsct?bci=3&cv=100%261&dv=Asia%2FCalcutta%26en-IN%26Google%20Inc.%26Win32%26255%261440%26950%2618%2624%261440%26950%260%26na&eci=1&event_id=dcd04319-4f82-4a39-a946-d64c50aa5504&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=5b7c271c-cb75-4339-8d29-f9dd7a9e4b3d&pt=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&tw_document_href=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&tw_iframe_status=0&tw_order_quantity=0&tw_pid_src=2&tw_sale_amount=0&tw_session_count=1&tw_session_id=1789339054686-466689388&twpid=tw.1789339054686.708534780644047308&txn_id=nz14x&type=javascript&version=2.4.7",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://www.goindigo.in/e0a41703-f0cc-42ec-945b-205ac1489ec8",
+      "headers": {
+        "accept": "*/*",
+        "accept-language": "en-IN",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://ind-aly-1.firsthive.com/piwik.php?e_c=OnLoad&e_a=LinkClick&e_n=Aampe%20API%20Trigger&e_v=1&ca=1&idsite=2&rec=1&r=935530&h=4&m=7&s=39&url=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&_id=1ebd9231f1cc6a8d&_idn=0&send_image=0&_refts=0&pdf=1&qt=0&realp=0&wma=0&fla=0&java=0&ag=0&cookie=1&res=1440x950&pv_id=Fn0f9F&uadata=%7B%22fullVersionList%22%3A%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22152.0.7977.84%22%7D%2C%7B%22brand%22%3A%22Not%3FA_Brand%22%2C%22version%22%3A%2224.0.0.0%22%7D%2C%7B%22brand%22%3A%22Google%20Chrome%22%2C%22version%22%3A%22152.0.7977.84%22%7D%5D%2C%22mobile%22%3Afalse%2C%22model%22%3A%22%22%2C%22platform%22%3A%22Windows%22%2C%22platformVersion%22%3A%2210.0%22%7D",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "content-type": "application/x-www-form-urlencoded; charset=utf-8",
+        "sec-ch-ua-mobile": "?0",
+        "accept-language": "en-IN"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLriYhOYNG/FmpeAQ/dFMg/PEBrKFA",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "content-type": "text/plain;charset=UTF-8",
+        "sec-ch-ua-mobile": "?0",
+        "accept-language": "en-IN"
+      },
+      "post_data": "{\"sensor_data\":\"3;0;1;0;3618884;8Eust0/NCSznCKluNp029dKnJUFxgy1hhD8ObNgyU/w=;22,62,0,1,6,522;m)-s\\\"H.\\\"G\\\"^u5&-eg|\\\"l\\\"t{wMA|~\\\"-S6\\\"mm`\\\"{k<RE\\\"Cde\\\"te9aXVv\\\"nb{\\\"tMP)[2^\\\"Y}ZH\\\"r\\\"$~=4KjyNu*AcB^Ayx{cf]:5y$b-fX8gv.*p>SNAjNcVE(/| w$},ebV0EE.G=~<Hg7 Dkcme9rO2iUCxr**)|qP3AKcT^O.7%?l}37M\\\"i\\\"|wZ[\\\"h\\\"~%4$!_F[~fW\\\"P%~\\\"oC^\\\"CG5\\\"+:4\\\"9\\\"d*%jERF>vXK$&=F91#% -ar+dF#S1qr18J]+2h6al<rsE#,hWE^cjfP+Oi5Y(y=ibz8rh;3.tBhoJT.o#g!!Cgr7o}LmtZ |Mn8L|(232b\\\"&\\\"&D!\\\"f$m4]<b\\\"B8q\\\"\\\"o\\\"4Y/\\\"BD[^U\\\"PVd\\\"k\\\"3>$d9xTIwt"
+    },
+    {
+      "method": "GET",
+      "url": "blob:https://www.goindigo.in/3557f384-03e4-4b5e-aa6d-2cc909b2ebf5",
+      "headers": {
+        "accept": "*/*",
+        "accept-language": "en-IN",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+      },
+      "post_data": null
+    },
+    {
+      "method": "POST",
+      "url": "https://www.goindigo.in/IrKuXs/Sh/W9/iYKX/ACYMh5o8_W/2maXhLri/WntmAQ/FioK/Zm0wNxQd",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "content-type": "application/json",
+        "sec-ch-ua-mobile": "?0",
+        "accept-language": "en-IN"
+      },
+      "post_data": "{\"body\":\":Mvu&j&qBHW7mP\\\"A-MJ`\\\"<\\\"N[\\\"B\\\"n]9C{\\\"Z\\\" \\\"o\\\"-,dKq\\\"n\\\"j\\\"{\\\"q`Y@O\\\"Q\\\"4;Zf\\\"N\\\"|3SbH\\\"J\\\"w+VG0[Ry\\\"T=\\\\\\\"i3qki\\\\\\\"*\\\\\\\"T4f]pYhC*zZhM\\\\\\\"VMbXaP0YsvY.:X\\\"NYe D\\\"x\\\"o23,V{VYrf:hZ%ibp4%zsOj&\\\"~\\\\\\\"A@tfW(M\\\\\\\"l\\\\\\\"Bh\\\\\\\"?c\\\"6ZA@-\\\"r\\\"@&UN^\\\"q\\\"~vs24\\\"L\\\"|-\\\"w\\\"=Lec;\\\"g\\\"LudRB\\\"M\\\"W_LRT\\\"e\\\"%U\\\\\\\";2;z}\\\\\\\"v\\\\\\\"0Y3G+XX(\\\\\\\"S\\\"12^6q\\\" \\\"R+?%Lv\\\"^\\\"M~&68\\\"4\\\"U=\\\"t\\\")P5HS\\\" \\\".MfHnUeaqIITCd2IyK7v^WN1xH$%H:v/+cki6{R(Of+I/q+FhHD{2stDJ~]s;&M}7c}rCukP|S_(RNs%b?Dt/#4ryMpFhPQj#J)vM?zd\\\"i\\\",~(Ww\\\"7"
+    },
+    {
+      "method": "GET",
+      "url": "https://tr.snapchat.com/p?pid=ed6d77d8-45ec-4074-a537-a3692e175703&ev=VIEW_CONTENT&intg=gtm&pids=ed6d77d8-45ec-4074-a537-a3692e175703&u_c1=eebe3738-837a-41d5-a312-bb59ff98419f&u_sclid=a287d071-0294-4457-b229-45bd2b47a613&u_scsid=5700a324-1694-4a04-aa0d-8538b0022a9d&gat=GTM-W8WCQH2%2CAW-1066707734&gac=18286d04&bg=false&bt=1d53c387&d_a=x86&d_bvs=%5B%2C%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22152.0.7977.84%22%7D%7B%22brand%22%3A%22Not%3FA_Brand%22%2C%22version%22%3A%2224.0.0.0%22%7D%7B%22brand%22%3A%22Google%20Chrome%22%2C%22version%22%3A%22152.0.7977.84%22%7D%5D&d_os=10.0&d_ot=Windows&df=true&huah=true&m_dcl=3259&m_fcps=1136&m_pi=2966&m_pl=3809&m_pv=2&m_rd=5842&m_sh=950&m_sl=1741&m_sw=1440&pl=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&trackId=1ed65d85-d889-4c02-9cd0-ba55f716b2a3&ts=1789339062119&v=3.60.0-2608111919",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://bat.bing.com/action/0?ti=187036331&tm=gtm002&Ver=2&mid=116dbf44-106b-41bc-99e7-b16526fd3442&bo=1&sid=b9c90c60afc311f1850acd12bb1e4703&vid=b9c97310afc311f197891f6e3950fbd4&vids=0&msclkid=N&uach=pv%3D10.0&pi=918639831&lg=en-IN&sw=1440&sh=950&sc=24&tl=Flights%20Schedule%20for%20Domestic%20%26%20International%20Flights%20%7C%20IndiGo&kw=Flight%20Schedule,%20Flight%20Info,%20Domestic%20Flights%20Schedule,%20International%20Flight%20Schedule,&p=https%3A%2F%2Fwww.goindigo.in%2Finformation%2Fflight-schedule.html&r=&lt=3810&evt=pageLoad&sv=2&cdb=AQAQ&rn=722667",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    },
+    {
+      "method": "GET",
+      "url": "https://www.goindigo.in/content/indigo/in/en/information/flight-schedule/_jcr_content/contentpar/flightschedule.getscheduledata.en.json",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.goindigo.in/information/flight-schedule.html",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+        "accept-language": "en-IN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "post_data": null
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://www.goindigo.in/content/indigo/in/en/information/flight-schedule/_jcr_content/contentpar/flightschedule.getscheduledata.en.json",
+      "status": 200,
+      "json_sample": "Schedule loaded with 120 origins"
+    },
+    {
+      "url": "https://www.goindigo.in/content/indigo/in/en/information/flight-schedule/_jcr_content/contentpar/flightschedule.getscheduledata.en.json",
+      "status": 200,
+      "json_sample": "Schedule loaded with 120 origins"
+    }
+  ]
+}

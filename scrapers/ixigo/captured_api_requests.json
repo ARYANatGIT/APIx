@@ -1,0 +1,240 @@
+{
+  "portal": "ixigo",
+  "airline_code": "IXG",
+  "requests": [
+    {
+      "url": "https://www.ixigo.com/search/result/flight/DEL/BOM/20260920/1/0/0/e",
+      "method": "GET",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://www.ixigo.com/search/result/flight/DEL/BOM/20260920/1/0/0/e",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:22.193427+00:00"
+    },
+    {
+      "url": "https://edge.ixigo.com/st/vimaan/_next/static/chunks/app/search/result/flight/page-083bbed61970d1d7.js",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:22.411561+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content?searchFor=cmsContent&page=loginSDK&identifier=FLIGHT&token=url",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:22.576010+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/ab-test-api/check-variant-for-experiment",
+      "status": 400,
+      "timestamp": "2026-09-13T18:07:22.794255+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content?searchFor=cmsContent&page=flights&identifier=experiments&token=json",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:22.903516+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content?searchFor=cmsContent&page=productHeader&identifier=productOffer&token=promotionBadg",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:22.942494+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=16&frm=0&apvc=1&ae=g&auid=1346325716.1789322843&dt=Flight%20Results&en=page_view&",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:22.953528+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content?searchFor=cmsContent&page=productHeader&identifier=productOffer&token=promotionBadg",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.004209+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content?searchFor=cmsContent&page=global-config&identifier=travel-expert&token=api",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.139720+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content/city?searchFor=airportSuggestions&value=DEL&nearByAirport=true",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.140279+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content/city?searchFor=airportSuggestions&value=BOM&nearByAirport=true",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.142571+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/flights/v2/search/stream?origin=DEL&destination=BOM&leave=20260920&return=&adults=1&children=0&inf",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.143688+00:00"
+    },
+    {
+      "url": "https://www.google.com/rmkt/collect/777942368/?random=1789322843091&cv=11&fst=1789322843091&fmt=8&bg=ffffff&guid=ON&asyn",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.357966+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=12&frm=0&apvc=0&auid=1346325716.1789322843&dt=Flight%20Results&tid=AW-777942368&e",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.358457+00:00"
+    },
+    {
+      "url": "https://www.google-analytics.com/j/collect?v=1&_v=j102&a=681876211&t=pageview&_s=1&dl=https%3A%2F%2Fwww.ixigo.com%2Fsear",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.392942+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content?searchFor=cmsContent&page=flights&identifier=flashSale&token=homePage",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.393772+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content?searchFor=cmsContent&page=flights&identifier=flashSale&token=homePage",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.395594+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content/city?searchFor=airportSuggestions&value=DEL&nearByAirport=true",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.412910+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content/city?searchFor=airportSuggestions&value=BOM&nearByAirport=true",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.413363+00:00"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/777942368/?random=1789322843091&cv=11&fst=1789322843091",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.414844+00:00"
+    },
+    {
+      "url": "https://www.google.com/rmkt/collect/17687569992/?random=1789322843243&cv=11&fst=1789322843243&fmt=8&bg=ffffff&guid=ON&as",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.416881+00:00"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/17687569992/?random=1789322843243&cv=11&fst=17893228432",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.417389+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=7&frm=0&apvc=0&auid=1346325716.1789322843&dt=Flight%20Results&tid=AW-17687569992&",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.420186+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/ggmet/g/measurement/conversion?random=1789322843272&cv=11&tid=G-LJX9T6MDKX&fst=1789322843272&fmt=8",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.422640+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/ggmet/ag/g/c?v=2&tid=G-LJX9T6MDKX&gtm=45g92e6992v875264571za204zb6568111zd6568111&_p=1789322842473",
+      "status": 204,
+      "timestamp": "2026-09-13T18:07:23.430089+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/rest/ads/?pos=IN&product=flight&page=result&srcCityId=DEL&destCityId=BOM&isMobile=false",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.440361+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/action/content/city?searchFor=popularAirport",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.476143+00:00"
+    },
+    {
+      "url": "https://www.google.com/rmkt/collect/777942368/?random=1789322843622&cv=11&fst=1789322843622&fmt=8&bg=ffffff&guid=ON&asyn",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.730375+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=12&frm=0&apvc=0&auid=1346325716.1789322843&dt=Flight%20Results&tid=AW-777942368&e",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.731104+00:00"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/777942368/?random=1789322843622&cv=11&fst=1789322843622",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.745925+00:00"
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-user-list/17687569992/?random=1789322843243&cv=11&fst=1789322400000&bg=ffffff&guid=ON&a",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.777980+00:00"
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-user-list/777942368/?random=1789322843091&cv=11&fst=1789322400000&bg=ffffff&guid=ON&asy",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.778434+00:00"
+    },
+    {
+      "url": "https://www.google.co.in/pagead/1p-user-list/17687569992/?random=1789322843243&cv=11&fst=1789322400000&bg=ffffff&guid=ON",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.779699+00:00"
+    },
+    {
+      "url": "https://www.google.co.in/pagead/1p-user-list/777942368/?random=1789322843091&cv=11&fst=1789322400000&bg=ffffff&guid=ON&a",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.779987+00:00"
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-user-list/777942368/?random=1789322843622&cv=11&fst=1789322400000&bg=ffffff&guid=ON&asy",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.854391+00:00"
+    },
+    {
+      "url": "https://www.google.co.in/pagead/1p-user-list/777942368/?random=1789322843622&cv=11&fst=1789322400000&bg=ffffff&guid=ON&a",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:23.856390+00:00"
+    },
+    {
+      "url": "https://www.facebook.com/tr/?id=1515632585425826&ev=PageView&dl=https%3A%2F%2Fwww.ixigo.com%2Fsearch%2Fresult%2Fflight%2",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:24.080560+00:00"
+    },
+    {
+      "url": "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fwww.ixigo.com%2Fsearch%2Fresult%2Fflight%2FDEL%2FBOM%2F2026",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:24.295773+00:00"
+    },
+    {
+      "url": "https://www.google.com/rmkt/collect/17687569992/?random=1789322844248&cv=11&fst=1789322844248&fmt=8&bg=ffffff&guid=ON&as",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:24.361426+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=7&frm=0&apvc=0&auid=1346325716.1789322843&dt=Flight%20Results&tid=AW-17687569992&",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:24.366866+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/ggmet/ag/g/c?v=2&tid=G-LJX9T6MDKX&gtm=45g92e6992v875264571za204zb6568111zd6568111&_p=1789322842473",
+      "status": 204,
+      "timestamp": "2026-09-13T18:07:24.374436+00:00"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/17687569992/?random=1789322844248&cv=11&fst=17893228442",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:24.376327+00:00"
+    },
+    {
+      "url": "https://www.ixigo.com/ggmet/ag/g/c?v=2&tid=G-LJX9T6MDKX&gtm=45g92e6992v875264571z86568111za204zb6568111zd6568111&_p=1789",
+      "status": 204,
+      "timestamp": "2026-09-13T18:07:24.384642+00:00"
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-user-list/17687569992/?random=1789322844248&cv=11&fst=1789322400000&bg=ffffff&guid=ON&a",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:24.479982+00:00"
+    },
+    {
+      "url": "https://www.google.co.in/pagead/1p-user-list/17687569992/?random=1789322844248&cv=11&fst=1789322400000&bg=ffffff&guid=ON",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:24.484957+00:00"
+    }
+  ]
+}

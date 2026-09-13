@@ -19,8 +19,29 @@ import {
   Table,
   Play
 } from 'lucide-react';
+import { getApiUrl, API_BASE_URL } from '../services/api';
 
-export default function NsoExportView({ routes = [], indexSeries = [], overviewData = {} }) {
+export default function NsoExportView({ routes = [], indexSeries = [], overviewData = {}, theme = 'dark' }) {
+  const isLight = theme === 'light';
+  const T = {
+    rootColor: isLight ? '#0F172A' : '#FAFAFA',
+    heading: isLight ? '#0F172A' : '#FFFFFF',
+    textMuted: isLight ? '#64748B' : '#94A3B8',
+    textSub: isLight ? '#475569' : '#CBD5E1',
+    cardBg: isLight ? '#FFFFFF' : '#121218',
+    cardBgAlt: isLight ? '#F8FAFC' : '#0B0F19',
+    border: isLight ? '#E2E8F0' : 'rgba(255,255,255,0.08)',
+    borderAlt: isLight ? '#CBD5E1' : 'rgba(255,255,255,0.15)',
+    inputBg: isLight ? '#FFFFFF' : '#1A1A24',
+    inputBorder: isLight ? '#CBD5E1' : 'rgba(255,255,255,0.12)',
+    inputText: isLight ? '#0F172A' : '#FFFFFF',
+    codeBg: isLight ? '#F8FAFC' : '#0D0E12',
+    codeBorder: isLight ? '#E2E8F0' : '#1E293B',
+    tableHeaderBg: isLight ? '#F1F5F9' : '#161922',
+    tableBorder: isLight ? '#E2E8F0' : 'rgba(255,255,255,0.08)',
+    bannerBg: isLight ? 'linear-gradient(135deg, rgba(255,61,0,0.06) 0%, rgba(255,255,255,0.95) 100%)' : 'linear-gradient(135deg, rgba(255, 61, 0, 0.08) 0%, rgba(18, 18, 24, 0.8) 100%)',
+    bannerBorder: isLight ? '#FED7AA' : 'rgba(255, 61, 0, 0.3)',
+  };
   // Copy state
   const [copiedKey, setCopiedKey] = useState(false);
   const [copiedCurl, setCopiedCurl] = useState(false);
@@ -48,7 +69,7 @@ export default function NsoExportView({ routes = [], indexSeries = [], overviewD
     e.preventDefault();
     setIsGeneratingKey(true);
     try {
-      const res = await fetch('http://localhost:8000/api/v1/keys/generate', {
+      const res = await fetch(getApiUrl('/keys/generate'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -92,7 +113,7 @@ export default function NsoExportView({ routes = [], indexSeries = [], overviewD
   const handleTestEndpoint = async () => {
     setTesterLoading(true);
     try {
-      const url = `http://localhost:8000${testerEndpoint}`;
+      const url = getApiUrl(testerEndpoint);
       const res = await fetch(url, {
         headers: {
           'X-API-Key': activeKey
@@ -107,14 +128,17 @@ export default function NsoExportView({ routes = [], indexSeries = [], overviewD
     }
   };
 
+  // Dynamic API domain for display in sample snippets
+  const apiDomain = API_BASE_URL || (typeof window !== 'undefined' && window.location.origin ? window.location.origin : 'http://localhost:8000');
+
   // Code snippets based on active key and selected language
   const codeSnippets = {
     curl: `# 1. Ingest headline Laspeyres CPI metrics
-curl -X GET "http://localhost:8000/api/v1/overview" \\
+curl -X GET "${apiDomain}/api/v1/overview" \\
   -H "X-API-Key: ${activeKey}"
 
 # 2. Download all 4,922 live microdata quotes as CSV
-curl -O "http://localhost:8000/api/v1/export/quotes/csv" \\
+curl -O "${apiDomain}/api/v1/export/quotes/csv" \\
   -H "X-API-Key: ${activeKey}"`,
 
     python: `import requests
@@ -123,19 +147,19 @@ API_KEY = "${activeKey}"
 HEADERS = {"X-API-Key": API_KEY}
 
 # Ingest official headline APIx index
-resp = requests.get("http://localhost:8000/api/v1/overview", headers=HEADERS)
+resp = requests.get("${apiDomain}/api/v1/overview", headers=HEADERS)
 data = resp.json()
 print(f"Headline APIx: {data['latest_index']['value']} | Daily Change: {data['latest_index']['change_pct_d1']}%")
 
 # Query real-time Route Stress Index (RSI)
-rsi_resp = requests.get("http://localhost:8000/api/v1/rsi", headers=HEADERS)
+rsi_resp = requests.get("${apiDomain}/api/v1/rsi", headers=HEADERS)
 print(f"National Stress: {rsi_resp.json()['national_composite_stress']}")`,
 
     javascript: `// Modern fetch with AirSetu API Key
 const API_KEY = "${activeKey}";
 
 async function getAirfareData() {
-  const response = await fetch("http://localhost:8000/api/v1/overview", {
+  const response = await fetch("${apiDomain}/api/v1/overview", {
     headers: { "X-API-Key": API_KEY }
   });
   const data = await response.json();
@@ -150,7 +174,7 @@ library(jsonlite)
 
 api_key <- "${activeKey}"
 res <- GET(
-  "http://localhost:8000/api/v1/index-records?frequency=DAILY",
+  "${apiDomain}/api/v1/index-records?frequency=DAILY",
   add_headers("X-API-Key" = api_key)
 )
 timeseries <- fromJSON(content(res, "text", encoding = "UTF-8"))
@@ -169,11 +193,11 @@ head(timeseries)`
               OPEN DATA REPOSITORY &amp; DEVELOPER ACCESS
             </span>
           </div>
-          <h1 style={{ fontSize: '28px', fontWeight: 900, color: '#FFFFFF', margin: '4px 0 8px 0', letterSpacing: '0.04em' }}>
+          <h1 style={{ fontSize: '28px', fontWeight: 900, color: T.heading, margin: '4px 0 8px 0', letterSpacing: '0.04em' }}>
             DATASET EXPORT &amp; API KEY PORTAL
           </h1>
           <p style={{ fontSize: '14px', color: '#A1A1AA', maxWidth: '900px', margin: 0, lineHeight: 1.6 }}>
-            Download complete raw datasets utilized by our website and backend architecture (4,922 microdata quotes, Laspeyres index time-series, DGCA route baskets, and real-time disruption radar), or generate an open API key for programmatic M2M econometric modeling.
+            Download complete raw datasets utilized by our website and backend architecture (thousands of live microdata quotes, Laspeyres index time-series, DGCA route baskets, and real-time disruption radar), or generate an open API key for programmatic M2M econometric modeling.
           </p>
         </div>
       </div>
@@ -196,27 +220,27 @@ head(timeseries)`
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
             <Archive size={20} style={{ color: '#FF7043' }} />
             <span style={{ fontSize: '12px', fontWeight: 900, color: '#FF7043', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              RECOMMENDED RESEARCHER PACKAGE (1.0 MB ZIP)
+              RECOMMENDED RESEARCHER PACKAGE (MASTER ZIP)
             </span>
           </div>
-          <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#FFFFFF', margin: '0 0 6px 0' }}>
+          <h2 style={{ fontSize: '22px', fontWeight: 800, color: T.heading, margin: '0 0 6px 0' }}>
             Download Complete Master Research Archive (.ZIP)
           </h2>
-          <p style={{ fontSize: '13.5px', color: '#CBD5E1', margin: 0, lineHeight: 1.5 }}>
-            Bundles <strong>all 5 datasets</strong> utilized across our platform: full 4,922 microdata quotes (CSV + JSON), official Laspeyres daily index series (CSV), 10 DGCA route basket weights (CSV), real-time disruption radar events (JSON), and the complete <strong>MoSPI Data Dictionary specification</strong>.
+          <p style={{ fontSize: '13.5px', color: T.textSub, margin: 0, lineHeight: 1.5 }}>
+            Bundles <strong>all 5 datasets</strong> utilized across our platform: full live microdata quotes corpus (CSV + JSON), official Laspeyres daily index series (CSV), 10 DGCA route basket weights (CSV), real-time disruption radar events (JSON), and the complete <strong>MoSPI Data Dictionary specification</strong>.
           </p>
         </div>
 
         <div>
           <a
-            href="http://localhost:8000/api/v1/export/master-archive/zip"
+            href={getApiUrl('/export/master-archive/zip')}
             download="airsetu_complete_research_dataset_archive.zip"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '10px',
               background: '#FF3D00',
-              color: '#FFFFFF',
+              color: T.heading,
               fontWeight: 800,
               fontSize: '14px',
               padding: '14px 26px',
@@ -233,31 +257,31 @@ head(timeseries)`
       </div>
 
       {/* 3. Individual Entire Datasets Download Grid */}
-      <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#FFFFFF', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <h3 style={{ fontSize: '18px', fontWeight: 800, color: T.heading, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
         <Layers size={18} style={{ color: '#38BDF8' }} />
         <span>Individual Dataset Components (Raw Live Microdata)</span>
       </h3>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px', marginBottom: '40px' }}>
-        {/* Card 1: 4,922 Price Quotes Microdata */}
-        <div style={{ background: '#121218', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '40px' }}>
+        {/* Card 1: Live Price Quotes Microdata */}
+        <div style={{ background: T.cardBg, border: `1px solid ${T.border}`, borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: isLight ? '0 2px 8px rgba(0,0,0,0.04)' : 'none' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
               <span style={{ fontSize: '11px', fontWeight: 800, color: '#38BDF8', letterSpacing: '0.06em', background: 'rgba(56,189,248,0.1)', padding: '2px 8px', borderRadius: '4px' }}>
-                4,922 ACTIVE RECORDS
+                LIVE MONGODB CORPUS
               </span>
               <FileText size={20} style={{ color: '#38BDF8' }} />
             </div>
-            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#FFFFFF', margin: '0 0 8px 0' }}>
+            <h4 style={{ fontSize: '16px', fontWeight: 700, color: T.heading, margin: '0 0 8px 0' }}>
               Complete Price Quotes Microdata Corpus
             </h4>
-            <p style={{ fontSize: '13px', color: '#94A3B8', margin: '0 0 16px 0', lineHeight: 1.5 }}>
-              Raw scraped quotes across 7 domestic carriers, 10 DGCA routes, advance booking windows (T+0 to T+45), departure times, fare breakdowns, and SHA-256 cryptographic hashes.
+            <p style={{ fontSize: '13px', color: T.textMuted, margin: '0 0 16px 0', lineHeight: 1.5 }}>
+              Raw scraped quotes across 12 domestic airline &amp; OTA platforms, 10 DGCA routes, advance booking windows (T+0 to T+45), departure times, fare breakdowns, and SHA-256 cryptographic hashes.
             </p>
           </div>
           <div style={{ display: 'flex', gap: '10px' }}>
             <a
-              href="http://localhost:8000/api/v1/export/quotes/csv"
+              href={getApiUrl('/export/quotes/csv')}
               download="airsetu_microdata_quotes.csv"
               style={{
                 flex: 1,
@@ -278,7 +302,7 @@ head(timeseries)`
               <Download size={13} /> Quotes CSV (1.2 MB)
             </a>
             <a
-              href="http://localhost:8000/api/v1/export/quotes/json"
+              href={getApiUrl('/export/quotes/json')}
               download="airsetu_microdata_quotes.json"
               style={{
                 flex: 1,
@@ -302,7 +326,7 @@ head(timeseries)`
         </div>
 
         {/* Card 2: Official Laspeyres Index Time-Series */}
-        <div style={{ background: '#121218', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div style={{ background: T.cardBg, border: `1px solid ${T.border}`, borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: isLight ? '0 2px 8px rgba(0,0,0,0.04)' : 'none' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
               <span style={{ fontSize: '11px', fontWeight: 800, color: '#34D399', letterSpacing: '0.06em', background: 'rgba(52,211,153,0.1)', padding: '2px 8px', borderRadius: '4px' }}>
@@ -310,16 +334,16 @@ head(timeseries)`
               </span>
               <Code size={20} style={{ color: '#34D399' }} />
             </div>
-            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#FFFFFF', margin: '0 0 8px 0' }}>
+            <h4 style={{ fontSize: '16px', fontWeight: 700, color: T.heading, margin: '0 0 8px 0' }}>
               Historical Laspeyres Index (APIx)
             </h4>
-            <p style={{ fontSize: '13px', color: '#94A3B8', margin: '0 0 16px 0', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '13px', color: T.textMuted, margin: '0 0 16px 0', lineHeight: 1.5 }}>
               Complete trajectory of daily headline index values (Base 2024-Q1 = 100.0), DoD percentage changes, MoM changes, and national weighted average economy fares.
             </p>
           </div>
           <div style={{ display: 'flex', gap: '10px' }}>
             <a
-              href="http://localhost:8000/api/v1/export/apix/csv"
+              href={getApiUrl('/export/apix/csv')}
               download="airsetu_apix_timeseries.csv"
               style={{
                 flex: 1,
@@ -340,7 +364,7 @@ head(timeseries)`
               <Download size={13} /> Daily Index CSV
             </a>
             <a
-              href="http://localhost:8000/api/v1/export/routes/csv"
+              href={getApiUrl('/export/routes/csv')}
               download="airsetu_dgca_route_basket.csv"
               style={{
                 flex: 1,
@@ -364,7 +388,7 @@ head(timeseries)`
         </div>
 
         {/* Card 3: Air Intel Disruptions & Spikes Dataset */}
-        <div style={{ background: '#121218', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div style={{ background: T.cardBg, border: `1px solid ${T.border}`, borderRadius: '8px', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: isLight ? '0 2px 8px rgba(0,0,0,0.04)' : 'none' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
               <span style={{ fontSize: '11px', fontWeight: 800, color: '#FBBF24', letterSpacing: '0.06em', background: 'rgba(251,191,36,0.1)', padding: '2px 8px', borderRadius: '4px' }}>
@@ -372,16 +396,16 @@ head(timeseries)`
               </span>
               <Zap size={20} style={{ color: '#FBBF24' }} />
             </div>
-            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#FFFFFF', margin: '0 0 8px 0' }}>
+            <h4 style={{ fontSize: '16px', fontWeight: 700, color: T.heading, margin: '0 0 8px 0' }}>
               Air Intel Disruptions &amp; Scraper Spikes
             </h4>
-            <p style={{ fontSize: '13px', color: '#94A3B8', margin: '0 0 16px 0', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '13px', color: T.textMuted, margin: '0 0 16px 0', lineHeight: 1.5 }}>
               Real-time ingested transport news disruptions, statistical scraper price surges, and ML seasonal predictive surge forecasts stored in MongoDB.
             </p>
           </div>
           <div>
             <a
-              href="http://localhost:8000/api/v1/export/intel/json"
+              href={getApiUrl('/export/intel/json')}
               download="airsetu_intel_alerts.json"
               style={{
                 width: '100%',
@@ -418,11 +442,11 @@ head(timeseries)`
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Key size={20} style={{ color: '#FF7043' }} />
-              <h3 style={{ fontSize: '20px', fontWeight: 900, color: '#FFFFFF', margin: 0 }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 900, color: T.heading, margin: 0 }}>
                 AirSetu Open API Key Portal
               </h3>
             </div>
-            <p style={{ fontSize: '13px', color: '#94A3B8', margin: '4px 0 0 0' }}>
+            <p style={{ fontSize: '13px', color: T.textMuted, margin: '4px 0 0 0' }}>
               Instant programmatic access for researchers, economists, data scientists, and government automated services.
             </p>
           </div>
@@ -451,7 +475,7 @@ head(timeseries)`
             <span style={{ fontSize: '11px', fontWeight: 800, color: '#FF7043', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               ACTIVE AIRSETU API KEY
             </span>
-            <div style={{ fontFamily: 'monospace', fontSize: '16px', fontWeight: 700, color: '#FFFFFF', marginTop: '4px', letterSpacing: '0.03em' }}>
+            <div style={{ fontFamily: 'monospace', fontSize: '16px', fontWeight: 700, color: T.heading, marginTop: '4px', letterSpacing: '0.03em' }}>
               {activeKey}
             </div>
           </div>
@@ -465,7 +489,7 @@ head(timeseries)`
               gap: '6px',
               background: copiedKey ? '#22C55E' : '#FF3D00',
               border: 'none',
-              color: '#FFFFFF',
+              color: T.heading,
               fontWeight: 700,
               fontSize: '13px',
               padding: '10px 18px',
@@ -484,54 +508,54 @@ head(timeseries)`
           
           {/* Form: Generate Custom Key */}
           <div style={{ background: '#181822', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '6px', padding: '20px' }}>
-            <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#FFFFFF', margin: '0 0 6px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <h4 style={{ fontSize: '15px', fontWeight: 800, color: T.heading, margin: '0 0 6px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Sparkles size={16} style={{ color: '#FF7043' }} />
               <span>Generate New Dedicated API Key</span>
             </h4>
-            <p style={{ fontSize: '12.5px', color: '#94A3B8', margin: '0 0 16px 0' }}>
+            <p style={{ fontSize: '12.5px', color: T.textMuted, margin: '0 0 16px 0' }}>
               Need a registered key for an institution or automated pipeline? Create one instantly:
             </p>
 
             <form onSubmit={handleGenerateKey} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#94A3B8', marginBottom: '4px' }}>NAME / DESK</label>
+                <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: T.textMuted, marginBottom: '4px' }}>NAME / DESK</label>
                 <input
                   type="text"
                   placeholder="e.g. RBI Macro Research"
                   value={keyName}
                   onChange={(e) => setKeyName(e.target.value)}
-                  style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: '#FFFFFF', fontSize: '13px', boxSizing: 'border-box' }}
+                  style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: T.heading, fontSize: '13px', boxSizing: 'border-box' }}
                 />
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#94A3B8', marginBottom: '4px' }}>ORGANIZATION</label>
+                <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: T.textMuted, marginBottom: '4px' }}>ORGANIZATION</label>
                 <input
                   type="text"
                   placeholder="e.g. Reserve Bank of India / NSO"
                   value={keyOrg}
                   onChange={(e) => setKeyOrg(e.target.value)}
-                  style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: '#FFFFFF', fontSize: '13px', boxSizing: 'border-box' }}
+                  style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: T.heading, fontSize: '13px', boxSizing: 'border-box' }}
                 />
               </div>
 
               <div style={{ display: 'flex', gap: '10px' }}>
                 <div style={{ flex: 2 }}>
-                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#94A3B8', marginBottom: '4px' }}>EMAIL</label>
+                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: T.textMuted, marginBottom: '4px' }}>EMAIL</label>
                   <input
                     type="email"
                     placeholder="analyst@rbi.org.in"
                     value={keyEmail}
                     onChange={(e) => setKeyEmail(e.target.value)}
-                    style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: '#FFFFFF', fontSize: '13px', boxSizing: 'border-box' }}
+                    style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: T.heading, fontSize: '13px', boxSizing: 'border-box' }}
                   />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#94A3B8', marginBottom: '4px' }}>TIER</label>
+                  <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: T.textMuted, marginBottom: '4px' }}>TIER</label>
                   <select
                     value={keyTier}
                     onChange={(e) => setKeyTier(e.target.value)}
-                    style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 6px', color: '#FFFFFF', fontSize: '13px', boxSizing: 'border-box' }}
+                    style={{ width: '100%', background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 6px', color: T.heading, fontSize: '13px', boxSizing: 'border-box' }}
                   >
                     <option value="RESEARCHER">Researcher</option>
                     <option value="ENTERPRISE">Enterprise</option>
@@ -545,7 +569,7 @@ head(timeseries)`
                 style={{
                   background: '#2563EB',
                   border: 'none',
-                  color: '#FFFFFF',
+                  color: T.heading,
                   fontWeight: 700,
                   fontSize: '13px',
                   padding: '10px',
@@ -562,7 +586,7 @@ head(timeseries)`
                   <div style={{ fontSize: '11px', fontWeight: 800, color: '#34D399', marginBottom: '4px' }}>
                     ✓ KEY SUCCESSFULLY REGISTERED IN MONGODB
                   </div>
-                  <div style={{ fontFamily: 'monospace', fontSize: '12px', color: '#FFFFFF', wordBreak: 'break-all' }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '12px', color: T.heading, wordBreak: 'break-all' }}>
                     {generatedKey.key}
                   </div>
                 </div>
@@ -572,11 +596,11 @@ head(timeseries)`
 
           {/* Interactive Endpoint Tester */}
           <div style={{ background: '#181822', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '6px', padding: '20px', display: 'flex', flexDirection: 'column' }}>
-            <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#FFFFFF', margin: '0 0 6px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <h4 style={{ fontSize: '15px', fontWeight: 800, color: T.heading, margin: '0 0 6px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Play size={16} style={{ color: '#34D399' }} />
               <span>Live API Key Endpoint Tester</span>
             </h4>
-            <p style={{ fontSize: '12.5px', color: '#94A3B8', margin: '0 0 16px 0' }}>
+            <p style={{ fontSize: '12.5px', color: T.textMuted, margin: '0 0 16px 0' }}>
               Verify authentication live. Sends request with <code style={{ color: '#FF7043' }}>X-API-Key: {activeKey.slice(0, 18)}...</code>
             </p>
 
@@ -584,7 +608,7 @@ head(timeseries)`
               <select
                 value={testerEndpoint}
                 onChange={(e) => setTesterEndpoint(e.target.value)}
-                style={{ flex: 1, background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: '#FFFFFF', fontSize: '13px' }}
+                style={{ flex: 1, background: '#101016', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '8px 10px', color: T.heading, fontSize: '13px' }}
               >
                 <option value="/api/v1/overview">GET /api/v1/overview (Headline CPI)</option>
                 <option value="/api/v1/rsi">GET /api/v1/rsi (Route Stress Index)</option>
@@ -600,7 +624,7 @@ head(timeseries)`
                 style={{
                   background: '#059669',
                   border: 'none',
-                  color: '#FFFFFF',
+                  color: T.heading,
                   fontWeight: 700,
                   fontSize: '13px',
                   padding: '8px 16px',
@@ -618,7 +642,7 @@ head(timeseries)`
 
             <div style={{ flex: 1, minHeight: '160px', background: '#0A0A0E', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px', padding: '12px', overflow: 'auto', fontFamily: 'monospace', fontSize: '11.5px', color: '#38BDF8' }}>
               {testerLoading ? (
-                <div style={{ color: '#94A3B8' }}>Executing authorized request to {testerEndpoint}...</div>
+                <div style={{ color: T.textMuted }}>Executing authorized request to {testerEndpoint}...</div>
               ) : testerResponse ? (
                 <pre style={{ margin: 0 }}>{JSON.stringify(testerResponse, null, 2)}</pre>
               ) : (
@@ -631,7 +655,7 @@ head(timeseries)`
         {/* Multi-Language Code Integration Tabs */}
         <div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '8px', marginBottom: '12px' }}>
-            <span style={{ fontSize: '12px', fontWeight: 800, color: '#FFFFFF', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+            <span style={{ fontSize: '12px', fontWeight: 800, color: T.heading, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
               INTEGRATION CODE SNIPPETS
             </span>
 
@@ -698,7 +722,7 @@ head(timeseries)`
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer' }} onClick={() => setShowDataDictionary(!showDataDictionary)}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Table size={18} style={{ color: '#A78BFA' }} />
-            <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#FFFFFF', margin: 0 }}>
+            <h4 style={{ fontSize: '15px', fontWeight: 800, color: T.heading, margin: 0 }}>
               MoSPI Aviation Microdata Schema &amp; Data Dictionary (18 Attributes)
             </h4>
           </div>
@@ -721,7 +745,7 @@ head(timeseries)`
           <div style={{ marginTop: '16px', overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '12.5px', textAlign: 'left' }}>
               <thead>
-                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.12)', color: '#94A3B8' }}>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.12)', color: T.textMuted }}>
                   <th style={{ padding: '8px 10px' }}>FIELD</th>
                   <th style={{ padding: '8px 10px' }}>DATA TYPE</th>
                   <th style={{ padding: '8px 10px' }}>DESCRIPTION</th>
@@ -746,7 +770,7 @@ head(timeseries)`
                     <td style={{ padding: '8px 10px', fontFamily: 'monospace', color: '#38BDF8', fontWeight: 700 }}>{row.field}</td>
                     <td style={{ padding: '8px 10px', color: '#A78BFA' }}>{row.type}</td>
                     <td style={{ padding: '8px 10px', color: '#E2E8F0' }}>{row.desc}</td>
-                    <td style={{ padding: '8px 10px', fontFamily: 'monospace', color: '#94A3B8' }}>{row.sample}</td>
+                    <td style={{ padding: '8px 10px', fontFamily: 'monospace', color: T.textMuted }}>{row.sample}</td>
                   </tr>
                 ))}
               </tbody>

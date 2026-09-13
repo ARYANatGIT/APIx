@@ -1,11 +1,3 @@
-"""
-AirSetu MoSPI APIx - Public & Enterprise API Key Management Suite
-Author: AirSetu Engineering / MoSPI CPI Augmentation Suite
-
-Provides self-service API key generation, active public keys, and usage tracking
-for researchers, financial institutions, data analysts, and government bodies.
-"""
-
 import secrets
 from datetime import datetime, timezone
 from typing import Dict, Any, Optional, List
@@ -184,3 +176,4 @@ def list_api_keys(limit: int = 15, db=None) -> List[Dict[str, Any]]:
         })
 
     return results
+

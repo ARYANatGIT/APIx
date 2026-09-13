@@ -6,7 +6,21 @@ import {
 } from 'lucide-react';
 import { apiService } from '../services/api';
 
-export default function ScraperHealthView({ logs: initialLogs = [], scraperStats = {} }) {
+export default function ScraperHealthView({ logs: initialLogs = [], scraperStats = {}, theme = 'dark' }) {
+  const isLight = theme === 'light';
+  const T = {
+    cardBg: isLight ? '#FFFFFF' : 'linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%)',
+    border: isLight ? '#E2E8F0' : 'rgba(251, 230, 151, 0.25)',
+    borderSub: isLight ? '#E2E8F0' : 'rgba(255, 255, 255, 0.06)',
+    subBoxBg: isLight ? '#F8FAFC' : 'rgba(0, 0, 0, 0.25)',
+    titleText: isLight ? '#0F172A' : '#F8FAFC',
+    textMuted: isLight ? '#64748B' : '#94A3B8',
+    textValue: isLight ? '#0284C7' : '#FBE697',
+    selectOptionBg: isLight ? '#FFFFFF' : '#1E293B',
+    selectOptionText: isLight ? '#0F172A' : '#FFFFFF',
+    modalBg: isLight ? '#FFFFFF' : '#0B0F19',
+    modalBorder: isLight ? '#CBD5E1' : '#1E293B',
+  };
   const [activeSubTab, setActiveSubTab] = useState('artifacts'); // 'artifacts' | 'master' | 'logs'
   const [artifacts, setArtifacts] = useState([]);
   const [masterData, setMasterData] = useState(null);
@@ -276,15 +290,15 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
       </div>
 
       {/* MongoDB Storage & Automated Scheduler Dual Panel */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '16px', margin: '20px 0' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', margin: '20px 0' }}>
 
         {/* Panel 1: Automated Crawl Scheduler (Approach 1) */}
         <div style={{
-          background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%)',
-          border: '1px solid rgba(251, 230, 151, 0.25)',
+          background: T.cardBg,
+          border: `1px solid ${T.border}`,
           borderRadius: '12px',
           padding: '20px',
-          boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+          boxShadow: isLight ? '0 4px 16px rgba(0,0,0,0.04)' : '0 8px 24px rgba(0,0,0,0.3)',
           backdropFilter: 'blur(10px)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
@@ -293,7 +307,7 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
                 <Calendar size={18} />
               </div>
               <div>
-                <h3 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 700, color: '#F8FAFC' }}>
+                <h3 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 700, color: T.titleText }}>
                   Automated Scraper Scheduler
                 </h3>
                 <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>
@@ -325,13 +339,13 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
-            <div style={{ background: 'rgba(0,0,0,0.25)', padding: '10px 12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ background: T.subBoxBg, padding: '10px 12px', borderRadius: '8px', border: `1px solid ${T.borderSub}` }}>
               <span style={{ fontSize: '0.7rem', color: '#94A3B8', display: 'block' }}>Next Scheduled Scrape</span>
               <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#FBE697' }}>
                 {schedulerStatus?.next_run_time ? new Date(schedulerStatus.next_run_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : 'Every 30 Minutes'}
               </span>
             </div>
-            <div style={{ background: 'rgba(0,0,0,0.25)', padding: '10px 12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ background: T.subBoxBg, padding: '10px 12px', borderRadius: '8px', border: `1px solid ${T.borderSub}` }}>
               <span style={{ fontSize: '0.7rem', color: '#94A3B8', display: 'block' }}>Crawl Frequency</span>
               <select
                 value={schedulerStatus?.interval_minutes || (schedulerStatus?.interval_hours ? Math.round(schedulerStatus.interval_hours * 60) : 30)}
@@ -348,13 +362,13 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
                   width: '100%'
                 }}
               >
-                <option value={30} style={{ background: '#1E293B', color: '#FFF' }}>Every 30 Minutes (Active)</option>
-                <option value={60} style={{ background: '#1E293B', color: '#FFF' }}>Every 1 Hour</option>
-                <option value={120} style={{ background: '#1E293B', color: '#FFF' }}>Every 2 Hours</option>
-                <option value={240} style={{ background: '#1E293B', color: '#FFF' }}>Every 4 Hours</option>
-                <option value={360} style={{ background: '#1E293B', color: '#FFF' }}>Every 6 Hours</option>
-                <option value={720} style={{ background: '#1E293B', color: '#FFF' }}>Every 12 Hours (2x Daily)</option>
-                <option value={1440} style={{ background: '#1E293B', color: '#FFF' }}>Every 24 Hours (Daily)</option>
+                <option value={30} style={{ background: T.selectOptionBg, color: T.selectOptionText }}>Every 30 Minutes (Active)</option>
+                <option value={60} style={{ background: T.selectOptionBg, color: T.selectOptionText }}>Every 1 Hour</option>
+                <option value={120} style={{ background: T.selectOptionBg, color: T.selectOptionText }}>Every 2 Hours</option>
+                <option value={240} style={{ background: T.selectOptionBg, color: T.selectOptionText }}>Every 4 Hours</option>
+                <option value={360} style={{ background: T.selectOptionBg, color: T.selectOptionText }}>Every 6 Hours</option>
+                <option value={720} style={{ background: T.selectOptionBg, color: T.selectOptionText }}>Every 12 Hours (2x Daily)</option>
+                <option value={1440} style={{ background: T.selectOptionBg, color: T.selectOptionText }}>Every 24 Hours (Daily)</option>
               </select>
             </div>
           </div>
@@ -418,7 +432,7 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
                 <Database size={18} />
               </div>
               <div>
-                <h3 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 700, color: '#F8FAFC' }}>
+                <h3 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 700, color: T.titleText }}>
                   MongoDB Operational Storage Hub
                 </h3>
                 <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>
@@ -515,7 +529,7 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
           onClick={() => setActiveSubTab('artifacts')}
         >
           <Image size={15} />
-          <span>Proof Screenshots & Artifacts ({artifacts.length > 0 ? `${artifacts.length} Carriers Monitored` : '5 Carriers Monitored'})</span>
+          <span>Proof Screenshots & Artifacts ({artifacts.length > 0 ? `${artifacts.length} Platforms Monitored` : '10 Platforms Monitored'})</span>
         </button>
 
         <button
@@ -843,6 +857,11 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
                 <option value="QP">Akasa Air (QP)</option>
                 <option value="EMT">EaseMyTrip (EMT)</option>
                 <option value="MMT">MakeMyTrip (MMT)</option>
+                <option value="YTR">Yatra (YTR)</option>
+                <option value="CT">Cleartrip (CT)</option>
+                <option value="IXG">ixigo (IXG)</option>
+                <option value="GIB">Goibibo (GIB)</option>
+                <option value="SKY">Skyscanner (SKY)</option>
                 <option value="SG">SpiceJet (SG)</option>
                 <option value="IX">Air India Express (IX)</option>
               </select>

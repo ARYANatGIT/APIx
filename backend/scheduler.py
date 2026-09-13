@@ -47,6 +47,9 @@ def _update_next_run_time():
             _state["next_run_time"] = job.next_run_time.isoformat()
         else:
             _state["next_run_time"] = None
+        audit_job = _scheduler.get_job("system_integrity_audit_job")
+        if audit_job and audit_job.next_run_time:
+            _state["next_audit_time"] = audit_job.next_run_time.isoformat()
 
 
 def execute_scrape_cycle():
@@ -72,8 +75,12 @@ def execute_scrape_cycle():
     success = False
     error_msg = None
     try:
+        scraper_path = ROOT_DIR / "scripts" / "run_all_scrapers.py"
+        if not scraper_path.exists():
+            scraper_path = ROOT_DIR / "run_all_scrapers.py"
+
         proc = subprocess.run(
-            [sys.executable, str(ROOT_DIR / "run_all_scrapers.py")],
+            [sys.executable, str(scraper_path)],
             cwd=str(ROOT_DIR),
             capture_output=True,
             text=True,
@@ -141,6 +148,20 @@ def start_scheduler():
         replace_existing=True
     )
 
+    # Automated 30-minute background system integrity & dynamic data verification
+    try:
+        from backend.integrity_monitor import run_full_system_audit
+        _scheduler.add_job(
+            run_full_system_audit,
+            trigger=IntervalTrigger(minutes=interval_mins),
+            id="system_integrity_audit_job",
+            name="MoSPI System Integrity & Dynamic Data Audit",
+            replace_existing=True
+        )
+        logger.info(f"[SCHEDULER] Registered 30-minute background system integrity audit job.")
+    except Exception as ie:
+        logger.warning(f"[SCHEDULER] Could not register system integrity audit job: {ie}")
+
     _scheduler.start()
     _state["is_active"] = True
     _update_next_run_time()
@@ -187,6 +208,13 @@ def set_scheduler_interval(minutes: Optional[int] = None, hours: Optional[float]
             "flight_scraper_job",
             trigger=IntervalTrigger(minutes=target_mins)
         )
+        try:
+            _scheduler.reschedule_job(
+                "system_integrity_audit_job",
+                trigger=IntervalTrigger(minutes=target_mins)
+            )
+        except Exception:
+            pass
         _update_next_run_time()
 
     return {

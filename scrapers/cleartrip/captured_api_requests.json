@@ -1,0 +1,190 @@
+{
+  "portal": "Cleartrip",
+  "airline_code": "CT",
+  "requests": [
+    {
+      "url": "https://www.cleartrip.com/flights/results?from=DEL&to=BOM&depart_date=20/09/2026&adults=1&childs=0&infants=0&class=Economy&airline=&carrier=&intl=n&page=loaded",
+      "method": "GET",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://www.cleartrip.com/flights/results?from=DEL&to=BOM&depart_date=20/09/2026&adults=1&childs=0&infants=0&class=Econo",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:15.113634+00:00"
+    },
+    {
+      "url": "https://www.cleartrip.com/places/airports/search/v3",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:16.653767+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=13&frm=0&apvc=1&ae=g&auid=891959512.1789322837&en=page_view&dl=https%3A%2F%2Fwww.",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:17.640300+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=10&frm=0&apvc=0&auid=891959512.1789322837&tid=AW-992967773&en=page_view&dl=https%",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:17.944376+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=11&frm=0&apvc=0&ae=g&auid=891959512.1789322837&tid=AW-1067486003&dl=https%3A%2F%2",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.059499+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=11&frm=0&apvc=0&auid=891959512.1789322837&tid=AW-1067486003&en=page_view&dl=https",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.059901+00:00"
+    },
+    {
+      "url": "https://www.cleartrip.com/flight/search/v2?from=DEL&source_header=DEL&to=BOM&destination_header=BOM&depart_date=20%2F09%",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.159813+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=5&frm=0&apvc=0&ae=g&auid=891959512.1789322837&tid=AW-986824040&dl=https%3A%2F%2Fw",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.161928+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=5&frm=0&apvc=0&auid=891959512.1789322837&tid=AW-986824040&en=page_view&dl=https%3",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.162456+00:00"
+    },
+    {
+      "url": "https://q.quora.com/_/ad/658e64f24d184ac39ebc17ffc5ce8e4a/pixel?tag=ViewContent&i=gtm&u=https%3A%2F%2Fwww.cleartrip.com%",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.326317+00:00"
+    },
+    {
+      "url": "https://www.googleadservices.com/ccm/conversion/1067486003/?random=1789322837915&cv=11&fst=1789322837915&fmt=3&bg=ffffff",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.326808+00:00"
+    },
+    {
+      "url": "https://www.googleadservices.com/pagead/conversion/1067486003/?random=1789322837915&cv=11&fst=1789322837915&fmt=7&bg=fff",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.345508+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=7&frm=0&apvc=0&auid=891959512.1789322837&tid=AW-990047230&en=page_view&dl=https%3",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.346014+00:00"
+    },
+    {
+      "url": "https://s2s.cleartrip.com/tr?id=596407173430701&ev=PageView&et=1789322837&es=https%3A%2F%2Fwww.cleartrip.com%2Fflights%2",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.346401+00:00"
+    },
+    {
+      "url": "https://www.google.com/measurement/conversion?random=1789322838252&cv=11&tid=G-5CWGPF7QB9&fst=1789322838252&fmt=8&en=pag",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.575830+00:00"
+    },
+    {
+      "url": "https://www.google.com/measurement/conversion?random=1789322838252&cv=11&tid=G-5CWGPF7QB9&fst=1789322838252&fmt=8&en=fir",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.578113+00:00"
+    },
+    {
+      "url": "https://www.google.com/measurement/conversion?random=1789322838252&cv=11&tid=G-5CWGPF7QB9&fst=1789322838252&fmt=8&en=ses",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.578752+00:00"
+    },
+    {
+      "url": "https://analytics.google.com/g/collect?v=2&tid=G-5CWGPF7QB9&gtm=45je6992h1v9105759340z86670932za20gzb6670932zd6670932&_p",
+      "status": 204,
+      "timestamp": "2026-09-13T18:07:18.600707+00:00"
+    },
+    {
+      "url": "https://analytics.google.com/g/collect?v=2&tid=G-5CWGPF7QB9&gtm=45je6992h1v9105759340z86670932za20gzb6670932zd6670932&_p",
+      "status": 204,
+      "timestamp": "2026-09-13T18:07:18.602808+00:00"
+    },
+    {
+      "url": "https://analytics.google.com/g/collect?v=2&tid=G-5CWGPF7QB9&gtm=45je6992h1v9105759340z86670932za20gzb6670932zd6670932&_p",
+      "status": 204,
+      "timestamp": "2026-09-13T18:07:18.933546+00:00"
+    },
+    {
+      "url": "https://data.cleartrip.com/g/collect?v=2&tid=G-5CWGPF7QB9&gtm=45je6992h1v9105759340z86670932za20gzb6670932zd6670932&_p=1",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.959369+00:00"
+    },
+    {
+      "url": "https://analytics.google.com/g/collect?v=2&tid=G-5CWGPF7QB9&gtm=45je6992h1v9105759340z86670932za20gzb6670932zd6670932&_p",
+      "status": 204,
+      "timestamp": "2026-09-13T18:07:18.961847+00:00"
+    },
+    {
+      "url": "https://www.cleartrip.com/flights/v1/calendar/tab/fares",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.962998+00:00"
+    },
+    {
+      "url": "https://s2s.cleartrip.com/tr?id=596407173430701&ev=Search&et=1789322838&es=https%3A%2F%2Fwww.cleartrip.com%2Fflights%2Fr",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:18.982136+00:00"
+    },
+    {
+      "url": "https://srv.wego.com/analytics/v3/landings/event?conversion_id=c-wego-cleartrip.com&click_id=undefined&total_quote_value",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:19.193348+00:00"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1067486003/?random=1556897241&cv=11&fst=1789322837915&f",
+      "status": 302,
+      "timestamp": "2026-09-13T18:07:19.194063+00:00"
+    },
+    {
+      "url": "https://d.adx.io/clicks?xb=35BS11281&xd=30&xnw=direct&xtm_content=direct&clickid=2d4656141c-1789322839019&clickpath=2d46",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:19.275621+00:00"
+    },
+    {
+      "url": "https://www.google.com/pagead/1p-conversion/1067486003/?random=1556897241&cv=11&fst=1789322837915&fmt=8&bg=ffffff&guid=O",
+      "status": 302,
+      "timestamp": "2026-09-13T18:07:19.281607+00:00"
+    },
+    {
+      "url": "https://bat.bing.com/action/0?ti=5819586&tm=gtm002&Ver=2&mid=49b3e268-a4b8-4db4-b895-e237dea4dbe5&bo=1&sid=f5a41e90af9d1",
+      "status": 204,
+      "timestamp": "2026-09-13T18:07:19.295394+00:00"
+    },
+    {
+      "url": "https://www.googleadservices.com/pagead/conversion/990047230/?random=860148765&fst=1789322838939&cv=10&fmt=7&label=LwFVC",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:19.307556+00:00"
+    },
+    {
+      "url": "https://www.googleadservices.com/pagead/conversion/1067486003/?random=380601193&fst=1789322838961&cv=10&fmt=7&label=iS0p",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:19.308379+00:00"
+    },
+    {
+      "url": "https://www.googleadservices.com/pagead/conversion/986824040/?random=1484045935&fst=1789322838945&cv=10&fmt=7&label=qGNU",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:19.308693+00:00"
+    },
+    {
+      "url": "https://www.googleadservices.com/pagead/conversion/992967773/?random=1266273933&fst=1789322838952&cv=10&fmt=7&label=olPj",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:19.308902+00:00"
+    },
+    {
+      "url": "https://www.google.co.in/pagead/1p-conversion/1067486003/?random=1556897241&cv=11&fst=1789322837915&fmt=8&bg=ffffff&guid",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:19.312629+00:00"
+    },
+    {
+      "url": "https://www.google.com/ccm/collect?rcb=11&frm=0&apvc=0&auid=891959512.1789322837&tid=DC-11986252&en=page_view&dl=https%3",
+      "status": 200,
+      "timestamp": "2026-09-13T18:07:19.420750+00:00"
+    }
+  ]
+}

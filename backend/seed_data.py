@@ -12,6 +12,8 @@ if sys.stdout.encoding != 'utf-8':
         pass
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
 DATA_DIR = BASE_DIR / "data"
 
 from backend.mongo import (

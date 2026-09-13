@@ -1,20 +1,3 @@
-"""
-AirSetu MoSPI APIx - Route Stress Index (RSI) Calculation Engine
-Author: AirSetu Engineering / MoSPI CPI Augmentation Suite
-
-Mathematical Formulation:
-RSI = w1(fare anomaly) + w2(availability drop) + w3(volatility) + w4(demand proxy) + w5(cross-source agreement)
-
-Where:
-- w1 = 0.30 (Fare Anomaly: deviation of current average price vs base fare)
-- w2 = 0.20 (Availability Drop: yield curve steepness / near-term seat depletion)
-- w3 = 0.20 (Volatility: intra-corridor price dispersion / CV = sigma / mu)
-- w4 = 0.15 (Demand Proxy: DGCA annual passenger volume and booking density)
-- w5 = 0.15 (Cross-Source Agreement: carrier direct vs OTA price concordance)
-
-All data is dynamically calculated directly from MongoDB Atlas price quotes and official DGCA route baselines.
-"""
-
 import math
 from datetime import datetime, timezone
 from typing import Dict, List, Any, Optional
@@ -48,10 +31,11 @@ def compute_route_stress_index(db=None) -> Dict[str, Any]:
     w_dem = DEFAULT_RSI_WEIGHTS["w_dem"]
     w_agree = DEFAULT_RSI_WEIGHTS["w_agree"]
 
-    # 1. Ingest active price quotes from MongoDB
-    quotes = list(db.price_quotes.find({"is_outlier": {"$ne": True}}))
+    # 1. Ingest active price quotes from MongoDB with slim projection for ultra-fast transfer
+    proj = {"_id": 0, "route": 1, "route_code": 1, "total_fare": 1, "advance_window": 1, "airline": 1, "airline_code": 1}
+    quotes = list(db.price_quotes.find({"is_outlier": {"$ne": True}}, proj))
     if not quotes:
-        quotes = list(db.price_quotes.find({}))
+        quotes = list(db.price_quotes.find({}, proj))
 
     # 2. Group quotes by route
     by_route: Dict[str, List[Dict[str, Any]]] = {}
@@ -144,8 +128,9 @@ def compute_route_stress_index(db=None) -> Dict[str, Any]:
         # Factor 5: Cross-Source Agreement (0 - 100)
         # Price concordance between direct airlines vs OTAs
         # -------------------------------------------------------------
-        carrier_fares = [float(q.get("total_fare", 0)) for q in r_quotes if q.get("airline") not in ("EaseMyTrip", "MakeMyTrip")]
-        ota_fares = [float(q.get("total_fare", 0)) for q in r_quotes if q.get("airline") in ("EaseMyTrip", "MakeMyTrip")]
+        ota_identifiers = {"EaseMyTrip", "MakeMyTrip", "Yatra", "Cleartrip", "ixigo", "Goibibo", "Skyscanner", "EMT", "MMT", "YTR", "CT", "IXG", "GIB", "SKY"}
+        carrier_fares = [float(q.get("total_fare", 0)) for q in r_quotes if q.get("airline") not in ota_identifiers and q.get("airline_code") not in ota_identifiers]
+        ota_fares = [float(q.get("total_fare", 0)) for q in r_quotes if q.get("airline") in ota_identifiers or q.get("airline_code") in ota_identifiers]
 
         c_mean = sum(carrier_fares) / len(carrier_fares) if carrier_fares else mean_fare
         o_mean = sum(ota_fares) / len(ota_fares) if ota_fares else mean_fare

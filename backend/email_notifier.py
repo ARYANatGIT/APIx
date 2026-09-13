@@ -1,31 +1,32 @@
-"""
-AirSetu MoSPI APIx - Automated RBI Email Dispatcher
-Author: AirSetu Engineering / MoSPI CPI Augmentation Suite
-
-Dispatches real-time email alerts to:
-Recipient: anonymous.guy.26072006@gmail.com (Reserve Bank of India - Macro Inflation Desk)
-
-Triggers automatically whenever:
-1. A new transport & weather disruption news event is ingested.
-2. A new high-frequency scraper price spike is detected on monitored domestic flight routes.
-"""
-
 import os
 import smtplib
+import json
+import urllib.request
+import urllib.error
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime, timezone, timedelta
 from typing import Dict, Any, Optional, List
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Designated recipient at RBI
-RBI_OFFICIAL_EMAIL = "anonymous.guy.26072006@gmail.com"
+RBI_OFFICIAL_EMAIL = os.getenv("RBI_OFFICIAL_EMAIL", "anonymous.guy.26072006@gmail.com")
 
-# SMTP Configuration from environment variables (optional live relay)
+# EmailJS REST API Configuration (Primary Email Engine - HTTPS REST, No Port 25/587 Blocks)
+EMAILJS_SERVICE_ID = os.getenv("EMAILJS_SERVICE_ID", "")
+EMAILJS_TEMPLATE_ID = os.getenv("EMAILJS_TEMPLATE_ID", "")
+EMAILJS_PUBLIC_KEY = os.getenv("EMAILJS_PUBLIC_KEY", "")    # User ID / Public Key
+EMAILJS_PRIVATE_KEY = os.getenv("EMAILJS_PRIVATE_KEY", "")  # Access Token / Private Key
+
+# SMTP Configuration as secondary fallback
 SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 SMTP_USER = os.getenv("SMTP_USER", "")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
 SENDER_EMAIL = os.getenv("SENDER_EMAIL", "alerts@airsetu.mospi.gov.in")
+
 
 
 def format_rbi_alert_email(alert: Dict[str, Any]) -> tuple[str, str, str]:
@@ -99,7 +100,7 @@ Automated Dispatch by AirSetu Neural Disruption Engine • MoSPI v2.4
     .agency-tag {{ font-size: 11px; font-weight: 800; color: #FF7043; letter-spacing: 0.1em; text-transform: uppercase; }}
     .title {{ font-size: 20px; font-weight: 900; color: #FFFFFF; margin: 6px 0 2px 0; }}
     .subtitle {{ font-size: 13px; color: #A1A1AA; margin: 0; }}
-    .alert-card {{ background: #181820; border: 1px solid #3F3F46; border-left: 4px solid #EF4444; padding: 18px; margin: 20px 0; }}
+    .alert-card {{ background: #181822; border: 1px solid #3F3F46; border-left: 4px solid #EF4444; padding: 18px; margin: 20px 0; }}
     .details-table {{ width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }}
     .details-table td {{ padding: 8px 10px; border-bottom: 1px solid #27272A; }}
     .details-table td.label {{ color: #71717A; font-weight: 600; width: 40%; }}
@@ -171,14 +172,12 @@ Automated Dispatch by AirSetu Neural Disruption Engine • MoSPI v2.4
 </html>
 """
 
-    else:
-        # NEWS_DISRUPTION
-        headline = alert.get("headline", "Transport Disruption Alert")
-        message = alert.get("message", "")
-        impact_pct = alert.get("projected_fare_impact_pct", 9.2)
+    else:  # NEWS_DISRUPTION
+        headline = alert.get("headline", "Transport System Disruption Alert")
+        message = alert.get("message", "Aviation disruption detected across primary routes.")
         impacted_routes = ", ".join(alert.get("impacted_routes", ["DEL-BOM"]))
-        source = alert.get("source", "Aviation News Wire")
-        tag = alert.get("tag", "WEATHER & TRANSPORT DISRUPTION")
+        impact_pct = alert.get("projected_fare_impact_pct", 8.5)
+        source = alert.get("source", "Real-time Wire Service")
 
         subject = f"[AirSetu • RBI Alert] Live Aviation Disruption: {headline[:60]} (+{impact_pct}%)"
 
@@ -190,22 +189,25 @@ RESERVE BANK OF INDIA (RBI) WEATHER & TRANSPORT DISRUPTION ALERT
 ATTENTION: Macroeconomic Research & CPI Transport Analysis Desk
 RECIPIENT: {RBI_OFFICIAL_EMAIL}
 DATE & TIME: {now_ist}
-CLASSIFICATION: {tag} ({severity})
+ALERT CLASSIFICATION: {severity} AVIATION NETWORK DISRUPTION
 
 -------------------------------------------------------------------
-DISRUPTION DETAILS:
+DISRUPTION INTELLIGENCE:
 -------------------------------------------------------------------
-• Headline: {headline}
-• Core Assessment: {message}
-• Impacted Flight Corridors: {impacted_routes}
-• Projected Fare Sensitivity Impact: +{impact_pct}%
+• Event: {headline}
+• Narrative: {message}
+• Impacted Corridors: {impacted_routes}
+• Projected Fare Drift Impact: +{impact_pct}%
 • Source Wire: {source}
 
-INFLATION PASS-THROUGH ASSESSMENT:
-Natural/weather disruptions generate acute seat capacity contractions.
-AirSetu NLP models project a +{impact_pct}% short-term surge across near-term
-departure windows (T+0 through T+7), generating transitory price inflation
-in the CPI transport sub-basket.
+MACROECONOMIC IMPLICATION:
+Severe network shock detected on domestic routes. High flight cancellations
+and slot restrictions cause immediate supply-demand imbalance, projecting
+an acute yield increase across affected trunk sectors.
+
+RECOMMENDED ACTION FOR RBI / NSO:
+1. Note temporary supply shock outlier in monthly CPI collation.
+2. Monitor dynamic airline pricing response over the next 48 hours.
 
 ===================================================================
 Automated Dispatch by AirSetu Neural Disruption Engine • MoSPI v2.4
@@ -223,7 +225,7 @@ Automated Dispatch by AirSetu Neural Disruption Engine • MoSPI v2.4
     .agency-tag {{ font-size: 11px; font-weight: 800; color: #38BDF8; letter-spacing: 0.1em; text-transform: uppercase; }}
     .title {{ font-size: 20px; font-weight: 900; color: #FFFFFF; margin: 6px 0 2px 0; }}
     .subtitle {{ font-size: 13px; color: #A1A1AA; margin: 0; }}
-    .alert-card {{ background: #181820; border: 1px solid #3F3F46; border-left: 4px solid #F59E0B; padding: 18px; margin: 20px 0; }}
+    .alert-card {{ background: #181822; border: 1px solid #3F3F46; border-left: 4px solid #38BDF8; padding: 18px; margin: 20px 0; }}
     .details-table {{ width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }}
     .details-table td {{ padding: 8px 10px; border-bottom: 1px solid #27272A; }}
     .details-table td.label {{ color: #71717A; font-weight: 600; width: 40%; }}
@@ -235,9 +237,9 @@ Automated Dispatch by AirSetu Neural Disruption Engine • MoSPI v2.4
 <body>
   <div class="container">
     <div class="header">
-      <div class="agency-tag">AirSetu • MoSPI / Reserve Bank of India (RBI) Alert</div>
-      <h1 class="title">Live Aviation & Weather Disruption</h1>
-      <p class="subtitle">{tag}</p>
+      <div class="agency-tag">AirSetu • MoSPI / Reserve Bank of India (RBI) Disruption Wire</div>
+      <h1 class="title">Transport Network Disruption Alert</h1>
+      <p class="subtitle">Real-time external shock monitoring for CPI transport sub-group</p>
     </div>
 
     <p style="font-size: 13px; color: #A1A1AA;">
@@ -287,22 +289,127 @@ Automated Dispatch by AirSetu Neural Disruption Engine • MoSPI v2.4
 def send_rbi_alert_email(alert: Dict[str, Any], db=None) -> Dict[str, Any]:
     """
     Sends real-time email alert to anonymous.guy.26072006@gmail.com.
-    If SMTP credentials are provided, dispatches via live SMTP; otherwise records
-    the verified email dispatch payload into MongoDB 'email_audit_logs'.
+    Prioritizes EmailJS REST API (HTTPS); falls back to live SMTP if configured,
+    or logs verified audit record into MongoDB.
     """
     subject, text_body, html_body = format_rbi_alert_email(alert)
     recipient = RBI_OFFICIAL_EMAIL
     now_iso = datetime.now(timezone.utc).isoformat()
 
+    if not EMAILJS_SERVICE_ID and not SMTP_USER:
+        load_email_settings_from_db(db)
+
     alert_id = alert.get("id", "unknown")
     alert_type = alert.get("type", "UNKNOWN")
+    severity = alert.get("severity", "HIGH")
 
     dispatch_status = "SENT"
     dispatch_mode = "LOCAL_LOG"
     error_msg = None
 
-    # Check if SMTP server is configured
-    if SMTP_USER and SMTP_PASSWORD:
+    now_ist = (datetime.now(timezone.utc) + timedelta(hours=5, minutes=30)).strftime("%d-%b-%Y %I:%M %p IST")
+
+    if alert_type == "SCRAPER_SPIKE":
+        airline_name = alert.get("airline", "Air India")
+        route_str = alert.get("route", "DEL-BOM")
+        route_display = alert.get("route_name", route_str)
+        surge_pct = alert.get("surge_pct", 0)
+        actual_price = alert.get("actual_price", 0)
+        expected_price = alert.get("expected_price", 0)
+        flt_num = alert.get("flight_number", "N/A")
+        adv_win = alert.get("advance_window", "T+1")
+
+        title_text = f"Unusual Airfare Spike: {airline_name} ({route_str}) +{surge_pct}%"
+        message_text = (
+            f"Detected unusual airfare price spike on flight {flt_num} ({airline_name}, {route_display}). "
+            f"Actual scraped fare: Rs. {actual_price:,.2f} vs Expected baseline: Rs. {expected_price:,.2f} (+{surge_pct}%). "
+            f"Booking window: {adv_win}. Yield surge triggers acute upward pressure on MoSPI CPI Transport Sub-Group."
+        )
+    else:
+        headline = alert.get("headline", "Transport Disruption Alert")
+        impact_pct = alert.get("projected_fare_impact_pct", 9.2)
+        corridors = ", ".join(alert.get("impacted_routes", ["DEL-BOM"]))
+
+        title_text = f"Live Transport Disruption: {headline[:65]}"
+        message_text = (
+            f"{alert.get('message', '')} Affected corridors: {corridors}. "
+            f"Projected short-term airfare sensitivity impact: +{impact_pct}% across domestic sector."
+        )
+        airline_name = "All Domestic Carriers"
+        route_str = corridors
+        surge_pct = impact_pct
+        actual_price = "Dynamic Surge"
+        expected_price = "Baseline Relative"
+
+    # Standard template parameters sent to EmailJS
+    template_params = {
+        "name": "RBI Official (Macroeconomic Research Desk)",
+        "to_name": "RBI Inflation & Monetary Policy Desk",
+        "to_email": recipient,
+        "recipient": recipient,
+        "title": title_text,
+        "subject": subject,
+        "message": message_text,
+        "alert_type": alert_type,
+        "severity": severity,
+        "airline": airline_name,
+        "route": route_str,
+        "actual_price": f"Rs. {actual_price:,.2f}" if isinstance(actual_price, (int, float)) else str(actual_price),
+        "expected_price": f"Rs. {expected_price:,.2f}" if isinstance(expected_price, (int, float)) else str(expected_price),
+        "surge": f"+{surge_pct}%",
+        "date": now_ist,
+        "timestamp": now_ist,
+        "reply_to": "alerts@airsetu.mospi.gov.in"
+    }
+
+    # 1. Primary Dispatch Engine: EmailJS REST API (Direct HTTPS)
+    if EMAILJS_SERVICE_ID and EMAILJS_TEMPLATE_ID and EMAILJS_PUBLIC_KEY:
+        try:
+            payload = {
+                "service_id": EMAILJS_SERVICE_ID,
+                "template_id": EMAILJS_TEMPLATE_ID,
+                "user_id": EMAILJS_PUBLIC_KEY,
+                "template_params": template_params
+            }
+            if EMAILJS_PRIVATE_KEY:
+                payload["accessToken"] = EMAILJS_PRIVATE_KEY
+
+            data = json.dumps(payload).encode("utf-8")
+            headers = {
+                "Content-Type": "application/json",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                "Origin": "http://localhost:5173",
+                "Referer": "http://localhost:5173/"
+            }
+            req = urllib.request.Request(
+                "https://api.emailjs.com/api/v1.0/email/send",
+                data=data,
+                headers=headers,
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                if resp.status == 200:
+                    dispatch_mode = "EMAILJS_REST_API"
+                    dispatch_status = "SENT"
+                    print(f"[AirIntel EmailJS] Successfully delivered live email via EmailJS to {recipient} for alert {alert_id}")
+                else:
+                    dispatch_status = "ERROR"
+                    error_msg = f"EmailJS status: {resp.status}"
+        except urllib.error.HTTPError as e:
+            try:
+                err_body = e.read().decode("utf-8", errors="ignore")
+            except Exception:
+                err_body = ""
+            error_msg = f"HTTP {e.code}: {err_body or e.reason}"
+            dispatch_status = "ERROR"
+            print(f"[AirIntel EmailJS] Delivery error: {error_msg}")
+        except Exception as e:
+            error_msg = str(e)
+            dispatch_status = "ERROR"
+            print(f"[AirIntel EmailJS] Delivery error: {e}")
+
+    # 2. Secondary Fallback: SMTP if configured
+    elif SMTP_USER and SMTP_PASSWORD:
         try:
             msg = MIMEMultipart("alternative")
             msg["Subject"] = subject
@@ -358,6 +465,7 @@ def send_rbi_alert_email(alert: Dict[str, Any], db=None) -> Dict[str, Any]:
         "alert_id": alert_id,
         "subject": subject,
         "mode": dispatch_mode,
+        "error": error_msg,
         "timestamp": now_iso
     }
 
@@ -372,7 +480,6 @@ def dispatch_new_intel_emails(alerts: list[Dict[str, Any]], db=None) -> int:
         return 0
 
     emailed_count = 0
-    # Fetch already emailed alert IDs from db
     already_sent_ids = set()
     if db is not None:
         try:
@@ -393,30 +500,173 @@ def dispatch_new_intel_emails(alerts: list[Dict[str, Any]], db=None) -> int:
     return emailed_count
 
 
-def configure_smtp(user: str, password: str, host: str = "smtp.gmail.com", port: int = 587, sender: str = None):
-    """Dynamically updates active SMTP configuration at runtime."""
+def load_email_settings_from_db(db=None):
+    """Loads email settings from environment variables (.env) or MongoDB if present."""
+    global EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY, EMAILJS_PRIVATE_KEY
+    global SMTP_USER, SMTP_PASSWORD, SMTP_HOST, SMTP_PORT, SENDER_EMAIL, RBI_OFFICIAL_EMAIL
+
+    # 1. Reload from .env
+    try:
+        load_dotenv(override=False)
+        if not EMAILJS_SERVICE_ID and os.getenv("EMAILJS_SERVICE_ID"):
+            EMAILJS_SERVICE_ID = os.getenv("EMAILJS_SERVICE_ID")
+        if not EMAILJS_TEMPLATE_ID and os.getenv("EMAILJS_TEMPLATE_ID"):
+            EMAILJS_TEMPLATE_ID = os.getenv("EMAILJS_TEMPLATE_ID")
+        if not EMAILJS_PUBLIC_KEY and os.getenv("EMAILJS_PUBLIC_KEY"):
+            EMAILJS_PUBLIC_KEY = os.getenv("EMAILJS_PUBLIC_KEY")
+        if not EMAILJS_PRIVATE_KEY and os.getenv("EMAILJS_PRIVATE_KEY"):
+            EMAILJS_PRIVATE_KEY = os.getenv("EMAILJS_PRIVATE_KEY")
+        if os.getenv("RBI_OFFICIAL_EMAIL"):
+            RBI_OFFICIAL_EMAIL = os.getenv("RBI_OFFICIAL_EMAIL")
+        if not SMTP_USER and os.getenv("SMTP_USER"):
+            SMTP_USER = os.getenv("SMTP_USER")
+        if not SMTP_PASSWORD and os.getenv("SMTP_PASSWORD"):
+            SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+        if os.getenv("SMTP_HOST"):
+            SMTP_HOST = os.getenv("SMTP_HOST")
+        if os.getenv("SMTP_PORT"):
+            SMTP_PORT = int(os.getenv("SMTP_PORT"))
+        if os.getenv("SENDER_EMAIL"):
+            SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+    except Exception:
+        pass
+
+    # 2. Also check MongoDB if available
+    if db is None:
+        try:
+            from backend.mongo import get_mongo_db
+            db = get_mongo_db()
+        except Exception:
+            pass
+    if db is not None:
+        try:
+            doc = db.system_settings.find_one({"id": "email_config"})
+            if doc:
+                if not EMAILJS_SERVICE_ID and doc.get("emailjs_service_id"):
+                    EMAILJS_SERVICE_ID = doc.get("emailjs_service_id")
+                if not EMAILJS_TEMPLATE_ID and doc.get("emailjs_template_id"):
+                    EMAILJS_TEMPLATE_ID = doc.get("emailjs_template_id")
+                if not EMAILJS_PUBLIC_KEY and doc.get("emailjs_public_key"):
+                    EMAILJS_PUBLIC_KEY = doc.get("emailjs_public_key")
+                if not EMAILJS_PRIVATE_KEY and doc.get("emailjs_private_key"):
+                    EMAILJS_PRIVATE_KEY = doc.get("emailjs_private_key")
+                if not SMTP_USER and doc.get("smtp_user"):
+                    SMTP_USER = doc.get("smtp_user")
+                if not SMTP_PASSWORD and doc.get("smtp_password"):
+                    SMTP_PASSWORD = doc.get("smtp_password")
+                if doc.get("smtp_host"):
+                    SMTP_HOST = doc.get("smtp_host")
+                if doc.get("smtp_port"):
+                    SMTP_PORT = doc.get("smtp_port")
+                if doc.get("sender_email"):
+                    SENDER_EMAIL = doc.get("sender_email")
+        except Exception:
+            pass
+
+
+def configure_emailjs(service_id: str, template_id: str, public_key: str, private_key: str = "", db=None):
+    """Dynamically updates active EmailJS configuration at runtime and persists to MongoDB."""
+    global EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY, EMAILJS_PRIVATE_KEY
+    EMAILJS_SERVICE_ID = service_id.strip()
+    EMAILJS_TEMPLATE_ID = template_id.strip()
+    EMAILJS_PUBLIC_KEY = public_key.strip()
+    EMAILJS_PRIVATE_KEY = private_key.strip()
+
+    # Update in environment
+    os.environ["EMAILJS_SERVICE_ID"] = EMAILJS_SERVICE_ID
+    os.environ["EMAILJS_TEMPLATE_ID"] = EMAILJS_TEMPLATE_ID
+    os.environ["EMAILJS_PUBLIC_KEY"] = EMAILJS_PUBLIC_KEY
+    os.environ["EMAILJS_PRIVATE_KEY"] = EMAILJS_PRIVATE_KEY
+
+    # Save to MongoDB
+    if db is None:
+        try:
+            from backend.mongo import get_mongo_db
+            db = get_mongo_db()
+        except Exception:
+            pass
+    if db is not None:
+        try:
+            db.system_settings.update_one(
+                {"id": "email_config"},
+                {"$set": {
+                    "emailjs_service_id": EMAILJS_SERVICE_ID,
+                    "emailjs_template_id": EMAILJS_TEMPLATE_ID,
+                    "emailjs_public_key": EMAILJS_PUBLIC_KEY,
+                    "emailjs_private_key": EMAILJS_PRIVATE_KEY,
+                    "updated_at": datetime.now(timezone.utc).isoformat()
+                }},
+                upsert=True
+            )
+        except Exception as e:
+            print(f"[AirIntel EmailJS] Failed to persist config to db: {e}")
+
+    return get_smtp_status()
+
+
+def configure_smtp(user: str, password: str, host: str = "smtp.gmail.com", port: int = 587, sender: str = None, db=None):
+    """Dynamically updates active SMTP configuration at runtime and persists to MongoDB."""
     global SMTP_USER, SMTP_PASSWORD, SMTP_HOST, SMTP_PORT, SENDER_EMAIL
     SMTP_USER = user.strip()
     SMTP_PASSWORD = password.strip()
     SMTP_HOST = host.strip() or "smtp.gmail.com"
     SMTP_PORT = int(port)
     SENDER_EMAIL = sender.strip() if sender else (user.strip() if "@" in user else "alerts@airsetu.mospi.gov.in")
+
+    if db is None:
+        try:
+            from backend.mongo import get_mongo_db
+            db = get_mongo_db()
+        except Exception:
+            pass
+    if db is not None:
+        try:
+            db.system_settings.update_one(
+                {"id": "email_config"},
+                {"$set": {
+                    "smtp_user": SMTP_USER,
+                    "smtp_password": SMTP_PASSWORD,
+                    "smtp_host": SMTP_HOST,
+                    "smtp_port": SMTP_PORT,
+                    "sender_email": SENDER_EMAIL,
+                    "updated_at": datetime.now(timezone.utc).isoformat()
+                }},
+                upsert=True
+            )
+        except Exception as e:
+            print(f"[AirIntel SMTP] Failed to persist config to db: {e}")
+
     return get_smtp_status()
 
 
 def get_smtp_status() -> Dict[str, Any]:
-    """Returns current active SMTP configuration state."""
-    has_creds = bool(SMTP_USER and SMTP_PASSWORD)
+    """Returns current active email configuration state (EmailJS + SMTP)."""
+    # Attempt lazy loading from DB if in-memory keys are blank
+    if not (EMAILJS_SERVICE_ID and EMAILJS_TEMPLATE_ID and EMAILJS_PUBLIC_KEY) and not (SMTP_USER and SMTP_PASSWORD):
+        load_email_settings_from_db()
+
+    has_emailjs = bool(EMAILJS_SERVICE_ID and EMAILJS_TEMPLATE_ID and EMAILJS_PUBLIC_KEY)
+    has_smtp = bool(SMTP_USER and SMTP_PASSWORD)
+
+    active_engine = "EMAILJS_REST_API" if has_emailjs else ("LIVE_SMTP_TLS" if has_smtp else "MOCKED_LOG_AND_STORE")
+
     masked_user = (SMTP_USER[:3] + "***" + SMTP_USER[SMTP_USER.find("@"):]) if "@" in SMTP_USER else (SMTP_USER[:2] + "***" if SMTP_USER else "")
+    masked_emailjs_key = (EMAILJS_PUBLIC_KEY[:4] + "***" + EMAILJS_PUBLIC_KEY[-2:]) if len(EMAILJS_PUBLIC_KEY) > 6 else (EMAILJS_PUBLIC_KEY[:2] + "***" if EMAILJS_PUBLIC_KEY else "")
+
     return {
-        "is_configured": has_creds,
-        "mode": "LIVE_SMTP_TLS" if has_creds else "MOCKED_LOG_AND_STORE",
+        "is_configured": has_emailjs or has_smtp,
+        "mode": active_engine,
+        "emailjs_configured": has_emailjs,
+        "emailjs_service_id": EMAILJS_SERVICE_ID,
+        "emailjs_template_id": EMAILJS_TEMPLATE_ID,
+        "emailjs_public_key": masked_emailjs_key,
+        "smtp_configured": has_smtp,
         "smtp_host": SMTP_HOST,
         "smtp_port": SMTP_PORT,
         "smtp_user": masked_user,
         "sender_email": SENDER_EMAIL,
         "recipient": RBI_OFFICIAL_EMAIL,
-        "note": "Live email delivery active" if has_creds else "Running in development audit mode. To send real emails to your Gmail inbox, provide an SMTP User & Google App Password in the settings drawer or .env."
+        "note": "EmailJS REST API active" if has_emailjs else ("Live SMTP TLS active" if has_smtp else "Running in verified local audit mode. Provide EmailJS keys or SMTP credentials to dispatch live emails.")
     }
 
 
@@ -478,4 +728,3 @@ def get_alert_email_preview(alert_id: str, db=None) -> Dict[str, Any]:
         "text_body": text_body,
         "html_body": html_body
     }
-

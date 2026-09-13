@@ -142,17 +142,17 @@ def get_macro_overview():
 
     pipeline_pax = [{"$group": {"_id": None, "total": {"$sum": "$annual_passengers"}}}]
     pax_res = list(db.routes.aggregate(pipeline_pax))
-    total_pax = int(pax_res[0]["total"]) if pax_res and pax_res[0].get("total") else 42800000
+    total_pax = int(pax_res[0]["total"]) if pax_res and pax_res[0].get("total") else None
 
     total_logs = db.scraper_audit_logs.count_documents({})
     successful_logs = db.scraper_audit_logs.count_documents({
         "status": {"$in": ["SUCCESS", "CAPTCHA_BYPASSED", "BLOCKED_CLOUDFLARE_RECOVERED", "CLOUDFLARE_BYPASSED", "TLS_ROTATED"]}
     })
-    resilience_rate = round((successful_logs / total_logs * 100.0), 1) if total_logs > 0 else 98.4
+    resilience_rate = round((successful_logs / total_logs * 100.0), 1) if total_logs > 0 else None
 
     pipeline_lat = [{"$group": {"_id": None, "avg_latency": {"$avg": "$latency_ms"}}}]
     lat_res = list(db.scraper_audit_logs.aggregate(pipeline_lat))
-    avg_latency = int(lat_res[0]["avg_latency"]) if lat_res and lat_res[0].get("avg_latency") else 1850
+    avg_latency = int(lat_res[0]["avg_latency"]) if lat_res and lat_res[0].get("avg_latency") else None
 
     # Dynamic Route Stress Index summary
     try:
@@ -160,20 +160,21 @@ def get_macro_overview():
         rsi_payload = compute_route_stress_index(db)
         national_rsi = rsi_payload.get("national_composite", {})
     except Exception:
-        national_rsi = {"rsi": 57.0, "level": "MODERATE", "color": "#FBBF24"}
+        national_rsi = {"rsi": None, "level": "UNKNOWN", "color": "#808080"}
 
     return {
         "database": "MongoDB Atlas (apix_mospi)",
         "route_stress_index": national_rsi,
         "latest_index": {
-            "value": dyn_kpis.get("latest_index", 140.04),
+            "value": dyn_kpis.get("latest_index", None),
             "base_period": "2024-Q1",
             "base_value": settings.BASE_INDEX_VALUE,
-            "calculation_date": dyn_kpis.get("latest_date", "2026-09"),
-            "change_pct_d1": dyn_kpis.get("change_pct_d1", 1.68),
-            "change_pct_m1": dyn_kpis.get("change_pct_m1", 40.04),
-            "change_pct_yoy": dyn_kpis.get("change_pct_yoy", 21.08),
-            "average_fare": dyn_kpis.get("current_basket_fare", 8461.6),
+            "calculation_date": dyn_kpis.get("latest_date", None),
+            "change_pct_d1": dyn_kpis.get("change_pct_d1", None),
+            "change_pct_w1": dyn_kpis.get("change_pct_w1", None),
+            "change_pct_m1": dyn_kpis.get("change_pct_m1", None),
+            "change_pct_yoy": dyn_kpis.get("change_pct_yoy", None),
+            "average_fare": dyn_kpis.get("current_basket_fare", None),
             "formula": "Laspeyres Basket Normalized Index (Monthly)",
             "frequency": "MONTHLY",
             "top_rising_routes": dyn_kpis.get("top_rising_routes", []),
@@ -369,6 +370,11 @@ CARRIER_DIR_MAP = {
     "QP": {"name": "Akasa Air", "dir": "akasa_air"},
     "EMT": {"name": "EaseMyTrip", "dir": "easemytrip"},
     "MMT": {"name": "MakeMyTrip", "dir": "makemytrip"},
+    "YTR": {"name": "Yatra", "dir": "yatra"},
+    "CT": {"name": "Cleartrip", "dir": "cleartrip"},
+    "IXG": {"name": "ixigo", "dir": "ixigo"},
+    "GIB": {"name": "Goibibo", "dir": "goibibo"},
+    "SKY": {"name": "Skyscanner", "dir": "skyscanner"},
 }
 
 
@@ -390,7 +396,7 @@ def get_master_normalized():
                 "status": content.get("status", "SUCCESS"),
                 "created_at": content.get("created_at"),
                 "run_date": content.get("run_date"),
-                "total_quotes": total_db_quotes or content.get("total_quotes", 4219),
+                "total_quotes": total_db_quotes or content.get("total_quotes", None),
                 "batch_quotes": content.get("total_quotes", len(content.get("quotes", []))),
                 "total_database_quotes": total_db_quotes,
                 "total_airlines": content.get("total_airlines", len(content.get("summary", {}).get("by_airline", {}))),
@@ -814,18 +820,20 @@ def trigger_test_email():
         "advance_window": "T+1",
         "scraper_source": "Direct Scraper Microdata"
     }
+    from backend.email_notifier import RBI_OFFICIAL_EMAIL
     res = send_rbi_alert_email(sample_alert, db=db)
     return {
         "status": "SUCCESS",
-        "recipient": "anonymous.guy.26072006@gmail.com",
+        "recipient": RBI_OFFICIAL_EMAIL,
         "result": res
     }
 
 
 @app.get("/api/v1/intel/email-status")
 def get_intel_email_status():
-    """Returns the latest audit log records for emails sent to anonymous.guy.26072006@gmail.com."""
+    """Returns the latest audit log records for emails sent to RBI Aviation Desk."""
     from backend.mongo import get_mongo_db
+    from backend.email_notifier import RBI_OFFICIAL_EMAIL
     db = get_mongo_db()
     logs = []
     if db is not None:
@@ -834,7 +842,7 @@ def get_intel_email_status():
         except Exception:
             pass
     return {
-        "target_recipient": "anonymous.guy.26072006@gmail.com",
+        "target_recipient": RBI_OFFICIAL_EMAIL,
         "total_dispatched": len(logs),
         "recent_dispatches": logs
     }
@@ -1032,8 +1040,15 @@ def get_registered_keys():
 
 
 # ==============================================================================
-# SMTP Delivery Configuration & Audit Log Endpoints
+# EmailJS & SMTP Delivery Configuration & Audit Log Endpoints
 # ==============================================================================
+
+class EmailJSConfigRequest(BaseModel):
+    service_id: str
+    template_id: str
+    public_key: str
+    private_key: Optional[str] = ""
+
 
 class SMTPConfigRequest(BaseModel):
     smtp_user: str
@@ -1045,21 +1060,47 @@ class SMTPConfigRequest(BaseModel):
 
 @app.get("/api/v1/intel/smtp-status")
 def get_active_smtp_status():
-    """Returns the current active SMTP configuration state."""
-    from backend.email_notifier import get_smtp_status
-    return get_smtp_status()
+    """Returns the current active email configuration state (EmailJS + SMTP)."""
+    try:
+        from backend.email_notifier import get_smtp_status
+        return get_smtp_status()
+    except Exception as e:
+        return {
+            "is_configured": False,
+            "mode": "MOCKED_LOG_AND_STORE",
+            "error": str(e)
+        }
+
+
+@app.post("/api/v1/intel/emailjs-config")
+def update_emailjs_configuration(payload: EmailJSConfigRequest):
+    """Configures EmailJS credentials at runtime and persists them."""
+    from backend.email_notifier import configure_emailjs
+    from backend.mongo import get_mongo_db
+    db = get_mongo_db()
+    res = configure_emailjs(
+        service_id=payload.service_id,
+        template_id=payload.template_id,
+        public_key=payload.public_key,
+        private_key=payload.private_key or "",
+        db=db
+    )
+    return {"status": "UPDATED", "config": res}
 
 
 @app.post("/api/v1/intel/smtp-config")
 def update_smtp_configuration(payload: SMTPConfigRequest):
     """Configures SMTP credentials at runtime and tests connectivity."""
     from backend.email_notifier import configure_smtp
+    from backend.mongo import get_mongo_db
+    db = get_mongo_db()
     res = configure_smtp(
         user=payload.smtp_user,
         password=payload.smtp_password,
         host=payload.smtp_host,
         port=payload.smtp_port,
-        sender=payload.sender_email
+        sender=payload.sender_email,
+        db=db
     )
     return {"status": "UPDATED", "config": res}
 
@@ -1078,4 +1119,98 @@ def get_email_preview_by_id(alert_id: str):
     return get_alert_email_preview(alert_id)
 
 
+class AirportSimulationRequest(BaseModel):
+    hub_code: Optional[str] = "DEL"
+    capacity_reduction_pct: Optional[float] = 25.0
+    capacity_cut_pct: Optional[float] = None
+    weather_severity_pct: Optional[float] = 50.0
+    demand_surge_pct: Optional[float] = 20.0
+
+
+@app.get("/api/v1/airport-substitution")
+def get_airport_substitution():
+    """Airport Catchment Substitution Intelligence across 24 nationwide pairs and 26 hubs."""
+    try:
+        from backend.airport_substitution import get_airport_substitution_intelligence
+        from backend.mongo import get_mongo_db
+        db = get_mongo_db()
+        return get_airport_substitution_intelligence(db=db)
+    except Exception as e:
+        return {"status": "error", "message": str(e), "pairs": []}
+
+
+@app.post("/api/v1/airport-simulation")
+def post_airport_simulation(payload: AirportSimulationRequest):
+    """Simulates airport operational shocks, capacity cuts, and demand surge across 26 major hubs."""
+    try:
+        from backend.airport_substitution import simulate_airport_disruption
+        from backend.mongo import get_mongo_db
+        db = get_mongo_db()
+        cap_cut = payload.capacity_cut_pct if payload.capacity_cut_pct is not None else payload.capacity_reduction_pct
+        return simulate_airport_disruption(
+            hub_code=payload.hub_code or "DEL",
+            capacity_cut_pct=cap_cut if cap_cut is not None else 25.0,
+            weather_severity_pct=payload.weather_severity_pct if payload.weather_severity_pct is not None else 50.0,
+            demand_surge_pct=payload.demand_surge_pct if payload.demand_surge_pct is not None else 20.0,
+            db=db
+        )
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+# ==============================================================================
+# 3D Airport Digital Twin Telemetry & Operational Analytics Endpoints
+# ==============================================================================
+
+@app.get("/api/v1/airports/digital-twins")
+def get_digital_twins_network():
+    """
+    Returns live digital twin summary telemetry for all 10 major DGCA airports:
+    DEL, BOM, BLR, HYD, CCU, MAA, GOI, AMD, PNQ, COK.
+    Provides network roaming passenger volume, operator revenues, and live status.
+    """
+    from backend.airport_twin_service import get_all_digital_twins_summary
+    from backend.mongo import get_mongo_db
+    db = get_mongo_db()
+    return get_all_digital_twins_summary(db=db)
+
+
+@app.get("/api/v1/airports/{airport_code}/digital-twin")
+def get_airport_digital_twin(airport_code: str):
+    """
+    Returns complete live digital twin telemetry for a specified airport code:
+    - Real-time OpenSky ADS-B live flight radar in airport TMA
+    - Simulated roaming passengers and concourse coordinate agents (Little's Law)
+    - Live FIDS boards (incoming arrivals & outgoing departures)
+    - Airport operator financial income statement (Aero vs Non-Aero, EBITDA, UDF)
+    - Active runway and slot capacity metrics
+    """
+    from backend.airport_twin_service import get_live_airport_telemetry
+    from backend.mongo import get_mongo_db
+    db = get_mongo_db()
+    return get_live_airport_telemetry(airport_code=airport_code, db=db)
+
+
+@app.get("/api/v1/airports/{airport_code}/live-flights")
+def get_airport_live_flights(airport_code: str, radius_deg: float = 2.4):
+    """
+    Returns real-time OpenSky Network ADS-B live tracked aircraft surrounding the airport.
+    Provides heading, altitude, velocity, vertical climb/descent, squawk, and airline.
+    """
+    from backend.airport_twin_service import get_live_opensky_flights
+    from backend.mongo import get_mongo_db
+    db = get_mongo_db()
+    return get_live_opensky_flights(airport_code=airport_code, radius_deg=radius_deg, db=db)
+
+
+@app.get("/api/v1/flights/live-radar")
+def get_national_live_radar():
+    """
+    Returns all real-time ADS-B tracked aircraft across the entire Indian Flight Information Region (FIR).
+    """
+    from backend.airport_twin_service import get_live_opensky_flights
+    from backend.mongo import get_mongo_db
+    db = get_mongo_db()
+    return get_live_opensky_flights(airport_code="ALL", db=db)
+
+# System integrity monitor integrated
 
