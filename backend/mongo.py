@@ -965,21 +965,22 @@ def get_mongo_quotes_paginated(
 def get_mongo_all_database_data(include_quotes: bool = True) -> Dict[str, Any]:
     """Retrieves all data from all collections (tables) in the MongoDB database."""
     db = get_mongo_db()
+    total_quotes_count = db.price_quotes.count_documents({})
     routes = list(db.routes.find({}, {"_id": 0}))
     airlines = list(db.airlines.find({}, {"_id": 0}))
-    scraper_audit_logs = list(db.scraper_audit_logs.find({}, {"_id": 0}).sort("created_at", -1))
+    scraper_audit_logs = list(db.scraper_audit_logs.find({}, {"_id": 0}).sort("created_at", -1).limit(500))
     index_records = list(db.index_records.find({}, {"_id": 0}).sort("calculation_date", 1))
-    quotes = list(db.price_quotes.find({}, {"_id": 0})) if include_quotes else []
+    quotes = list(db.price_quotes.find({}, {"_id": 0}).limit(1000)) if include_quotes else []
 
     return {
         "status": "SUCCESS",
         "database": settings.MONGO_DB_NAME,
         "retrieved_at": datetime.now(timezone.utc).isoformat(),
-        "total_records": len(routes) + len(airlines) + len(quotes) + len(scraper_audit_logs) + len(index_records),
+        "total_records": len(routes) + len(airlines) + total_quotes_count + len(scraper_audit_logs) + len(index_records),
         "tables_summary": {
             "routes": len(routes),
             "airlines": len(airlines),
-            "price_quotes": len(quotes),
+            "price_quotes": total_quotes_count,
             "scraper_audit_logs": len(scraper_audit_logs),
             "index_records": len(index_records)
         },

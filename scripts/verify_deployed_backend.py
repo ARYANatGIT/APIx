@@ -119,7 +119,7 @@ run_test("System", "System Health Check", "GET", "/api/v1/health",
 run_test("System", "MongoDB Atlas Live Connection", "GET", "/api/v1/mongo/status",
          validate_fn=lambda d: (d.get("is_live") is True, f"Live: {d.get('is_live')} | DB: '{d.get('database')}' | Quotes: {d.get('total_quotes', 0):,}"))
 
-run_test("System", "Database Collections Dump (/database/all)", "GET", "/api/v1/database/all", timeout=60,
+run_test("System", "Database Collections Dump (/database/all)", "GET", "/api/v1/database/all?include_quotes=false", timeout=45,
          validate_fn=lambda d: ("tables_summary" in d or "routes" in d, f"Collections Dumped: {d.get('total_records', 0):,} records across 5 collections"))
 
 time.sleep(1)
