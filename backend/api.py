@@ -739,11 +739,12 @@ def get_scheduler_telemetry():
 @app.post("/api/v1/scheduler/trigger")
 def trigger_crawl_now():
     """Triggers an immediate automated scraping crawl in the background and emits live crawl events."""
+    import threading
     from backend.crawler_telemetry import trigger_immediate_crawl_event
     trigger_immediate_crawl_event()
     try:
         from backend.screenshot_service import update_all_screenshots_on_crawl_cycle
-        update_all_screenshots_on_crawl_cycle()
+        threading.Thread(target=update_all_screenshots_on_crawl_cycle, daemon=True).start()
     except Exception as se:
         print(f"[SCREENSHOT NOTE] Crawl trigger screenshot update: {se}")
     from backend.scheduler import trigger_scrape_now
