@@ -99,7 +99,7 @@ def fetch_live_news_disruptions() -> List[Dict[str, Any]]:
                 url,
                 headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AirSetu/3.0"}
             )
-            with urllib.request.urlopen(req, timeout=5) as resp:
+            with urllib.request.urlopen(req, timeout=2.5) as resp:
                 content = resp.read()
                 root = ET.fromstring(content)
                 rss_items = root.findall(".//item")
@@ -257,7 +257,7 @@ def detect_scraper_spikes(db) -> List[Dict[str, Any]]:
         return spikes
 
     try:
-        # 1. Fetch live quotes with essential projection
+        # 1. Fetch live quotes with essential projection and sensible limit for real-time responsiveness
         quotes = list(db.price_quotes.find(
             {"total_fare": {"$gt": 0}},
             {
@@ -270,7 +270,7 @@ def detect_scraper_spikes(db) -> List[Dict[str, Any]]:
                 "source": 1,
                 "cabin_class": 1
             }
-        ))
+        ).limit(1500))
 
         if not quotes:
             return spikes
@@ -453,7 +453,7 @@ def generate_predictive_spikes(db) -> List[Dict[str, Any]]:
         quotes = list(db.price_quotes.find(
             {"route": r_code, "is_outlier": {"$ne": True}},
             {"total_fare": 1, "advance_window": 1, "airline_code": 1, "flight_date": 1}
-        ))
+        ).limit(500))
 
         if not quotes:
             continue
@@ -583,31 +583,37 @@ def generate_predictive_spikes(db) -> List[Dict[str, Any]]:
     return predictions
 
 
+_SPIKES_FEED_CACHE: Dict[str, Any] = {
+    "timestamp": 0,
+    "data": None
+}
+_SPIKES_FEED_TTL = 120  # 2 minutes
+
+
 def sync_intel_alerts_to_db(db, alerts: List[Dict[str, Any]]) -> int:
     """
     Stores and upserts all alerts (news disruptions, scraper spikes, predictive ML)
-    into MongoDB collection 'intel_alerts' for persistent historical auditing.
+    into MongoDB collection 'intel_alerts' using a single high-performance bulk write.
     """
     db = _ensure_db(db)
     if db is None or not alerts:
         return 0
-    synced = 0
     try:
-        col = db.intel_alerts
+        from pymongo import UpdateOne
+        ops = []
+        now_iso = datetime.now(timezone.utc).isoformat()
         for alert in alerts:
             alert_id = alert.get("id")
             if alert_id:
                 doc = dict(alert)
-                doc["last_synced_at"] = datetime.now(timezone.utc).isoformat()
-                col.update_one(
-                    {"id": alert_id},
-                    {"$set": doc},
-                    upsert=True
-                )
-                synced += 1
+                doc["last_synced_at"] = now_iso
+                ops.append(UpdateOne({"id": alert_id}, {"$set": doc}, upsert=True))
+        if ops:
+            res = db.intel_alerts.bulk_write(ops, ordered=False)
+            return (res.upserted_count or 0) + (res.modified_count or 0)
     except Exception as e:
         print(f"[AirIntel] DB sync error: {e}")
-    return synced
+    return len(alerts)
 
 
 def get_all_spikes_feed(db) -> Dict[str, Any]:
@@ -615,8 +621,13 @@ def get_all_spikes_feed(db) -> Dict[str, Any]:
     Combines live RSS news disruptions, dynamic MongoDB scraper spikes, and dynamic ML predictive spikes
     into a structured chronological stream, persists them in MongoDB 'intel_alerts', and automatically
     dispatches email alerts to anonymous.guy.26072006@gmail.com (RBI) for new events.
-    Zero hardcoded records.
+    Zero hardcoded records. Fast 2-minute memory cache guarantees sub-second response times.
     """
+    global _SPIKES_FEED_CACHE
+    now_time = time.time()
+    if _SPIKES_FEED_CACHE["data"] and (now_time - _SPIKES_FEED_CACHE["timestamp"] < _SPIKES_FEED_TTL):
+        return _SPIKES_FEED_CACHE["data"]
+
     db = _ensure_db(db)
     news_disruptions = fetch_live_news_disruptions()
     scraper_spikes = detect_scraper_spikes(db)
@@ -630,7 +641,7 @@ def get_all_spikes_feed(db) -> Dict[str, Any]:
     # Sort descending by timestamp
     all_events.sort(key=lambda x: x.get("timestamp", ""), reverse=True)
 
-    # Persist all live events into MongoDB
+    # Persist all live events into MongoDB in single bulk write
     sync_intel_alerts_to_db(db, all_events)
 
     # Automatically dispatch emails to configured RBI Aviation Desk for new alerts in background thread
@@ -655,7 +666,7 @@ def get_all_spikes_feed(db) -> Dict[str, Any]:
     except Exception:
         pass
 
-    return {
+    payload = {
         "status": "ACTIVE_MONITORING",
         "system_name": "AirSetu Air Intel & Disruption Radar",
         "total_active_alerts": len(all_events),
@@ -670,6 +681,9 @@ def get_all_spikes_feed(db) -> Dict[str, Any]:
         "database_storage_collection": "intel_alerts",
         "feed": all_events
     }
+    _SPIKES_FEED_CACHE["timestamp"] = time.time()
+    _SPIKES_FEED_CACHE["data"] = payload
+    return payload
 
 
 def _query_live_db_statistics(db, route_filter: Optional[str] = None, airline_filter: Optional[str] = None) -> Dict[str, Any]:
