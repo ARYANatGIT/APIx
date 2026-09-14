@@ -75,25 +75,35 @@ def execute_scrape_cycle():
     success = False
     error_msg = None
     try:
-        scraper_path = ROOT_DIR / "scripts" / "run_all_scrapers.py"
-        if not scraper_path.exists():
-            scraper_path = ROOT_DIR / "run_all_scrapers.py"
-
-        proc = subprocess.run(
-            [sys.executable, str(scraper_path)],
-            cwd=str(ROOT_DIR),
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace"
-        )
-        duration = round(time.time() - start_time, 2)
-        if proc.returncode == 0:
+        import os
+        if os.getenv("RENDER") or os.getenv("IS_CLOUD_CONTAINER"):
+            # In memory-constrained cloud environments (Render 512MB RAM), avoid spawning 10 heavy
+            # Playwright subprocesses that trip Linux cgroup limits. Perform lightweight live audit cycle.
+            from backend.screenshot_service import update_all_screenshots_on_crawl_cycle
+            update_all_screenshots_on_crawl_cycle()
             success = True
-            logger.info(f"[SCHEDULER] [SUCCESS] Crawl completed in {duration}s")
+            duration = round(time.time() - start_time, 2)
+            logger.info(f"[SCHEDULER] [CLOUD CRAWL] Completed lightweight live cloud crawl cycle in {duration}s")
         else:
-            error_msg = f"Exit code {proc.returncode}: {proc.stderr[:300] if proc.stderr else 'Scraper exited with error'}"
-            logger.error(f"[SCHEDULER] [FAILED] {error_msg}")
+            scraper_path = ROOT_DIR / "scripts" / "run_all_scrapers.py"
+            if not scraper_path.exists():
+                scraper_path = ROOT_DIR / "run_all_scrapers.py"
+
+            proc = subprocess.run(
+                [sys.executable, str(scraper_path)],
+                cwd=str(ROOT_DIR),
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace"
+            )
+            duration = round(time.time() - start_time, 2)
+            if proc.returncode == 0:
+                success = True
+                logger.info(f"[SCHEDULER] [SUCCESS] Crawl completed in {duration}s")
+            else:
+                error_msg = f"Exit code {proc.returncode}: {proc.stderr[:300] if proc.stderr else 'Scraper exited with error'}"
+                logger.error(f"[SCHEDULER] [FAILED] {error_msg}")
     except Exception as e:
         duration = round(time.time() - start_time, 2)
         error_msg = str(e)
