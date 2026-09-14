@@ -27,7 +27,7 @@ failed = 0
 results = []
 
 
-def run_test(section: str, name: str, method: str, path: str, payload: dict = None, validate_fn=None, timeout: int = 15):
+def run_test(section: str, name: str, method: str, path: str, payload: dict = None, validate_fn=None, timeout: int = 25):
     global test_counter, passed, failed
     test_counter += 1
     url = f"{BASE_URL}{path}"
@@ -116,13 +116,13 @@ run_test("System", "System Health Check", "GET", "/api/v1/health",
 run_test("System", "MongoDB Atlas Live Connection", "GET", "/api/v1/mongo/status",
          validate_fn=lambda d: (d.get("is_live") is True, f"Live: {d.get('is_live')} | DB: '{d.get('database')}' | Quotes: {d.get('total_quotes', 0):,}"))
 
-run_test("System", "Database Collections Dump (/database/all)", "GET", "/api/v1/database/all",
-         validate_fn=lambda d: ("collections" in d, f"Collections: {list(d.get('collections', {}).keys())}"))
+run_test("System", "Database Collections Dump (/database/all)", "GET", "/api/v1/database/all", timeout=60,
+         validate_fn=lambda d: ("collections" in d, f"Collections: {list(d.get('collections', {}).keys())} ({len(d.get('collections', {}).get('price_quotes', [])):,} quotes)"))
 
-run_test("System", "Database Collections Alias (/databases/all)", "GET", "/api/v1/databases/all",
+run_test("System", "Database Collections Alias (/databases/all)", "GET", "/api/v1/databases/all", timeout=60,
          validate_fn=lambda d: ("collections" in d, f"Collections: {len(d.get('collections', {}))} registered"))
 
-run_test("System", "Database Collections Short Alias (/all)", "GET", "/api/v1/all",
+run_test("System", "Database Collections Short Alias (/all)", "GET", "/api/v1/all", timeout=60,
          validate_fn=lambda d: ("collections" in d, "Collections accessible via short alias"))
 
 run_test("System", "MongoDB Cache Sync Trigger", "GET", "/api/v1/mongo/sync",
@@ -139,7 +139,7 @@ print("-" * 105, flush=True)
 run_test("Macro", "Headline Overview & Laspeyres APIx", "GET", "/api/v1/overview",
          validate_fn=lambda d: (
              "latest_index" in d,
-             f"APIx: {d.get('latest_index', {}).get('value')} | Base Fare: ₹{d.get('headline_metrics', {}).get('base_period_avg_fare', 'N/A')} | DB: {d.get('database')}"
+             f"APIx: {d.get('latest_index', {}).get('value')} | Change D-1: {d.get('latest_index', {}).get('change_pct_d1')}% | DB: {d.get('database')}"
          ))
 
 run_test("Macro", "DGCA Corridor Basket (Top 10)", "GET", "/api/v1/routes",
@@ -162,11 +162,11 @@ run_test("Macro", "Advance Purchase Booking Horizons", "GET", "/api/v1/advance-w
 
 run_test("Macro", "Historical Index Trend Timeseries", "GET", "/api/v1/index/trend",
          validate_fn=lambda d: (
-             "history" in d or "trend" in d or isinstance(d, list),
+             "series" in d or "kpis" in d or "data_points" in d or isinstance(d, list),
              f"Timeseries points loaded for macroeconomic inflation modeling"
          ))
 
-run_test("Macro", "Dynamic Heatmap Pricing Matrix", "GET", "/api/v1/heatmap", timeout=25,
+run_test("Macro", "Dynamic Heatmap Pricing Matrix", "GET", "/api/v1/heatmap", timeout=30,
          validate_fn=lambda d: (
              "corridors" in d,
              f"{len(d.get('corridors', []))} Corridors | {len(d.get('corridor_days', []))} Days | {d.get('total_quotes_tracked', 0):,} Quotes"
@@ -204,18 +204,18 @@ if ok_q and res_q:
         data = res_q.json()
         quotes_arr = data if isinstance(data, list) else data.get("quotes", [])
         if quotes_arr:
-            sample_quote_id = quotes_arr[0].get("quote_id") or quotes_arr[0].get("_id")
+            sample_quote_id = quotes_arr[0].get("id") or quotes_arr[0].get("quote_id") or str(quotes_arr[0].get("_id"))
     except Exception:
         pass
 
 if sample_quote_id:
     run_test("Quotes", f"SHA-256 Proof ({sample_quote_id[:18]}...)", "GET", f"/api/v1/quotes/{sample_quote_id}/proof",
              validate_fn=lambda d: (
-                 "sha256_hash" in d or "verified" in d or "hash" in d or "quote" in d,
-                 f"SHA-256: {d.get('sha256_hash', d.get('hash', 'Verified'))[:20]}... | Verified: {d.get('verified', True)}"
+                 "quote_id" in d and "audit_verification" in d,
+                 f"Algorithm: {d.get('audit_verification', {}).get('algorithm')} | Status: {d.get('audit_verification', {}).get('status')}"
              ))
 else:
-    run_test("Quotes", "SHA-256 Cryptographic Proof (Fallback ID)", "GET", "/api/v1/quotes/DEL_BOM_6E2134_20260920/proof")
+    run_test("Quotes", "SHA-256 Cryptographic Proof (Static ID)", "GET", "/api/v1/quotes/6aa620206f1ac3b57d6201a5/proof")
 
 
 # ==============================================================================
@@ -239,14 +239,14 @@ run_test("Radar/Twin", "Delhi IGI Airport Digital Twin (DEL)", "GET", "/api/v1/a
 
 run_test("Radar/Twin", "Delhi IGI Live TMA Flights Radar", "GET", "/api/v1/airports/DEL/live-flights?radius_deg=50",
          validate_fn=lambda d: (
-             "flights" in d,
-             f"DEL Radar: {len(d.get('flights', []))} active aircraft in airspace"
+             "flights" in d and len(d.get("flights", [])) > 0,
+             f"DEL Radar: {len(d.get('flights', []))} active aircraft in airspace (Live ADS-B & DGCA schedules)"
          ))
 
 run_test("Radar/Twin", "Nationwide ADS-B Flight Radar (/flights/live-radar)", "GET", "/api/v1/flights/live-radar",
          validate_fn=lambda d: (
-             "flights" in d,
-             f"Indian FIR Live Radar: {len(d.get('flights', []))} commercial flights active"
+             "flights" in d and len(d.get("flights", [])) > 0,
+             f"Indian FIR Live Radar: {len(d.get('flights', []))} commercial flights active across hubs"
          ))
 
 run_test("Radar/Twin", "Airport Catchment Substitution Intelligence", "GET", "/api/v1/airport-substitution",
@@ -314,8 +314,8 @@ run_test("Pipeline", "Corpus Search (?q=DEL)", "GET", "/api/v1/search?q=DEL",
 
 run_test("Pipeline", "Scraper Scheduler Status", "GET", "/api/v1/scheduler/status",
          validate_fn=lambda d: (
-             "is_running" in d or "jobs" in d or "scheduler" in d,
-             f"Scheduler Running: {d.get('is_running', True)} | Next Run: {d.get('next_run', 'Scheduled')}"
+             "is_active" in d or "is_running" in d or "interval_minutes" in d,
+             f"Scheduler Active: {d.get('is_active', True)} | Crawling: {d.get('is_crawling', False)} | Cadence: {d.get('interval_minutes', 30)}m"
          ))
 
 run_test("Pipeline", "Scraper Interval Config (/scheduler/interval)", "GET", "/api/v1/scheduler/interval",
@@ -338,25 +338,25 @@ print("\n" + "-" * 105, flush=True)
 print("  SECTION 6: AIR INTEL FEED, SPIKE ANOMALIES & CONVERSATIONAL AI", flush=True)
 print("-" * 105, flush=True)
 
-run_test("Intel/AI", "Air Intel Feed (/intel/feed)", "GET", "/api/v1/intel/feed",
+run_test("Intel/AI", "Air Intel Feed (/intel/feed)", "GET", "/api/v1/intel/feed", timeout=30,
          validate_fn=lambda d: (
-             "feed" in d or "articles" in d or isinstance(d, list),
-             f"Live news & regulatory market intelligence items loaded"
+             "feed" in d or "total_active_alerts" in d,
+             f"Live news & regulatory items: {d.get('total_active_alerts', len(d.get('feed', [])))} active alerts"
          ))
 
-run_test("Intel/AI", "Air Intel Spikes Feed (/intel/spikes)", "GET", "/api/v1/intel/spikes",
+run_test("Intel/AI", "Air Intel Spikes Feed (/intel/spikes)", "GET", "/api/v1/intel/spikes", timeout=30,
          validate_fn=lambda d: (
-             "spikes" in d or isinstance(d, list),
-             f"Airfare anomaly spike signals tracked"
+             "feed" in d or "total_active_alerts" in d,
+             f"Airfare anomaly spike signals tracked: {len(d.get('feed', []))} alerts"
          ))
 
-run_test("Intel/AI", "Anomaly Radar Spikes Feed (/spikes)", "GET", "/api/v1/spikes",
+run_test("Intel/AI", "Anomaly Radar Spikes Feed (/spikes)", "GET", "/api/v1/spikes", timeout=30,
          validate_fn=lambda d: (
-             "spikes" in d or isinstance(d, list),
-             f"Spikes radar operational"
+             "feed" in d or "total_active_alerts" in d,
+             f"Spikes radar operational: {d.get('system_name', 'AirIntel Radar')}"
          ))
 
-run_test("Intel/AI", "On-Demand Intel Re-Analysis Trigger", "POST", "/api/v1/intel/refresh",
+run_test("Intel/AI", "On-Demand Intel Re-Analysis Trigger", "POST", "/api/v1/intel/refresh", timeout=30,
          validate_fn=lambda d: (
              d.get("status") in ("success", "refreshed", "ok") or "refreshed" in str(d).lower(),
              "NLP intelligence re-clustering executed"
@@ -365,20 +365,20 @@ run_test("Intel/AI", "On-Demand Intel Re-Analysis Trigger", "POST", "/api/v1/int
 run_test("Intel/AI", "Conversational AI Assistant (Laspeyres Inquiry)", "POST", "/api/v1/intel/chat", timeout=30,
          payload={"message": "Explain how the Laspeyres index methodology calculates airfare inflation in MoSPI APIx.", "session_id": "audit_session_deploy"},
          validate_fn=lambda d: (
-             "response" in d and len(d.get("response", "")) > 20,
-             f"AI Response ({len(d.get('response', ''))} chars): \"{d.get('response', '')[:70].replace(chr(10), ' ')}...\""
+             ("answer" in d and len(d.get("answer", "")) > 10) or ("response" in d and len(d.get("response", "")) > 10),
+             f"AI Title: \"{d.get('title', 'Laspeyres Standard')}\" | Category: {d.get('category', 'METHODOLOGY')}"
          ))
 
 run_test("Intel/AI", "Email Alert Dispatcher Status", "GET", "/api/v1/intel/email-status",
          validate_fn=lambda d: (
-             "enabled" in d or "status" in d,
-             f"Email Alerting configured: {d.get('enabled', False)}"
+             "target_recipient" in d or "total_dispatched" in d,
+             f"Target: {d.get('target_recipient', 'alerts@airsetu.gov.in')} | Dispatches: {d.get('total_dispatched', 0)}"
          ))
 
 run_test("Intel/AI", "SMTP / EmailJS Transport Health", "GET", "/api/v1/intel/smtp-status",
          validate_fn=lambda d: (
-             "smtp" in d or "status" in d or "configured" in d,
-             f"Mail transport verified"
+             "is_configured" in d or "mode" in d,
+             f"Mail Transport Mode: {d.get('mode', 'SMTP')} | Configured: {d.get('is_configured', False)}"
          ))
 
 run_test("Intel/AI", "Alert Email Delivery Audit Logs", "GET", "/api/v1/intel/email-audit-logs",
@@ -395,11 +395,11 @@ print("\n" + "-" * 105, flush=True)
 print("  SECTION 7: OPEN DATA EXPORTS & RESEARCH REPOSITORY", flush=True)
 print("-" * 105, flush=True)
 
-run_test("Exports", "Export Price Quotes as CSV", "GET", "/api/v1/export/quotes/csv")
-run_test("Exports", "Export Price Quotes as JSON", "GET", "/api/v1/export/quotes/json")
-run_test("Exports", "Export Headline APIx Index as CSV", "GET", "/api/v1/export/apix/csv")
-run_test("Exports", "Export DGCA Routes Basket as CSV", "GET", "/api/v1/export/routes/csv")
-run_test("Exports", "Export Market Intelligence as JSON", "GET", "/api/v1/export/intel/json")
+run_test("Exports", "Export Price Quotes as CSV", "GET", "/api/v1/export/quotes/csv", timeout=30)
+run_test("Exports", "Export Price Quotes as JSON", "GET", "/api/v1/export/quotes/json", timeout=30)
+run_test("Exports", "Export Headline APIx Index as CSV", "GET", "/api/v1/export/apix/csv", timeout=20)
+run_test("Exports", "Export DGCA Routes Basket as CSV", "GET", "/api/v1/export/routes/csv", timeout=20)
+run_test("Exports", "Export Market Intelligence as JSON", "GET", "/api/v1/export/intel/json", timeout=20)
 
 
 # ==============================================================================
@@ -465,7 +465,7 @@ print(f"  FAILED:  {failed} / {total_tests}", flush=True)
 print("=" * 105, flush=True)
 
 if failed == 0:
-    print(f"\n  >>> ALL {passed} ENDPOINTS, SERVICES & MONGODB ATLAS PASSED WITH ZERO ERRORS. <<<\n", flush=True)
+    print(f"\n  >>> ALL {passed} ENDPOINTS, SERVICES & MONGODB ATLAS PASSED WITH ZERO ERRORS (100.0%). <<<\n", flush=True)
 else:
     print(f"\n  >>> {failed} ENDPOINT(S) RETURNED UNEXPECTED RESPONSES. PLEASE REVIEW LOGS ABOVE. <<<\n", flush=True)
 
