@@ -682,7 +682,7 @@ The AirSetu ingestion fleet uses **asynchronous headless Playwright Chromium ses
 
 ## Complete REST API Reference Specification
 
-Base URL: `http://127.0.0.1:8000` (Local) or `https://airsetu-api.onrender.com` (Cloud)
+Base URL: `https://airsetu-web.onrender.com`
 
 | HTTP Method | Endpoint Path | Summary & Purpose | Key Parameters |
 |:---:|:---|:---|:---|
