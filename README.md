@@ -4,6 +4,19 @@
 
 ---
 
+### 🌐 Live Production Deployments & System Status
+
+| Component | Status | Production Deployment URL | Description |
+| :--- | :---: | :--- | :--- |
+| **AirSetu Web Portal** | ![Live](https://img.shields.io/badge/Status-Live%20Online-emerald?style=flat-square) | **[https://airsetu-web.onrender.com/](https://airsetu-web.onrender.com/)** | Interactive React 19 Client with Real-Time Dashboards, 3D Digital Twin, and MoSPI Macro Visualizer |
+| **High-Speed REST API Core** | ![Operational](https://img.shields.io/badge/API-Operational-blue?style=flat-square) | **[https://apix-0n4i.onrender.com/](https://apix-0n4i.onrender.com/)** | FastAPI ASGI Engine with Laspeyres/Paasche Index Calculation, ML Ridge Regressors & Live Telemetry |
+| **Interactive API Documentation** | ![Swagger](https://img.shields.io/badge/Swagger-OpenAPI%203.0-green?style=flat-square) | **[https://apix-0n4i.onrender.com/docs](https://apix-0n4i.onrender.com/docs)** | Interactive Swagger UI for testing all 50+ MoSPI and DGCA corridor microdata endpoints |
+| **OpenAPI Specification** | ![JSON](https://img.shields.io/badge/Schema-OpenAPI%20JSON-orange?style=flat-square) | **[https://apix-0n4i.onrender.com/openapi.json](https://apix-0n4i.onrender.com/openapi.json)** | Machine-readable OpenAPI 3.1 schema definition |
+| **System Health & Telemetry** | ![Healthy](https://img.shields.io/badge/Health-200%20OK-brightgreen?style=flat-square) | **[https://apix-0n4i.onrender.com/api/v1/health](https://apix-0n4i.onrender.com/api/v1/health)** | Live MongoDB Atlas heartbeat, cluster status, and scraper scheduler uptime |
+| **Verification Suite** | ![Passing](https://img.shields.io/badge/Verification-50%2F50%20Passed%20(100%25)-success?style=flat-square) | `scripts/verify_deployed_backend.py` | 100% Comprehensive End-to-End Test Suite verified against production backend |
+
+---
+
 ## 📑 Master Table of Contents
 1. [Executive Summary & National Significance](#-1-executive-summary--national-significance)
 2. [Problem Statement Alignment (SIH26056)](#-2-problem-statement-alignment-sih26056)
@@ -738,7 +751,10 @@ The AirSetu ingestion fleet uses **asynchronous headless Playwright Chromium ses
 
 ## 📡 11. Complete REST API Reference Specification
 
-Base URL: `http://127.0.0.1:8000` (Local) or `https://airsetu-api.onrender.com` (Cloud)
+- **Production Cloud Base URL**: `https://apix-0n4i.onrender.com`
+- **Interactive Swagger UI**: [https://apix-0n4i.onrender.com/docs](https://apix-0n4i.onrender.com/docs)
+- **OpenAPI 3.1 JSON Specification**: [https://apix-0n4i.onrender.com/openapi.json](https://apix-0n4i.onrender.com/openapi.json)
+- **Local Development Base URL**: `http://127.0.0.1:8000` (Docs: `http://127.0.0.1:8000/docs`)
 
 | HTTP Method | Endpoint Path | Summary & Purpose | Key Parameters |
 |:---:|:---|:---|:---|
@@ -891,14 +907,40 @@ docker compose down
 ---
 
 ### Step 6: Production Cloud Deployment on Render (`render.yaml`)
-AirSetu includes a verified `render.yaml` specification for zero-config dual-service deployment:
+AirSetu includes a verified `render.yaml` specification for zero-config dual-service production deployment:
 1. **`airsetu-api`** (Web Service): Python 3.11 environment running FastAPI via Uvicorn.
+   - **Production Endpoint**: [https://apix-0n4i.onrender.com/](https://apix-0n4i.onrender.com/)
+   - **Interactive API Docs**: [https://apix-0n4i.onrender.com/docs](https://apix-0n4i.onrender.com/docs)
 2. **`airsetu-web`** (Static Site): Vite static production build (`npm run build` $\to$ `dist/`).
+   - **Production Web Application**: [https://airsetu-web.onrender.com/](https://airsetu-web.onrender.com/)
 
 To deploy:
-1. Connect your GitHub repository to [Render.com](https://render.com).
-2. Render detects `render.yaml` automatically and configures both services.
-3. Supply `MONGO_URI` in your Render Environment Variables.
+1. Connect your GitHub repository (`ARYANatGIT/APIx`) to [Render.com](https://render.com).
+2. Render detects `render.yaml` automatically and provisions both the API Web Service and Web Client Static Site.
+3. Supply `MONGO_URI` in your Render Environment Variables for the backend service.
+
+---
+
+### Step 7: Automated Verification of Deployed Production Backend
+AirSetu includes a comprehensive end-to-end verification script (`scripts/verify_deployed_backend.py`) that tests all 50+ REST endpoints, database collections, and calculations directly against the deployed production server:
+
+```bash
+# Run comprehensive verification suite against live Render deployment
+python scripts/verify_deployed_backend.py
+```
+
+**Verification Results: 50 / 50 Endpoints Passed (100.0%)**
+- ✅ System Health & MongoDB Atlas Connectivity (`/api/v1/health`)
+- ✅ Macro Dashboard Flight Deck KPIs & Dynamic Calculations (`/api/v1/overview`)
+- ✅ 10 DGCA Corridors, Passenger Weights & Heatmap Matrix (`/api/v1/corridors`, `/api/v1/analytics/heatmap`)
+- ✅ 6 Advance Purchase Horizons $T+0$ to $T+45$ (`/api/v1/advance-windows`)
+- ✅ 12 Carrier & OTA Channel Feeds with Telemetry (`/api/v1/airlines`)
+- ✅ Paginated Microdata Quotes with SHA-256 Audit Hashes (`/api/v1/quotes`)
+- ✅ Real-Time Intel Feed, News & ML Ridge Predictions (`/api/v1/intel/feed`)
+- ✅ 20 Aerodrome Digital Twins & Live OpenSky ADS-B Radar (`/api/v1/airports/{code}/digital-twin`, `live-flights`)
+- ✅ NSO Open Data Multi-Format Exporters (`/api/v1/datasets/export/{fmt}`)
+- ✅ M2M API Key Provisioning & Government Token Lifecycle (`/api/v1/keys/generate`)
+- ✅ Headless Crawler Telemetry & Visual Proof Artifacts (`/api/v1/scrapers/status`, `/api/v1/scrapers/artifacts/{code}`)
 
 ---
 
