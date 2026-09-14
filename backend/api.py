@@ -110,7 +110,7 @@ def health_check():
 @app.get("/api/v1/database/all")
 @app.get("/api/v1/databases/all")
 @app.get("/api/v1/all")
-def get_all_database_data():
+def get_all_database_data(include_quotes: bool = Query(True, description="Whether to include full price quotes array")):
     """
     Retrieves ALL data from ALL collections in the MongoDB Atlas database:
     - routes (all corridors)
@@ -120,7 +120,7 @@ def get_all_database_data():
     - index_records (all CPI index series)
     """
     from backend.mongo import get_mongo_all_database_data
-    return get_mongo_all_database_data(include_quotes=True)
+    return get_mongo_all_database_data(include_quotes=include_quotes)
 
 
 @app.get("/api/v1/overview")

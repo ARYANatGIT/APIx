@@ -122,9 +122,11 @@ run_test("System", "MongoDB Atlas Live Connection", "GET", "/api/v1/mongo/status
 run_test("System", "Database Collections Dump (/database/all)", "GET", "/api/v1/database/all", timeout=60,
          validate_fn=lambda d: ("tables_summary" in d or "routes" in d, f"Collections Dumped: {d.get('total_records', 0):,} records across 5 collections"))
 
+time.sleep(3)
 run_test("System", "Database Collections Alias (/databases/all)", "GET", "/api/v1/databases/all", timeout=60,
          validate_fn=lambda d: ("tables_summary" in d or "routes" in d, f"Alias Verified: {d.get('total_records', 0):,} records"))
 
+time.sleep(2)
 run_test("System", "Database Collections Short Alias (/all)", "GET", "/api/v1/all", timeout=60,
          validate_fn=lambda d: ("tables_summary" in d or "routes" in d, "Short Alias /all Verified"))
 
