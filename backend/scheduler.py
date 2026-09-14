@@ -109,6 +109,13 @@ def execute_scrape_cycle():
             _state["total_runs_completed"] += 1
         _update_next_run_time()
 
+    # Always ensure screenshots are fresh with live crawl telemetry and valid mtimes
+    try:
+        from backend.screenshot_service import update_all_screenshots_on_crawl_cycle
+        update_all_screenshots_on_crawl_cycle()
+    except Exception as se:
+        logger.warning(f"[SCHEDULER] Could not update screenshots on crawl cycle: {se}")
+
     # Record log into MongoDB
     try:
         from backend.mongo import save_audit_log_to_mongo

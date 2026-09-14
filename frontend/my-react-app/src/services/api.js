@@ -127,9 +127,12 @@ export const apiService = {
     return Array.isArray(data) ? data : [];
   },
 
-  // 12. Carrier Screenshot Image URL Helper
-  getCarrierScreenshotUrl(carrierCode) {
-    return `${BACKEND_PRIMARY}/scraper/carrier-screenshot/${carrierCode}`;
+  // 12. Carrier Screenshot Image URL Helper with Cache-Buster
+  getCarrierScreenshotUrl(carrierCode, version) {
+    const base = `${BACKEND_PRIMARY}/scraper/carrier-screenshot/${carrierCode}`;
+    if (!version) return base;
+    const v = typeof version === 'string' ? encodeURIComponent(version) : new Date(version).getTime();
+    return `${base}?v=${v}`;
   },
 
   // 13. Carrier Flights JSON Preview

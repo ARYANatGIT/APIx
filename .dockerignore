@@ -20,6 +20,4 @@ build/
 htmlcov/
 .pytest_cache/
 .DS_Store
-scrapers/**/flight_results.png
-scrapers/**/captured_api_requests.json
 

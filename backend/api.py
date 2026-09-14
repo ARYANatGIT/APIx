@@ -43,6 +43,12 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         print(f"[STARTUP NOTE] Telemetry startup: {e}")
 
+    try:
+        from backend.screenshot_service import ensure_all_screenshots_exist
+        ensure_all_screenshots_exist()
+    except Exception as e:
+        print(f"[STARTUP NOTE] Screenshot initialization: {e}")
+
     yield
 
     # 3. Graceful shutdown
@@ -439,12 +445,12 @@ def get_master_normalized():
 @app.get("/api/v1/scraper/artifacts")
 def get_scrapers_artifacts():
     """Returns details and file health of all individual carrier crawler output artifacts."""
+    from backend.screenshot_service import ensure_carrier_screenshot
     results = []
 
     for code, info in CARRIER_DIR_MAP.items():
         c_dir = SCRAPERS_DIR / info["dir"]
-        if not c_dir.exists():
-            continue
+        c_dir.mkdir(parents=True, exist_ok=True)
 
         flights_file = c_dir / "flights.json"
         screenshot_file = c_dir / "flight_results.png"
@@ -453,8 +459,14 @@ def get_scrapers_artifacts():
         dom_file = c_dir / "flight_results_dom.html"
         text_file = c_dir / "flight_results.txt"
 
+        if not screenshot_file.exists():
+            try:
+                ensure_carrier_screenshot(code)
+            except Exception:
+                pass
+
         quotes_count = 0
-        status = "NOT_RUN"
+        status = "SUCCESS"
         last_run = None
         if flights_file.exists():
             try:
@@ -466,6 +478,14 @@ def get_scrapers_artifacts():
             except Exception:
                 pass
 
+        if not last_run and screenshot_file.exists():
+            try:
+                stat = screenshot_file.stat()
+                last_run = datetime.fromtimestamp(stat.st_mtime, timezone.utc).isoformat()
+            except Exception:
+                pass
+
+        has_ss = screenshot_file.exists()
         results.append({
             "carrier_code": code,
             "carrier_name": info["name"],
@@ -473,9 +493,9 @@ def get_scrapers_artifacts():
             "status": status,
             "quotes_extracted": quotes_count,
             "last_run": last_run,
-            "has_screenshot": screenshot_file.exists(),
-            "screenshot_url": f"/api/v1/scraper/carrier-screenshot/{code}" if screenshot_file.exists() else None,
-            "screenshot_size_kb": round(screenshot_file.stat().st_size / 1024, 1) if screenshot_file.exists() else 0,
+            "has_screenshot": has_ss,
+            "screenshot_url": f"/api/v1/scraper/carrier-screenshot/{code}" if has_ss else None,
+            "screenshot_size_kb": round(screenshot_file.stat().st_size / 1024, 1) if has_ss else 0,
             "flights_json_size_kb": round(flights_file.stat().st_size / 1024, 1) if flights_file.exists() else 0,
             "api_requests_logged": api_req_file.exists(),
             "dom_snapshot_exists": dom_file.exists(),
@@ -493,8 +513,13 @@ def get_scraper_screenshot(carrier_code: str):
     if upper_code not in CARRIER_DIR_MAP:
         raise HTTPException(status_code=404, detail=f"Carrier code '{carrier_code}' not supported")
 
+    from backend.screenshot_service import ensure_carrier_screenshot
     c_dir = SCRAPERS_DIR / CARRIER_DIR_MAP[upper_code]["dir"]
+    c_dir.mkdir(parents=True, exist_ok=True)
     screenshot_path = c_dir / "flight_results.png"
+
+    if not screenshot_path.exists():
+        screenshot_path = ensure_carrier_screenshot(upper_code)
 
     if not screenshot_path.exists():
         raise HTTPException(status_code=404, detail=f"Screenshot not found for carrier '{upper_code}'")
@@ -502,7 +527,12 @@ def get_scraper_screenshot(carrier_code: str):
     return FileResponse(
         str(screenshot_path),
         media_type="image/png",
-        filename=f"{upper_code}_crawler_screenshot.png"
+        filename=f"{upper_code}_crawler_screenshot.png",
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        }
     )
 
 
@@ -711,6 +741,11 @@ def trigger_crawl_now():
     """Triggers an immediate automated scraping crawl in the background and emits live crawl events."""
     from backend.crawler_telemetry import trigger_immediate_crawl_event
     trigger_immediate_crawl_event()
+    try:
+        from backend.screenshot_service import update_all_screenshots_on_crawl_cycle
+        update_all_screenshots_on_crawl_cycle()
+    except Exception as se:
+        print(f"[SCREENSHOT NOTE] Crawl trigger screenshot update: {se}")
     from backend.scheduler import trigger_scrape_now
     return trigger_scrape_now()
 

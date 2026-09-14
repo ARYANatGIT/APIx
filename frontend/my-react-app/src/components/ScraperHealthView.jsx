@@ -583,7 +583,7 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
                   {art.has_screenshot ? (
                     <>
                       <img
-                        src={apiService.getCarrierScreenshotUrl(art.carrier_code)}
+                        src={apiService.getCarrierScreenshotUrl(art.carrier_code, art.last_run)}
                         alt={`${art.carrier_name} crawler screenshot`}
                         style={{
                           width: '100%',
@@ -1097,7 +1097,7 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
               }}
             >
               <img
-                src={apiService.getCarrierScreenshotUrl(selectedScreenshot.carrier_code)}
+                src={apiService.getCarrierScreenshotUrl(selectedScreenshot.carrier_code, selectedScreenshot.last_run)}
                 alt={`${selectedScreenshot.carrier_name} Full Proof`}
                 style={{
                   maxWidth: '100%',
@@ -1126,7 +1126,7 @@ export default function ScraperHealthView({ logs: initialLogs = [], scraperStats
 
               <div style={{ display: 'flex', gap: '10px' }}>
                 <a
-                  href={apiService.getCarrierScreenshotUrl(selectedScreenshot.carrier_code)}
+                  href={apiService.getCarrierScreenshotUrl(selectedScreenshot.carrier_code, selectedScreenshot.last_run)}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-secondary"

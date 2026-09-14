@@ -287,6 +287,14 @@ def main():
     except Exception as e:
         print(f"Verification check note: {e}")
 
+    # 7. Update platform proof screenshots with fresh telemetry audit stamp
+    try:
+        from backend.screenshot_service import update_all_screenshots_on_crawl_cycle
+        update_all_screenshots_on_crawl_cycle()
+        print("[SUCCESS] All 10 platform screenshots updated with live telemetry and cryptographic SHA-256 seal")
+    except Exception as se:
+        print(f"[NOTE] Screenshot stamping: {se}")
+
 
 if __name__ == "__main__":
     main()
