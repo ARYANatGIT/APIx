@@ -81,7 +81,7 @@ Under traditional national price sampling protocols, statistical investigators c
 
 ---
 
-## Problem Statement Alignment (SIH26056)
+## 🎯 2. Problem Statement Alignment (SIH26056)
 
 | Smart India Hackathon Requirement | AirSetu Production Implementation | Verification Metric |
 | :--- | :--- | :--- |
@@ -95,7 +95,7 @@ Under traditional national price sampling protocols, statistical investigators c
 
 ---
 
-## End-to-End System Architecture & Data Flow
+## 🏗️ 3. End-to-End System Architecture & Data Flow
 
 ```mermaid
 flowchart TD
@@ -171,7 +171,7 @@ flowchart TD
 
 ---
 
-## Comprehensive Architectural Flowcharts
+## 🔄 4. Comprehensive Architectural Flowcharts
 
 ### A. Multi-Source Ingestion & Crawler Pipeline Flowchart
 ```mermaid
@@ -302,7 +302,7 @@ flowchart TD
 
 ---
 
-## Complete A-to-Z Feature Reference across all 10 Views
+## 🌟 5. Complete A-to-Z Feature Reference across all 10 Views
 
 ### View 1: Interactive Editorial Poster (Landing Screen)
 - **High-Impact Typographic Aesthetic**: Built with high-contrast typography, minimalist Swiss design principles, and stark monochromatic contrasts.
@@ -448,7 +448,7 @@ flowchart TD
 
 ---
 
-## Machine Learning & Predictive Forecasting Architecture
+## 🧠 6. Machine Learning & Predictive Forecasting Architecture
 
 ### Model Formulation & Mathematical Closed-Form Solution
 To project forward-looking airfare inflation without the latency of iterative gradient descent, AirSetu employs a **Fourier-ARX Regularized Ridge Regression with Seasonal Lead-Time Decay & Market Concentration** (Fourier Autoregressive Exogenous State-Space Model).
@@ -534,7 +534,7 @@ $$\text{MAE} = \frac{1}{N}\sum_{i=1}^{N} |y_i - \hat{y}_i| \qquad \text{RMSE} = 
 
 ---
 
-## Mathematical Formulations & Economic Price Index Proofs
+## 📐 7. Mathematical Formulations & Economic Price Index Proofs
 
 ### Modified Laspeyres Fixed-Base Basket Index
 The official national benchmark index mandated by MoSPI for Consumer Price Index (CPI) transport subgroup monitoring:
@@ -639,7 +639,7 @@ Quotes outside $[\text{Lower Fence}, \text{Upper Fence}]$ are flagged as outlier
 
 ---
 
-## Full Technology Stack & Engineering Specifications
+## 💻 8. Full Technology Stack & Engineering Specifications
 
 ```
 AirSetu (APIx)
@@ -673,7 +673,7 @@ AirSetu (APIx)
 
 ---
 
-## Database Schema & Distributed Document Models
+## 🗄️ 9. Database Schema & Distributed Document Models
 
 ### 1. `price_quotes` Collection (11,600+ Documents)
 ```json
@@ -738,7 +738,7 @@ AirSetu (APIx)
 
 ---
 
-## Scraper Fleet Architecture & Anti-Bot Bypass
+## 🤖 10. Scraper Fleet Architecture & Anti-Bot Bypass
 
 The AirSetu ingestion fleet uses **asynchronous headless Playwright Chromium sessions** with a 4-tier anti-bot bypass mechanism:
 
@@ -749,7 +749,7 @@ The AirSetu ingestion fleet uses **asynchronous headless Playwright Chromium ses
 
 ---
 
-## Complete REST API Reference Specification
+## 📡 11. Complete REST API Reference Specification
 
 - **Production Cloud Base URL**: `https://apix-0n4i.onrender.com`
 - **Interactive Swagger UI**: [https://apix-0n4i.onrender.com/docs](https://apix-0n4i.onrender.com/docs)
@@ -777,7 +777,36 @@ The AirSetu ingestion fleet uses **asynchronous headless Playwright Chromium ses
 
 ---
 
-## Step-by-Step Installation, Verification, Docker & Deployment
+## 📽️ 12. Presentation & PPT Deck Slide-by-Slide Outline
+
+This slide-by-slide guide provides a presentation-ready structure for hackathon judges, government dignitaries, and technical juries:
+
+| Slide # | Slide Title | Visual Content / Diagram | Key Talking Points & Demo Choreography |
+|:---:|:---|:---|:---|
+| **1** | **Title Slide: AirSetu (APIx)** | AirSetu Emblem, MoSPI / NSO / SIH Logos | Introduce team, problem statement SIH26056, and core mission: Real-Time Airfare Price Index for India. |
+| **2** | **The National Challenge** | Split Graphic: Physical Survey vs Algorithmic Airlines | Explain how airlines change prices minute-by-minute; physical monthly surveys fail to capture lead-time volatility. |
+| **3** | **The AirSetu Solution** | 6-Layer Architectural Diagram | Highlight high-frequency ingestion (12 feeds), statistical normalization, Laspeyres computation, and ADS-B radar. |
+| **4** | **DGCA Representative Basket** | Survey of India Vector Map + 10 Corridors Table | Explain passenger throughput weights ($\sum w_r = 1.0$). Mention DEL-BOM (22.35%) and DEL-BLR (14.91%). |
+| **5** | **Live Demo: Executive Flight Deck** | Dashboard UI Screenshot: Ticker, Heatmap, KPIs | Show real-time index ($138.08$), dynamic 35-day heatmap variation, and zero hardcoded data. |
+| **6** | **Lead-Time Yield Curves ($T+0$ to $T+45$)** | Advance Windows View Bar Chart | Demonstrate spot curve escalation: same-day $T+0$ emergency travel carries $+55\%$ surge over $T+30$ advance. |
+| **7** | **Airline Direct vs OTA Dispersal** | Airline vs OTA Channel Spread Chart | Show direct carrier portal prices vs OTA convenience fees and channel markups across 12 platforms. |
+| **8** | **Mathematical Rigor & Index Proofs** | Laspeyres, Paasche, Fisher, Törnqvist Formulas | Walk through mathematical proofs: Laspeyres fixed-base basket, Fisher superlative ideal, and Jevons micro-aggregates. |
+| **9** | **5-Factor Route Stress Index (RSI)** | RSI Radar Chart & Formulation | Explain how RSI quantifies corridor stress using fare inflation, volatility, load factors, urgency, and HHI. |
+| **10** | **Secondary Airport Substitution (SVI)** | Airport Substitution Widget (DEL vs DXN, BOM vs NMIA) | Show how secondary hubs relieve trunk congestion when net fare savings exceed ground transit costs. |
+| **11** | **Machine Learning Forecaster** | Fourier-ARX Ridge Regression Diagram | **Key Technical Slide**: Explain closed-form analytical solve $\mathbf{\hat{\beta} = (X^TX + \lambda I)^{-1}X^Ty}$. |
+| **12** | **ML Training Latency & Accuracy** | Benchmark Table: $R^2 = 0.88-0.97$, $11\text{ms}$ Latency | Explain why AirSetu trains in $11\text{ms}$ via NumPy LAPACK rather than hours of offline deep learning. |
+| **13** | **Air Intel & Disruption Radar** | Live Feed: Scraper Spikes, Kerala Floods, Dec 2026 ML | Show automated anomaly detection and multi-source disruption tracking. |
+| **14** | **Regulatory Action: RBI Notice Dispatch** | EmailJS / SMTP Modal & RBI Template | Demonstrate 1-click dispatch of formal price-spike advisories to RBI Monetary Policy Committee. |
+| **15** | **Conversational AI Aviation Assistant** | Interactive Chat Screenshot (Laspeyres & DGCA rules) | Demonstrate conversational Q&A grounded in live microdata and DGCA passenger protection CAR rules. |
+| **16** | **3D Digital Twin & ADS-B Radar Hub** | OpenSky Live Flight Radar + FIDS Departure Board | Show live aircraft silhouettes, 20 DGCA hubs, verified schedules (`6E 3072` DEL $\to$ PNQ), and AERA concession model. |
+| **17** | **Proof-of-Source & SHA-256 Auditability** | Quotes Explorer SHA-256 Modal | Demonstrate cryptographic tamper-proof validation of raw HTML extraction payloads. |
+| **18** | **Crawler Health & Automated Scheduler** | Scraper Health Dashboard & Telemetry | Show Playwright headless crawler status, probe latency ($<1200\text{ms}$), and automated 6-hour cron. |
+| **19** | **MoSPI Open Data & M2M API Keys** | NSO Export View & Key Generator Portal | Show self-service token generation (`apix_live_...`) and downloads in JSON, CSV, Parquet, and Excel. |
+| **20** | **Conclusion & Roadmap** | Vision Diagram: National Rollout & Policy Integration | Summarize key achievements: 100% dynamic, mathematically rigorous, pre-production ready for MoSPI & RBI. |
+
+---
+
+## 🚀 13. Step-by-Step Installation, Verification, Docker & Deployment
 
 ### Prerequisites
 - **Python**: Version `3.10` or higher
@@ -914,3 +943,9 @@ python scripts/verify_deployed_backend.py
 - ✅ Headless Crawler Telemetry & Visual Proof Artifacts (`/api/v1/scrapers/status`, `/api/v1/scrapers/artifacts/{code}`)
 
 ---
+
+## 📜 14. License & Government Attribution
+
+This project is engineered for the **Smart India Hackathon 2026** under **Problem Statement SIH26056**, dedicated to the **Ministry of Statistics and Programme Implementation (MoSPI)** and the **National Statistical Office (NSO)**, Government of India.
+
+Developed with precision and scientific integrity by Team AirSetu.
