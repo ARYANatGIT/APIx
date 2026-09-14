@@ -457,10 +457,11 @@ def get_airport_substitution_intelligence(db=None) -> Dict[str, Any]:
         db = get_mongo_db()
 
     # Ingest route fare benchmarks dynamically from MongoDB quotes
-    quotes = list(db.price_quotes.find({"is_outlier": {"$ne": True}}))
+    proj = {"_id": 0, "route": 1, "route_code": 1, "total_fare": 1}
+    quotes = list(db.price_quotes.find({"is_outlier": {"$ne": True}}, proj).limit(1500))
     route_fares: Dict[str, List[float]] = {}
     for q in quotes:
-        r = q.get("route")
+        r = q.get("route") or q.get("route_code")
         f = float(q.get("total_fare", 0))
         if r and f > 0:
             route_fares.setdefault(r, []).append(f)

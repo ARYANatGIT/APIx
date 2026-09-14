@@ -8,8 +8,8 @@ from typing import Dict, Any, List
 from backend.mongo import get_mongo_db
 
 
-def export_quotes_to_csv(db=None) -> str:
-    """Generates a full CSV string of all price quotes in MongoDB."""
+def export_quotes_to_csv(db=None, limit: int = 500) -> str:
+    """Generates a full CSV string of price quotes in MongoDB."""
     if db is None:
         db = get_mongo_db()
 
@@ -38,7 +38,14 @@ def export_quotes_to_csv(db=None) -> str:
         "cryptographic_hash"
     ])
 
-    quotes = db.price_quotes.find({}, {"_id": 0}).sort("flight_date", 1)
+    proj = {
+        "_id": 0, "quote_id": 1, "route": 1, "route_code": 1, "route_name": 1,
+        "airline": 1, "airline_code": 1, "flight_number": 1, "departure_time": 1,
+        "arrival_time": 1, "total_fare": 1, "base_fare": 1, "taxes_fees": 1,
+        "advance_window": 1, "flight_date": 1, "scraped_at": 1, "source": 1,
+        "cabin_class": 1, "is_outlier": 1, "sha256_hash": 1
+    }
+    quotes = db.price_quotes.find({}, proj).limit(limit)
     for q in quotes:
         writer.writerow([
             q.get("quote_id", ""),
@@ -64,12 +71,19 @@ def export_quotes_to_csv(db=None) -> str:
     return output.getvalue()
 
 
-def export_quotes_to_json(db=None) -> Dict[str, Any]:
+def export_quotes_to_json(db=None, limit: int = 500) -> Dict[str, Any]:
     """Returns complete price quotes dataset as a structured dictionary."""
     if db is None:
         db = get_mongo_db()
 
-    quotes = list(db.price_quotes.find({}, {"_id": 0}).sort("flight_date", 1))
+    proj = {
+        "_id": 0, "quote_id": 1, "route": 1, "route_code": 1, "route_name": 1,
+        "airline": 1, "airline_code": 1, "flight_number": 1, "departure_time": 1,
+        "arrival_time": 1, "total_fare": 1, "base_fare": 1, "taxes_fees": 1,
+        "advance_window": 1, "flight_date": 1, "scraped_at": 1, "source": 1,
+        "cabin_class": 1, "is_outlier": 1, "sha256_hash": 1
+    }
+    quotes = list(db.price_quotes.find({}, proj).limit(limit))
     return {
         "metadata": {
             "dataset_name": "AirSetu Complete Aviation Price Quotes Corpus",

@@ -949,10 +949,10 @@ def run_airport_simulation(payload: AirportSimulationRequest):
 # ==============================================================================
 
 @app.get("/api/v1/export/quotes/csv")
-def export_quotes_csv():
-    """Streams the entire 4,922 MongoDB price quotes corpus as an RFC 4180 CSV file."""
+def export_quotes_csv(limit: Optional[int] = Query(500, ge=10, le=10000)):
+    """Streams MongoDB price quotes corpus as an RFC 4180 CSV file."""
     from backend.dataset_exporter import export_quotes_to_csv
-    csv_data = export_quotes_to_csv()
+    csv_data = export_quotes_to_csv(limit=limit or 500)
     filename = f"airsetu_microdata_quotes_{datetime.now(timezone.utc).strftime('%Y%m%d')}.csv"
     return Response(
         content=csv_data,
@@ -962,10 +962,10 @@ def export_quotes_csv():
 
 
 @app.get("/api/v1/export/quotes/json")
-def export_quotes_json():
-    """Returns the complete 4,922 MongoDB price quotes corpus as a structured JSON payload."""
+def export_quotes_json(limit: Optional[int] = Query(500, ge=10, le=10000)):
+    """Returns MongoDB price quotes corpus as a structured JSON payload."""
     from backend.dataset_exporter import export_quotes_to_json
-    return export_quotes_to_json()
+    return export_quotes_to_json(limit=limit or 500)
 
 
 @app.get("/api/v1/export/apix/csv")
@@ -1166,17 +1166,6 @@ class AirportSimulationRequest(BaseModel):
     weather_severity_pct: Optional[float] = 50.0
     demand_surge_pct: Optional[float] = 20.0
 
-
-@app.get("/api/v1/airport-substitution")
-def get_airport_substitution():
-    """Airport Catchment Substitution Intelligence across 24 nationwide pairs and 26 hubs."""
-    try:
-        from backend.airport_substitution import get_airport_substitution_intelligence
-        from backend.mongo import get_mongo_db
-        db = get_mongo_db()
-        return get_airport_substitution_intelligence(db=db)
-    except Exception as e:
-        return {"status": "error", "message": str(e), "pairs": []}
 
 
 @app.post("/api/v1/airport-simulation")
