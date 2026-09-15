@@ -1,13 +1,15 @@
-from fastapi import FastAPI, Query, HTTPException
+from fastapi import FastAPI, Query, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, Response
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel
 from datetime import datetime, timezone
 from contextlib import asynccontextmanager
+import base64
 import hashlib
 import json
 import os
+import secrets
 from pathlib import Path
 
 from backend.config import settings, BASE_DIR, DATA_DIR, SNAPSHOTS_DIR
@@ -72,25 +74,89 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Enable Full CORS for direct cross-origin requests from frontend
+# CORS configuration: allow official frontend domain, localhost, and custom origins
+extra_origins = [o.strip() for o in os.getenv("CORS_ORIGINS", "").split(",") if o.strip()]
 origins = [
+    "https://airsetu-web.onrender.com",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://localhost:8080",
     "http://127.0.0.1:8080",
-    "*"
-]
+] + extra_origins
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    allow_origin_regex=r"https:\/\/.*\.onrender\.com",
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
-    expose_headers=["*"],
+    expose_headers=["WWW-Authenticate", "Authorization"],
 )
+
+
+# ==============================================================================
+# HTTP Basic Authentication Middleware (Option 3 Security)
+# ==============================================================================
+@app.middleware("http")
+async def basic_auth_middleware(request: Request, call_next):
+    # 1. Exempt CORS preflight (OPTIONS) requests
+    if request.method == "OPTIONS":
+        return await call_next(request)
+
+    # 2. Exempt health checks for Render zero-downtime container monitoring
+    path = request.url.path
+    if path in ("/api/v1/health", "/health", "/favicon.ico"):
+        return await call_next(request)
+
+    # 3. If authentication is disabled in config, allow traffic
+    if not settings.API_AUTH_ENABLED:
+        return await call_next(request)
+
+    # 4. Check Authorization header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Basic "):
+        return Response(
+            content=json.dumps({"detail": "Authentication required. Please provide valid HTTP Basic credentials."}),
+            status_code=401,
+            headers={
+                "WWW-Authenticate": 'Basic realm="AirSetu Secured MoSPI API"',
+                "Content-Type": "application/json"
+            }
+        )
+
+    try:
+        encoded_credentials = auth_header.split(" ", 1)[1].strip()
+        decoded = base64.b64decode(encoded_credentials).decode("utf-8")
+        username, sep, password = decoded.partition(":")
+        if not sep:
+            raise ValueError("Malformed credentials")
+    except Exception:
+        return Response(
+            content=json.dumps({"detail": "Invalid authorization header format."}),
+            status_code=401,
+            headers={
+                "WWW-Authenticate": 'Basic realm="AirSetu Secured MoSPI API"',
+                "Content-Type": "application/json"
+            }
+        )
+
+    correct_user = secrets.compare_digest(username, settings.API_AUTH_USER)
+    correct_pass = secrets.compare_digest(password, settings.API_AUTH_PASS)
+
+    if not (correct_user and correct_pass):
+        return Response(
+            content=json.dumps({"detail": "Invalid username or password."}),
+            status_code=401,
+            headers={
+                "WWW-Authenticate": 'Basic realm="AirSetu Secured MoSPI API"',
+                "Content-Type": "application/json"
+            }
+        )
+
+    return await call_next(request)
 
 
 @app.get("/")
@@ -99,12 +165,9 @@ def root():
         "status": "online",
         "project": settings.PROJECT_NAME,
         "version": settings.VERSION,
-        "all_database_tables": "http://127.0.0.1:8000/api/v1/database/all",
-        "all_quotes": "http://127.0.0.1:8000/api/v1/quotes",
-        "docs_url": "http://127.0.0.1:8000/docs",
-        "mongo_status": "http://127.0.0.1:8000/api/v1/mongo/status",
-        "scheduler_status": "http://127.0.0.1:8000/api/v1/scheduler/status",
-        "api_overview": "http://127.0.0.1:8000/api/v1/overview"
+        "security": "HTTP_BASIC_AUTH_ENABLED" if settings.API_AUTH_ENABLED else "OPEN",
+        "docs_url": "/docs",
+        "health_check": "/api/v1/health"
     }
 
 

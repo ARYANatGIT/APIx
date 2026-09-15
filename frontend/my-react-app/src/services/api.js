@@ -26,7 +26,32 @@ const BACKEND_PRIMARY = API_BASE_URL ? `${API_BASE_URL}/api/v1` : '/api/v1';
 const BACKEND_CORS_1 = 'http://127.0.0.1:8000/api/v1';
 const BACKEND_CORS_2 = 'http://localhost:8000/api/v1';
 
-async function fetchFromBackend(endpoint, defaultVal = null) {
+// HTTP Basic Authentication credentials for secured API endpoints
+export const getAuthCredentials = () => {
+  const user = import.meta.env.VITE_API_AUTH_USER || 'admin';
+  const pass = import.meta.env.VITE_API_AUTH_PASS || 'airsetu_secure_2026';
+  return { user, pass };
+};
+
+export const getAuthHeaders = (extraHeaders = {}) => {
+  try {
+    const { user, pass } = getAuthCredentials();
+    const token = btoa(`${user}:${pass}`);
+    return {
+      'Authorization': `Basic ${token}`,
+      ...extraHeaders
+    };
+  } catch {
+    return extraHeaders;
+  }
+};
+
+export const fetchWithAuth = async (url, options = {}) => {
+  const headers = getAuthHeaders(options.headers || {});
+  return fetch(url, { ...options, headers });
+};
+
+async function fetchFromBackend(endpoint, defaultVal = null, options = {}) {
   const candidates = [
     `${BACKEND_PRIMARY}${endpoint}`,
     `/api/v1${endpoint}`,
@@ -35,10 +60,11 @@ async function fetchFromBackend(endpoint, defaultVal = null) {
   ];
 
   const uniqueCandidates = [...new Set(candidates)];
+  const headers = getAuthHeaders(options.headers || {});
 
   for (const url of uniqueCandidates) {
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, { ...options, headers });
       if (res.ok) {
         return await res.json();
       }
@@ -163,12 +189,13 @@ export const apiService = {
 
   // 17. Trigger MongoDB Database Sync
   async syncMongo(clearExisting = false) {
+    const headers = getAuthHeaders();
     try {
-      const res = await fetch(`${BACKEND_CORS_1}/mongo/sync?clear_existing=${clearExisting}`, { method: 'POST' });
+      const res = await fetch(`${BACKEND_CORS_1}/mongo/sync?clear_existing=${clearExisting}`, { method: 'POST', headers });
       return await res.json();
     } catch {
       try {
-        const res2 = await fetch(`${BACKEND_PRIMARY}/mongo/sync?clear_existing=${clearExisting}`, { method: 'POST' });
+        const res2 = await fetch(`${BACKEND_PRIMARY}/mongo/sync?clear_existing=${clearExisting}`, { method: 'POST', headers });
         return await res2.json();
       } catch (e) {
         return { status: "error", message: e.message };
@@ -183,12 +210,13 @@ export const apiService = {
 
   // 19. Trigger Immediate Crawl in Background
   async triggerScrapeNow() {
+    const headers = getAuthHeaders();
     try {
-      const res = await fetch(`${BACKEND_CORS_1}/scheduler/trigger`, { method: 'POST' });
+      const res = await fetch(`${BACKEND_CORS_1}/scheduler/trigger`, { method: 'POST', headers });
       return await res.json();
     } catch {
       try {
-        const res2 = await fetch(`${BACKEND_PRIMARY}/scheduler/trigger`, { method: 'POST' });
+        const res2 = await fetch(`${BACKEND_PRIMARY}/scheduler/trigger`, { method: 'POST', headers });
         return await res2.json();
       } catch (e) {
         return { status: "error", message: e.message };
@@ -208,6 +236,7 @@ export const apiService = {
 
   // 22. Set Scheduler Crawl Interval
   async setSchedulerInterval(intervalMinutes) {
+    const headers = getAuthHeaders();
     const candidates = [
       `${BACKEND_PRIMARY}/scheduler/interval?interval_minutes=${intervalMinutes}`,
       `/api/v1/scheduler/interval?interval_minutes=${intervalMinutes}`,
@@ -216,7 +245,7 @@ export const apiService = {
     ];
     for (const url of [...new Set(candidates)]) {
       try {
-        const res = await fetch(url, { method: 'POST' });
+        const res = await fetch(url, { method: 'POST', headers });
         if (res.ok) return await res.json();
       } catch {
         // try next endpoint
@@ -255,7 +284,7 @@ export const apiService = {
       try {
         const res = await fetch(url, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: getAuthHeaders({ 'Content-Type': 'application/json' }),
           body: JSON.stringify(defaultPayload)
         });
         if (res.ok) return await res.json();

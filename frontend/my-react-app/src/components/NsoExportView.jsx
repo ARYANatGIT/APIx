@@ -19,7 +19,7 @@ import {
   Table,
   Play
 } from 'lucide-react';
-import { getApiUrl, API_BASE_URL } from '../services/api';
+import { getApiUrl, API_BASE_URL, getAuthHeaders } from '../services/api';
 
 export default function NsoExportView({ routes = [], indexSeries = [], overviewData = {}, theme = 'dark' }) {
   const isLight = theme === 'light';
@@ -71,7 +71,7 @@ export default function NsoExportView({ routes = [], indexSeries = [], overviewD
     try {
       const res = await fetch(getApiUrl('/keys/generate'), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           name: keyName || 'Research Analyst',
           organization: keyOrg || 'Independent Research',
@@ -115,9 +115,9 @@ export default function NsoExportView({ routes = [], indexSeries = [], overviewD
     try {
       const url = getApiUrl(testerEndpoint);
       const res = await fetch(url, {
-        headers: {
+        headers: getAuthHeaders({
           'X-API-Key': activeKey
-        }
+        })
       });
       const data = await res.json();
       setTesterResponse(data);

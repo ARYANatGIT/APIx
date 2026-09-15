@@ -26,7 +26,7 @@ import {
   MapPin,
   ArrowRight
 } from 'lucide-react';
-import { getApiUrl } from '../services/api';
+import { getApiUrl, fetchWithAuth } from '../services/api';
 
 // ============================================================================
 // MASTER METADATA FOR 20 MAJOR DGCA AIRPORTS (HUBS, RUNWAYS, OPERATORS)
@@ -144,8 +144,8 @@ export default function Airport3DDigitalTwin({ theme = 'dark' }) {
     try {
       // Fetch both airport operational twin and all live flights in Indian airspace
       const [twinRes, nationalRes] = await Promise.all([
-        fetch(getApiUrl(`/airports/${code}/digital-twin`)).then(r => r.json()),
-        fetch(getApiUrl(`/airports/${code}/live-flights?radius_deg=50`)).then(r => r.json()).catch(() => ({ flights: [] }))
+        fetchWithAuth(getApiUrl(`/airports/${code}/digital-twin`)).then(r => r.json()),
+        fetchWithAuth(getApiUrl(`/airports/${code}/live-flights?radius_deg=50`)).then(r => r.json()).catch(() => ({ flights: [] }))
       ]);
 
       setTwinData(twinRes);

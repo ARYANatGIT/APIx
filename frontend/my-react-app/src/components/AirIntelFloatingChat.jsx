@@ -12,7 +12,7 @@ import {
   ShieldCheck,
   MessageSquare
 } from 'lucide-react';
-import { getApiUrl } from '../services/api';
+import { getApiUrl, getAuthHeaders } from '../services/api';
 
 function renderFormattedLine(text) {
   if (!text) return null;
@@ -86,7 +86,7 @@ export default function AirIntelFloatingChat({ theme = 'dark', onNavigate }) {
     try {
       const res = await fetch(getApiUrl('/intel/chat'), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
           message: query,
           session_id: sessionIdRef.current

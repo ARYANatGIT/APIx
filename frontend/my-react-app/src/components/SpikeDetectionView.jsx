@@ -10,7 +10,7 @@ import {
   Plane
 } from 'lucide-react';
 import AnimatedNumber from './AnimatedNumber';
-import { getApiUrl } from '../services/api';
+import { getApiUrl, getAuthHeaders } from '../services/api';
 
 function renderFormattedLine(text) {
   if (!text) return null;
@@ -55,7 +55,8 @@ export default function SpikeDetectionView({ routes = [], theme = 'dark', onNavi
         : getApiUrl('/intel/feed');
 
       const res = await fetch(endpoint, {
-        method: forceRefresh ? 'POST' : 'GET'
+        method: forceRefresh ? 'POST' : 'GET',
+        headers: getAuthHeaders()
       });
 
       if (res.ok) {

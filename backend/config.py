@@ -35,6 +35,11 @@ class Settings(BaseSettings):
     # Outlier detection parameters (Interquartile Range multiplier)
     IQR_MULTIPLIER: float = 1.5
 
+    # HTTP Basic Authentication
+    API_AUTH_ENABLED: bool = os.getenv("API_AUTH_ENABLED", "true").lower() in ("true", "1", "yes")
+    API_AUTH_USER: str = os.getenv("API_AUTH_USER", "admin")
+    API_AUTH_PASS: str = os.getenv("API_AUTH_PASS", "airsetu_secure_2026")
+
     class Config:
         case_sensitive = True
         env_file = ".env"
