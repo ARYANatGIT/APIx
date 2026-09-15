@@ -27,7 +27,7 @@ const ADVANCE_WINDOWS = [
 ];
 
 export default function IndexTrendChart({ indexSeries = [], overviewData }) {
-  const [timeframe, setTimeframe] = useState('monthly'); // 'monthly' | '7' | '15' | '30' | 'all'
+  const [timeframe, setTimeframe] = useState('30'); // '30' (default daily spot) | '15' | '7' | 'monthly' | 'all'
   const [formula, setFormula] = useState('LASPEYRES'); // 'LASPEYRES' | 'GEOMETRIC_YOUNG'
   const [advanceWindow, setAdvanceWindow] = useState('ALL_WEIGHTED');
   const [routeCode, setRouteCode] = useState('ALL');
@@ -82,7 +82,7 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
       change_pct_m1: Number(latest.change_pct_m1 || (cVal - 100.0)),
       series_high: Math.max(...vals),
       series_low: Math.min(...vals),
-      current_basket_fare: Number(latest.average_fare || 6200),
+      current_basket_fare: Number(latest.average_fare || 0),
       total_quotes_analyzed: activeSeries.reduce((acc, cur) => acc + (cur.total_quotes_used || 0), 0),
       total_outliers_excluded: activeSeries.reduce((acc, cur) => acc + (cur.outliers_excluded || 0), 0),
       volatility_std_dev: 0.0,
@@ -267,19 +267,11 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
           <div className="trend-range-selector bold-range-selector">
             <button
               type="button"
-              className={`trend-range-btn ${timeframe === 'monthly' ? 'active' : ''}`}
-              onClick={() => { setTimeframe('monthly'); setHoveredPoint(null); }}
-              title="Monthly APIx continuous trajectory across active periods"
-            >
-              MONTHLY (2026 Trajectory)
-            </button>
-            <button
-              type="button"
               className={`trend-range-btn ${timeframe === '30' ? 'active' : ''}`}
               onClick={() => { setTimeframe('30'); setHoveredPoint(null); }}
-              title="Last 30 days daily index series"
+              title="Last 30 days daily index series (Live daily spot)"
             >
-              30D
+              30D (DAILY SPOT)
             </button>
             <button
               type="button"
@@ -296,6 +288,14 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
               title="Last 7 days daily index series"
             >
               7D
+            </button>
+            <button
+              type="button"
+              className={`trend-range-btn ${timeframe === 'monthly' ? 'active' : ''}`}
+              onClick={() => { setTimeframe('monthly'); setHoveredPoint(null); }}
+              title="Monthly macroeconomic continuous trajectory (Jan - Sep 2026 MTD)"
+            >
+              MONTHLY (2026 Macro)
             </button>
             <button
               type="button"
@@ -358,15 +358,52 @@ export default function IndexTrendChart({ indexSeries = [], overviewData }) {
         </div>
       </div>
 
+      {/* Frequency Harmonization Banner */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '8px',
+        padding: '8px 14px',
+        background: 'rgba(255, 61, 0, 0.05)',
+        border: '1px solid rgba(255, 61, 0, 0.18)',
+        borderRadius: '6px',
+        fontSize: '0.74rem',
+        margin: '12px 0 16px 0'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span style={{ 
+            color: '#FF3D00', 
+            fontWeight: 700, 
+            letterSpacing: '0.04em',
+            textTransform: 'uppercase'
+          }}>
+            {isMonthly ? '● MONTHLY MACRO VIEW' : '● LIVE DAILY SPOT VIEW'}
+          </span>
+          <span style={{ color: 'var(--muted-fg, #94A3B8)' }}>|</span>
+          <span style={{ color: 'var(--foreground, #E2E8F0)' }}>
+            {isMonthly ? (
+              <>Showing <strong>Monthly MTD Benchmark ({typeof kpis.latest_index === 'number' ? kpis.latest_index.toFixed(2) : kpis.latest_index})</strong> across all September quotes. For today&apos;s daily spot rate, switch to <strong>30D (DAILY SPOT)</strong>.</>
+            ) : (
+              <>Showing <strong>Live Daily Spot Index ({typeof kpis.latest_index === 'number' ? kpis.latest_index.toFixed(2) : kpis.latest_index})</strong> for {kpis.latest_date} — synchronized with Executive Flight Deck. For 9-month macro trend, switch to <strong>MONTHLY (2026 Macro)</strong>.</>
+            )}
+          </span>
+        </div>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: '#94A3B8' }}>
+          Calculated from MongoDB Atlas Microdata
+        </span>
+      </div>
+
       {/* 3. Dynamic Quick KPI Cards (Zero Hardcoded Values) */}
       <div className="trend-kpis-grid">
         <div className="trend-kpi-card">
-          <span className="trend-kpi-label">CURRENT APIx</span>
+          <span className="trend-kpi-label">{isMonthly ? 'MONTHLY MACRO BENCHMARK' : 'LIVE DAILY APIx'}</span>
           <span className="trend-kpi-value val-accent">
             {typeof kpis.latest_index === 'number' ? kpis.latest_index.toFixed(2) : kpis.latest_index}
           </span>
           <span className="trend-kpi-sub">
-            {isMonthly ? `${formatTooltipDate(kpis.latest_date)} (Current)` : `Date: ${kpis.latest_date}`}
+            {isMonthly ? `${formatTooltipDate(kpis.latest_date)} (Month-to-Date Avg)` : `Date: ${kpis.latest_date} (Live Daily Spot)`}
           </span>
         </div>
 
