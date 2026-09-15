@@ -137,9 +137,16 @@ def get_macro_overview():
 
     db = get_mongo_db()
 
-    # Dynamically compute headline macro index directly from microdata price quotes in MongoDB
-    dynamic_index = compute_dynamic_index_series(timeframe="monthly")
+    # Dynamically compute headline macro index directly from microdata price quotes in MongoDB (30-day daily rolling window)
+    dynamic_index = compute_dynamic_index_series(timeframe="30")
     dyn_kpis = dynamic_index.get("kpis", {})
+
+    # Also compute monthly benchmark series for macro policy tracking
+    try:
+        monthly_index = compute_dynamic_index_series(timeframe="monthly")
+        monthly_kpis = monthly_index.get("kpis", {})
+    except Exception:
+        monthly_kpis = {}
 
     total_routes = db.routes.count_documents({"is_active": True})
     total_airlines = db.airlines.count_documents({"type": "AIRLINE"})
@@ -182,10 +189,16 @@ def get_macro_overview():
             "change_pct_m1": dyn_kpis.get("change_pct_m1", None),
             "change_pct_yoy": dyn_kpis.get("change_pct_yoy", None),
             "average_fare": dyn_kpis.get("current_basket_fare", None),
-            "formula": "Laspeyres Basket Normalized Index (Monthly)",
-            "frequency": "MONTHLY",
+            "formula": "Laspeyres Basket Normalized Index (Daily)",
+            "frequency": "DAILY",
             "top_rising_routes": dyn_kpis.get("top_rising_routes", []),
             "top_falling_routes": dyn_kpis.get("top_falling_routes", [])
+        },
+        "monthly_benchmark": {
+            "value": monthly_kpis.get("latest_index", None),
+            "month": monthly_kpis.get("latest_date", None),
+            "monthly_change_pct": monthly_kpis.get("change_pct_d1", None),
+            "average_fare": monthly_kpis.get("current_basket_fare", None)
         },
         "basket_stats": {
             "total_corridors": total_routes or 10,

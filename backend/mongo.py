@@ -537,8 +537,15 @@ def get_mongo_routes() -> List[Dict[str, Any]]:
     db = get_mongo_db()
     routes = list(db.routes.find({"is_active": True}, {"_id": 0}))
 
-    # Aggregate average fares per route
+    # Aggregate average fares per route (prioritizing active/upcoming operational flights)
+    from datetime import date
+    today_str = date.today().isoformat()
+    match_stage: Dict[str, Any] = {"is_outlier": {"$ne": True}}
+    if db.price_quotes.count_documents({"is_outlier": {"$ne": True}, "flight_date": {"$gte": today_str}}) >= 50:
+        match_stage["flight_date"] = {"$gte": today_str}
+
     pipeline = [
+        {"$match": match_stage},
         {"$group": {
             "_id": {"$ifNull": ["$route_code", "$route"]},
             "avg_fare": {"$avg": "$total_fare"},

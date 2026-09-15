@@ -78,12 +78,14 @@ def execute_scrape_cycle():
         import os
         if os.getenv("RENDER") or os.getenv("IS_CLOUD_CONTAINER"):
             # In memory-constrained cloud environments (Render 512MB RAM), avoid spawning 10 heavy
-            # Playwright subprocesses that trip Linux cgroup limits. Perform lightweight live audit cycle.
+            # Playwright subprocesses that trip Linux cgroup limits. Execute lightweight live microdata crawl.
+            from backend.live_crawler_engine import run_lightweight_live_crawl
             from backend.screenshot_service import update_all_screenshots_on_crawl_cycle
+            crawl_res = run_lightweight_live_crawl()
             update_all_screenshots_on_crawl_cycle()
             success = True
             duration = round(time.time() - start_time, 2)
-            logger.info(f"[SCHEDULER] [CLOUD CRAWL] Completed lightweight live cloud crawl cycle in {duration}s")
+            logger.info(f"[SCHEDULER] [CLOUD CRAWL] Ingested {crawl_res.get('quotes_ingested', 0)} fresh quotes, updated {crawl_res.get('audit_logs_recorded', 0)} audit logs & screenshots in {duration}s")
         else:
             scraper_path = ROOT_DIR / "scripts" / "run_all_scrapers.py"
             if not scraper_path.exists():

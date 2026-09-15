@@ -31,9 +31,14 @@ def compute_route_stress_index(db=None) -> Dict[str, Any]:
     w_dem = DEFAULT_RSI_WEIGHTS["w_dem"]
     w_agree = DEFAULT_RSI_WEIGHTS["w_agree"]
 
-    # 1. Ingest active price quotes from MongoDB with slim projection for ultra-fast transfer
+    # 1. Ingest active operational price quotes (current & upcoming flight departures) from MongoDB
+    from datetime import date
+    today_str = date.today().isoformat()
     proj = {"_id": 0, "route": 1, "route_code": 1, "total_fare": 1, "advance_window": 1, "airline": 1, "airline_code": 1}
-    quotes = list(db.price_quotes.find({"is_outlier": {"$ne": True}}, proj))
+    active_filter = {"is_outlier": {"$ne": True}, "flight_date": {"$gte": today_str}}
+    quotes = list(db.price_quotes.find(active_filter, proj))
+    if len(quotes) < 50:
+        quotes = list(db.price_quotes.find({"is_outlier": {"$ne": True}}, proj))
     if not quotes:
         quotes = list(db.price_quotes.find({}, proj))
 

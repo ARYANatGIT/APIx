@@ -44,6 +44,12 @@ export default function MoSPIMacroDashboard({
   const weeklyChange = latestIndex?.change_pct_w1 != null ? Number(latestIndex.change_pct_w1).toFixed(2) : '—';
   const monthlyChange = latestIndex?.change_pct_m1 != null ? Number(latestIndex.change_pct_m1).toFixed(2) : '—';
 
+  const calcDateStr = latestIndex?.calculation_date
+    ? (latestIndex.calculation_date.length === 10
+        ? new Date(latestIndex.calculation_date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+        : latestIndex.calculation_date)
+    : null;
+
   const isRisingDaily = !isNaN(parseFloat(dailyChange)) && parseFloat(dailyChange) >= 0;
   const isRisingWeekly = !isNaN(parseFloat(weeklyChange)) && parseFloat(weeklyChange) >= 0;
   const isRisingMonthly = !isNaN(parseFloat(monthlyChange)) && parseFloat(monthlyChange) >= 0;
@@ -174,7 +180,14 @@ export default function MoSPIMacroDashboard({
         {/* Card 1: Headline APIx */}
         <div className="mospi-kpi-card apix-primary-card">
           <div className="mospi-kpi-card-header">
-            <span className="mospi-kpi-label">AIRFARE APIx</span>
+            <span className="mospi-kpi-label" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span>AIRFARE APIx</span>
+              {calcDateStr && (
+                <span className="font-mono" style={{ fontSize: '0.78em', opacity: 0.75, fontWeight: 500, letterSpacing: '0.02em' }}>
+                  • {calcDateStr}
+                </span>
+              )}
+            </span>
             <Activity size={16} className="text-vermillion" />
           </div>
           <div className="mospi-kpi-number-row">
