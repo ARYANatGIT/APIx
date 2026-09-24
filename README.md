@@ -4,31 +4,29 @@
 
 ---
 
-### 🌐 Live Production Deployments & System Status
+### Live Production Deployments & System Status
 
 | Component | Status | Production Deployment URL | Description |
 | :--- | :---: | :--- | :--- |
 | **AirSetu Web Portal** | ![Live](https://img.shields.io/badge/Status-Live%20Online-emerald?style=flat-square) | **[https://airsetu-web.onrender.com/](https://airsetu-web.onrender.com/)** | Interactive React 19 Client with Real-Time Dashboards, 3D Digital Twin, and MoSPI Macro Visualizer |
 | **High-Speed REST API Core** | ![Operational](https://img.shields.io/badge/API-Operational-blue?style=flat-square) | **[https://apix-0n4i.onrender.com/](https://apix-0n4i.onrender.com/)** | FastAPI ASGI Engine with Laspeyres/Paasche Index Calculation, ML Ridge Regressors & Live Telemetry |
-| **Interactive API Documentation** | ![Swagger](https://img.shields.io/badge/Swagger-OpenAPI%203.0-green?style=flat-square) | **[https://apix-0n4i.onrender.com/docs](https://apix-0n4i.onrender.com/docs)** | Interactive Swagger UI for testing all 50+ MoSPI and DGCA corridor microdata endpoints |
-| **OpenAPI Specification** | ![JSON](https://img.shields.io/badge/Schema-OpenAPI%20JSON-orange?style=flat-square) | **[https://apix-0n4i.onrender.com/openapi.json](https://apix-0n4i.onrender.com/openapi.json)** | Machine-readable OpenAPI 3.1 schema definition |
 | **System Health & Telemetry** | ![Healthy](https://img.shields.io/badge/Health-200%20OK-brightgreen?style=flat-square) | **[https://apix-0n4i.onrender.com/api/v1/health](https://apix-0n4i.onrender.com/api/v1/health)** | Live MongoDB Atlas heartbeat, cluster status, and scraper scheduler uptime |
 | **Verification Suite** | ![Passing](https://img.shields.io/badge/Verification-50%2F50%20Passed%20(100%25)-success?style=flat-square) | `scripts/verify_deployed_backend.py` | 100% Comprehensive End-to-End Test Suite verified against production backend |
 
 ---
 
-## 📑 Master Table of Contents
-1. [Executive Summary & National Significance](#-1-executive-summary--national-significance)
-2. [Problem Statement Alignment (SIH26056)](#-2-problem-statement-alignment-sih26056)
-3. [End-to-End System Architecture & Data Flow](#-3-end-to-end-system-architecture--data-flow)
-4. [Comprehensive Architectural Flowcharts](#-4-comprehensive-architectural-flowcharts)
+## Master Table of Contents
+1. [Executive Summary & National Significance](#1-executive-summary--national-significance)
+2. [Problem Statement Alignment (SIH26056)](#2-problem-statement-alignment-sih26056)
+3. [End-to-End System Architecture & Data Flow](#3-end-to-end-system-architecture--data-flow)
+4. [Comprehensive Architectural Flowcharts](#4-comprehensive-architectural-flowcharts)
    - [A. Multi-Source Ingestion & Crawler Pipeline Flowchart](#a-multi-source-ingestion--crawler-pipeline-flowchart)
    - [B. Statistical Cleansing & Outlier Detection Flowchart](#b-statistical-cleansing--outlier-detection-flowchart)
    - [C. Price Index Computation Engine Flowchart](#c-price-index-computation-engine-flowchart)
    - [D. Machine Learning Predictive Surge Pipeline Flowchart](#d-machine-learning-predictive-surge-pipeline-flowchart)
    - [E. Digital Twin, ADS-B Radar & FIDS Kinematics Flowchart](#e-digital-twin-ads-b-radar--fids-kinematics-flowchart)
    - [F. Automated Regulatory Notice & Alert Dispatch Flowchart](#f-automated-regulatory-notice--alert-dispatch-flowchart)
-5. [Complete A-to-Z Feature Reference across all 10 Views](#-5-complete-a-to-z-feature-reference-across-all-10-views)
+5. [Complete A-to-Z Feature Reference across all 11 Views](#5-complete-a-to-z-feature-reference-across-all-10-views)
    - [View 1: Interactive Editorial Poster (Landing Screen)](#view-1-interactive-editorial-poster-landing-screen)
    - [View 2: Executive Flight Deck (Macro MoSPI Dashboard)](#view-2-executive-flight-deck-macro-mospi-dashboard)
    - [View 3: DGCA Representative Corridor Basket & Geographic Map](#view-3-dgca-representative-corridor-basket--geographic-map)
@@ -40,13 +38,13 @@
    - [View 9: Live Flight Map & 3D Aerodrome Digital Twin](#view-9-live-flight-map--3d-aerodrome-digital-twin)
    - [View 10: Crawler Fleet Telemetry & Scraper Health Engine](#view-10-crawler-fleet-telemetry--scraper-health-engine)
    - [View 11: NSO Open Data Repository & M2M API Key Management](#view-11-nso-open-data-repository--m2m-api-key-management)
-6. [Machine Learning & Predictive Forecasting Architecture](#-6-machine-learning--predictive-forecasting-architecture)
+6. [Machine Learning & Predictive Forecasting Architecture](#6-machine-learning--predictive-forecasting-architecture)
    - [Model Formulation & Mathematical Closed-Form Solution](#model-formulation--mathematical-closed-form-solution)
    - [Design Matrix ($X$) Orthogonal Feature Engineering](#design-matrix-x-orthogonal-feature-engineering)
    - [Real-Time Closed-Form Calibration (Why no multi-hour training lag?)](#real-time-closed-form-calibration)
    - [Dynamic Rolling Horizons & Demand Drivers](#dynamic-rolling-horizons--demand-drivers)
    - [Empirical Performance & Accuracy Validation Metrics](#empirical-performance--accuracy-validation-metrics)
-7. [Mathematical Formulations & Economic Price Index Proofs](#-7-mathematical-formulations--economic-price-index-proofs)
+7. [Mathematical Formulations & Economic Price Index Proofs](#7-mathematical-formulations--economic-price-index-proofs)
    - [Modified Laspeyres Fixed-Base Basket Index (MoSPI Standard)](#modified-laspeyres-fixed-base-basket-index)
    - [Paasche Current-Weighted Price Index](#paasche-current-weighted-price-index)
    - [Fisher Ideal Price Index (Superlative Index)](#fisher-ideal-price-index)
@@ -58,16 +56,14 @@
    - [AERA Dual-Till Airport Concession Financial Model](#aera-dual-till-airport-concession-financial-model)
    - [Little's Law Terminal Queuing Kinematics](#littles-law-terminal-queuing-kinematics)
    - [Tukey's Bi-Directional Inner Fence Outlier Filter](#tukeys-bi-directional-inner-fence-outlier-filter)
-8. [Full Technology Stack & Engineering Specifications](#-8-full-technology-stack--engineering-specifications)
-9. [Database Schema & Distributed Document Models](#-9-database-schema--distributed-document-models)
-10. [Scraper Fleet Architecture & Anti-Bot Bypass](#-10-scraper-fleet-architecture--anti-bot-bypass)
-11. [Complete REST API Reference Specification](#-11-complete-rest-api-reference-specification)
-12. [Presentation & PPT Deck Slide-by-Slide Outline](#-12-presentation--ppt-deck-slide-by-slide-outline)
-13. [Step-by-Step Installation, Verification, Docker & Deployment](#-13-step-by-step-installation-verification-docker--deployment)
+8. [Full Technology Stack & Engineering Specifications](#8-full-technology-stack--engineering-specifications)
+9. [Database Schema & Distributed Document Models](#9-database-schema--distributed-document-models)
+10. [Scraper Fleet Architecture & Anti-Bot Bypass](#10-scraper-fleet-architecture--anti-bot-bypass)
+11. [Step-by-Step Installation, Verification, Docker & Deployment](#11-step-by-step-installation-verification-docker--deployment)
 
 ---
 
-## 🏛️ 1. Executive Summary & National Significance
+## 1. Executive Summary & National Significance
 
 The civil aviation sector in India is the third largest and fastest-growing domestic passenger aviation market in the world, handling over 152 million domestic passengers annually. However, passenger airfares in India are dynamically governed by algorithmic revenue-management pricing engines. These engines continuously alter ticket prices based on booking lead times ($T+0$ spot emergency through $T+45$ advance), seat inventory depletion, route concentration, and sales channel dispersion.
 
@@ -81,7 +77,7 @@ Under traditional national price sampling protocols, statistical investigators c
 
 ---
 
-## 🎯 2. Problem Statement Alignment (SIH26056)
+## 2. Problem Statement Alignment (SIH26056)
 
 | Smart India Hackathon Requirement | AirSetu Production Implementation | Verification Metric |
 | :--- | :--- | :--- |
@@ -95,7 +91,7 @@ Under traditional national price sampling protocols, statistical investigators c
 
 ---
 
-## 🏗️ 3. End-to-End System Architecture & Data Flow
+## 3. End-to-End System Architecture & Data Flow
 
 ```mermaid
 flowchart TD
@@ -171,7 +167,7 @@ flowchart TD
 
 ---
 
-## 🔄 4. Comprehensive Architectural Flowcharts
+## 4. Comprehensive Architectural Flowcharts
 
 ### A. Multi-Source Ingestion & Crawler Pipeline Flowchart
 ```mermaid
@@ -302,7 +298,7 @@ flowchart TD
 
 ---
 
-## 🌟 5. Complete A-to-Z Feature Reference across all 10 Views
+## 5. Complete A-to-Z Feature Reference across all 11 Views
 
 ### View 1: Interactive Editorial Poster (Landing Screen)
 - **High-Impact Typographic Aesthetic**: Built with high-contrast typography, minimalist Swiss design principles, and stark monochromatic contrasts.
@@ -448,7 +444,7 @@ flowchart TD
 
 ---
 
-## 🧠 6. Machine Learning & Predictive Forecasting Architecture
+## 6. Machine Learning & Predictive Forecasting Architecture
 
 ### Model Formulation & Mathematical Closed-Form Solution
 To project forward-looking airfare inflation without the latency of iterative gradient descent, AirSetu employs a **Fourier-ARX Regularized Ridge Regression with Seasonal Lead-Time Decay & Market Concentration** (Fourier Autoregressive Exogenous State-Space Model).
@@ -534,7 +530,7 @@ $$\text{MAE} = \frac{1}{N}\sum_{i=1}^{N} |y_i - \hat{y}_i| \qquad \text{RMSE} = 
 
 ---
 
-## 📐 7. Mathematical Formulations & Economic Price Index Proofs
+## 7. Mathematical Formulations & Economic Price Index Proofs
 
 ### Modified Laspeyres Fixed-Base Basket Index
 The official national benchmark index mandated by MoSPI for Consumer Price Index (CPI) transport subgroup monitoring:
@@ -639,7 +635,7 @@ Quotes outside $[\text{Lower Fence}, \text{Upper Fence}]$ are flagged as outlier
 
 ---
 
-## 💻 8. Full Technology Stack & Engineering Specifications
+## 8. Full Technology Stack & Engineering Specifications
 
 ```
 AirSetu (APIx)
@@ -673,7 +669,7 @@ AirSetu (APIx)
 
 ---
 
-## 🗄️ 9. Database Schema & Distributed Document Models
+## 9. Database Schema & Distributed Document Models
 
 ### 1. `price_quotes` Collection (11,600+ Documents)
 ```json
@@ -738,7 +734,7 @@ AirSetu (APIx)
 
 ---
 
-## 🤖 10. Scraper Fleet Architecture & Anti-Bot Bypass
+## 10. Scraper Fleet Architecture & Anti-Bot Bypass
 
 The AirSetu ingestion fleet uses **asynchronous headless Playwright Chromium sessions** with a 4-tier anti-bot bypass mechanism:
 
@@ -749,64 +745,7 @@ The AirSetu ingestion fleet uses **asynchronous headless Playwright Chromium ses
 
 ---
 
-## 📡 11. Complete REST API Reference Specification
-
-- **Production Cloud Base URL**: `https://apix-0n4i.onrender.com`
-- **Interactive Swagger UI**: [https://apix-0n4i.onrender.com/docs](https://apix-0n4i.onrender.com/docs)
-- **OpenAPI 3.1 JSON Specification**: [https://apix-0n4i.onrender.com/openapi.json](https://apix-0n4i.onrender.com/openapi.json)
-- **Local Development Base URL**: `http://127.0.0.1:8000` (Docs: `http://127.0.0.1:8000/docs`)
-
-| HTTP Method | Endpoint Path | Summary & Purpose | Key Parameters |
-|:---:|:---|:---|:---|
-| `GET` | `/api/v1/health` | System health, MongoDB status & uptime | None |
-| `GET` | `/api/v1/overview` | Macro flight deck KPIs, latest APIx & stats | None |
-| `GET` | `/api/v1/corridors` | 10 DGCA corridors with weights & live fares | None |
-| `GET` | `/api/v1/analytics/heatmap` | 10 corridors $\times$ 35 days dynamic heatmap | None |
-| `GET` | `/api/v1/advance-windows` | 6 advance purchase horizons ($T+0$ to $T+45$) | `route_code` (optional) |
-| `GET` | `/api/v1/airlines` | 5 airlines + 7 OTAs prices, shares & latency | `route_code` (optional) |
-| `GET` | `/api/v1/quotes` | Paginated microdata quotes with SHA-256 proof | `route`, `airline`, `advance`, `page` |
-| `GET` | `/api/v1/intel/feed` | Real-time spikes, news & ML predictions feed | None |
-| `POST` | `/api/v1/intel/refresh` | Force-refresh RSS news & recompute spikes | None |
-| `POST` | `/api/v1/intel/chat` | Conversational AI aviation intelligence Q&A | `{"message": "...", "session_id": "..."}` |
-| `POST` | `/api/v1/alerts/dispatch-notice` | Send official RBI/MoSPI price advisory | `{"route": "...", "surge_pct": 28.5, ...}` |
-| `GET` | `/api/v1/airports/{code}/digital-twin` | 20-hub aerodrome twin, FIDS & AERA model | `code` (e.g. `DEL`, `BOM`, `PNQ`) |
-| `GET` | `/api/v1/airports/{code}/live-flights` | Real-time OpenSky ADS-B radar flights | `radius_deg` (default `50.0`) |
-| `GET` | `/api/v1/datasets/export/{fmt}` | Export dataset in JSON, CSV, Parquet, XLSX | `fmt` (`json`, `csv`, `parquet`, `excel`) |
-| `POST` | `/api/v1/keys/generate` | Generate official government M2M API token | `{"agency_name": "RBI", "tier": "GOV"}` |
-| `GET` | `/api/v1/scrapers/status` | Real-time crawler fleet health & scheduler | None |
-
----
-
-## 📽️ 12. Presentation & PPT Deck Slide-by-Slide Outline
-
-This slide-by-slide guide provides a presentation-ready structure for hackathon judges, government dignitaries, and technical juries:
-
-| Slide # | Slide Title | Visual Content / Diagram | Key Talking Points & Demo Choreography |
-|:---:|:---|:---|:---|
-| **1** | **Title Slide: AirSetu (APIx)** | AirSetu Emblem, MoSPI / NSO / SIH Logos | Introduce team, problem statement SIH26056, and core mission: Real-Time Airfare Price Index for India. |
-| **2** | **The National Challenge** | Split Graphic: Physical Survey vs Algorithmic Airlines | Explain how airlines change prices minute-by-minute; physical monthly surveys fail to capture lead-time volatility. |
-| **3** | **The AirSetu Solution** | 6-Layer Architectural Diagram | Highlight high-frequency ingestion (12 feeds), statistical normalization, Laspeyres computation, and ADS-B radar. |
-| **4** | **DGCA Representative Basket** | Survey of India Vector Map + 10 Corridors Table | Explain passenger throughput weights ($\sum w_r = 1.0$). Mention DEL-BOM (22.35%) and DEL-BLR (14.91%). |
-| **5** | **Live Demo: Executive Flight Deck** | Dashboard UI Screenshot: Ticker, Heatmap, KPIs | Show real-time index ($138.08$), dynamic 35-day heatmap variation, and zero hardcoded data. |
-| **6** | **Lead-Time Yield Curves ($T+0$ to $T+45$)** | Advance Windows View Bar Chart | Demonstrate spot curve escalation: same-day $T+0$ emergency travel carries $+55\%$ surge over $T+30$ advance. |
-| **7** | **Airline Direct vs OTA Dispersal** | Airline vs OTA Channel Spread Chart | Show direct carrier portal prices vs OTA convenience fees and channel markups across 12 platforms. |
-| **8** | **Mathematical Rigor & Index Proofs** | Laspeyres, Paasche, Fisher, Törnqvist Formulas | Walk through mathematical proofs: Laspeyres fixed-base basket, Fisher superlative ideal, and Jevons micro-aggregates. |
-| **9** | **5-Factor Route Stress Index (RSI)** | RSI Radar Chart & Formulation | Explain how RSI quantifies corridor stress using fare inflation, volatility, load factors, urgency, and HHI. |
-| **10** | **Secondary Airport Substitution (SVI)** | Airport Substitution Widget (DEL vs DXN, BOM vs NMIA) | Show how secondary hubs relieve trunk congestion when net fare savings exceed ground transit costs. |
-| **11** | **Machine Learning Forecaster** | Fourier-ARX Ridge Regression Diagram | **Key Technical Slide**: Explain closed-form analytical solve $\mathbf{\hat{\beta} = (X^TX + \lambda I)^{-1}X^Ty}$. |
-| **12** | **ML Training Latency & Accuracy** | Benchmark Table: $R^2 = 0.88-0.97$, $11\text{ms}$ Latency | Explain why AirSetu trains in $11\text{ms}$ via NumPy LAPACK rather than hours of offline deep learning. |
-| **13** | **Air Intel & Disruption Radar** | Live Feed: Scraper Spikes, Kerala Floods, Dec 2026 ML | Show automated anomaly detection and multi-source disruption tracking. |
-| **14** | **Regulatory Action: RBI Notice Dispatch** | EmailJS / SMTP Modal & RBI Template | Demonstrate 1-click dispatch of formal price-spike advisories to RBI Monetary Policy Committee. |
-| **15** | **Conversational AI Aviation Assistant** | Interactive Chat Screenshot (Laspeyres & DGCA rules) | Demonstrate conversational Q&A grounded in live microdata and DGCA passenger protection CAR rules. |
-| **16** | **3D Digital Twin & ADS-B Radar Hub** | OpenSky Live Flight Radar + FIDS Departure Board | Show live aircraft silhouettes, 20 DGCA hubs, verified schedules (`6E 3072` DEL $\to$ PNQ), and AERA concession model. |
-| **17** | **Proof-of-Source & SHA-256 Auditability** | Quotes Explorer SHA-256 Modal | Demonstrate cryptographic tamper-proof validation of raw HTML extraction payloads. |
-| **18** | **Crawler Health & Automated Scheduler** | Scraper Health Dashboard & Telemetry | Show Playwright headless crawler status, probe latency ($<1200\text{ms}$), and automated 6-hour cron. |
-| **19** | **MoSPI Open Data & M2M API Keys** | NSO Export View & Key Generator Portal | Show self-service token generation (`apix_live_...`) and downloads in JSON, CSV, Parquet, and Excel. |
-| **20** | **Conclusion & Roadmap** | Vision Diagram: National Rollout & Policy Integration | Summarize key achievements: 100% dynamic, mathematically rigorous, pre-production ready for MoSPI & RBI. |
-
----
-
-## 🚀 13. Step-by-Step Installation, Verification, Docker & Deployment
+## 11. Step-by-Step Installation, Verification, Docker & Deployment
 
 ### Prerequisites
 - **Python**: Version `3.10` or higher
@@ -817,18 +756,21 @@ This slide-by-slide guide provides a presentation-ready structure for hackathon 
 
 ### Step 1: Clone & Configure Environment
 ```bash
-git clone https://github.com/DhruvDhull/SIH-26056.git
-cd SIH-26056
+git clone https://github.com/ARYANatGIT/APIx.git
+cd APIx
 
 # Configure Environment Variables
 cp .env.example .env
 ```
 Ensure your `.env` contains:
 ```ini
-MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/apix_mospi?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/apix_mospi?retryWrites=true&w=majority
 DATABASE_NAME=apix_mospi
 PORT=8000
 VITE_API_BASE_URL=http://127.0.0.1:8000/api/v1
+API_AUTH_ENABLED=true
+API_AUTH_USER=admin
+API_AUTH_PASS=<YOUR_SECURE_PASSWORD>
 ```
 
 ---
@@ -906,22 +848,7 @@ docker compose down
 
 ---
 
-### Step 6: Production Cloud Deployment on Render (`render.yaml`)
-AirSetu includes a verified `render.yaml` specification for zero-config dual-service production deployment:
-1. **`airsetu-api`** (Web Service): Python 3.11 environment running FastAPI via Uvicorn.
-   - **Production Endpoint**: [https://apix-0n4i.onrender.com/](https://apix-0n4i.onrender.com/)
-   - **Interactive API Docs**: [https://apix-0n4i.onrender.com/docs](https://apix-0n4i.onrender.com/docs)
-2. **`airsetu-web`** (Static Site): Vite static production build (`npm run build` $\to$ `dist/`).
-   - **Production Web Application**: [https://airsetu-web.onrender.com/](https://airsetu-web.onrender.com/)
-
-To deploy:
-1. Connect your GitHub repository (`ARYANatGIT/APIx`) to [Render.com](https://render.com).
-2. Render detects `render.yaml` automatically and provisions both the API Web Service and Web Client Static Site.
-3. Supply `MONGO_URI` in your Render Environment Variables for the backend service.
-
----
-
-### Step 7: Automated Verification of Deployed Production Backend
+### Step 6: Automated Verification of Deployed Production Backend
 AirSetu includes a comprehensive end-to-end verification script (`scripts/verify_deployed_backend.py`) that tests all 50+ REST endpoints, database collections, and calculations directly against the deployed production server:
 
 ```bash
@@ -930,22 +857,16 @@ python scripts/verify_deployed_backend.py
 ```
 
 **Verification Results: 50 / 50 Endpoints Passed (100.0%)**
-- ✅ System Health & MongoDB Atlas Connectivity (`/api/v1/health`)
-- ✅ Macro Dashboard Flight Deck KPIs & Dynamic Calculations (`/api/v1/overview`)
-- ✅ 10 DGCA Corridors, Passenger Weights & Heatmap Matrix (`/api/v1/corridors`, `/api/v1/analytics/heatmap`)
-- ✅ 6 Advance Purchase Horizons $T+0$ to $T+45$ (`/api/v1/advance-windows`)
-- ✅ 12 Carrier & OTA Channel Feeds with Telemetry (`/api/v1/airlines`)
-- ✅ Paginated Microdata Quotes with SHA-256 Audit Hashes (`/api/v1/quotes`)
-- ✅ Real-Time Intel Feed, News & ML Ridge Predictions (`/api/v1/intel/feed`)
-- ✅ 20 Aerodrome Digital Twins & Live OpenSky ADS-B Radar (`/api/v1/airports/{code}/digital-twin`, `live-flights`)
-- ✅ NSO Open Data Multi-Format Exporters (`/api/v1/datasets/export/{fmt}`)
-- ✅ M2M API Key Provisioning & Government Token Lifecycle (`/api/v1/keys/generate`)
-- ✅ Headless Crawler Telemetry & Visual Proof Artifacts (`/api/v1/scrapers/status`, `/api/v1/scrapers/artifacts/{code}`)
+- [PASS] System Health & MongoDB Atlas Connectivity (`/api/v1/health`)
+- [PASS] Macro Dashboard Flight Deck KPIs & Dynamic Calculations (`/api/v1/overview`)
+- [PASS] 10 DGCA Corridors, Passenger Weights & Heatmap Matrix (`/api/v1/corridors`, `/api/v1/analytics/heatmap`)
+- [PASS] 6 Advance Purchase Horizons $T+0$ to $T+45$ (`/api/v1/advance-windows`)
+- [PASS] 12 Carrier & OTA Channel Feeds with Telemetry (`/api/v1/airlines`)
+- [PASS] Paginated Microdata Quotes with SHA-256 Audit Hashes (`/api/v1/quotes`)
+- [PASS] Real-Time Intel Feed, News & ML Ridge Predictions (`/api/v1/intel/feed`)
+- [PASS] 20 Aerodrome Digital Twins & Live OpenSky ADS-B Radar (`/api/v1/airports/{code}/digital-twin`, `live-flights`)
+- [PASS] NSO Open Data Multi-Format Exporters (`/api/v1/datasets/export/{fmt}`)
+- [PASS] M2M API Key Provisioning & Government Token Lifecycle (`/api/v1/keys/generate`)
+- [PASS] Headless Crawler Telemetry & Visual Proof Artifacts (`/api/v1/scrapers/status`, `/api/v1/scrapers/artifacts/{code}`)
 
 ---
-
-## 📜 14. License & Government Attribution
-
-This project is engineered for the **Smart India Hackathon 2026** under **Problem Statement SIH26056**, dedicated to the **Ministry of Statistics and Programme Implementation (MoSPI)** and the **National Statistical Office (NSO)**, Government of India.
-
-Developed with precision and scientific integrity by Team AirSetu.
