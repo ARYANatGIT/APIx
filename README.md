@@ -60,6 +60,7 @@
 9. [Database Schema & Distributed Document Models](#9-database-schema--distributed-document-models)
 10. [Scraper Fleet Architecture & Anti-Bot Bypass](#10-scraper-fleet-architecture--anti-bot-bypass)
 11. [Step-by-Step Installation, Verification, Docker & Deployment](#11-step-by-step-installation-verification-docker--deployment)
+12. [Credits & Acknowledgements](#12-credits--acknowledgements)
 
 ---
 
@@ -870,3 +871,24 @@ python scripts/verify_deployed_backend.py
 - [PASS] Headless Crawler Telemetry & Visual Proof Artifacts (`/api/v1/scrapers/status`, `/api/v1/scrapers/artifacts/{code}`)
 
 ---
+
+## 12. Credits & Acknowledgements
+
+AirSetu integrates public datasets, official statistical standards, cartographic frameworks, and high-frequency aviation telemetry. We gratefully acknowledge the following organizations, regulatory authorities, and open-source initiatives:
+
+### Government & Regulatory Authorities
+- **Ministry of Statistics and Programme Implementation (MoSPI) & National Statistical Office (NSO)**: Methodological guidelines for Consumer Price Index (CPI) transport group compilation, elementary aggregate standards, and Laspeyres fixed-base formulations.
+- **Directorate General of Civil Aviation (DGCA), Government of India**: Domestic city-pair passenger throughput statistics, route network density reports, carrier registry, and passenger rights Civil Aviation Requirements (CAR).
+- **Survey of India (SOI)**: Authoritative territorial boundary data and official Albers Equal Area Conic projection (EPSG:7755) standards.
+- **Airports Economic Regulatory Authority of India (AERA)**: Regulatory tariff determination framework and 30% Hybrid Dual-Till concession guidelines under the AERA Act 2008.
+
+### Aviation Telemetry & Spatial Infrastructure
+- **The OpenSky Network**: Academic and open research flight state vectors, ADS-B telemetry, and real-time transponder data across the Indian Flight Information Region (FIR).
+- **CartoDB & OpenStreetMap**: Dark-matter cartographic basemaps, spatial coordinate references, and geographic tiles.
+
+### Monitored Carrier Networks & Distribution Platforms
+- **Scheduled Indian Domestic Carriers**: Flight schedules, route pairings, and published fare structures across IndiGo, Air India, Air India Express, Akasa Air, and SpiceJet.
+- **Online Travel Portals**: Flight availability distribution and multi-source booking channel feeds across MakeMyTrip, EaseMyTrip, Yatra, Cleartrip, ixigo, Goibibo, and Skyscanner.
+
+### Open-Source Software Ecosystem
+- **Core Engineering Technologies**: Built with gratitude to the open-source communities powering Python, FastAPI, NumPy, Microsoft Playwright, React, Vite, Leaflet, and MongoDB Atlas.
