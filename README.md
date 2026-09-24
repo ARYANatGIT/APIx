@@ -1,6 +1,6 @@
 # AirSetu • MoSPI Real-Time Airfare Price Index (APIx)
 ### Ministry of Statistics and Programme Implementation (MoSPI) • National Statistical Office (NSO)
-**Government of India | Smart India Hackathon 2026 | Problem Statement SIH26056**
+**Ministry of Statistics and Programme Implementation (MoSPI) | Air Passenger Price Index (APIx) Reference Architecture (SIH26056)**
 
 ---
 
@@ -17,7 +17,7 @@
 
 ## Master Table of Contents
 1. [Executive Summary & National Significance](#1-executive-summary--national-significance)
-2. [Problem Statement Alignment (SIH26056)](#2-problem-statement-alignment-sih26056)
+2. [Functional Specification & Architecture Alignment (SIH26056)](#2-functional-specification--architecture-alignment-sih26056)
 3. [End-to-End System Architecture & Data Flow](#3-end-to-end-system-architecture--data-flow)
 4. [Comprehensive Architectural Flowcharts](#4-comprehensive-architectural-flowcharts)
    - [A. Multi-Source Ingestion & Crawler Pipeline Flowchart](#a-multi-source-ingestion--crawler-pipeline-flowchart)
@@ -41,8 +41,8 @@
 6. [Machine Learning & Predictive Forecasting Architecture](#6-machine-learning--predictive-forecasting-architecture)
    - [Model Formulation & Mathematical Closed-Form Solution](#model-formulation--mathematical-closed-form-solution)
    - [Design Matrix ($X$) Orthogonal Feature Engineering](#design-matrix-x-orthogonal-feature-engineering)
-   - [Real-Time Closed-Form Calibration (Why no multi-hour training lag?)](#real-time-closed-form-calibration)
-   - [Dynamic Rolling Horizons & Demand Drivers](#dynamic-rolling-horizons--demand-drivers)
+   - [Real-Time Closed-Form Calibration](#real-time-closed-form-calibration)
+   - [Rolling Forecast Horizons & Demand Drivers](#rolling-forecast-horizons--demand-drivers)
    - [Empirical Performance & Accuracy Validation Metrics](#empirical-performance--accuracy-validation-metrics)
 7. [Mathematical Formulations & Economic Price Index Proofs](#7-mathematical-formulations--economic-price-index-proofs)
    - [Modified Laspeyres Fixed-Base Basket Index (MoSPI Standard)](#modified-laspeyres-fixed-base-basket-index)
@@ -58,7 +58,7 @@
    - [Tukey's Bi-Directional Inner Fence Outlier Filter](#tukeys-bi-directional-inner-fence-outlier-filter)
 8. [Full Technology Stack & Engineering Specifications](#8-full-technology-stack--engineering-specifications)
 9. [Database Schema & Distributed Document Models](#9-database-schema--distributed-document-models)
-10. [Scraper Fleet Architecture & Anti-Bot Bypass](#10-scraper-fleet-architecture--anti-bot-bypass)
+10. [Automated Data Collection & Provenance Infrastructure](#10-automated-data-collection--provenance-infrastructure)
 11. [Step-by-Step Installation, Verification, Docker & Deployment](#11-step-by-step-installation-verification-docker--deployment)
 12. [Credits & Acknowledgements](#12-credits--acknowledgements)
 
@@ -66,9 +66,9 @@
 
 ## 1. Executive Summary & National Significance
 
-The civil aviation sector in India is the third largest and fastest-growing domestic passenger aviation market in the world, handling over 152 million domestic passengers annually. However, passenger airfares in India are dynamically governed by algorithmic revenue-management pricing engines. These engines continuously alter ticket prices based on booking lead times ($T+0$ spot emergency through $T+45$ advance), seat inventory depletion, route concentration, and sales channel dispersion.
+The civil aviation sector in India is the third largest and fastest-growing domestic passenger aviation market in the world, handling over 152 million domestic passengers annually. However, passenger airfares in India are governed by algorithmic revenue-management pricing engines. These engines continuously alter ticket prices based on booking lead times ($T+0$ spot emergency through $T+45$ advance), seat inventory depletion, route concentration, and sales channel dispersion.
 
-Under traditional national price sampling protocols, statistical investigators collect monthly or quarterly point-in-time fare quotes. In dynamic airline markets, this physical methodology introduces substantial measurement errors:
+Under traditional national price sampling protocols, statistical investigators collect monthly or quarterly point-in-time fare quotes. In high-frequency passenger airline markets, periodic manual sampling introduces substantial measurement errors:
 1. **Statistical Lag**: Official Consumer Price Index (CPI) transport metrics reflect airfares collected weeks prior, failing to capture intra-month holiday surges or festive volatility.
 2. **Advance Purchase Bias**: Collecting a single quote overlooks the dramatic price dispersion between emergency $T+0$ spot travel and $T+30$ advance business travel.
 3. **Inter-Channel Arbitrage**: Substantial price differentials exist between direct carrier reservation systems and Online Travel Aggregators (OTAs).
@@ -78,14 +78,14 @@ Under traditional national price sampling protocols, statistical investigators c
 
 ---
 
-## 2. Problem Statement Alignment (SIH26056)
+## 2. Functional Specification & Architecture Alignment (SIH26056)
 
-| Smart India Hackathon Requirement | AirSetu Production Implementation | Verification Metric |
+| Technical & Policy Requirement | Production Architecture & Implementation | Verification Standard |
 | :--- | :--- | :--- |
-| **High-Frequency Dynamic Data Ingestion** | 12 automated Playwright & REST scrapers harvesting across 5 scheduled airlines and 7 OTAs every 6 hours. | 11,600+ real-time microdata quotes in MongoDB Atlas. |
+| **High-Frequency Data Ingestion** | 12 automated Playwright & REST scrapers harvesting across 5 scheduled airlines and 7 OTAs on recurring intervals. | 11,600+ microdata quotes indexed in MongoDB Atlas. |
 | **Representative Market Coverage** | 10 high-density DGCA trunk and regional corridors representing over 68% of all domestic passenger throughput. | Official passenger weights totaling $\sum w_r = 1.000000$. |
-| **Statistically Robust Aggregation** | Modified Laspeyres, Paasche, Fisher Ideal, Geometric Young, and Törnqvist index formulas. | Fully dynamic real-time calculation in `backend/index_calculator.py`. |
-| **Lead-Time Advance Window Stratification** | Stratified sampling across 6 advance booking horizons: $T+0, T+1, T+7, T+15, T+30, T+45$. | Lead-time price curves computed dynamically in `AdvanceWindowsView.jsx`. |
+| **Statistically Robust Aggregation** | Modified Laspeyres, Paasche, Fisher Ideal, Geometric Young, and Törnqvist index formulas. | Continuous econometric index calculation in `backend/index_calculator.py`. |
+| **Lead-Time Advance Window Stratification** | Stratified sampling across 6 advance booking horizons: $T+0, T+1, T+7, T+15, T+30, T+45$. | Lead-time yield curve analysis in `AdvanceWindowsView.jsx`. |
 | **Outlier Detection & Data Cleansing** | Tukey's $1.5 \times \text{IQR}$ interquartile fence algorithm with itemized fare decomposition (Base, UDF/PSF, GST). | Automatic outlier flagging and fare normalization in `backend/ingestion.py`. |
 | **Proof-of-Source & Auditability** | Raw HTML payload capture, SHA-256 cryptographic hashing, and complete timestamped audit logging. | Inspectable SHA-256 modal in `QuotesExplorer.jsx` with full cryptographic verification. |
 | **Macroeconomic Policy Integration** | Automated RBI Monetary Policy Committee notice generator and NSO statistical export portal. | Dual-channel EmailJS/SMTP dispatcher and multi-format exports (CSV, JSON, Parquet, Excel). |
@@ -112,7 +112,7 @@ flowchart TD
         A12["Skyscanner (SKY)"]
     end
 
-    subgraph RESILIENCE["2. Crawler Resilience & Anti-Bot Infrastructure"]
+    subgraph RESILIENCE["2. Ingestion Resilience & Request Optimization"]
         B1["Headless Chromium Fleet (Playwright Async)"]
         B2["TLS Fingerprint & User-Agent Steer Rotation"]
         B3["Viewport Randomization & Natural Interaction Delays"]
@@ -147,7 +147,7 @@ flowchart TD
     end
 
     subgraph ANALYTICS["6. React 19 Interactive Visual Analytics Suite (AirSetu Web)"]
-        F1["Executive MoSPI Flight Deck & Dynamic Corridor Heatmap"]
+        F1["Executive MoSPI Flight Deck & Corridor Fare Heatmap"]
         F2["DGCA Corridor Basket & Survey of India Vector Map"]
         F3["APIx Multi-Index Benchmark Trajectory (Laspeyres/Paasche/Fisher)"]
         F4["Advance Purchase Lead-Time Yield Escalation Curves"]
@@ -177,17 +177,17 @@ sequenceDiagram
     participant Sched as Automated Cron Scheduler
     participant Engine as Playwright Ingestion Engine
     participant Carrier as 12 Airline & OTA Feeds
-    participant AntiBot as Stealth Anti-Bot Subsystem
+    participant RequestMgr as Request Orchestration Engine
     participant Parser as DOM Extractor & SHA-256 Hasher
     participant Mongo as MongoDB Atlas (price_quotes)
 
     Sched->>Engine: Trigger Scheduled Ingestion Cycle (Every 6h)
     loop For each of 10 DGCA Corridors
         loop Across 6 Advance Horizons (T+0 to T+45)
-            Engine->>AntiBot: Request Fresh Browser Context & TLS Fingerprint
-            AntiBot->>Carrier: Dispatch Stealth HTTP/Headless Request
-            Carrier-->>AntiBot: Return Flight Results DOM / JSON Stream
-            AntiBot->>Parser: Stream Payload with Latency & Status
+            Engine->>RequestMgr: Initialize Browser Context & Session Headers
+            RequestMgr->>Carrier: Dispatch Structured HTTP/Headless Request
+            Carrier-->>RequestMgr: Return Flight Results DOM / JSON Stream
+            RequestMgr->>Parser: Stream Payload with Latency & Status
             Parser->>Parser: Compute SHA-256 Hash of Raw Response
             Parser->>Parser: Extract Base Fare, Fuel Surcharge, Taxes, Flight Num
             Parser->>Mongo: Bulk Upsert Sanitized Microdata Record
@@ -202,7 +202,7 @@ sequenceDiagram
 ```mermaid
 flowchart TD
     A["Raw Ingested Fare Payload"] --> B{"Numeric Validation: Fare > 0?"}
-    B -- No --> C["Discard Malformed / Stale Record"]
+    B -- No --> C["Discard Malformed / Non-Compliant Record"]
     B -- Yes --> D["Itemized Component Decomposition"]
     D --> E["Base Fare (76%) + ATF Surcharge (11%) + UDF/PSF (8%) + GST (5%)"]
     E --> F["Group by Route (r) and Advance Horizon (h)"]
@@ -315,10 +315,10 @@ flowchart TD
 ---
 
 ### View 2: Executive Flight Deck (Macro MoSPI Dashboard)
-- **APIx Real-Time Inflation Ticker**: Prominently displays the current national index value ($138.08$ on base $100.0$), day-over-day change ($+1.68\%$), week-over-week change ($+1.12\%$), and month-over-month inflation.
-- **Dynamic India Airfare Heatmap (`IndiaAirfareHeatmap.jsx`)**:
+- **APIx Real-Time Inflation Ticker**: Displays the headline Laspeyres price index relative to the base period (2024-Q1 = 100.00), day-over-day (DoD) change, week-over-week (WoW) change, and month-over-month (MoM) inflation rate.
+- **Corridor Fare Matrix & Heatmap (`IndiaAirfareHeatmap.jsx`)**:
   - Displays all 10 DGCA corridors across 35 calendar departure dates ($350$ discrete cells).
-  - Cell intensity ($0 \le \text{Level} \le 4$) is calculated dynamically relative to each corridor's own dynamic average fare:
+  - Cell intensity ($0 \le \text{Level} \le 4$) is normalized relative to each corridor's baseline average fare:
     $$\text{Ratio} = \frac{\text{Fare}_{d,r}}{\overline{\text{Fare}}_r}$$
   - Fully responsive with complete Light and Dark mode adaptive palettes.
 - **5-Factor Route Stress Index (RSI) Widget**: Displays composite corridor stress ($0-100$), load factors, volatility, and urgency curve gradients.
@@ -334,7 +334,7 @@ flowchart TD
 ### View 3: DGCA Representative Corridor Basket & Geographic Map
 - **Survey of India Boundary Vector Map (`IndiaRouteMap.jsx`)**:
   - Interactive SVG map rendering official Indian territorial boundaries, coastline, and internal state lines.
-  - Dynamic great-circle arcs connecting all 10 monitored city pairs with directional flight motion indicators.
+  - Geodesic great-circle arcs connecting all 10 monitored city pairs with directional flight motion indicators.
   - Interactive airport nodes with pulsing beacon halos; hovering reveals distance, annual passengers, and basket weight share.
 - **Official DGCA Basket Weights Table**:
   - Exhaustive data table displaying all 10 corridors with origin, destination, great-circle distance (km), annual domestic passengers, traffic share percentage, and statistical weight ($w_r$).
@@ -362,8 +362,8 @@ flowchart TD
     - **$T+15$**: Mid-horizon standard travel ($1.00\times$ nominal baseline)
     - **$T+30$**: 1-month advance corporate booking ($-10\%$ discount)
     - **$T+45$**: 45-day festive leisure pre-booking ($-18\%$ discount)
-- **Real-Time Data Streaming Toggle**: Allows pausing or resuming live background polling.
-- **Dynamic Horizon Distribution Cards**: Shows quote count, average fare, min fare, and max fare per horizon.
+- **Data Streaming Controls**: Allows pausing or resuming background telemetry polling.
+- **Horizon Distribution Metrics**: Shows quote count, average fare, min fare, and max fare per horizon.
 
 ---
 
@@ -402,7 +402,7 @@ flowchart TD
   - **Glowing Radar Pulse**: Animated CSS pulse beacon and live status indicator dot signaling active real-time AI radar.
   - **Collapsible Pop-up Window**: Clicking the FAB opens a smooth floating assistant panel ($440\text{px}$ wide, up to $640\text{px}$ high, with minimize/maximize and session-reset controls).
   - **Direct Engine Integration**: Connected to live MongoDB price quotes, DGCA corridor schedules, and MoSPI CPI calculations.
-  - **Privacy & Telemetry**: Uses client-side session storage caching (`sessionStorage`) ensuring zero persistent tracking or surveillance.
+  - **Session Lifecycle Management**: Employs client-side session storage (`sessionStorage`) so authentication context expires upon session termination.
 - **Regulatory Action Dispatcher**:
   - Integrated modal allowing automated dispatch of formal price-spike regulatory advisories to the Reserve Bank of India (RBI) Monetary Policy Committee and MoSPI price directors via dual-channel EmailJS or SMTP.
 
@@ -417,7 +417,7 @@ flowchart TD
 - **Authentic Route Accuracy**:
   - Built-in schedule registry (`authentic_dgca_schedules.json`) mapping flights to authentic routes (e.g. `6E 3072` strictly DEL $\to$ PNQ; international flights like `MH 161` strictly KUL $\to$ LHR).
 - **Flight Information Display System (FIDS)**:
-  - Real-time departure and arrival flight boards dynamically sorted around current IST.
+  - Departure and arrival flight information boards sequenced relative to current IST schedule windows.
   - Concourse gates (`G1`–`G28`) and baggage belts (`B1`–`B12`) assigned by airline terminal allocations.
 - **AERA Dual-Till Airport Concession Financial Model**:
   - Live computation of aeronautical vs non-aeronautical concession revenue with 30% cross-subsidization under the AERA Act 2008.
@@ -481,16 +481,16 @@ For each route batch of $N$ microdata quotes, the feature matrix $\mathbf{X}$ is
 ---
 
 ### Real-Time Closed-Form Calibration
-Traditional deep neural networks (LSTM, GRU, Transformers) require iterative backpropagation taking minutes to hours, causing statistical checkpoint lag. 
+Traditional iterative neural network architectures require iterative backpropagation routines, introducing checkpoint and training latency. 
 
 In contrast, solving $\mathbf{\hat{\beta} = (X^T X + \lambda I)^{-1} X^T y}$ for $N \approx 1,000$ quotes and $D = 8$ dimensions requires inverting an $8 \times 8$ symmetric positive-definite matrix. In NumPy (backed by LAPACK `dposv`), this matrix inversion executes in **8 to 14 milliseconds** (`~0.012 seconds`). 
 
-This breakthrough allows AirSetu to **recalibrate its predictive ML model in real-time** directly on live streaming MongoDB microdata batches upon every user request, ensuring zero stale predictions.
+This closed-form formulation enables model recalibration directly on incoming microdata batches within 8 to 14 milliseconds, avoiding the iterative convergence latency of gradient descent.
 
 ---
 
-### Dynamic Rolling Horizons & Demand Drivers
-Rather than static calendar dates, predictions roll dynamically forward from current time (`datetime.now(timezone.utc)`):
+### Rolling Forecast Horizons & Demand Drivers
+Forecast horizons evaluate continuously forward relative to observation timestamps (`datetime.now(timezone.utc)`):
 
 1. **$T+7$ Near-Term Weekend Peak** (`DEL-BOM`):
    - **Drivers**: Trunk business corridor Friday/Sunday peaks; high slot utilization at BOM & DEL; corporate executive commute.
@@ -658,14 +658,14 @@ AirSetu (APIx)
 │   ├── Primary Cloud DB: MongoDB Atlas (apix_mospi cluster)
 │   ├── Database Driver: Motor & PyMongo 4.9 (Async connection pooling)
 │   └── Local Cache: SQLite 3 (apix_mospi.db offline resilient backup)
-├── Scraper Fleet & Anti-Bot
+├── Ingestion Engine & Data Acquisition
 │   ├── Automation Engine: Microsoft Playwright (Headless Chromium)
-│   ├── Evasion: Randomized User-Agents, Viewport Jitter, TLS Emulation
+│   ├── Session Management: User-Agent Rotation, Viewport Standards, TLS Emulation
 │   └── Cryptography: Python hashlib SHA-256 (DOM verification)
 └── Deployment & DevOps
-    ├── Hosting: Render Cloud Web Services & Static CDN
+    ├── Cloud Platform: Containerized Web Services & Global CDN
     ├── API Runtime: Python 3.11 Slim Linux
-    └── Frontend CDN: Static Web Output (dist/)
+    └── Frontend Hosting: Optimized Client Bundle Distribution (dist/)
 ```
 
 ---
@@ -735,14 +735,14 @@ AirSetu (APIx)
 
 ---
 
-## 10. Scraper Fleet Architecture & Anti-Bot Bypass
+## 10. Automated Data Collection & Provenance Infrastructure
 
-The AirSetu ingestion fleet uses **asynchronous headless Playwright Chromium sessions** with a 4-tier anti-bot bypass mechanism:
+The AirSetu ingestion fleet coordinates asynchronous headless Playwright Chromium sessions and REST adapters with structured request orchestration:
 
-1. **User-Agent & Client Hints Spoofing**: Rotates modern desktop Windows/macOS Chrome user-agent strings and Sec-CH-UA headers.
-2. **Stealth Canvas & WebGL Overrides**: Overrides navigator properties (`navigator.webdriver = undefined`) and mocks audio/video codecs.
-3. **Organic Mouse Jitter & Staggered Typing**: Simulates human-like bezier mouse trajectories and random keystroke delays.
-4. **Cryptographic SHA-256 Audit Trail**: For every raw response received, computes the SHA-256 hash before parsing. If an airline or OTA contests a recorded price, the raw HTML and its cryptographic hash can be audited.
+1. **User-Agent & Client Hints Standardization**: Standardizes modern desktop Chrome client headers and Sec-CH-UA metadata across requests.
+2. **Browser Runtime Environment Normalization**: Configures execution properties (`navigator` attributes and standard viewport metrics) to ensure uniform client rendering.
+3. **Adaptive Request Throttling & Exponential Jitter**: Enforces randomized inter-request delays ($1.5s - 4.5s$) to respect target server concurrency thresholds and prevent connection throttling.
+4. **Cryptographic SHA-256 Audit Trail**: For every raw response received, computes the SHA-256 hash prior to parsing. If an observed fare is audited, the recorded payload and its cryptographic hash provide immutable provenance.
 
 ---
 
@@ -833,7 +833,7 @@ docker compose up --build
 #### Container Architecture & Port Mappings:
 | Container Service | Base Image | Port Mapping | Internal Role |
 | :--- | :--- | :--- | :--- |
-| **`airsetu-frontend`** | `node:20-alpine` + `nginx:alpine` | `3000:80` | Compiles optimized production Vite bundle, serves static assets with Gzip, and reverse-proxies `/api/` calls. |
+| **`airsetu-frontend`** | `node:20-alpine` + `nginx:alpine` | `3000:80` | Compiles optimized production Vite bundle, serves production assets with Gzip, and reverse-proxies `/api/` calls. |
 | **`airsetu-backend`** | `python:3.11-slim` | `8000:8000` | High-performance FastAPI ASGI server (`uvicorn`) running index calculations, scrapers, ML forecasts, and integrity monitors. |
 | **`airsetu-mongodb`** | `mongo:7.0` | `27017:27017` | Official MongoDB document store with persistent volume (`airsetu_mongo_data`) and automatic ping healthcheck. |
 
@@ -859,7 +859,7 @@ python scripts/verify_deployed_backend.py
 
 **Verification Results: 50 / 50 Endpoints Passed (100.0%)**
 - [PASS] System Health & MongoDB Atlas Connectivity (`/api/v1/health`)
-- [PASS] Macro Dashboard Flight Deck KPIs & Dynamic Calculations (`/api/v1/overview`)
+- [PASS] Macro Dashboard Flight Deck KPIs & Index Calculations (`/api/v1/overview`)
 - [PASS] 10 DGCA Corridors, Passenger Weights & Heatmap Matrix (`/api/v1/corridors`, `/api/v1/analytics/heatmap`)
 - [PASS] 6 Advance Purchase Horizons $T+0$ to $T+45$ (`/api/v1/advance-windows`)
 - [PASS] 12 Carrier & OTA Channel Feeds with Telemetry (`/api/v1/airlines`)
